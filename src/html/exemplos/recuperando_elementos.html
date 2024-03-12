@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperando Elementos no HTML</title>
+</head>
+<body>
+    <div>
+        <div id="elementos_nome">
+            <span>Nome:</span><input type="text" id="nome"></input>
+        </div>
+        <div id="elementos_endereco">
+            <span>Endereço:</span><input type="text"  id="endereco"></input>
+        </div>
+    </div>
+    <script>
+
+            "use strict";
+
+            let contador = 1;
+
+            contador = contador + 10;
+
+            console.log (`Contador: ${contador}`);
+            
+
+            let indice = 0;
+            let limite_maximo = 100;
+
+            //No javascript tem que abrir e fechar {} chaves para definir um bloco de código
+            //no caso o bloco dentro do while
+            while (indice < limite_maximo){
+
+                console.log (`ANTES --------- Índice atual: ${indice}--${limite_maximo} ------ Contador: ${contador}`);
+
+                contador = contador + 2;
+                
+                indice = indice + 1;                
+
+                console.log (`DEPOIS --------- Índice atual: ${indice}--${limite_maximo} ------ Contador: ${contador}`);
+            }
+
+            
+
+            let meu_elemento = document.querySelector("#nome");            
+
+            console.log(`Elemento retornado: ${meu_elemento}`);
+    </script>
+</body>
+</html>
