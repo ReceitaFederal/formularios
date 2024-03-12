@@ -13,6 +13,12 @@
         <div id="elementos_endereco">
             <span>Endereço:</span><input type="text"  id="endereco"></input>
         </div>
+        <button id="meu_botao">Sumir</button>
+
+        <button id="meu_botao2">Aparecer</button>
+
+        <button id="mudar_estado">Mudar Estado</button>
+
     </div>
     <script>
 
@@ -46,9 +52,59 @@
 
             
 
-            let meu_elemento = document.querySelector("#nome");            
+            let meu_elemento = document.querySelector("#elementos_nome");            
+
+            meu_elemento.style.backgroundColor = "red";
 
             console.log(`Elemento retornado: ${meu_elemento}`);
+
+            let outro_elemento = document.getElementById("elementos_endereco");
+            outro_elemento.style.backgroundColor = "blue";
+        
+
+            let meu_botao = document.querySelector("button");
+
+            meu_botao.style.backgroundColor = "green";
+
+            meu_botao.addEventListener("click", minha_funcao);
+
+            function minha_funcao(evento){
+                console.log ("meu botão foi clicado");
+                console.log(evento);
+                let div_nome_pessoa = document.querySelector("#elementos_nome");
+                div_nome_pessoa.style.display = "block";
+            }
+
+
+
+            let meu_botao2 = document.querySelector("#meu_botao2");
+
+            meu_botao2.style.backgroundColor = "red";
+
+            //Usando arrow function
+            //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+            meu_botao2.addEventListener("click", (evento) => {
+                console.log ("clicou no segundo botão");
+
+                let div_nome_pessoa = document.querySelector("#elementos_nome");
+                div_nome_pessoa.style.display = "none";
+            });
+
+            
+
+
+            document.querySelector("#mudar_estado").addEventListener("click", (evento) => {
+                
+                let div_nome_pessoa = document.querySelector("#elementos_nome");
+
+                if (div_nome_pessoa.style.display == 'none'){
+                    div_nome_pessoa.style.display = "block";
+                }else{
+                    div_nome_pessoa.style.display = "none";
+                }                
+            });
+
+
     </script>
 </body>
 </html>
