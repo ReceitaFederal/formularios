@@ -32,13 +32,16 @@
             //no caso o bloco dentro do while
             while (indice < limite_maximo){
 
-                console.log (`ANTES --------- Índice atual: ${indice}--${limite_maximo} ------ Contador: ${contador}`);
 
                 contador = contador + 2;
                 
                 indice = indice + 1;                
 
-                console.log (`DEPOIS --------- Índice atual: ${indice}--${limite_maximo} ------ Contador: ${contador}`);
+                console.log (`Índice atual: ${indice}--${limite_maximo} ------ Contador: ${contador}`);
+
+                if (indice == 50){
+                    console.log ("CHEGAMOS NA METADE DO CAMINHO");
+                }
             }
 
             
