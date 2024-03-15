@@ -16,7 +16,7 @@
 
 * Cookies / indexDB para armazenar dados localmente no navegador
 * Web componentes para as abas
-* Se a pessoa sair da página, os campos que ela já preencheu ainda vai estar ali;cd ..
+* Se a pessoa sair da página, os campos que ela já preencheu ainda vai estar ali
 
 ## Não esquecer
 
@@ -25,4 +25,3 @@
 * Colocar quantidade máxima de caracteres conforme cada campo. Ex.: CPF = 11 dígitos, nº do voo = X caracteres (alfanumérico)
 * Colocar o campo de CPF com a opção de trocar para CNPJ
 * Incluir um botão "estrangeiro" que ao clicar troca o CPF pelo número do passaporte. O botão muda para brasileiro para voltar
-* 
