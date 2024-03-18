@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>PF2 | SISCAER</title>
+
+    <script src="./componentes/cabecalho/cabecalho.js" type="module"></script>
+    <script src="./componentes/rodape/rodape.js" type="module"></script>
+
+    <!-- Chamando os icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-nO2fJ4aAqOmErz/AHc4G0JZ9Is/rMhDWnGt2ZVYCBtvUbe0xHm6n8ehOjpw0td3ZSr5Cp+QG9g56k2UGtCQrXQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Font Rawline-->
+    <link
+      rel="stylesheet"
+      href="./bibliotecas/govbr-ds-assets/fonts/rawline/css/rawline.css"/>
+
+    <!-- Font Raleway-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap"/>
+      
+    <!-- Design System GOV.BR CSS-->
+    <link rel="stylesheet" href="../bibliotecas/govbr-ds/core-lite.css" />
+
+    <!--- Design próprio CSS -->
+    <!-- <link rel="stylesheet" href="./css/design.css" /> -->
+    <link rel="stylesheet" href="./css/design.css" />
+
+    <!--- Ícones Font Awesome - Versão 6.5.1 -->
+    <link rel="stylesheet" href="./icones/css/fontawesome.css" />
+    <link rel="stylesheet" href="./icones/css/brands.css" />
+    <link rel="stylesheet" href="./icones/css/solid.css" />
+    
+  </head>
+
+  <body>
+    <div class="template-base">
+
+      
+      <br-cabecalho></br-cabecalho>
+
+     
+      <div class="container-lg">
+        <p class="title-section mt-5">
+          Registro para credenciamento
+        </p>
+        <div class="info-icon">
+          <i class="fas fa-info-circle"></i>
+          <div class="info-text">
+            É possível realizar o cadastro para mais de um tipo de credencial, devendo ser informado o 
+            respectivo Aeroporto, a atividade a ser realizada e a empresa, órgão público ou representação 
+            diplomática vinculada.
+          </div>
+        </div>
+      </div> 
+
+      <div class="tab" id="contato">
+        <h2>Credenciamento</h2>
+        <form>
+          <!-- Campos para contato --
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email"><br><br>
+          <label for="telefone">Telefone:</label>
+          <input type="tel" id="telefone" name="telefone"><br><br>
+          <!-- Outros campos de contato --
+        </form>
+
+      <div class="tab" id="endereco">
+        <h2>Endereço</h2>
+        <form>
+          <!-- Campos para endereço --
+          <label for="logradouro">Logradouro:</label>
+          <input type="text" id="logradouro" name="logradouro"><br><br>
+          <label for="cidade">Cidade:</label>
+          <input type="text" id="cidade" name="cidade"><br><br>
+          <!-- Outros campos de endereço --
+        </form>
+      </div>
+
+    <div class="tab" id="dadosPessoais">
+      <h2>Dados Pessoais</h2>
+      <form>
+        <!-- Campos para dados pessoais --
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome"><br><br>
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade"><br><br>
+        <!-- Outros campos de dados pessoais --
+      </form>
+    </div>
+    </div>
+
+<button class="tablinks" onclick="openTab(event, 'endereco')">Endereço</button>
+<button class="tablinks" onclick="openTab(event, 'dadosPessoais')">Dados Pessoais</button>
+<button class="tablinks" onclick="openTab(event, 'contato')">Contato</button> -->
+
+        <!-- Tab links -->
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'Credenciamento')">Credenciamento</button>
+      <button class="tablinks" onclick="openCity(event, 'Dados Pessoais')">Dados Pessoais</button>
+      <button class="tablinks" onclick="openCity(event, 'Endereço e Contato')">Endereço e Contato</button>
+      <button class="tablinks" onclick="openCity(event, 'Questionario')">Questionário</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="Credenciamento" class="tabcontent">
+      <div class="div-icone-aba ng-star-inserted"><br>
+      <span class="fa fa-address-card fa-2x icone-aba"></span></div>
+      <h3>Credenciamento</h3>
+      <p>aba de credenciamento</p>
+      <form>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email"><br><br>
+      </form>
+    </div>
+
+    <div id="Dados Pessoais" class="tabcontent">
+      <div class="div-icone-aba ng-star-inserted"><br>
+        <span class="fa fa-user fa-2x icone-aba"></span></div>
+      <h3>Dados Pessoais</h3>
+      <p>aba de dados pessoais</p>
+    </div>
+
+    <div id="Endereço e Contato" class="tabcontent">
+      <div class="div-icone-aba ng-star-inserted"><br>
+        <span class="fa fa-address-book fa-2x icone-aba"></span></div>
+      <h3>Endereço e Contato</h3>
+      <p>aba de endereço e contato</p>
+    </div>
+
+    <div id="Questionario" class="tabcontent">
+      <div class="div-icone-aba ng-star-inserted"><br>
+        <span class="fa fa-question fa-2x icone-aba"></span></div>
+      <h3>Questionário</h3>
+      <p>aba de questionario </p>
+    </div>
+
+
+
+     
+    <br-rodape></br-rodape>
+
+    
+    <nav class="back-to-top active" aria-label="Voltar ao topo da página">
+      <a href="#wrapper">
+          <span class="fa fa-chevron-up"></span>
+          <span class="sr-only">Voltar ao topo da página</span>
+      </a>
+    </nav>
+   
+    <!-- Scripts de componentes -->
+    <script src="../js/inicializacao.js"  type="module"></script>
+    <script src="./js/javascript.js" type="module"></script>
+  </body>
+</html>
