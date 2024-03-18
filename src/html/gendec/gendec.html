@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="../icones/css/brands.css" />
     <link rel="stylesheet" href="../icones/css/solid.css" />
   </head>
-  <body>
+  <body>    
     <div class="template-base">
       <nav class="br-skiplink"><a class="br-item" href="#main-content" accesskey="1">Ir para o conteúdo (1/4) <span class="br-tag text ml-1">1</span></a><a class="br-item" href="#header-navigation" accesskey="2">Ir para o menu (2/4) <span class="br-tag text ml-1">2</span></a><a class="br-item" href="#main-searchbox" accesskey="3">Ir para a busca (3/4) <span class="br-tag text ml-1">3</span></a><a class="br-item" href="#footer" accesskey="4">Ir para o rodapé (4/4) <span class="br-tag text ml-1">4</span></a>
       </nav>
@@ -166,8 +166,7 @@
 
       <main class="d-flex flex-fill mb-5" id="main">
         
-        <div class="container-lg mt-5">
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <div class="container-lg mt-5">          
           
           <div class="tab">
             <button class="tablinks active">Dados do operador</button>
@@ -176,173 +175,170 @@
             <button class="tablinks">Passageiros</button>
             <button class="tablinks">Declaração de saúde</button>
           </div>
-
-          <form id="form" action="">
-            <div id="tab-1" class="tabcontent active">
-              <div class="two-columns">
-                  <div class="column">
-                    <div class="form-group">
-                      <label for="nome-solicitante">Nome completo</label>
-                      <input type="text" class="form-control" id="nome-solicitante" placeholder="Insira seu nome completo">
-                    </div>
-                    <div class="form-group">
-                      <label for="cpf-solicitante">CPF</label>
-                      <input type="number" class="form-control" id="cpf-solicitante" placeholder="Insira seu CPF">
-                    </div>
-                  </div>
-                  <div class="column">
-                    <div class="form-group">
-                      <label for="email-solicitante">Email</label>
-                      <input type="email" class="form-control" id="email-solicitante" placeholder="Insira seu e-mail">
-                    </div>  
-                    <div class="form-group">
-                      <label for="telefone-solicitante">Telefone</label>
-                      <input type="number" class="form-control" id="telefone-solicitante" placeholder="Insira seu número de telefone">
-                    </div>
-                  </div>
-              </div>
-              <div class="checkbox">
-                <label><input type="checkbox"> Remember me</label>
-              </div>
-            </div>
           
-
-            <div id="tab-2" class="tabcontent">
-              <div class="two-columns">
-                  <div class="column">
-                    <div class="form-group">
-                      <label for="local-partida">Partida de (Local de origem)</label>
-                      <input type="text" class="form-control" id="local-partida" placeholder="Cidade e país">
-                    </div>
-                    <div class="form-group">
-                      <label for="data">Data do voo</label><br>
-                      <input type="date" class="form-control" id="data" placeholder="Insira o número do voo">
-                    </div>
+          <div id="tab-1" class="tabcontent active">
+            <div class="two-columns">
+                <div class="column">
+                  <div class="form-group">
+                    <label for="nome-solicitante">Nome completo</label>
+                    <input type="text" class="form-control" id="nome-solicitante" placeholder="Insira seu nome completo">
                   </div>
-                  <div class="column">
-                    <div class="form-group">
-                      <label for="local-chegada">Chegada em (Local de destino)</label>
-                      <input type="text" class="form-control" id="local-chegada" placeholder="Cidade e país">
-                    </div>
-                    <div class="form-group">
-                      <label for="voo-n-">Voo nº</label>
-                      <input type="text" class="form-control" id="voo-n" placeholder="Insira o código do voo">
-                    </div>  
+                  <div class="form-group">
+                    <label for="cpf-solicitante">CPF</label>
+                    <input type="number" class="form-control" id="cpf-solicitante" placeholder="Insira seu CPF">
                   </div>
-                  <div class="column">
-                    <div class="form-group">
-                      <label for="hora-partida">Horário da partida (Previsão)</label>
-                      <input type="time" class="form-control" id="hora-partida" placeholder="Hora prevista">
-                    </div>
-                    <div class="form-group">
-                      <label for="nacionalidade e cadastro">Marcas de nacionalidade e cadastro</label>
-                      <input type="text" class="form-control" id="nacionalidade e cadastro" placeholder="Inclua os dados">
-                    </div>
+                </div>
+                <div class="column">
+                  <div class="form-group">
+                    <label for="email-solicitante">Email</label>
+                    <input type="email" class="form-control" id="email-solicitante" placeholder="Insira seu e-mail">
+                  </div>  
+                  <div class="form-group">
+                    <label for="telefone-solicitante">Telefone</label>
+                    <input type="number" class="form-control" id="telefone-solicitante" placeholder="Insira seu número de telefone">
                   </div>
-                  <div class="column">
-                    <div class="form-group">
-                      <label for="hora-chegada">Horário da chegada (Previsão)</label>
-                      <input type="time" class="form-control" id="hora-chegada" placeholder="Hora prevista">
-                    </div>  
-                  </div>
-              </div>
+                </div>
             </div>
-
-            <div id="tab-3" class="tabcontent">
-              <div class="two-columns">
-                  <div class="column">
-                    <div class="form-group">
-                      <label for="nome-tripulacao">Nome completo</label>
-                      <input type="text" class="form-control" id="nome-tripulacao" placeholder="Insira seu nome completo">
-                    </div>
-                    <div class="form-group">
-                      <label for="cpf-tripulacao">CPF</label>
-                      <input type="text" class="form-control" id="cpf-tripulacao" placeholder="Insira seu cpf">
-                    </div>
-                  </div>
-                  <div class="column">
-                    <div class="form-group">
-                      <label for="email">E-mail</label>
-                      <input type="email" class="form-control" id="email" placeholder="Insira seu e-mail">
-                    </div>  
-                    <div class="form-group">
-                      <label for="niver-tripulacao">Data de nascimento</label>
-                      <input type="date" class="form-control" id="niver-tripulacao" placeholder="Insira a sua data de nascimento">
-                    </div>
-                  </div>
-                  <div class="column">
-                    <div class="form-group">
-                      <label for="telefone-tripulacao">Telefone</label>
-                      <input type="number" class="form-control" id="telefone-tripulacao" placeholder="Insira seu número de telefone">
-                    </div>  
-                    <div class="form-group">
-                      <label for="funcao-tripulacao">Função / cargo</label>
-                      <input type="number" class="form-control" id="funcao-tripulacao" placeholder="Insira a sua função">
-                    </div>
-                  </div>
-              </div>
+            <div class="checkbox">
+              <label><input type="checkbox"> Remember me</label>
             </div>
+          </div>
+        
 
-            <div id="tab-4" class="tabcontent">
-              <div class="two-columns">
-                  <div class="column">
-                    <div class="form-group">
-                      <label for="name">Nome</label>
-                      <input type="text" class="form-control" id="name" placeholder="Insira seu nome">
-                    </div>
-                    <div class="form-group">
-                      <label for="name">Sobrenome</label>
-                      <input type="text" class="form-control" id="surname" placeholder="Insira seu sobrenome">
-                    </div>
+          <div id="tab-2" class="tabcontent">
+            <div class="two-columns">
+                <div class="column">
+                  <div class="form-group">
+                    <label for="local-partida">Partida de (Local de origem)</label>
+                    <input type="text" class="form-control" id="local-partida" placeholder="Cidade e país">
                   </div>
-                  <div class="column">
-                    <div class="form-group">
-                      <label for="email">Email:</label>
-                      <input type="email" class="form-control" id="email" placeholder="Insira seu e-mail">
-                    </div>  
-                    <div class="form-group">
-                      <label for="pwd">Telefone</label>
-                      <input type="number" class="form-control" id="pwd" placeholder="Insira seu número de telefone">
-                    </div>
+                  <div class="form-group">
+                    <label for="data">Data do voo</label><br>
+                    <input type="date" class="form-control" id="data" placeholder="Insira o número do voo">
                   </div>
-              </div>
+                </div>
+                <div class="column">
+                  <div class="form-group">
+                    <label for="local-chegada">Chegada em (Local de destino)</label>
+                    <input type="text" class="form-control" id="local-chegada" placeholder="Cidade e país">
+                  </div>
+                  <div class="form-group">
+                    <label for="voo-n-">Voo nº</label>
+                    <input type="text" class="form-control" id="voo-n" placeholder="Insira o código do voo">
+                  </div>  
+                </div>
+                <div class="column">
+                  <div class="form-group">
+                    <label for="hora-partida">Horário da partida (Previsão)</label>
+                    <input type="time" class="form-control" id="hora-partida" placeholder="Hora prevista">
+                  </div>
+                  <div class="form-group">
+                    <label for="nacionalidade e cadastro">Marcas de nacionalidade e cadastro</label>
+                    <input type="text" class="form-control" id="nacionalidade e cadastro" placeholder="Inclua os dados">
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="form-group">
+                    <label for="hora-chegada">Horário da chegada (Previsão)</label>
+                    <input type="time" class="form-control" id="hora-chegada" placeholder="Hora prevista">
+                  </div>  
+                </div>
             </div>
+          </div>
 
-            <div id="tab-5" class="tabcontent">
-              <div class="two-columns">
-                  <div class="column">
-                    <div class="form-group">
-                      <label for="name">Nome</label>
-                      <input type="text" class="form-control" id="name" placeholder="Insira seu nome">
-                    </div>
-                    <div class="form-group">
-                      <label for="name">Sobrenome</label>
-                      <input type="text" class="form-control" id="surname" placeholder="Insira seu sobrenome">
-                    </div>
+          <div id="tab-3" class="tabcontent">
+            <div class="two-columns">
+                <div class="column">
+                  <div class="form-group">
+                    <label for="nome-tripulacao">Nome completo</label>
+                    <input type="text" class="form-control" id="nome-tripulacao" placeholder="Insira seu nome completo">
                   </div>
-                  <div class="column">
-                    <div class="form-group">
-                      <label for="email">Email:</label>
-                      <input type="email" class="form-control" id="email" placeholder="Insira seu e-mail">
-                    </div>  
-                    <div class="form-group">
-                      <label for="pwd">Telefone</label>
-                      <input type="number" class="form-control" id="pwd" placeholder="Insira seu número de telefone">
-                    </div>
+                  <div class="form-group">
+                    <label for="cpf-tripulacao">CPF</label>
+                    <input type="text" class="form-control" id="cpf-tripulacao" placeholder="Insira seu cpf">
                   </div>
-              </div>
+                </div>
+                <div class="column">
+                  <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" class="form-control" id="email" placeholder="Insira seu e-mail">
+                  </div>  
+                  <div class="form-group">
+                    <label for="niver-tripulacao">Data de nascimento</label>
+                    <input type="date" class="form-control" id="niver-tripulacao" placeholder="Insira a sua data de nascimento">
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="form-group">
+                    <label for="telefone-tripulacao">Telefone</label>
+                    <input type="number" class="form-control" id="telefone-tripulacao" placeholder="Insira seu número de telefone">
+                  </div>  
+                  <div class="form-group">
+                    <label for="funcao-tripulacao">Função / cargo</label>
+                    <input type="number" class="form-control" id="funcao-tripulacao" placeholder="Insira a sua função">
+                  </div>
+                </div>
             </div>
+          </div>
 
-            <!-- Botão "Anterior" -->
-            <button type="button" id="prevBtn" class="btn btn-default" disabled>Anterior</button>
+          <div id="tab-4" class="tabcontent">
+            <div class="two-columns">
+                <div class="column">
+                  <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" class="form-control" id="name" placeholder="Insira seu nome">
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Sobrenome</label>
+                    <input type="text" class="form-control" id="surname" placeholder="Insira seu sobrenome">
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Insira seu e-mail">
+                  </div>  
+                  <div class="form-group">
+                    <label for="pwd">Telefone</label>
+                    <input type="number" class="form-control" id="pwd" placeholder="Insira seu número de telefone">
+                  </div>
+                </div>
+            </div>
+          </div>
 
-            <!-- Botão "Submit" -->
-            <button type="submit" id="submitBtn" class="btn btn-default" action="">Próximo</button>
+          <div id="tab-5" class="tabcontent">
+            <div class="two-columns">
+                <div class="column">
+                  <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" class="form-control" id="name" placeholder="Insira seu nome">
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Sobrenome</label>
+                    <input type="text" class="form-control" id="surname" placeholder="Insira seu sobrenome">
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Insira seu e-mail">
+                  </div>  
+                  <div class="form-group">
+                    <label for="pwd">Telefone</label>
+                    <input type="number" class="form-control" id="pwd" placeholder="Insira seu número de telefone">
+                  </div>
+                </div>
+            </div>
+          </div>
 
-            <!-- Botão "Salvar" (substitui o botão "Submit" na última aba) -->
-            <button type="button" id="saveBtn" class="btn btn-default" disabled>Salvar</button>
+          <!-- Botão "Anterior" -->
+          <button type="button" id="prevBtn" class="btn btn-default" disabled>Anterior</button>
 
-          </form>
+          <!-- Botão "Submit" -->
+          <button type="submit" id="nextBtn" class="btn btn-default" action="">Próximo</button>
+
+          <!-- Botão "Salvar" (substitui o botão "Submit" na última aba) -->
+          <button type="button" id="saveBtn" class="btn btn-default" disabled>Salvar</button>          
           
         </div>
       </main>
@@ -355,10 +351,10 @@
         </div>
       </footer>
       <div class="br-cookiebar default d-none" tabindex="-1"></div>
-    </div>
+    </div>    
 
      <!-- Scripts de componentes -->
-     <script src="../js/inicializacao.js"  type="module"></script>
+     <!--script src="./js/inicializacao.js"  type="module"></script-->
      <script src="./js/troca_abas.js" type="module"></script>
   </body>
 </html>

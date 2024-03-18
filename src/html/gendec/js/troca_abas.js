@@ -1,28 +1,29 @@
-var currentTab = 1;
+let currentTab = 1;
 
 function go(tab, content) {
-    $('.tabcontent.active').removeClass('active');
-    $('.tablinks.active').removeClass('active');
-    tab.addClass('active');
-    content.addClass('active');
+
+    document.querySelector('.tabcontent.active').remove('active');    
+    document.querySelector('.tablinks.active').remove('active');
+    tab.add('active');
+    content.add('active');
     currentTab++;
     updateButtons();
     updateTabColors();
 }
 
 function goBack(tab, content) {
-    $('.tabcontent.active').removeClass('active');
-    $('.tablinks.active').removeClass('active');
-    tab.addClass('active');
-    content.addClass('active');
+    document.querySelector('.tabcontent.active').classList.remove('active');
+    document.querySelector('.tablinks.active').classList.remove('active');
+    tab.classList.add('active');
+    content.classList.add('active');
     currentTab--;
     updateButtons();
     updateTabColors();
 }
 
 function updateTabColors() {
-    var tabLinks = document.getElementsByClassName("tablinks");
-    for (var i = 0; i < tabLinks.length; i++) {
+    const tabLinks = document.querySelector(".tablinks");
+    for (let i = 0; i < tabLinks.length; i++) {
         if (i + 1 === currentTab) {
             tabLinks[i].style.backgroundColor = "#071D41"; // Cor da aba ativa
             tabLinks[i].style.color = "#fff"; // Cor do texto da aba ativa
@@ -36,49 +37,56 @@ function updateTabColors() {
 function updateButtons() {
     // Desabilitar o botão "próximo" e habilitar o botão "Salvar" na última aba
     if (currentTab > 4) {
-        $('#nextBtn').prop('disabled', true);
-        $('#saveBtn').prop('disabled', false);
+        document.querySelector('#nextBtn').disabled = true;
+        document.querySelector('#saveBtn').disabled = false;
         // Desabilitar o botão "Submit"
-        $('#submitBtn').prop('disabled', true);
+        document.querySelector('#submitBtn').disabled = true;
     } else {
-        $('#nextBtn').prop('disabled', false);
-        $('#saveBtn').prop('disabled', true);
+        document.querySelector('#nextBtn').disabled = false;
+        document.querySelector('#saveBtn').disabled = true;
         // Habilitar o botão "Submit" nas outras abas
-        $('#submitBtn').prop('disabled', false);
+        document.querySelector('#submitBtn').disabled = false;
     }
 
     // Desabilitar o botão "anterior" na primeira aba
     if (currentTab === 1) {
-        $('#prevBtn').prop('disabled', true);
+        document.querySelector('#prevBtn').disabled = true;
     } else {
-        $('#prevBtn').prop('disabled', false);
+        document.querySelector('#prevBtn').disabled = false;
     }
 
     // Atualizar a cor da aba ativa
-    $('.tablinks').removeClass('active');
-    $('#tab-' + currentTab).addClass('active');
+    document.querySelector('.tablinks').classList.remove('active');
+    document.querySelector('#tab-' + currentTab).classList.add('active');
 }
 
-$(function(){
-    $('#form').on('submit', function(e){
-        e.preventDefault();
-        go($('#tab-' + (currentTab + 1)), $('.tablinks:contains("Tab' + (currentTab + 1) + '")'));
-    });
+window.addEventListener('load', ()=>{
 
-    $('#prevBtn').on('click', function() {
+
+
+    document.querySelector('#prevBtn').addEventListener('click', () => {
+            
         if (currentTab > 1) {
-            goBack($('#tab-' + (currentTab - 1)), $('.tablinks:contains("Tab' + (currentTab - 1) + '")'));
+            goBack(
+                document.querySelector('#tab-' + (currentTab - 1)), 
+                document.querySelector('.tablinks:contains("Tab' + (currentTab - 1) + '")')
+            );
         }
     });
 
-    $('#nextBtn').on('click', function() {
-        // Adicione sua lógica personalizada para ação "Próximo" se necessário
+    document.querySelector('#nextBtn').addEventListener('click', () => {
+            
+        go(
+            document.querySelector(`#tab-${currentTab + 1}`), 
+            document.querySelector(`#tab-${currentTab + 1}`)
+        );
     });
 
     // Adicione a lógica para o botão "Salvar" (gerar PDF)
-    $('#saveBtn').on('click', function() {
+    document.querySelector('#saveBtn').addEventListener('click', () => {
         // Adicione a lógica para gerar um PDF com base nos dados preenchidos
         // Substitua o seguinte exemplo com sua lógica real para criar um PDF
         alert('Lógica para gerar PDF aqui');
     });
 });
+
