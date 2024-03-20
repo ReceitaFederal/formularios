@@ -1,35 +1,39 @@
-<fieldset id="tab-3" class="fieldset-border">
+<fieldset id="tripulantes" class="fieldset-border">
   <legend class="legend-border">Tripulação</legend>
-  <div class="two-columns">
-      <div class="column">
-        <div class="form-group">
-          <label for="nome-tripulacao">Nome completo</label>
-          <input type="text" class="form-control" id="nome-tripulacao" placeholder="Insira seu nome completo">
+  <template id="tripulante">
+    <div class="two-columns">
+        <div class="column">
+          <div class="form-group">
+            <label for="nome-tripulacao">Nome completo</label>
+            <input type="text" class="form-control" id="nome-tripulacao" placeholder="Insira seu nome completo">
+          </div>
+          <div class="form-group">
+            <label for="cpf-tripulacao">CPF</label>
+            <input type="text" class="form-control" id="cpf-tripulacao" placeholder="Insira seu cpf">
+          </div>
         </div>
-        <div class="form-group">
-          <label for="cpf-tripulacao">CPF</label>
-          <input type="text" class="form-control" id="cpf-tripulacao" placeholder="Insira seu cpf">
+        <div class="column">
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" class="form-control" id="email" placeholder="Insira seu e-mail">
+          </div>  
+          <div class="form-group">
+            <label for="niver-tripulacao">Data de nascimento</label>
+            <input type="date" class="form-control" id="niver-tripulacao" placeholder="Insira a sua data de nascimento">
+          </div>
         </div>
-      </div>
-      <div class="column">
-        <div class="form-group">
-          <label for="email">E-mail</label>
-          <input type="email" class="form-control" id="email" placeholder="Insira seu e-mail">
-        </div>  
-        <div class="form-group">
-          <label for="niver-tripulacao">Data de nascimento</label>
-          <input type="date" class="form-control" id="niver-tripulacao" placeholder="Insira a sua data de nascimento">
+        <div class="column">
+          <div class="form-group">
+            <label for="telefone-tripulacao">Telefone</label>
+            <input type="number" class="form-control" id="telefone-tripulacao" placeholder="Insira seu número de telefone">
+          </div>  
+          <div class="form-group">
+            <label for="funcao-tripulacao">Função / cargo</label>
+            <input type="number" class="form-control" id="funcao-tripulacao" placeholder="Insira a sua função">
+          </div>
         </div>
-      </div>
-      <div class="column">
-        <div class="form-group">
-          <label for="telefone-tripulacao">Telefone</label>
-          <input type="number" class="form-control" id="telefone-tripulacao" placeholder="Insira seu número de telefone">
-        </div>  
-        <div class="form-group">
-          <label for="funcao-tripulacao">Função / cargo</label>
-          <input type="number" class="form-control" id="funcao-tripulacao" placeholder="Insira a sua função">
-        </div>
-      </div>
-  </div>
+    </div>
+  </template>
+  <div id="lista_tripulantes"></div>
+  <a href="#" id="adicionar_tripulante">Adicionar</a>
 </fieldset>
