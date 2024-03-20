@@ -1012,3 +1012,47 @@
 .tab-btn:hover {
   background-color: #a5b4fc;
 }
+
+.fieldset-border {
+  border: 1px groove #ddd !important;
+  padding: 0 1.4em 1.4em 1.4em !important;
+  margin: 0 0 1.5em 0 !important;
+  -webkit-box-shadow: 0px 0px 0px 0px #000;
+  box-shadow: 0px 0px 0px 0px #000;
+}
+
+.fieldset-border .legend-border {
+  font-size: 1.4em !important;
+  text-align: left !important;
+  width: auto;
+  padding: 0 10px;
+  border-bottom: none;
+}
+.form-group {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* CSS para separar DIV em 2 colunas */
+
+.two-columns {
+  display: flex;
+}
+
+.column {
+  flex: 1;
+  padding: 0 15px; /* Adicione espaço entre as colunas, se necessário */
+}
+
+
+.secao {
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  width: 1145px;
+  margin: auto; /* Define as margens como automáticas */
+}
+
+.label {
+  font-family: 'Rawline Regular', sans-serif;
+}
+
