@@ -11,12 +11,15 @@
 * https://www.gendec.eu/
 * https://www.aopa.org/-/media/Files/AOPA/Home/Go-Flying/Bahamas-and-Caribbean-Download-Forms/General-Delcaration.pdf
 * Chat GPT
+* https://pt.stackoverflow.com/questions/213100/colocar-texto-na-borda-div
 
 ## Ideias
 
 * Cookies / indexDB para armazenar dados localmente no navegador
 * Web componentes para as abas
 * Se a pessoa sair da página, os campos que ela já preencheu ainda vai estar ali
+* A ideia das abas não foi a mais apropriada para esse tipo de formulário, então transformei abas em seções
+* Coloquei os títulos de cada seção na própria linha das bordas (no meio delas), achei que ficou bem legal e não é tão difícil fazer
 
 ## Não esquecer
 
