@@ -1,10 +1,10 @@
-<fieldset id="dados pessoais" class="fieldset-border">
+<fieldset id="dados-pessoais" class="fieldset-border">
     <legend class="legend-border">Dados Pessoais</legend>
     <div class="two-columns">
 
         <div class="column">
           <div class="form-group">
-            <label for="nome-solicitante">Nome Completo:</label><br>
+            <label for="nome-solicitante">Nome: (Obrigatório)</label><br>
             <input type="text" class="form-control" id="nome-solicitante" placeholder="Insira seu nome completo">
           </div>
         
@@ -17,7 +17,7 @@
         
 
         <div class="form-group">
-            <label for="cpf-solicitante">CPF:</label>
+            <label for="cpf-solicitante">CPF: (Obrigatório)</label><br>
             <input type="number" class="form-control" id="cpf-solicitante" placeholder="Insira seu CPF">
           </div>
        
@@ -25,20 +25,20 @@
         
             <div class="form-group">
               <label for="nome-mae">Nome da Mãe:</label><br>
-              <input type="text" class="form-control" id="nome-mae" >
+              <input type="text" class="form-control" id="nome-mae" placeholder="Ex: Adriana da Silva">
             </div>
         
 
         
             <div class="form-group">
               <label for="nome-pai">Nome do Pai:</label><br>
-              <input type="text" class="form-control" id="nome-pai" >
+              <input type="text" class="form-control" id="nome-pai" placeholder="Ex: Francisco da Silva">
             </div>
         
         
             <div class="form-group">
-              <label for="email-solicitante">Email:</label><br>
-              <input type="email" class="form-control" id="email-solicitante" placeholder="Insira seu e-mail">
+              <label for="email-solicitante">Email: (Obrigatório)</label><br>
+              <input type="email" class="form-control" id="email-solicitante" placeholder="Ex: maria@servidor.com.br">
             </div>  
         
 
@@ -187,19 +187,67 @@
                     <option value="Tocantins">TO</option>
                 </select>
             </div>  
-        
-        
-        
-        
 
-        <div class="form-group">
-            <label for="telefone-solicitante">Telefone</label>
-            <input type="number" class="form-control" id="telefone-solicitante" placeholder="Insira seu número de telefone">
-          </div>
+            <div class="form-group">
+              <label for="documento">Documento de Identidicação:</label><br>
+              <input type="text" class="form-control" id="documento" >
+              <div class="icon-container">
+                <i class="fas fa-info-circle"></i>
+                <div class="tooltip">
+                  Podem servir como documento de identidade: 
+                  Cédula de identidade (RG) | Carteira de habilitação (CNH) | Carteira de trabalho (CTPS) | 
+                  Carteira de identidade militar, dos Bombeiros ou da Polícia Militar | Passaporte brasileiro anterio |
+                  Carteira funcional expedida por Órgão público, reconhecida por lei federal como válida em todo território
+                  nacinal e carteira de identidade expendida por Órgão fiscalizador do exercício de profissão regulamentada por lei.
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="orgao-expedidos">Órgão Expedidor:</label><br>
+              <input type="text" class="form-control" id="orgao-expedidos" >
+            </div>
+
+        
+            <div class="form-group">
+              <label for="uf">UF:</label>
+              <select class="form-control" id="uf">
+                  <option value="" disabled selected>Selecione</option>
+                  <option value="Acre">AC</option>
+                  <option value="Alagoas">AL</option>
+                  <option value="Amapá">AP</option>
+                  <option value="Amazonas">AM</option>
+                  <option value="Bahia">BA</option>
+                  <option value="Ceará">CE</option>
+                  <option value="Distrito Federal">DF</option>
+                  <option value="Espírito Santo">ES</option>
+                  <option value="Goiás">GO</option>
+                  <option value="Maranhão">MA</option>
+                  <option value="Mato Grosso">MT</option>
+                  <option value="Mato Grosso do Sul">MS</option>
+                  <option value="Minas Gerais">MG</option>
+                  <option value="Pará">PA</option>
+                  <option value="Paraíba">PB</option>
+                  <option value="Paraná">PR</option>
+                  <option value="Pernambuco">PE</option>
+                  <option value="Piauí">PI</option>
+                  <option value="Rio de Janeiro">RJ</option>
+                  <option value="Rio Grande do Norte">RN</option>
+                  <option value="Rio Grande do Sul">RS</option>
+                  <option value="Rondônia">RO</option>
+                  <option value="Roraima">RR</option>
+                  <option value="Santa Catarina">SC</option>
+                  <option value="São Paulo">SP</option>
+                  <option value="Sergipe">SE</option>
+                  <option value="Tocantins">TO</option>
+              </select>
+          </div> 
+
+          
         </div>
     </div>
 
     <div class="checkbox">
-      <label><input type="checkbox"> Remember me</label>
+      <label><input type="checkbox"> Salvar informações</label>
     </div>
   </fieldset>
