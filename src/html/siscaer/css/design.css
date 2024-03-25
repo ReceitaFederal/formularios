@@ -981,7 +981,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-#container { 
+#container-aba{ 
   background-color: #f0f8ff;
   width: 900px;
   padding: 20px;
@@ -1045,7 +1045,6 @@
   padding: 0 15px; /* Adicione espaço entre as colunas, se necessário */
 }
 
-
 .secao {
   border: 0.5px solid rgba(0, 0, 0, 0.2);
   padding: 15px;
@@ -1087,4 +1086,54 @@
   opacity: 1;
 }
 
+.fieldset {
+  border: --surface-width-none;
+  margin-bottom: --spacing-scale-5x;
+}
+.referencias,
+.referencias2 {
+  width: 100%;
+  overflow: auto;
+ 
+}
+.referencias div{
+  width: 33%;
+  float: left;
+}
+.referencias h2 {
+  font-size: 1.3rem;
+  color: #337ab7;
+  display: block;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.referencias h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.1;
+  color: inherit;
+  text-align: left;
+}
+
+.referencias2 div{
+  width: 33%;
+  float: left;
+}
+
+
+.referencias2 h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.1;
+  color: inherit;
+  text-align: left;
+}
 
