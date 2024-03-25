@@ -9,6 +9,7 @@
 
     <script src="./componentes/cabecalho/cabecalho.js" type="module"></script>
     <script src="./componentes/rodape/rodape.js" type="module"></script>
+    <script src="./componentes/dados_pessoais/dados_pessoais.js" type="module"></script>
 
 
     <!-- Font Rawline-->
@@ -45,15 +46,19 @@
         <p class="title-section mt-5">
           Registro para Credenciamento
         </p>
-        <div class="info-icon">
+        <div class="icon-container">
           <i class="fas fa-info-circle"></i>
-          <div class="info-text">
+          <div class="tooltip">
             É possível realizar o cadastro para mais de um tipo de credencial, devendo ser informado o 
             respectivo Aeroporto, a atividade a ser realizada e a empresa, órgão público ou representação 
             diplomática vinculada.
-          </div>
         </div>
+
       </div>
+
+      <br-dados_pessoais></br-dados_pessoais>
+      
+      <br-endereco_contato></br-endereco_contato>
 
       <div id="container">
         <div class="tab-buttons">
@@ -138,6 +143,7 @@
       </div>
     </div>
   </div>
+    
     <br-rodape></br-rodape>
 
     
