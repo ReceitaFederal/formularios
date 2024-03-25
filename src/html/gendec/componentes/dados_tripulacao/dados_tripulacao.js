@@ -20,6 +20,8 @@ export class Tripulacao extends HTMLElement{
                 this.adicionar_comportamento();
 
                 this.adicionar_tripulante();
+
+                this.remover_tripulante();
                 
                 this.dispatchEvent(new CustomEvent("carregou"));                
             });
@@ -45,6 +47,26 @@ export class Tripulacao extends HTMLElement{
 
         fieldsetTripulantes.appendChild(template.content.cloneNode(true));
     }
+
+    remover_tripulante(){
+        let remover = document.querySelector("#remover_tripulante");
+
+        remover.addEventListener("click", () => {
+            let fieldsetTripulantes = document.querySelector("#lista_tripulantes");
+
+            let ultimoTripulante = fieldsetTripulantes.lastElementChild;
+
+            if (ultimoTripulante){
+                fieldsetTripulantes.removeChild(ultimoTripulante);
+
+                console.log("Tripulante removido");
+            }
+
+            else {
+                console.log("Nenhum tripulante para remover");
+            }
+    });
+}
 
 }
 customElements.define('br-tripulacao', Tripulacao);

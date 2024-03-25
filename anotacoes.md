@@ -28,3 +28,5 @@
 * Colocar quantidade máxima de caracteres conforme cada campo. Ex.: CPF = 11 dígitos, nº do voo = X caracteres (alfanumérico)
 * Colocar o campo de CPF com a opção de trocar para CNPJ
 * Incluir um botão "estrangeiro" que ao clicar troca o CPF pelo número do passaporte. O botão muda para brasileiro para voltar
+* Alterar o "date" para pt-br: https://pt.stackoverflow.com/questions/274931/input-date-ta-em-ingl%C3%AAs
+* Achar uma forma de tirar a linha sublinhada abaixo do ícone de ajuda ("i")

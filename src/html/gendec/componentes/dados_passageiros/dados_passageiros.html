@@ -1,25 +1,46 @@
-<fieldset id="tab-4" class="fieldset-border">
+<fieldset id="passageiros" class="fieldset-border">
   <legend class="legend-border">Passageiros</legend>
-  <div class="two-columns">
+  <template id="passageiro">
+    <div class="two-columns">
       <div class="column">
         <div class="form-group">
-          <label for="name">Nome completo</label>
-          <input type="text" class="form-control" id="name" placeholder="Insira seu nome completo">
+          <label for="nome-passageiro">Nome completo</label>
+          <input type="text" class="form-control" id="nome-passageiro" placeholder="Insira seu nome completo">
         </div>
         <div class="form-group">
-          <label for="name">CPF</label>
-          <input type="number" class="form-control" id="cpf" placeholder="Insira seu CPF">
+          <label for="cpf-passageiro">CPF</label>
+          <input type="text" class="form-control" id="cpf-passageiro" placeholder="Insira seu cpf">
         </div>
       </div>
       <div class="column">
         <div class="form-group">
-          <label for="email">Email:</label>
+          <label for="email">E-mail</label>
           <input type="email" class="form-control" id="email" placeholder="Insira seu e-mail">
         </div>  
         <div class="form-group">
-          <label for="pwd">Telefone</label>
-          <input type="number" class="form-control" id="pwd" placeholder="Insira seu número de telefone">
+          <label for="niver-passageiro">Data de nascimento</label>
+          <input type="date" class="form-control" id="niver-passageiro" placeholder="Insira a sua data de nascimento">
+        </div>
+      </div>
+      <div class="column">
+        <div class="form-group">
+          <label for="telefone-passageiro">Telefone</label>
+          <input type="number" class="form-control" id="telefone-passageiro" placeholder="Insira seu número de telefone">
         </div>
       </div>
   </div>
+  </template>
+  <div id="lista_passageiros"></div>
+  <a class="menu-item divider" href="#" id="adicionar_passageiro" role="treeitem">
+    <span class="icon" style="color: #071D41; justify-content: right;">
+      <i class="fa fa-square-plus" aria-hidden="true"></i>
+    </span>
+    <span class="content"></span>
+  </a>
+  <a class="menu-item divider" href="#" id="remover_passageiro" role="treeitem">
+    <span class="icon" style="color: #071D41; justify-content: right;">
+      <i class="fa fa-square-minus" aria-hidden="true"></i>
+    </span>
+    <span class="content"></span>
+  </a>
 </fieldset>
