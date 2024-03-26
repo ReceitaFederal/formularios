@@ -1037,13 +1037,18 @@
 
 .two-columns {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .column {
   flex: 1;
-  padding: 0 15px; /* Adicione espaço entre as colunas, se necessário */
+  padding: 0 15px; 
+  box-sizing: border-box;
 }
+
+.column div {
+  display: block;
+}
+
 
 .secao {
   border: 0.5px solid rgba(0, 0, 0, 0.2);
@@ -1052,6 +1057,22 @@
   margin: auto; /* Define as margens como automáticas */
 }
 
+.label {
+  font-family: 'Rawline Regular', sans-serif;
+}
+.form-control {
+  width: 340px;
+  height: 55px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 7px;
+  display:block;
+  clear:left;
+  padding: 16px 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
 .form-group .label {
   font-family: 'Rawline Regular', sans-serif;
   font-size: 12px;
@@ -1079,6 +1100,7 @@
   opacity: 0;
   transition: opacity 0.3s;
   font-size: 10px;
+  display: inline-block;
 }
 
 .icon-container:hover .tooltip {
@@ -1090,6 +1112,7 @@
   border: --surface-width-none;
   margin-bottom: --spacing-scale-5x;
 }
+
 .referencias,
 .referencias2 {
   width: 100%;
@@ -1136,4 +1159,11 @@
   color: inherit;
   text-align: left;
 }
+
+.form-group label,
+.form-group input[type="radio"] {
+    display: inline-block;
+    margin-right: 10px; /* Adicione margem direita para espaçamento entre as opções */
+}
+
 

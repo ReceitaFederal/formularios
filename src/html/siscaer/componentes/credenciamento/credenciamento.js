@@ -1,12 +1,12 @@
-export class Endereco_contato extends HTMLElement{
+export class Credenciamento extends HTMLElement{
     
     constructor(){
         super();
 
-        console.log ("Constructor do endereco_contato.js");
+        console.log ("Constructor do credenciamento.js");
 
-        console.log(`URL do endereco_contato.js: ${import.meta.url}`)
-        fetch('./componentes/endereco_contato/endereco_contato.html').then(resultado => {
+        console.log(`URL do credenciamento.js: ${import.meta.url}`)
+        fetch('./componentes/credenciamento/credenciamento.html').then(resultado => {
             
 
             resultado.text().then(texto_pagina => {                            
@@ -25,4 +25,4 @@ export class Endereco_contato extends HTMLElement{
 
     }
 }
-customElements.define('br-endereco_contato', Endereco_contato);
+customElements.define('br-credenciamento', Credenciamento);

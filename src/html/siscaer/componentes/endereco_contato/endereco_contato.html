@@ -1,10 +1,10 @@
 <fieldset id="endereco-contato" class="fieldset-border">
     <legend class="legend-border">Endereço e Contato</legend>
     <div class="two-columns">
-        <div class="column">
-
+        
+      <div class="column">
             <div class="form-group">
-                <label for="pais">País:</label>
+                <label for="pais">País:</label><br>
                 <select class="form-control" id="pais">
                     <option value="" disabled selected>Brasil</option>
                     <option value="Afeganistão">Afeganistão</option>
@@ -113,10 +113,12 @@
               <label for="complemento">Complemento: </label><br>
               <input type="text" class="form-control" id="complemento">
             </div>
+      </div>
 
+      <div class="column">
             <div class="form-group">
               <label for="numero-casa">Número: </label><br>
-              <input type="number" class="form-control" id="numero-casa" placeholder="Ex: 000-000-000-00">
+              <input type="number" class="form-control" id="numero-casa">
             </div>
 
             <div class="form-group">
@@ -158,10 +160,12 @@
                   <option value="Tocantins">TO</option>
               </select>
           </div>  
+      </div>
 
+      <div class="column">
           <div class="form-group">
             <label for="cidade">Cidade:</label>
-            <select id="cidade">
+            <select class="form-control" id="cidade">
               <option value="">Selecione a cidade</option>
             </select>
           </div>
@@ -178,10 +182,13 @@
         
           <div id="frmTel">
             <div class="form-group">
-              <label for="telefone">Telefone:</label>
-              <input type="number" id="telefone" maxlength="14" name="telefone" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}">
+              <label for="telefone">Telefone:</label><br>
+              <input type="number" class="form-control" id="telefone" maxlength="14" name="telefone" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}">
             </div>
          </div>
+      </div>
+    </div>
+  </div>
         
 
          <br>
@@ -199,20 +206,20 @@
         <div id="frmTel">
           <div class="form-group">
             <label for="telefone">Telefone:</label><br>
-            <input type="text" id="telefone" maxlength="14" name="telefone" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}">
+            <input type="text" class="form-control" id="telefone" maxlength="14" name="telefone" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}">
           </div>
        </div>
 
-        <div class="form-group">
-          <label for="vinculo">Vínculo:</label><br>
-          <select class="form-control" id="vinculo">
-            <option value="" disabled selected>Selecione</option>
-            <option value="feminino">Família</option>
-            <option value="masculino">Amigo</option>
-            <option value="masculino">Trabalho</option>
-            <option value="outro">Outro</option>
-          </select>
-          </div>  
+       <div class="form-group">
+        <label for="vinculo">Vínculo:</label><br>
+        <select class="form-control" id="vinculo">
+          <option value="" disabled selected>Selecione</option>
+          <option value="familia">Família</option>
+          <option value="amigo">Amigo</option>
+          <option value="trabalho">Trabalho</option>
+          <option value="outro">Outro</option>
+        </select>
+        </div>  
          </div>
         
           <div class="referencias2">
@@ -226,17 +233,17 @@
         <div id="frmTel">
           <div class="form-group">
             <label for="telefone">Telefone:</label><br>
-            <input type="text" id="telefone" maxlength="14" name="telefone" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}">
+            <input type="text" class="form-control" id="telefone" maxlength="14" name="telefone" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}">
           </div>
        </div>
 
         <div class="form-group">
-          <label for="sexo">Vínculo:</label><br>
-          <select class="form-control" id="sexo">
+          <label for="vinculo">Vínculo:</label><br>
+          <select class="form-control" id="vinculo">
             <option value="" disabled selected>Selecione</option>
-            <option value="feminino">Família</option>
-            <option value="masculino">Amigo</option>
-            <option value="masculino">Trabalho</option>
+            <option value="familia">Família</option>
+            <option value="amigo">Amigo</option>
+            <option value="trabalho">Trabalho</option>
             <option value="outro">Outro</option>
           </select>
           </div>  
@@ -244,8 +251,7 @@
 
 
 
-        </div>
-    </div>
+        
     <div class="checkbox">
       <label><input type="checkbox"> Salvar informações</label>
     </div>
