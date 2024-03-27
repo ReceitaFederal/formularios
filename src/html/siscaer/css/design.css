@@ -981,7 +981,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-#container { 
+#container-aba{ 
   background-color: #f0f8ff;
   width: 900px;
   padding: 20px;
@@ -1037,12 +1037,16 @@
 
 .two-columns {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .column {
   flex: 1;
-  padding: 0 15px; /* Adicione espaço entre as colunas, se necessário */
+  padding: 0 15px; 
+  box-sizing: border-box;
+}
+
+.column div {
+  display: block;
 }
 
 
@@ -1053,6 +1057,22 @@
   margin: auto; /* Define as margens como automáticas */
 }
 
+.label {
+  font-family: 'Rawline Regular', sans-serif;
+}
+.form-control {
+  width: 340px;
+  height: 55px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 7px;
+  display:block;
+  clear:left;
+  padding: 16px 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
 .form-group .label {
   font-family: 'Rawline Regular', sans-serif;
   font-size: 12px;
@@ -1080,11 +1100,70 @@
   opacity: 0;
   transition: opacity 0.3s;
   font-size: 10px;
+  display: inline-block;
 }
 
 .icon-container:hover .tooltip {
   visibility: visible;
   opacity: 1;
+}
+
+.fieldset {
+  border: --surface-width-none;
+  margin-bottom: --spacing-scale-5x;
+}
+
+.referencias,
+.referencias2 {
+  width: 100%;
+  overflow: auto;
+ 
+}
+.referencias div{
+  width: 33%;
+  float: left;
+}
+.referencias h2 {
+  font-size: 1.3rem;
+  color: #337ab7;
+  display: block;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.referencias h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.1;
+  color: inherit;
+  text-align: left;
+}
+
+.referencias2 div{
+  width: 33%;
+  float: left;
+}
+
+
+.referencias2 h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.1;
+  color: inherit;
+  text-align: left;
+}
+
+.form-group label,
+.form-group input[type="radio"] {
+    display: inline-block;
+    margin-right: 10px; /* Adicione margem direita para espaçamento entre as opções */
 }
 
 

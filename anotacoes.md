@@ -30,3 +30,33 @@
 * Incluir um botão "estrangeiro" que ao clicar troca o CPF pelo número do passaporte. O botão muda para brasileiro para voltar
 * Alterar o "date" para pt-br: https://pt.stackoverflow.com/questions/274931/input-date-ta-em-ingl%C3%AAs
 * Achar uma forma de tirar a linha sublinhada abaixo do ícone de ajuda ("i")
+
+#### Local Storage
+
+let gendec = {
+    nome: "João",
+    lista_telefone: ["123", "321"]
+}
+
+
+gendec
+{nome: 'João', lista_telefone: Array(2)}lista_telefone: (2) ['123', '321']nome: "João"[[Prototype]]: Object
+
+JSON.stringify(gendec)
+'{"nome":"João","lista_telefone":["123","321"]}'
+
+localStorage.setItem("gendec1", '{"nome":"João","lista_telefone":["123","321"]}');
+
+localStorage.getItem("gendec1")
+'{"nome":"João","lista_telefone":["123","321"]}'
+
+JSON.parse(localStorage.getItem("gendec1"))
+{nome: 'João', lista_telefone: Array(2)}
+
+let g = JSON.parse(localStorage.getItem("gendec1"))
+
+g.nome
+'João'
+
+g.lista_telefone.length
+2
