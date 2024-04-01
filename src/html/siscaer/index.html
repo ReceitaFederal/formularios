@@ -41,19 +41,22 @@
       
       <br-cabecalho></br-cabecalho>
 
-      <div class="container-lg">
-        <p class="title-section mt-5">
+      <div class="container">
+        <div class="title-section mt-5">
           Registro para Credenciamento
-        </p>
-        <div class="icon-container">
-          <i class="fas fa-info-circle"></i>
-          <div class="tooltip">
-            É possível realizar o cadastro para mais de um tipo de credencial, devendo ser informado o 
-            respectivo Aeroporto, a atividade a ser realizada e a empresa, órgão público ou representação 
-            diplomática vinculada.
+          <div class="icon-container">
+            <i class="fas fa-info-circle"></i>
+            <div class="mb-3">
+              <div class="br-tooltip" role="tooltip" success="success" popover="popover" timer="5000" place="bottom">    
+                <div class="popover-header"><span class="text">Cadastro Concluído!</span>    
+                </div>    
+                <div class="popover-body"><span class="subtext">Para verificar mais detalhes a respeito do seu acesso, clique no link abaixo.</span>    
+                </div>    
+              </div>
+            </div>
+          </div>
         </div>
-
-      </div>
+      </div>       
        
       <br-credenciamento></br-credenciamento>
 
@@ -61,7 +64,7 @@
       
       <br-endereco_contato></br-endereco_contato>
 
-      <div id="container">
+    <!--  <div id="container">
         <div class="tab-buttons">
           <button class="tab-btn active" content-id="credenciamento">
             Credenciamento
@@ -142,13 +145,11 @@
             </div>
 
       </div>
-    </div>
+    </div> -->
   </div> 
-
 
     <br-rodape></br-rodape>
 
-    
     <nav class="back-to-top active" aria-label="Voltar ao topo da página">
       <a href="#wrapper">
           <span class="fa fa-chevron-up"></span>
@@ -162,5 +163,7 @@
     <script src="./componentes/credenciamento/credenciamento.js" type="module"></script>
     <script src="./componentes/dados_pessoais/dados_pessoais.js" type="module"></script>
     <script src="./componentes/endereco_contato/endereco_contato.js" type="module"></script>
+    <script src="../bibliotecas/govbr-ds/core.js" type="module"></script>
+
   </body>
 </html>
