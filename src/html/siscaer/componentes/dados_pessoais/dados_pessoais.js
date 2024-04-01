@@ -16,13 +16,14 @@ export class Dados_pessoais extends HTMLElement{
                 template.innerHTML = texto_pagina;
 
                 this.appendChild(template.content.cloneNode(true));
+
                 
                 this.dispatchEvent(new CustomEvent("carregou"));                
             });
         });
 
-        
-
     }
+
+    
 }
 customElements.define('br-dados_pessoais', Dados_pessoais);

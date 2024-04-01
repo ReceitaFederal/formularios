@@ -16,6 +16,12 @@ export class Credenciamento extends HTMLElement{
                 template.innerHTML = texto_pagina;
 
                 this.appendChild(template.content.cloneNode(true));
+
+                this.adicionar_comportamento();
+
+                this.selecionar_orgao_publico();
+
+                this.remover_tripulante();
                 
                 this.dispatchEvent(new CustomEvent("carregou"));                
             });
@@ -24,5 +30,17 @@ export class Credenciamento extends HTMLElement{
         
 
     }
+
+    adicionar_comportamento(){
+        let selecionar = document.querySelector("#selecionar_orgao_publico");
+
+        selecionar.addEventListener("click", (evento) => {
+            console.log("Clicou");
+
+            this.selecionar_orgao_publico();
+        });
+
+    }
+
 }
 customElements.define('br-credenciamento', Credenciamento);
