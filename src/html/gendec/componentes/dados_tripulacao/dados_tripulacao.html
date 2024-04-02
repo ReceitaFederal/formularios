@@ -1,50 +1,84 @@
 <fieldset id="tripulantes" class="fieldset-border">
-  <legend class="legend-border">Tripulação</legend>
+  <legend class="legend-border" style="color: #155BCB; justify-content: right;">
+    <span class="icon" style="color: #155BCB; justify-content: right;">
+      <i class="fa fa-user-tie" aria-hidden="true"></i>
+    </span>Tripulação
+  </legend>
   <template id="tripulante">
-    <div class="two-columns">
-        <div class="column">
-          <div class="form-group">
-            <label for="nome-tripulacao">Nome completo</label>
-            <input type="text" class="form-control" id="nome-tripulacao" placeholder="Insira seu nome completo">
+    <div class="row mt-5">
+      <div class="col-sm">
+        <fieldset>
+          <!--<legend>Nome Completo (Legend)</legend>-->
+          <div class="row">
+            <div class="col-md-10 mb-3">
+              <div class="br-input"><label for="nome-tripulante">Nome completo</label>
+              <input id="nome-tripulante" placeholder="Insira seu nome completo" type="text" />
+              </div>
+            </div>
+            <div class="col-md-10 mb-3">
+              <div class="br-input">
+                <label for="cpf-tripulante">CPF</label>
+                <input id="cpf-tripulante" type="text" placeholder="Insira seu CPF"/>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="cpf-tripulacao">CPF</label>
-            <input type="text" class="form-control" id="cpf-tripulacao" placeholder="Insira seu cpf">
+        </fieldset>
+      </div>
+      <div class="col-sm">
+        <fieldset>
+          <!--<legend>Outros Dados (Legend)</legend>-->
+          <div class="row">
+            <div class="col-md-10 mb-3">
+              <div class="br-input">
+                <label for="email-tripulante">E-mail</label>
+                <input id="email-tripulante" type="text" placeholder="Insira seu e-mail"/>
+              </div>
+            </div>
+            <div class="col-md-10 mb-3">
+              <div class="br-input">
+                <label for="niver-tripulante">Data de nascimento</label>
+                <input id="niver-tripulante" type="date" placeholder="Insira sua data de nascimento"/>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="column">
-          <div class="form-group">
-            <label for="email">E-mail</label>
-            <input type="email" class="form-control" id="email" placeholder="Insira seu e-mail">
-          </div>  
-          <div class="form-group">
-            <label for="niver-tripulacao">Data de nascimento</label>
-            <input type="date" class="form-control" id="niver-tripulacao" placeholder="Insira a sua data de nascimento">
+        </fieldset>
+      </div>
+      <div class="col-sm">
+        <fieldset>
+          <!--<legend>Outros Dados (Legend)</legend>-->
+          <div class="row">
+            <div class="col-md-10 mb-3">
+              <div class="br-input">
+                <label for="telefone-tripulante">Telefone</label>
+                <input id="telefone-tripulante" type="phone" placeholder="Insira seu número"/>
+              </div>
+            </div>
+            <div class="col-md-10 mb-3">
+              <div class="br-input">
+                <label for="funcao-tripulante">Função / cargo</label>
+                <input id="funcao-tripulante" type="text" placeholder="Insira sua função / cargo"/>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="column">
-          <div class="form-group">
-            <label for="telefone-tripulacao">Telefone</label>
-            <input type="number" class="form-control" id="telefone-tripulacao" placeholder="Insira seu número de telefone">
-          </div>  
-          <div class="form-group">
-            <label for="funcao-tripulacao">Função / cargo</label>
-            <input type="number" class="form-control" id="funcao-tripulacao" placeholder="Insira a sua função">
-          </div>
-        </div>
+        </fieldset>
+      </div>
     </div>
   </template>
   <div id="lista_tripulantes"></div>
-  <a class="menu-item divider" href="#" id="adicionar_tripulante" role="treeitem">
-    <span class="icon" style="color: #071D41; justify-content: right;">
-      <i class="fa fa-square-plus" aria-hidden="true"></i>
-    </span>
-    <span class="content"></span>
-  </a>
-  <a class="menu-item divider" href="#" id="remover_tripulante" role="treeitem">
-    <span class="icon" style="color: #071D41; justify-content: right;">
-      <i class="fa fa-square-minus" aria-hidden="true"></i>
-    </span>
-    <span class="content"></span>
-  </a>
+  <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
+    <div class="menu-item divider" href="#" id="adicionar_tripulante" role="treeitem">
+      <span class="icon" style="justify-content: right;">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </span>
+      <span class="content"></span>
+    </div>
+  </button>
+  <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
+    <div class="menu-item divider" href="#" id="remover_tripulante" role="treeitem">
+      <span class="icon" style="justify-content: right;">
+        <i class="fa fa-minus" aria-hidden="true"></i>
+      </span>
+      <span class="content"></span>
+    </div>
+  </button>
 </fieldset>

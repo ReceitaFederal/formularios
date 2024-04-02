@@ -219,6 +219,14 @@ div.tab button.active {
 
 .label {
   font-family: 'Rawline Regular', sans-serif;
+  font-size: 15px !important;
+  font-weight: 550;
+  text-align: left !important;
+  width: auto;
+  margin-bottom: 0px;
+  border-bottom: none;
+  color: #333333;
+  
 }
 
 .form-control {
