@@ -23,7 +23,7 @@ export class Dados_pessoais extends HTMLElement{
         });
 
     }
-
     
 }
+
 customElements.define('br-dados_pessoais', Dados_pessoais);
