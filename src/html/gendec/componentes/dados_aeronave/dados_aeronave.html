@@ -4,42 +4,75 @@
       <i class="fa fa-plane" aria-hidden="true"></i>
     </span>Dados da aeronave
   </legend>
-  <div class="two-columns">
-      <div class="column">
-        <div class="form-group">
-          <label for="local-partida">Partida de (Local de origem)</label>
-          <input type="text" class="form-control" id="local-partida" placeholder="Cidade e país">
+  <div class="row mt-5">
+    <div class="col-sm">
+      <fieldset>
+        <!--<legend>Nome Completo (Legend)</legend>-->
+        <div class="row">
+          <div class="col-md-10 mb-3">
+            <div class="br-input"><label for="local-partida">Partida de (Local de origem)</label>
+            <input id="local-partida" placeholder="Cidade e país" type="text" />
+            </div>
+          </div>
+          <div class="col-md-10">
+            <div class="br-input">
+              <label for="data-voo">Data do voo</label>
+              <input id="data-voo" type="date" placeholder="Insira a data do voo"/>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="data">Data do voo</label><br>
-          <input type="date" class="form-control" id="data" placeholder="Insira o número do voo">
+      </fieldset>
+    </div>
+    <div class="col-sm">
+      <fieldset>
+        <!--<legend>Outros Dados (Legend)</legend>-->
+        <div class="row">
+          <div class="col-md-10 mb-3">
+            <div class="br-input">
+              <label for="local-chegada">Chegada em (Local de destino)</label>
+              <input id="local-chegada" type="text" placeholder="Cidade e país"/>
+            </div>
+          </div>
+          <div class="col-md-10">
+            <div class="br-input">
+              <label for="n-voo">Voo nº</label>
+              <input id="n-voo" type="text" placeholder="Insira o código do voo"/>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="column">
-        <div class="form-group">
-          <label for="local-chegada">Chegada em (Local de destino)</label>
-          <input type="text" class="form-control" id="local-chegada" placeholder="Cidade e país">
+      </fieldset>
+    </div>
+    <div class="col-sm">
+      <fieldset>
+        <!--<legend>Outros Dados (Legend)</legend>-->
+        <div class="row">
+          <div class="col-md-10 mb-3">
+            <div class="br-input">
+              <label for="hora-partida">Horário da partida (Previsão)</label>
+              <input id="hora-partida" type="time" placeholder="Hora prevista"/>
+            </div>
+          </div>
+          <div class="col-md-10">
+            <div class="br-input">
+              <label for="nacionalidade e cadastro">Nacionalidade e cadastro</label>
+              <input id="nacionalidade e cadastro" type="text" placeholder="Inclua os dados"/>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="voo-n-">Voo nº</label>
-          <input type="text" class="form-control" id="voo-n" placeholder="Insira o código do voo">
-        </div>  
-      </div>
-      <div class="column">
-        <div class="form-group">
-          <label for="hora-partida">Horário da partida (Previsão)</label>
-          <input type="time" class="form-control p-1" id="hora-partida" placeholder="Hora prevista">
+      </fieldset>
+    </div>
+    <div class="col-sm">
+      <fieldset>
+        <!--<legend>Outros Dados (Legend)</legend>-->
+        <div class="row">
+          <div class="col-md-10 mb-3">
+            <div class="br-input">
+              <label for="hora-chegada">Horário da chegada (Previsão)</label>
+              <input id="hora-chegada" type="time" placeholder="Hora prevista"/>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="nacionalidade e cadastro">Marcas de nacionalidade e cadastro</label>
-          <input type="text" class="form-control" id="nacionalidade e cadastro" placeholder="Inclua os dados">
-        </div>
-      </div>
-      <div class="column">
-        <div class="form-group">
-          <label for="hora-chegada">Horário da chegada (Previsão)</label>
-          <input type="time" class="form-control p-1" id="hora-chegada" placeholder="Hora prevista">
-        </div>  
-      </div>
+      </fieldset>
+    </div>
   </div>
 </fieldset>
