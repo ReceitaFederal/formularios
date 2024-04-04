@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Padrão Digital de Governo</title>
+
+    <script src="./componentes/cabecalho/cabecalho.js" type="module"></script>
+    <script src="./componentes/rodape/rodape.js" type="module"></script>
+
+
+    <!-- Font Rawline-->
+    <link
+    rel="stylesheet"
+    href="./bibliotecas/govbr-ds-assets/fonts/rawline/css/rawline.css"/>
+    <link rel="stylesheet" href="./bibliotecas/Fontes - Rawline/Rawline/"/>
+
+    <!-- Font Raleway-->
+    <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap"/>
+    
+    <!-- Design System GOV.BR CSS-->
+    <link rel="stylesheet" href="./bibliotecas/govbr-ds/core-lite.css" />
+
+    <!--- Design próprio CSS -->
+    <link rel="stylesheet" href="./css/design.css" />
+
+    <!--- Ícones Font Awesome - Versão 6.5.1 -->
+    <link rel="stylesheet" href="./icones/css/fontawesome.css" />
+    <link rel="stylesheet" href="./icones/css/brands.css" />
+    <link rel="stylesheet" href="./icones/css/solid.css" />
+  </head>
+  <body>    
+    <div class="template-base">
+      
+      <br-cabecalho></br-cabecalho>
+
+      <!--CONTEÚDO-->
+      <main class="d-flex flex-fill mb-5" id="main">
+        <div class="container-lg d-flex">
+          <div class="row">
+            <div class="col mb-5">
+              <!--CONTEUDO PRINCIPAL-->
+              <div class="main-content pl-sm-3 mt-4" id="main-content">
+                <h1 class="text-center">Discriminativo de Débitos e Formas de Quitação da Autorregularização Incentivada</h1>
+                
+                <!--SECAO DEBITOS A AUTORREGULARIZAR-->
+                <div id="debitos" class="mt-10x">
+                  <div class="text-center">
+                    <h2>Débitos a Autorregularizar</h2>
+                  </div>
+                  <div class="br-table">
+                    <table id="tabelaDebitos">
+                      <thead>
+                        <tr>
+                          <th class="text-center text-up-01">Tipo de declaração</th>
+                          <th class="text-center text-up-01">Data da entrega</th>
+                          <th class="text-center text-up-01">CPF/CNPJ do débito</th>
+                          <th class="text-center text-up-01">Nº do processo DEBCAD</th>
+                          <th class="text-center text-up-01">Código receita</th>
+                          <th class="text-center text-up-01">Período de apuração</th>
+                          <th class="text-center text-up-01">Vencimento do tributo</th>
+                          <th class="text-center text-up-01">Valor (R$)</th>
+                          <th class="text-center text-up-01">CIB/CNO/CNPJ Prestador</th>
+                          <th class="text-center text-up-01">Ações</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tabelaDebitosBody">
+                      </tbody>
+                    </table>
+
+                    <!--BOTÕES ADICIONAR DEBITO-->
+                    <div id="btnDebito" class="text-center my-5 esconder">
+                      <button id="incluirNovoDebito" class="br-button secondary mr-3">Incluir novo débito</button>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <!--SECAO CREDITOS PROPRIOS-->
+                <div id="proprios" class="mt-10x">
+                  <div class="text-center">
+                    <h2>Créditos de Prejuízo Fiscal (PF) e Base de Cálculo Negativa da CSLL (BCN)</h2>
+                    <h4>Próprios</h4>
+                    <h4>Exclusivo para Pessoa Jurídica</h4>
+                    <h4>Nos termos da legislação, o uso dos créditos de PF/BCN é limitado a 50% da dívida consolidada</h4>
+                  </div>
+                  <div class="br-table">
+                    <table id="tabelaProprios" class="table container text-center">
+                        <thead>
+                            <tr>
+                                <th class="text-center text-up-01">Tipo</th>
+                                <th class="text-center text-up-01">Montante (R$)</th>
+                                <th class="text-center text-up-01">Alíquota</th>
+                                <th class="text-center text-up-01">Valor (R$)</th>
+                                <th class="text-center text-up-01">Data entrega ECF</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaPropriosBody" class="">
+                            <tr>
+                                <td class="text-center p-1">Prejuízo Fiscal (PF)</td>
+                                <td class="text-center p-1">
+                                  <div class="br-input small">
+                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" id="validarValor">
+                                  </div>
+                                <td class="text-center p-1">
+                                  <div class="br-input small">
+                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" value="25%" disabled style="opacity: 1;">
+                                  </div>
+                                <td class="text-center p-1">
+                                  <div class="br-input small">
+                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" id="validarValor">
+                                  </div>
+                                </td>
+                                <td class="text-center p-1">
+                                  <div class="br-input small">
+                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" placeholder="dd/mm/aaaa" onchange="validacaoData(this)">
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-center p-1">Base de Cálculo Negativa (BCN) da CSLL</td>
+                                <td class="text-center p-1">
+                                  <div class="br-input small">
+                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" id="validarValor">
+                                  </div>
+                                </td>
+                                <td class="text-center p-1">
+                                  <select class="br-select text-center input col-1" required="true">
+                                    <option value="9%">9%</option>
+                                    <option value="15%">15%</option>
+                                    <option value="20%">20%</option>
+                                  </select>
+                                </td>
+                                <td class="text-center p-1">
+                                  <div class="br-input small">
+                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" id="validarValor">
+                                  </div>
+                              </td>
+                                <td class="text-center p-1">
+                                  <div class="br-input small">
+                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" placeholder="dd/mm/aaaa" onchange="validacaoData(this)">
+                                  </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <!-- A tabela será preenchida dinamicamente com JavaScript -->
+                    </table>
+                  </div>
+                </div>
+
+                <!--SECAO CREDITOS DE TERCEIROS-->
+                <div id="terceiros" class="mt-10x">
+                  <div class="text-center">
+                    <h2>Créditos de Prejuízo Fiscal (PF) e Base de Cálculo Negativa da CSLL (BCN)</h2>
+                    <h4>Terceiros</h4>
+                    <h4>Exclusivo para Pessoa Jurídica</h4>
+                    <h4>Nos termos da legislação, o uso dos créditos de PF/BCN é limitado a 50% da dívida consolidada</h4>
+                  </div>
+                  <div class="br-table">
+                    <table id="tabelaTerceiros" class="table container text-center">
+                        <thead>
+                            <tr>
+                                <th class="text-center text-up-01 col-2">CNPJ</th>
+                                <th class="text-center text-up-01 col-2">Tipo</th>
+                                <th class="text-center text-up-01 col-2">Montante (R$)</th>
+                                <th class="text-center text-up-01 col-1">Alíquota</th>
+                                <th class="text-center text-up-01 col-2">Valor (R$)</th>
+                                <th class="text-center text-up-01 col-2">Data entrega ECF</th>
+                                <th class="text-center text-up-01 col-1">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaTerceirosBody"></tbody>
+                        <!-- A tabela será preenchida dinamicamente com JavaScript -->
+                    </table>
+
+                    <!--BOTÕES ADICIONAR REGISTRO-->
+                    <div class="text-center my-5">
+                        <button id="btnIncluirCreditoTerceiros" class="br-button secondary mr-3">Incluir novo crédito</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!--SECAO DE PRECATORIOS-->
+                <div id="precatorios" class="mt-10x">
+                  <div class="text-center">
+                    <h2>Precatórios</h2>
+                  </div>
+                  <div class="br-table">
+                    <table id="tabelaPrecatorios" class="table container text-center">
+                        <thead>
+                            <tr>
+                                <th class="text-center text-up-01">Nº do precatório</th>
+                                <th class="text-center text-up-01">Nº da requisição de pagamento</th>
+                                <th class="text-center text-up-01">Data da requisição</th>
+                                <th class="text-center text-up-01">Vencimento</th>
+                                <th class="text-center text-up-01">Valor (R$)</th>
+                                <th class="text-center text-up-01">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaPrecatoriosBody"></tbody>
+                        <!-- A tabela será preenchida dinamicamente com JavaScript -->
+                    </table>
+
+                    <!--BOTÕES ADICIONAR REGISTRO-->
+                    <div class="text-center my-5 esconder">
+                        <button onclick="incluirNovoPrecatorio()" class="br-button secondary mr-3">Incluir novo precatório</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!--BOTAO GERAR PDF-->
+                <div class="text-center my-3 esconder">
+                  <button onclick="location.reload()" class="br-button danger mr-3">Limpar</button>
+                  <button onclick="gerarPDF()" class="br-button primary mr-3">Gerar PDF</button>
+                </div>
+
+                <!--OBSERVACAO-->
+                <h4 class="my-10x text-center">Observação: Após gerar o PDF, caso queira prosseguir com uma nova planilha, clique antes no botão "Limpar".</h4>
+
+              </div>
+
+              <br-tabela-debitos-autorregularizar></br-tabela-debitos-autorregularizar>
+
+              <!--SECAO IMPRESSAO-->
+              <div>
+                <!--IMPRESSAO COM BIBLIOTECAS-->
+                <div id="impressao" class="w-100 d-none">
+
+                  <!--TABELA DE DEBITOS-->
+                  <div id="debitosPrint" class="html2pdf">
+                    <div class="text-center">
+                      <h2>Débitos a Autorregularizar</h2>
+                    </div>
+                    <div class="br-table">
+                      <table id="tabelaDebitosPrint" class="table tabela container text-center">
+                          <thead style="vertical-align: middle;">
+                              <tr>
+                                  <th class="text-center p-1">Tipo declaração</th>
+                                  <th class="text-center p-1">Data entrega</th>
+                                  <th class="text-center p-1">CPF/CNPJ do débito</th>
+                                  <th class="text-center p-1">Nº do processo/DEBCAD</th>
+                                  <th class="text-center p-1">Código receita</th>
+                                  <th class="text-center p-1">Período de apuração</th>
+                                  <th class="text-center p-1">Vencimento do tributo</th>
+                                  <th class="text-center p-1">Valor (R$)</th>
+                                  <th class="text-center p-1">CIB/CNO/CNPJ prestador</th>
+                                  <th class="text-center p-1">Ações</th>
+                              </tr>
+                          </thead>
+                          <tbody id="tabelaDebitosPrintBody"></tbody>
+                          <!-- A tabela será preenchida dinamicamente com JavaScript -->
+                      </table>
+                    </div>
+                  </div>
+
+                  <!--TABELA CREDITOS PROPRIOS-->
+                  <div id="propriosPrint" class="html2pdf">
+                    <div class="text-center">
+                      <h2>Créditos de Prejuízo Fiscal (PF) e Base de Cálculo Negativa da CSLL (BCN)</h2>
+                      <h4>Próprios</h4>
+                      <h4>Exclusivo para Pessoa Jurídica</h4>
+                      <h4>Nos termos da legislação, o uso dos créditos de PF/BCN é limitado a 50% da dívida consolidada</h4>
+                    </div>
+                    <div class="br-table">
+                      <table id="tabelaPropriosPrint" class="table container text-center ">
+                          <thead>
+                              <tr>
+                                  <th class="text-center p-1">Tipo</th>
+                                  <th class="text-center p-1">Montante (R$)</th>
+                                  <th class="text-center p-1">Alíquota</th>
+                                  <th class="text-center p-1">Valor (R$)</th>
+                                  <th class="text-center p-1">Data da entrega ECF</th>
+                              </tr>
+                          </thead>
+                          <tbody id="tabelaPropriosPrintBody">
+                              <tr>
+                                  <td>Prejuízo Fiscal (PF)</td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                              </tr>
+                              <tr>
+                                  <td>Base de Cálculo Negativa (BCN) da CSLL</td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <!--TABELA CREDITOS DE TERCEIROS-->
+                  <div id="terceirosPrint" class="html2pdf">
+                    <div class="text-center">
+                      <h2>Créditos de Prejuízo Fiscal (PF) e Base de Cálculo Negativa da CSLL (BCN)</h2>
+                      <h4>Terceiros</h4>
+                      <h4>Exclusivo para Pessoa Jurídica</h4>
+                      <h4>Nos termos da legislação, o uso dos créditos de PF/BCN é limitado a 50% da dívida consolidada</h4>
+                    </div>
+                      <table id="tabelaTerceirosPrint" class="table container text-center">
+                          <thead>
+                              <tr>
+                                  <th class="text-center p-1">CNPJ</th>
+                                  <th class="text-center p-1">Tipo</th>
+                                  <th class="text-center p-1">Montante (R$)</th>
+                                  <th class="text-center p-1">Alíquota</th>
+                                  <th class="text-center p-1">Valor (R$)s</th>
+                                  <th class="text-center p-1">Data entrega ECF</th>
+                                  <th class="text-center p-1">Ações</th>
+                              </tr>
+                          </thead>
+                          <tbody id="tabelaTerceirosPrintBody"></tbody>
+                          <!-- A tabela será preenchida dinamicamente com JavaScript -->
+                      </table>
+                    </div>
+
+                  <!--TABELA DE PRECATORIOS-->
+                  <div id="precatoriosPrint" class="html2pdf">
+                    <div class="text-center">
+                      <h2>Precatórios</h2>
+                    </div>
+                    <div class="br-table">
+                      <table id="tabelaPrecatoriosPrint" class="table container text-center">
+                          <thead>
+                              <tr>
+                                  <th class="text-center p-1">Nº do precatório</th>
+                                  <th class="text-center p-1">Nº da requisição de pagamento</th>
+                                  <th class="text-center p-1">Data da requisição</th>
+                                  <th class="text-center p-1">Vencimento</th>
+                                  <th class="text-center p-1">Valor (R$)</th>
+                                  <th class="text-center p-1">Ações</th>
+                              </tr>
+                          </thead>
+                          <tbody id="tabelaPrecatoriosPrintBody"></tbody>
+                          <!-- A tabela será preenchida dinamicamente com JavaScript -->
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+      <footer class="br-footer pt-3" id="footer">
+        <div class="container-lg">
+          <div class="info">
+            <div class="text-down-01 text-medium pb-3">Texto destinado a exibição de informações relacionadas à&nbsp;<strong><a href="">licença de uso</a>.</strong></div>
+          </div>
+        </div>
+      </footer>
+      <div class="br-cookiebar default d-none" tabindex="-1"></div>
+    </div>    
+
+    <!--COOKIE BAR-->
+    <div class="br-cookiebar default d-none" tabindex="-1"></div>
+
+     <!-- Scripts de componentes -->
+    <script src="./js/main.js" type="module"></script>
+    <script src="./bibliotecas/govbr-ds/core.js" type="module"></script>
+    <script src="./bibliotecas/govbr-ds/core.min.js" type="module"></script>
+
+  </body>
+</html>
