@@ -174,6 +174,10 @@ var valido = false;
 
       }
 
+      // Selecionar o botão pelo ID e anexar o evento onclick
+        document.getElementById("btnGerarPDF").onclick = gerarPDF;
+
+
       // Função para adicionar metadados ao objeto jsPDF
       function adicionarMetadados(pdf, metadata) {
           pdf.setProperties(metadata);
@@ -297,6 +301,13 @@ var valido = false;
 
        // Selecionar o botão pelo ID e anexar o evento onclick
         document.getElementById("incluirNovoDebito").onclick = incluirNovoDebito;
+
+
+
+
+
+        
+
 
       // ADICIONA LINHA NA TABELA CREDITOS PROPRIOS
       function incluirNovoCreditoProprio() {
@@ -552,6 +563,11 @@ var valido = false;
               registrosManuais.push(novaLinha);
           }
       }
+
+      // Selecionar o botão pelo ID e anexar o evento onclick
+      document.getElementById("btnIncluirNovoPrecatorio").onclick = incluirNovoPrecatorio;
+
+      console.log("Botão 'Incluir Novo Precatorio' clicado!");
 
       // LIMPA CONTEUDO DA LINHA
       function limpaConteudoLinha(linha, colunasNaoAlterar){
@@ -959,6 +975,15 @@ var valido = false;
               input.setCustomValidity('');
           }
       }
+
+      // Selecione o elemento pelo ID
+        var inputElement = document.getElementById("validacaoData");
+
+        // Adicione um listener para o evento change
+        inputElement.addEventListener("change", function() {
+            validacaoData(this);
+        });
+
       
       function validacaoVencimentoEApuração(input) {
           let valor = input.value.replace(/\D/g, '');
@@ -1051,3 +1076,17 @@ var valido = false;
               input.value = input.value.replace(/\D/g, ''); // Remove caracteres não numéricos
           }
       }
+
+
+      function limparTabela() {
+        location.reload();
+    }
+    
+      // Selecione o botão pelo ID
+        var btnLimpar = document.getElementById("btnLimparTabela");
+
+        // Adicione um listener para o evento click
+        btnLimpar.addEventListener("click", function() {
+            limparTabela();
+        });
+

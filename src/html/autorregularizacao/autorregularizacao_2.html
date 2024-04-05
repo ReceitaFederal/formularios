@@ -40,9 +40,9 @@
 
       <!--CONTEÚDO-->
       <main class="d-flex flex-fill mb-5" id="main">
-        <div class="container-lg d-flex">
+        <div class="container-xl">
           <div class="row">
-            <div class="col mb-5">
+            <div class="col mb-5x">
               <!--CONTEUDO PRINCIPAL-->
               <div class="main-content pl-sm-3 mt-4" id="main-content">
                 <h1 class="text-center">Discriminativo de Débitos e Formas de Quitação da Autorregularização Incentivada</h1>
@@ -118,7 +118,7 @@
                                 </td>
                                 <td class="text-center p-1">
                                   <div class="br-input small">
-                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" placeholder="dd/mm/aaaa" onchange="validacaoData(this)">
+                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" placeholder="dd/mm/aaaa" id="validacaoData">
                                   </div>
                                 </td>
                             </tr>
@@ -143,7 +143,7 @@
                               </td>
                                 <td class="text-center p-1">
                                   <div class="br-input small">
-                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" placeholder="dd/mm/aaaa" onchange="validacaoData(this)">
+                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" placeholder="dd/mm/aaaa" id="validacaoData">
                                   </div>
                                 </td>
                             </tr>
@@ -208,15 +208,15 @@
 
                     <!--BOTÕES ADICIONAR REGISTRO-->
                     <div class="text-center my-5 esconder">
-                        <button onclick="incluirNovoPrecatorio()" class="br-button secondary mr-3">Incluir novo precatório</button>
+                        <button id="btnIncluirNovoPrecatorio" class="br-button secondary mr-3">Incluir novo precatório</button>
                     </div>
                   </div>
                 </div>
 
                 <!--BOTAO GERAR PDF-->
                 <div class="text-center my-3 esconder">
-                  <button onclick="location.reload()" class="br-button danger mr-3">Limpar</button>
-                  <button onclick="gerarPDF()" class="br-button primary mr-3">Gerar PDF</button>
+                  <button id="btnLimparTabela" class="br-button danger mr-3">Limpar</button>
+                  <button id="btnGerarPDF" class="br-button primary mr-3">Gerar PDF</button>
                 </div>
 
                 <!--OBSERVACAO-->
@@ -240,15 +240,15 @@
                       <table id="tabelaDebitosPrint" class="table tabela container text-center">
                           <thead style="vertical-align: middle;">
                               <tr>
-                                  <th class="text-center p-1">Tipo declaração</th>
-                                  <th class="text-center p-1">Data entrega</th>
-                                  <th class="text-center p-1">CPF/CNPJ do débito</th>
-                                  <th class="text-center p-1">Nº do processo/DEBCAD</th>
-                                  <th class="text-center p-1">Código receita</th>
-                                  <th class="text-center p-1">Período de apuração</th>
-                                  <th class="text-center p-1">Vencimento do tributo</th>
-                                  <th class="text-center p-1">Valor (R$)</th>
-                                  <th class="text-center p-1">CIB/CNO/CNPJ prestador</th>
+                                  <th id="tituloTipoDeclaracao" class="text-center p-1">Tipo declaração</th>
+                                  <th id="tituloDataEntrega" class="text-center p-1">Data entrega</th>
+                                  <th id="tituloCpfCnpjDebito" class="text-center p-1">CPF/CNPJ do débito</th>
+                                  <th id="tituloNumeroProcesso" class="text-center p-1">Nº do processo/DEBCAD</th>
+                                  <th id="tituloCodigoReceita" class="text-center p-1">Código receita</th>
+                                  <th id="tituloPeriodoApuracao" class="text-center p-1">Período de apuração</th>
+                                  <th id="tituloVencimentoTributo" class="text-center p-1">Vencimento do tributo</th>
+                                  <th id="tituloValorDebito" class="text-center p-1">Valor (R$)</th>
+                                  <th id="tituloCibCnoCnpjPrestador" class="text-center p-1">CIB/CNO/CNPJ prestador</th>
                                   <th class="text-center p-1">Ações</th>
                               </tr>
                           </thead>
@@ -350,6 +350,7 @@
           </div>
         </div>
 
+        
       </main>
 
       <footer class="br-footer pt-3" id="footer">
@@ -369,6 +370,7 @@
     <script src="./js/main.js" type="module"></script>
     <script src="./bibliotecas/govbr-ds/core.js" type="module"></script>
     <script src="./bibliotecas/govbr-ds/core.min.js" type="module"></script>
+    <script src="./tabela_debitos_autorregularizar.js" type="module"></script>
 
   </body>
 </html>
