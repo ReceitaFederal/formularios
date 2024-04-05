@@ -183,130 +183,82 @@ var valido = false;
           pdf.setProperties(metadata);
       }
 
-      // ADICIONA LINHA NA TABELA DEBITOS
-      function incluirNovoDebito() {
-          // Adiciona uma nova linha em branco à tabela
-          var novaLinha = tabelaDebitosBody.insertRow(-1);
-
-          // Adiciona células à nova linha
-          for (var i = 0; i < 10; i++) {
-              var novaCelula = novaLinha.insertCell(i);
-              novaCelula.classList.add('p-1', 'text-center');
-
-              // Se não for a última célula, adicionar um campo de texto
-              if (i == 0) {
-                  let inputSelect = document.createElement('select');
-                  inputSelect.classList.add('text-center', 'p-1', 'br-select');
-                  novaCelula.appendChild(inputSelect);
-                  inputSelect.setAttribute('required', 'true');
-                  inputSelect.addEventListener('change', function () {
-                      alteraConteudoOptionsCodigoReceita(this);
-                  });
-                  for (let i = 0; i < optionValueTipoDeclaracao.length && i < optionTextTiposDeclaracao.length; i++) {
-                    let option = document.createElement('option');
-                    option.value = optionValueTipoDeclaracao[i];
-                    option.text = optionTextTiposDeclaracao[i];
-                    inputSelect.appendChild(option);
-
-                  }
-              } else if (i == 1 || i == 5 || i == 6) {
-                  let inputContainer = document.createElement('div');
-                  let inputText = document.createElement('input');
-                  inputContainer.classList.add('br-input', 'small');
-                  inputText.type = 'text';
-                  inputText.classList.add('text-center', 'p-1', 'text-down-01')
-                  inputText.setAttribute('contenteditable', 'true');
-                  inputText.setAttribute('required', 'true');
-                  inputText.setAttribute('placeholder', 'dd/mm/aaaa');
-                  inputContainer.appendChild(inputText);
-                  novaCelula.appendChild(inputContainer);
-                  if (i == 1) {
-                      inputText.addEventListener('change', function () {
-                          validacaoData(this);
-                      })
-                  };
-                  if (i == 5 || i == 6) {
-                      inputText.addEventListener('change', function () {
-                          validacaoVencimentoEApuração(this);
-                      });        
-                  }
-              } else if (i == 4) {
-                  let inputSelect = document.createElement('select');
-                  inputSelect.classList.add('text-center', 'p-1', 'br-select');
-                  inputSelect.setAttribute('required', 'true');
-                  novaCelula.appendChild(inputSelect);
-                  // inicia o select com as opções de código receita de declarações, pois padrão é DCTF
-                  for (let i = 0; i < optionValueReceitaDeclaracoes.length; i++) {
-                      let option = document.createElement('option');
-                      option.value = optionValueReceitaDeclaracoes[i];
-                      option.text = optionValueReceitaDeclaracoes[i];
-                      inputSelect.appendChild(option);
-                  }
-              } else if (i == 7) {
-                  let inputContainer = document.createElement('div');
-                  let inputText = document.createElement('input');
-                  inputContainer.classList.add('br-input', 'small');
-                  inputText.type = 'text';
-                  inputText.classList.add('text-center', 'p-1', 'text-down-01')
-                  inputText.setAttribute('contenteditable', 'true');
-                  inputText.setAttribute('required', 'true');
-                  inputContainer.appendChild(inputText);
-                  novaCelula.appendChild(inputContainer);
-                  inputText.addEventListener('input', function () {
-                      validarValor(this);
-                  });
-              } else if (i == 9) {
-                  let btnExcluir = document.createElement('button');
-                  let iconeLixeira = document.createElement('i');
-                  btnExcluir.classList.add('br-button', 'p-1');
-                  iconeLixeira.classList.add('fa', 'fa-trash-alt');
-                  btnExcluir.appendChild(iconeLixeira);
-                  novaCelula.appendChild(btnExcluir);
-                  btnExcluir.addEventListener('click', function () {
-                      excluirLinha(this);
-                  });
-              } else {
-                  let inputContainer = document.createElement('div');
-                  let inputText = document.createElement('input');
-                  inputContainer.classList.add('br-input', 'small');
-                  inputText.type = 'text';
-                  inputText.classList.add('text-center', 'p-1', 'text-down-01')
-                  inputText.setAttribute('contenteditable', 'true');
-                  inputText.setAttribute('required', 'true');
-                  inputContainer.appendChild(inputText);
-                  novaCelula.appendChild(inputContainer);
-                  if (i == 2) {
-                      inputText.setAttribute('required', 'true');
-                      inputText.setAttribute('minlength', '11');
-                      inputText.addEventListener('change', function () {
-                          validarCPFCNPJ(this);
-                      });
-                  }
-                  if (i == 3) {
-                      inputText.addEventListener('change', function () {
-                          validarProcesso(this);
-                      });
-                  }
-                  if (i == 8) {
-                      inputText.addEventListener('change', function () {
-                          validarCIBCNOCNPJ(this);
-                      });
-                  }
-              }
-          }
-
-          // Adiciona a nova linha ao array de registros manuais
-          registrosManuais.push(novaLinha);
-      }
-
-       // Selecionar o botão pelo ID e anexar o evento onclick
-        document.getElementById("incluirNovoDebito").onclick = incluirNovoDebito;
-
-
-
-
+    
 
         
+        
+// ADICIONA LINHA NA TABELA DEBITOS
+function incluirNovoDebito() {
+    // Cria uma nova linha de tabela
+    var novaLinha = document.createElement('tr');
+
+    // Carrega o conteúdo do arquivo tabela_debitos_autorregularizar.html
+    fetch('./tabela_debitos_autorregularizar.html')
+        .then(response => response.text())
+        .then(html => {
+            // Insere o HTML carregado na nova linha
+            novaLinha.innerHTML = html;
+
+            // Seleciona os elementos dentro da nova linha pelo ID
+            var tipoDeclaracao = novaLinha.querySelector('#tipoDeclaracao');
+            var dataEntrega = novaLinha.querySelector('#dataEntrega');
+            var cpfCnpjDebito = novaLinha.querySelector('#cpfCnpjDebito');
+            var numeroProcesso = novaLinha.querySelector('#numeroProcesso');
+            var codigoReceita = novaLinha.querySelector('#codigoReceita');
+            var periodoApuracao = novaLinha.querySelector('#periodoApuracao');
+            var vencimentoTributo = novaLinha.querySelector('#vencimentoTributo');
+            var valorDebito = novaLinha.querySelector('#valorDebito');
+            var cibCnoCnpjPrestador = novaLinha.querySelector('#cibCnoCnpjPrestador');
+            var acoes = novaLinha.querySelector('#acoes');
+
+            // Cria uma nova linha de tabela para os campos de entrada
+            var linhaCampos = document.createElement('tr');
+
+            // Cria células para os campos de entrada e insere-os na linha de campos
+            linhaCampos.appendChild(criarCelula(tipoDeclaracao));
+            linhaCampos.appendChild(criarCelula(dataEntrega));
+            linhaCampos.appendChild(criarCelula(cpfCnpjDebito));
+            linhaCampos.appendChild(criarCelula(numeroProcesso));
+            linhaCampos.appendChild(criarCelula(codigoReceita));
+            linhaCampos.appendChild(criarCelula(periodoApuracao));
+            linhaCampos.appendChild(criarCelula(vencimentoTributo));
+            linhaCampos.appendChild(criarCelula(valorDebito));
+            linhaCampos.appendChild(criarCelula(cibCnoCnpjPrestador));
+            linhaCampos.appendChild(criarCelula(acoes));
+
+            // Insere a linha de campos abaixo dos títulos
+            document.getElementById('tabelaDebitosBody').appendChild(linhaCampos);
+
+            // Adiciona evento de clique ao botão de exclusão de linha
+            var btnExcluirLinha = linhaCampos.querySelector('#btnExcluirLinha');
+            btnExcluirLinha.onclick = function() {
+                // Remove a linha correspondente ao botão de exclusão
+                var linhaParaExcluir = this.closest("tr");
+                linhaParaExcluir.remove();
+            };
+        })
+        .catch(error => {
+            console.error('Erro ao carregar o arquivo tabela_debitos_autorregularizar.html:', error);
+        });
+
+    // Adiciona a nova linha ao array de registros manuais
+    registrosManuais.push(novaLinha);
+}
+
+// Função auxiliar para criar uma célula de tabela com um elemento filho
+function criarCelula(elemento) {
+    var celula = document.createElement('td');
+    celula.appendChild(elemento);
+    return celula;
+}
+
+// Selecionar o botão pelo ID e anexar o evento onclick
+document.getElementById("incluirNovoDebito").onclick = incluirNovoDebito;
+
+
+
+
+
 
 
       // ADICIONA LINHA NA TABELA CREDITOS PROPRIOS

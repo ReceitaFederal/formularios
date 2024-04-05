@@ -56,16 +56,16 @@
                     <table id="tabelaDebitos">
                       <thead>
                         <tr>
-                          <th class="text-center text-up-01">Tipo de declaração</th>
-                          <th class="text-center text-up-01">Data da entrega</th>
-                          <th class="text-center text-up-01">CPF/CNPJ do débito</th>
-                          <th class="text-center text-up-01">Nº do processo DEBCAD</th>
-                          <th class="text-center text-up-01">Código receita</th>
-                          <th class="text-center text-up-01">Período de apuração</th>
-                          <th class="text-center text-up-01">Vencimento do tributo</th>
-                          <th class="text-center text-up-01">Valor (R$)</th>
-                          <th class="text-center text-up-01">CIB/CNO/CNPJ Prestador</th>
-                          <th class="text-center text-up-01">Ações</th>
+                          <th id="tituloTipoDeclaracao" class="text-center text-up-01">Tipo de declaração</th>
+                          <th id="tituloDataEntrega" class="text-center text-up-01">Data da entrega</th>
+                          <th id="tituloCpfCnpjDebito" class="text-center text-up-01">CPF/CNPJ do débito</th>
+                          <th id="tituloNumeroProcesso" class="text-center text-up-01">Nº do processo DEBCAD</th>
+                          <th id="tituloCodigoReceita" class="text-center text-up-01">Código receita</th>
+                          <th id="tituloPeriodoApuracao" class="text-center text-up-01">Período de apuração</th>
+                          <th id="tituloVencimentoTributo" class="text-center text-up-01">Vencimento do tributo</th>
+                          <th id="tituloValorDebito" class="text-center text-up-01">Valor (R$)</th>
+                          <th id="tituloCibCnoCnpjPrestador" class="text-center text-up-01">CIB/CNO/CNPJ Prestador</th>
+                          <th id="tituloAcoes" class="text-center text-up-01">Ações</th>
                         </tr>
                       </thead>
                       <tbody id="tabelaDebitosBody">
@@ -224,8 +224,7 @@
 
               </div>
 
-              <br-tabela-debitos-autorregularizar></br-tabela-debitos-autorregularizar>
-
+            
               <!--SECAO IMPRESSAO-->
               <div>
                 <!--IMPRESSAO COM BIBLIOTECAS-->
@@ -249,7 +248,7 @@
                                   <th id="tituloVencimentoTributo" class="text-center p-1">Vencimento do tributo</th>
                                   <th id="tituloValorDebito" class="text-center p-1">Valor (R$)</th>
                                   <th id="tituloCibCnoCnpjPrestador" class="text-center p-1">CIB/CNO/CNPJ prestador</th>
-                                  <th class="text-center p-1">Ações</th>
+                                  <th id="tituloAcoes" class="text-center p-1">Ações</th>
                               </tr>
                           </thead>
                           <tbody id="tabelaDebitosPrintBody"></tbody>
@@ -352,6 +351,7 @@
 
         
       </main>
+      
 
       <footer class="br-footer pt-3" id="footer">
         <div class="container-lg">
@@ -371,6 +371,7 @@
     <script src="./bibliotecas/govbr-ds/core.js" type="module"></script>
     <script src="./bibliotecas/govbr-ds/core.min.js" type="module"></script>
     <script src="./tabela_debitos_autorregularizar.js" type="module"></script>
+    <script src="./js/select.js" type="module"></script>
 
   </body>
 </html>
