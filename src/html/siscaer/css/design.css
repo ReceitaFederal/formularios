@@ -1408,16 +1408,22 @@
 
 /*# sourceMappingURL=tooltip.css.map*/
 
-/*.br-input {
-  width: 340px;
+.br-input {
   margin-top: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 6px;
   padding: 7px;
   display: block;
   clear: left;
   padding: 16px 20px;
-  border: 2px solid #ccc;
+  /*border: 2px solid #ccc;*/
   border-radius: 4px;
-  background-color: #f1f1f1;
-}*/
+  /*background-color: #f1f1f1;*/
+}
 
+.br-input input {
+  width: 350px;
+}
+
+.br-input select {
+  max-width: 350px;
+}
