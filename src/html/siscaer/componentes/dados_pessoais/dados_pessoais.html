@@ -52,17 +52,23 @@
               <div class="col-md-10">
                 <div class="br-input">
                   <label for="documento">Documento de Identidicação:</label><br>
-                  <input type="number" id="documento" required>
-                    <div class="icon-container">
-                      <i class="fas fa-info-circle"></i>
-                      <div class="tooltip">
-                        Podem servir como documento de identidade: 
-                        Cédula de identidade (RG) | Carteira de habilitação (CNH) | Carteira de trabalho (CTPS) | 
-                        Carteira de identidade militar, dos Bombeiros ou da Polícia Militar | Passaporte brasileiro anterio |
-                        Carteira funcional expedida por Órgão público, reconhecida por lei federal como válida em todo território
-                        nacinal e carteira de identidade expendida por Órgão fiscalizador do exercício de profissão regulamentada por lei.
+                  
+                  <div class="icon-container">
+                    <i class="fas fa-info-circle"></i>
+                    <div class="mb-3">
+                      <div class="br-tooltip" role="tooltip" success="success" popover="popover" timer="5000" place="bottom">    
+                        <div class="popover-header"><span class="text">Cadastro Concluído!</span>    
+                        </div>    
+                        <div class="popover-body"><span class="subtext">Podem servir como documento de identidade: 
+                          Cédula de identidade (RG) | Carteira de habilitação (CNH) | Carteira de trabalho (CTPS) | 
+                          Carteira de identidade militar, dos Bombeiros ou da Polícia Militar | Passaporte brasileiro anterio |
+                          Carteira funcional expedida por Órgão público, reconhecida por lei federal como válida em todo território
+                          nacinal e carteira de identidade expendida por Órgão fiscalizador do exercício de profissão regulamentada por lei.</span>    
+                        </div>    
                       </div>
                     </div>
+                  </div>
+                  <input type="number" id="documento" required />
                 </div>
               </div>
               
@@ -234,8 +240,5 @@
         </div>
       </div>
 
-      <div class="checkbox">
-        <label><input type="checkbox"> Salvar informações</label>
-      </div>
   </fieldset>
 </div>
