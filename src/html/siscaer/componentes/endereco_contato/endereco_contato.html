@@ -1,6 +1,10 @@
 <div class="container-xl">
   <fieldset id="endereco-contato" class="fieldset-border">
-      <legend class="legend-border">Endereço e Contato</legend>
+    <legend class="legend-border" style="color: #337ab7; justify-content: right;">
+      <span class="icon" style="color: #337ab7; justify-content: right;">
+        <i class="fa-solid fa-address-book" aria-hidden="true"></i>
+      </span>Endereço e Contato
+    </legend>
       
       <div class="row mt-5">
         <div class="col-sm">
@@ -129,6 +133,12 @@
           <fieldset>
             <!--<legend>Outros Dados (Legend)</legend>-->
             <div class="row">
+              <div class="col-md-10 mb-3">
+                <div class="br-input">
+                  <label for="cep">CEP: </label>
+                  <input id="cep" type="number" placeholder="00000-000" required/>
+                </div>
+              </div>
                 <div class="col-md-10 mb-3">
                  <div class="br-input">
                   <label for="numero-casa">Número: </label><br>
@@ -139,41 +149,6 @@
                 <div class="br-input">
                   <label for="bairro">Bairro: </label><br>
                   <input type="text" id="bairro" required>
-                </div>
-              </div>
-              <div class="col-md-10">
-                <div class="br-input">
-                  <label for="uf_endereco">UF:</label>
-                  <select id="uf_endereco" required>
-                      <option value="" disabled selected>Selecione</option>
-                      <option value="Acre">AC</option>
-                      <option value="Alagoas">AL</option>
-                      <option value="Amapá">AP</option>
-                      <option value="Amazonas">AM</option>
-                      <option value="Bahia">BA</option>
-                      <option value="Ceará">CE</option>
-                      <option value="Distrito Federal">DF</option>
-                      <option value="Espírito Santo">ES</option>
-                      <option value="Goiás">GO</option>
-                      <option value="Maranhão">MA</option>
-                      <option value="Mato Grosso">MT</option>
-                      <option value="Mato Grosso do Sul">MS</option>
-                      <option value="Minas Gerais">MG</option>
-                      <option value="Pará">PA</option>
-                      <option value="Paraíba">PB</option>
-                      <option value="Paraná">PR</option>
-                      <option value="Pernambuco">PE</option>
-                      <option value="Piauí">PI</option>
-                      <option value="Rio de Janeiro">RJ</option>
-                      <option value="Rio Grande do Norte">RN</option>
-                      <option value="Rio Grande do Sul">RS</option>
-                      <option value="Rondônia">RO</option>
-                      <option value="Roraima">RR</option>
-                      <option value="Santa Catarina">SC</option>
-                      <option value="São Paulo">SP</option>
-                      <option value="Sergipe">SE</option>
-                      <option value="Tocantins">TO</option>
-                  </select>
                 </div>
               </div>
             </div>
@@ -189,9 +164,46 @@
                     <label for="cidade">Cidade:</label><br>
                     <select id="cidade">
                       <option value="">Selecione a cidade</option>
+                      <option value="Campinas">Campinas</option>
+                    </select>
                    </div>
                   </div>
-                  <div class="col-md-10 mb-3">
+                  <div class="col-md-10">
+                    <div class="br-input">
+                      <label for="uf_endereco">UF:</label>
+                      <select id="uf_endereco" required>
+                          <option value="" disabled selected>Selecione</option>
+                          <option value="Acre">AC</option>
+                          <option value="Alagoas">AL</option>
+                          <option value="Amapá">AP</option>
+                          <option value="Amazonas">AM</option>
+                          <option value="Bahia">BA</option>
+                          <option value="Ceará">CE</option>
+                          <option value="Distrito Federal">DF</option>
+                          <option value="Espírito Santo">ES</option>
+                          <option value="Goiás">GO</option>
+                          <option value="Maranhão">MA</option>
+                          <option value="Mato Grosso">MT</option>
+                          <option value="Mato Grosso do Sul">MS</option>
+                          <option value="Minas Gerais">MG</option>
+                          <option value="Pará">PA</option>
+                          <option value="Paraíba">PB</option>
+                          <option value="Paraná">PR</option>
+                          <option value="Pernambuco">PE</option>
+                          <option value="Piauí">PI</option>
+                          <option value="Rio de Janeiro">RJ</option>
+                          <option value="Rio Grande do Norte">RN</option>
+                          <option value="Rio Grande do Sul">RS</option>
+                          <option value="Rondônia">RO</option>
+                          <option value="Roraima">RR</option>
+                          <option value="Santa Catarina">SC</option>
+                          <option value="São Paulo">SP</option>
+                          <option value="Sergipe">SE</option>
+                          <option value="Tocantins">TO</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-10">
                     <div class="br-input">
                       <label for="email-solicitante">Email pessoal/funcional do credenciado: </label><br>
                       <input type="email" class="form-control" id="email-solicitante" placeholder="Ex: maria@servidor.com.br">
@@ -212,53 +224,53 @@
         <div class="referencias">
             <hr>
           <h2>Referências Pessoais</h2>
-          <h3>Referências </h3>
 
-          <div class="col-sm">
-            <fieldset>
-              <!--<legend>Outros Dados (Legend)</legend>-->
-              <div class="row">
-                  <div class="col-md-10 mb-3">
-                   <div class="br-input">
-                    <label for="nome-solicitante">Nome: </label><br>
-                    <input type="text" id="nome-solicitante" placeholder="Nome completo" required>
-                   </div>
-                  </div> 
-                <div class="col-md-10">
-                 <div class="br-input">
-                  <label for="nome-solicitante">Nome: </label><br>
-                  <input type="text" id="nome-solicitante" placeholder="Nome completo" required>
-                 </div>
-                </div> 
-            </div>
-            </fieldset>
-          </div>
+        </div>
 
-          <div class="col-sm">
-             <fieldset>
+            <div class="col-sm">
+              <fieldset>
+                <!--<legend>Nome Completo (Legend)</legend>-->
                 <div class="row">
                   <div class="col-md-10 mb-3">
-                   <div class="br-input">
-                    <label for="telefone-referencia1">Telefone:</label><br>
-                    <input type="text" id="telefone-referencia1" maxlength="14" name="telefone" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" required>
-                   </div>
-                  </div> 
+                    <div class="br-input"><label for="nome-referencia1">Nome completo: </label>
+                    <input id="nome-referencia1" placeholder="Insira o nome completo" type="text" />
+                    </div>
+                  </div>
                   <div class="col-md-10">
                     <div class="br-input">
-                     <label for="telefone-referencia2">Telefone:</label><br>
-                     <input type="text" id="telefone-referencia2" maxlength="14" name="telefone" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" required>
+                      <label for="nome-referencia2">Nome completo: </label>
+                      <input id="nome-referencia2"type="text" placeholder="Insira o nome completo"/>
                     </div>
-                  </div> 
+                  </div>
                 </div>
-             </fieldset>
-           </div>
-          
-          <div class="col-sm">
-            <fieldset>
+              </fieldset>
+            </div>
+            <div class="col-sm">
+              <fieldset>
+                <!--<legend>Outros Dados (Legend)</legend>-->
                 <div class="row">
-                  <div class="col-md-10 mb-6">
-                   <div class="br-input">
-                    <label for="vinculo1">Vínculo:</label><br>
+                  <div class="col-md-10 mb-3">
+                    <div class="br-input">
+                      <label for="telefone-referencia2">Telefone: </label>
+                      <input id="telefone-referencia2" type="number" placeholder="Insira seu número"/>
+                    </div>
+                  </div>
+                  <div class="col-md-10">
+                    <div class="br-input">
+                      <label for="telefone-referencia1">Telefone: </label>
+                      <input id="telefone-referencia1" type="number" placeholder="Insira seu número"/>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <div class="col-sm">
+              <fieldset>
+                <!--<legend>Outros Dados (Legend)</legend>-->
+                <div class="row">
+                  <div class="col-md-10 mb-3">
+                    <div class="br-input">
+                      <label for="vinculo1">Vínculo:</label><br>
                       <select id="vinculo1" required>
                         <option value="" disabled selected>Selecione</option>
                         <option value="familia">Família</option>
@@ -266,25 +278,24 @@
                         <option value="trabalho">Trabalho</option>
                         <option value="outro">Outro</option>
                       </select>
-                   </div>
+                    </div>
                   </div>
-                  
                   <div class="col-md-10">
                     <div class="br-input">
-                     <label for="vinculo2">Vínculo:</label><br>
-                       <select id="vinculo2" required>
-                         <option value="" disabled selected>Selecione</option>
-                         <option value="familia">Família</option>
-                         <option value="amigo">Amigo</option>
-                         <option value="trabalho">Trabalho</option>
-                         <option value="outro">Outro</option>
-                       </select>
+                      <label for="vinculo2">Vínculo:</label><br>
+                      <select id="vinculo2" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="familia">Família</option>
+                        <option value="amigo">Amigo</option>
+                        <option value="trabalho">Trabalho</option>
+                        <option value="outro">Outro</option>
+                      </select>
                     </div>
-                   </div> 
+                  </div>
                 </div>
-            </fieldset>
-          </div>
-        </div>
+              </fieldset>
+            </div>
+   
       </div>
        
     <div class="checkbox">
