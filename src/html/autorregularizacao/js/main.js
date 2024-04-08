@@ -1,22 +1,11 @@
 var valido = false;
       let registrosManuais = [];
-      let optionValueTipoDeclaracao = ['DCTF', 'DCTF Web/e-Social', 'DIRPF', 'DITR', 'GFIP', 'Auto de infração', 'TDPF', 'Outro'];
-      let optionTextTiposDeclaracao = ['DCTF', 'DCTF Web/e-Social', 'DIRPF', 'DITR', 'GFIP', 'Auto de infração', 'TDPF', 'Outro'];
-      let optionValueReceita = ['0000', '0026', '0039', '0041', '0054', '0067', '0070', '0082', '0095', '0107', '0110', '0122', '0123', '0148', '0150', '0158', '0190', '0211', '0220', '0231', '0244', '0246', '0297', '0298', '0300', '0331', '0338', '0348', '0360', '0383', '0390', '0416', '0422', '0434', '0449', '0468', '0473', '0474', '0481', '0490', '0497', '0513', '0542', '0561', '0565', '0588', '0594', '0610', '0627', '0656', '0662', '0668', '0676', '0679', '0691', '0724', '0753', '0760', '0764', '0776', '0782', '0809', '0821', '0838', '0850', '0867', '0906', '0916', '0924', '0929', '1020', '1054', '1068', '1070', '1082', '1097', '1099', '1138', '1141', '1145', '1150', '1151', '1154', '1162', '1170', '1176', '1181', '1184', '1191', '1196', '1200', '1205', '1209', '1213', '1218', '1221', '1225', '1251', '1253', '1254', '1258', '1269', '1271', '1272', '1274', '1317', '1319', '1345', '1376', '1402', '1438', '1458', '1512', '1573', '1599', '1603', '1626', '1632', '1646', '1647', '1649', '1653', '1654', '1656', '1657', '1661', '1684', '1690', '1700', '1708', '1717', '1718', '1723', '1730', '1741', '1742', '1752', '1769', '1781', '1808', '1814', '1837', '1840', '1850', '1872', '1889', '1895', '1921', '1928', '2030', '2063', '2089', '2096', '2110', '2141', '2158', '2164', '2170', '2172', '2185', '2187', '2193', '2203', '2249', '2255', '2261', '2278', '2281', '2290', '2317', '2319', '2323', '2346', '2352', '2362', '2369', '2372', '2381', '2390', '2398', '2401', '2408', '2410', '2414', '2430', '2456', '2469', '2484', '2605', '2612', '2892', '2904', '2917', '2927', '2932', '2945', '2956', '2958', '2960', '2973', '2985', '2986', '2991', '2999', '3005', '3059', '3092', '3121', '3148', '3208', '3219', '3223', '3249', '3251', '3260', '3277', '3280', '3283', '3308', '3316', '3317', '3320', '3332', '3345', '3358', '3359', '3360', '3373', '3375', '3426', '3467', '3488', '3533', '3540', '3556', '3562', '3579', '3601', '3624', '3630', '3674', '3699', '3703', '3738', '3746', '3767', '3770', '4028', '4085', '4095', '4112', '4138', '4153', '4166', '4288', '4290', '4397', '4406', '4407', '4409', '4424', '4465', '4562', '4574', '4597', '4600', '4669', '4685', '4693', '4802', '4840', '4857', '4863', '5006', '5029', '5035', '5058', '5110', '5123', '5136', '5149', '5192', '5200', '5204', '5217', '5220', '5232', '5273', '5286', '5299', '5300', '5320', '5338', '5434', '5442', '5477', '5519', '5557', '5565', '5583', '5598', '5600', '5625', '5668', '5706', '5788', '5802', '5804', '5856', '5869', '5871', '5884', '5928', '5936', '5937', '5940', '5944', '5952', '5960', '5979', '5987', '5993', '6012', '6015', '6094', '6147', '6150', '6175', '6177', '6188', '6190', '6215', '6216', '6222', '6228', '6230', '6239', '6243', '6256', '6324', '6337', '6340', '6352', '6378', '6380', '6393', '6405', '6418', '6542', '6555', '6570', '6583', '6596', '6608', '6610', '6623', '6636', '6649', '6651', '6656', '6680', '6744', '6758', '6773', '6799', '6800', '6808', '6813', '6824', '6826', '6839', '6840', '6841', '6854', '6875', '6882', '6883', '6891', '6895', '6904', '6912', '6939', '7036', '7049', '7051', '7213', '7238', '7756', '7769', '7780', '7784', '7797', '7837', '7878', '7893', '7905', '7940', '7987', '8002', '8045', '8053', '8109', '8205', '8301', '8468', '8496', '8504', '8523', '8536', '8619', '8645', '8651', '8660', '8673', '8726', '8739', '8741', '8754', '8767', '8770', '8835', '8848', '8850', '8863', '8972', '9060', '9086', '9303', '9304', '9331', '9385', '9412', '9427', '9453', '9466', '9478', '9479'];
-      let optionTextReceita = ['0000', '0026', '0039', '0041', '0054', '0067', '0070', '0082', '0095', '0107', '0110', '0122', '0123', '0148', '0150', '0158', '0190', '0211', '0220', '0231', '0244', '0246', '0297', '0298', '0300', '0331', '0338', '0348', '0360', '0383', '0390', '0416', '0422', '0434', '0449', '0468', '0473', '0474', '0481', '0490', '0497', '0513', '0542', '0561', '0565', '0588', '0594', '0610', '0627', '0656', '0662', '0668', '0676', '0679', '0691', '0724', '0753', '0760', '0764', '0776', '0782', '0809', '0821', '0838', '0850', '0867', '0906', '0916', '0924', '0929', '1020', '1054', '1068', '1070', '1082', '1097', '1099', '1138', '1141', '1145', '1150', '1151', '1154', '1162', '1170', '1176', '1181', '1184', '1191', '1196', '1200', '1205', '1209', '1213', '1218', '1221', '1225', '1251', '1253', '1254', '1258', '1269', '1271', '1272', '1274', '1317', '1319', '1345', '1376', '1402', '1438', '1458', '1512', '1573', '1599', '1603', '1626', '1632', '1646', '1647', '1649', '1653', '1654', '1656', '1657', '1661', '1684', '1690', '1700', '1708', '1717', '1718', '1723', '1730', '1741', '1742', '1752', '1769', '1781', '1808', '1814', '1837', '1840', '1850', '1872', '1889', '1895', '1921', '1928', '2030', '2063', '2089', '2096', '2110', '2141', '2158', '2164', '2170', '2172', '2185', '2187', '2193', '2203', '2249', '2255', '2261', '2278', '2281', '2290', '2317', '2319', '2323', '2346', '2352', '2362', '2369', '2372', '2381', '2390', '2398', '2401', '2408', '2410', '2414', '2430', '2456', '2469', '2484', '2605', '2612', '2892', '2904', '2917', '2927', '2932', '2945', '2956', '2958', '2960', '2973', '2985', '2986', '2991', '2999', '3005', '3059', '3092', '3121', '3148', '3208', '3219', '3223', '3249', '3251', '3260', '3277', '3280', '3283', '3308', '3316', '3317', '3320', '3332', '3345', '3358', '3359', '3360', '3373', '3375', '3426', '3467', '3488', '3533', '3540', '3556', '3562', '3579', '3601', '3624', '3630', '3674', '3699', '3703', '3738', '3746', '3767', '3770', '4028', '4085', '4095', '4112', '4138', '4153', '4166', '4288', '4290', '4397', '4406', '4407', '4409', '4424', '4465', '4562', '4574', '4597', '4600', '4669', '4685', '4693', '4802', '4840', '4857', '4863', '5006', '5029', '5035', '5058', '5110', '5123', '5136', '5149', '5192', '5200', '5204', '5217', '5220', '5232', '5273', '5286', '5299', '5300', '5320', '5338', '5434', '5442', '5477', '5519', '5557', '5565', '5583', '5598', '5600', '5625', '5668', '5706', '5788', '5802', '5804', '5856', '5869', '5871', '5884', '5928', '5936', '5937', '5940', '5944', '5952', '5960', '5979', '5987', '5993', '6012', '6015', '6094', '6147', '6150', '6175', '6177', '6188', '6190', '6215', '6216', '6222', '6228', '6230', '6239', '6243', '6256', '6324', '6337', '6340', '6352', '6378', '6380', '6393', '6405', '6418', '6542', '6555', '6570', '6583', '6596', '6608', '6610', '6623', '6636', '6649', '6651', '6656', '6680', '6744', '6758', '6773', '6799', '6800', '6808', '6813', '6824', '6826', '6839', '6840', '6841', '6854', '6875', '6882', '6883', '6891', '6895', '6904', '6912', '6939', '7036', '7049', '7051', '7213', '7238', '7756', '7769', '7780', '7784', '7797', '7837', '7878', '7893', '7905', '7940', '7987', '8002', '8045', '8053', '8109', '8205', '8301', '8468', '8496', '8504', '8523', '8536', '8619', '8645', '8651', '8660', '8673', '8726', '8739', '8741', '8754', '8767', '8770', '8835', '8848', '8850', '8863', '8972', '9060', '9086', '9303', '9304', '9331', '9385', '9412', '9427', '9453', '9466', '9478', '9479'];
-      let optionValueReceitaDeOficio = ['0148', '0150', '0158', '0244', '0298', '0300', '0331', '0338', '0348', '0360', '0383', '0390', '0416', '0434', '0449', '0468', '0513', '0542', '0565', '0594', '1269', '1271', '1272', '1274', '1317', '1319', '1345', '1376', '1402', '1438', '1512', '1603', '1632', '1649', '1741', '1742', '1928', '2096', '2141', '2158', '2164', '2170', '2185', '2187', '2193', '2203', '2249', '2255', '2261', '2278', '2290', '2317', '2323', '2346', '2352', '2369', '2381', '2398', '2408', '2414', '2892', '2904', '2917', '2932', '2945', '2956', '2958', '2960', '2973', '2986', '2999', '3005', '3059', '3148', '3219', '3260', '3283', '3308', '3316', '3332', '3345', '3358', '3359', '3360', '3375', '3488', '3601', '3624', '3630', '3738', '3767', '4288', '4406', '4562', '4597', '4669', '4685', '4693', '4802', '4840', '4857', '4863', '5006', '5058', '5149', '5300', '5320', '5338', '5477', '5583', '5668', '5788', '5802', '5804', '6324', '6337', '6340', '6352', '6380', '6393', '6405', '6418', '6542', '6555', '6570', '6583', '6596', '6608', '6610', '6623', '6636', '6649', '6656', '6680', '6744', '6808', '6841', '6882', '6939', '7036',    '7049', '7051', '7780', '7878', '7940', '8504', '8619', '8651', '8660', '9303', '9304', '9479'];
-      let optionValueReceitaDeclaracoes = ['0000', '0026', '0039', '0041', '0054', '0067', '0070', '0082', '0095', '0107', '0110', '0122', '0123', '0151', '0160', '0171', '0180', '0181', '0182', '0185', '0190', '0191', '0196', '0200', '0211', '0220', '0231', '0246', '0297', '0300', '0360', '0383', '0390', '0422', '0468', '0473', '0474', '0481', '0490', '0497', '0561', '0588', '0610', '0627', '0656', '0662', '0668', '0676', '0679', '0691', '0724', '0753', '0760', '0764', '0776', '0782', '0809', '0821', '0838', '0850', '0867', '0906', '0916', '0924', '0929', '1020', '1054', '1068', '1070', '1082', '1097', '1099', '1138', '1141', '1145', '1150', '1151', '1154', '1162', '1170', '1176', '1181', '1184', '1191', '1196', '1200', '1205', '1209', '1213', '1218', '1221', '1225', '1251', '1253', '1254', '1258', '1269', '1271', '1272', '1274', '1317', '1319', '1345', '1376', '1402', '1438', '1458', '1573', '1599', '1626', '1646', '1647', '1649', '1653', '1654', '1656', '1657', '1661', '1684', '1690', '1700', '1708', '1717', '1718', '1723', '1730', '1741', '1742', '1752', '1769', '1781', '1808', '1814', '1837', '1840', '1850', '1872', '1889', '1895', '1921', '2030', '2063', '2089', '2110', '2158', '2164', '2170', '2172', '2185', '2187', '2193', '2203', '2249', '2255', '2261', '2278', '2281', '2290', '2317', '2319', '2323', '2346', '2352', '2362', '2369', '2372', '2381', '2390', '2398', '2401', '2408', '2410', '2414', '2430', '2456', '2469', '2484', '2605', '2612', '2892', '2904', '2917', '2927', '2932', '2945', '2956', '2958', '2960', '2973', '2985', '2986', '2991', '2999', '3005', '3092', '3121', '3208', '3223', '3249', '3251', '3277', '3280', '3317', '3320', '3332', '3373', '3375', '3426', '3467', '3533', '3540', '3556', '3562', '3579', '3624', '3699', '3703', '3738', '3746', '3770', '4028', '4085', '4095', '4112', '4138', '4153', '4166', '4290', '4397', '4407', '4409', '4424', '4465', '4574', '4600', '4693', '5192', '5200', '5217', '5220', '5232', '5273', '5286', '5299', '5340', '5434', '5442', '5519', '5557', '5565', '5598', '5600', '5625', '5706', '5856', '5869', '5871', '5884', '5928', '5936', '5937', '5940', '5944', '5952', '5960', '5979', '5987', '5993', '6012', '6015', '6094', '6147', '6150', '6175', '6177', '6188', '6190', '6215', '6216', '6222', '6228', '6230', '6239', '6243', '6256', '6324', '6337', '6340', '6352', '6378', '6405', '6418', '6773', '6799', '6800', '6813', '6839', '6854', '6875', '6891', '6895', '6904', '6912', '7049', '7051', '7213', '7238', '7756', '7769', '7784', '7797', '7837', '7893', '7905', '7987', '8002', '8045', '8053', '8109', '8301', '8468', '8496', '8523', '8536', '8645', '8673', '8726', '8739', '8741', '8754', '8767', '8770', '8835', '8848', '8850', '8863', '8972', '9060', '9086', '9412', '9427', '9453', '9466', '9478'];
-      let optionValueAliquota = ['9%', '15%', '20%', '25%'];
-      let optionTextAliquota = ['9%', '15%', '20%', '25%'];
-      let optionAliquotaPF = ['25%'];
-      let optionAliquotaBCN = ['9%', '15%', '20%'];
-      let optionValueTipoCredito = ['Prejuízo Fiscal (PF)', 'Base de Cálculo Negativa (BCN) da CSLL'];
-      let optionTextTipoCredito = ['Prejuízo Fiscal (PF)', 'Base de Cálculo Negativa (BCN) da CSLL'];
       var tabelaDebitosBody = document.getElementById('tabelaDebitosBody');
       var tabelaPropriosBody = document.getElementById('tabelaPropriosBody');
       var tabelaTerceirosBody = document.getElementById('tabelaTerceirosBody');
       var tabelaPrecatoriosBody = document.getElementById('tabelaPrecatoriosBody');
 
+      
       // GERA PDF COM BIBLIOTECAS
       function gerarPDF() {
 
@@ -187,339 +176,216 @@ var valido = false;
 
         
         
-// ADICIONA LINHA NA TABELA DEBITOS
-function incluirNovoDebito() {
-    // Cria uma nova linha de tabela
-    var novaLinha = document.createElement('tr');
+    // ADICIONA LINHA NA TABELA DEBITOS
+    function incluirNovoDebito() {
+        // Cria uma nova linha de tabela
+        var novaLinha = document.createElement('tr');
 
-    // Carrega o conteúdo do arquivo tabela_debitos_autorregularizar.html
-    fetch('./tabela_debitos_autorregularizar.html')
-        .then(response => response.text())
-        .then(html => {
-            // Insere o HTML carregado na nova linha
-            novaLinha.innerHTML = html;
+        // Carrega o conteúdo do arquivo tabela_debitos_autorregularizar.html
+        fetch('./tabela_debitos_autorregularizar/tabela_debitos_autorregularizar.html')
+            .then(response => response.text())
+            .then(html => {
+                // Insere o HTML carregado na nova linha
+                novaLinha.innerHTML = html;
 
-            // Seleciona os elementos dentro da nova linha pelo ID
-            var tipoDeclaracao = novaLinha.querySelector('#tipoDeclaracao');
-            var dataEntrega = novaLinha.querySelector('#dataEntrega');
-            var cpfCnpjDebito = novaLinha.querySelector('#cpfCnpjDebito');
-            var numeroProcesso = novaLinha.querySelector('#numeroProcesso');
-            var codigoReceita = novaLinha.querySelector('#codigoReceita');
-            var periodoApuracao = novaLinha.querySelector('#periodoApuracao');
-            var vencimentoTributo = novaLinha.querySelector('#vencimentoTributo');
-            var valorDebito = novaLinha.querySelector('#valorDebito');
-            var cibCnoCnpjPrestador = novaLinha.querySelector('#cibCnoCnpjPrestador');
-            var acoes = novaLinha.querySelector('#acoes');
+                // Seleciona os elementos dentro da nova linha pelo ID
+                var tipoDeclaracao = novaLinha.querySelector('#tipoDeclaracao');
+                var dataEntrega = novaLinha.querySelector('#dataEntrega');
+                var cpfCnpjDebito = novaLinha.querySelector('#cpfCnpjDebito');
+                var numeroProcesso = novaLinha.querySelector('#numeroProcesso');
+                var codigoReceita = novaLinha.querySelector('#codigoReceita');
+                var periodoApuracao = novaLinha.querySelector('#periodoApuracao');
+                var vencimentoTributo = novaLinha.querySelector('#vencimentoTributo');
+                var valorDebito = novaLinha.querySelector('#valorDebito');
+                var cibCnoCnpjPrestador = novaLinha.querySelector('#cibCnoCnpjPrestador');
+                var acoes = novaLinha.querySelector('#acoes');
 
-            // Cria uma nova linha de tabela para os campos de entrada
-            var linhaCampos = document.createElement('tr');
+                // Remove a primeira célula vazia
+                novaLinha.removeChild(novaLinha.firstChild);
 
-            // Cria células para os campos de entrada e insere-os na linha de campos
-            linhaCampos.appendChild(criarCelula(tipoDeclaracao));
-            linhaCampos.appendChild(criarCelula(dataEntrega));
-            linhaCampos.appendChild(criarCelula(cpfCnpjDebito));
-            linhaCampos.appendChild(criarCelula(numeroProcesso));
-            linhaCampos.appendChild(criarCelula(codigoReceita));
-            linhaCampos.appendChild(criarCelula(periodoApuracao));
-            linhaCampos.appendChild(criarCelula(vencimentoTributo));
-            linhaCampos.appendChild(criarCelula(valorDebito));
-            linhaCampos.appendChild(criarCelula(cibCnoCnpjPrestador));
-            linhaCampos.appendChild(criarCelula(acoes));
+                // Insere a linha de campos abaixo dos títulos
+                document.getElementById('tabelaDebitosBody').appendChild(novaLinha);
 
-            // Insere a linha de campos abaixo dos títulos
-            document.getElementById('tabelaDebitosBody').appendChild(linhaCampos);
-
-            // Adiciona evento de clique ao botão de exclusão de linha
-            var btnExcluirLinha = linhaCampos.querySelector('#btnExcluirLinha');
-            btnExcluirLinha.onclick = function() {
-                // Remove a linha correspondente ao botão de exclusão
-                var linhaParaExcluir = this.closest("tr");
-                linhaParaExcluir.remove();
-            };
-        })
-        .catch(error => {
-            console.error('Erro ao carregar o arquivo tabela_debitos_autorregularizar.html:', error);
-        });
-
-    // Adiciona a nova linha ao array de registros manuais
-    registrosManuais.push(novaLinha);
-}
-
-// Função auxiliar para criar uma célula de tabela com um elemento filho
-function criarCelula(elemento) {
-    var celula = document.createElement('td');
-    celula.appendChild(elemento);
-    return celula;
-}
-
-// Selecionar o botão pelo ID e anexar o evento onclick
-document.getElementById("incluirNovoDebito").onclick = incluirNovoDebito;
-
-
-
-
-
-
-
-      // ADICIONA LINHA NA TABELA CREDITOS PROPRIOS
-      function incluirNovoCreditoProprio() {
-          // Adiciona uma nova linha em branco à tabela
-          var novaLinha = tabelaPropriosBody.insertRow(-1);
-
-          // Adiciona células à nova linha
-          for (var i = 0; i < 6; i++) {
-              var novaCelula = novaLinha.insertCell(i);
-
-              if (i == 1 || i == 3) {
-                  var inputText = document.createElement('input');
-                  inputText.style.fontSize = 'small';
-                  inputText.type = 'text';
-                  inputText.classList.add('form-control', 'form-control-sm', 'text-center');
-                  inputText.setAttribute('contenteditable', 'true');
-                  inputText.setAttribute('required', 'true');
-                  novaCelula.appendChild(inputText);
-                  inputText.addEventListener('input', function () {
-                      validarValor(this);
-                  });
-              }
-              if (i == 4) {
-                  var inputText = document.createElement('input');
-                  inputText.style.fontSize = 'small';
-                  inputText.type = 'text';
-                  inputText.classList.add('form-control', 'form-control-sm', 'text-center');
-                  inputText.setAttribute('contenteditable', 'true');
-                  inputText.setAttribute('required', 'true');
-                  inputText.setAttribute('placeholder', 'dd/mm/aaaa');
-                  novaCelula.appendChild(inputText);
-                  inputText.addEventListener('change', function () {
-                      validacaoData(this);
-                  });
-              }
-              if (i == 0 || i == 2) {
-                  var inputSelect = document.createElement('select');
-                  inputSelect.style.fontSize = 'small';
-                  inputSelect.classList.add('form-select', 'form-select-sm', 'text-center');
-                  inputSelect.setAttribute('required', 'true');
-                  novaCelula.appendChild(inputSelect);
-                  if (i == 0) {
-                      for (let i = 0; i < optionValueTipoCredito.length && i < optionTextTipoCredito.length; i++) {
-                          let option = document.createElement('option');
-                          option.value = optionValueTipoCredito[i];
-                          option.text = optionTextTipoCredito[i];
-                          inputSelect.appendChild(option);
-                      }
-                  }
-                  if (i == 2) {
-                      for (let i = 0; i < optionValueAliquota.length && i < optionTextAliquota.length; i++) {
-                          let option = document.createElement('option');
-                          option.value = optionValueAliquota[i];
-                          option.text = optionTextAliquota[i];
-                          inputSelect.appendChild(option);
-                      }
-                  }
-              }
-              if (i == 5) {
-                  const btnExcluir = document.createElement('button');
-                  btnExcluir.classList.add('btn', 'btn-close', 'text-bg-danger');
-                  novaCelula.appendChild(btnExcluir);
-                  btnExcluir.addEventListener('click', function () {
-                      excluirLinha(this);
-                  });
-              }
-
-              // Adiciona a nova linha ao array de registros manuais
-              registrosManuais.push(novaLinha);
-          }
-      }
-
-      // ADICIONA LINHA NA TABELA CREDITO DE TERCEIROS
-      
-      function incluirNovoCreditoTerceiros() {
-          // Adiciona uma nova linha em branco à tabela
-          var novaLinha = tabelaTerceirosBody.insertRow(-1);
-
-          // Adiciona células à nova linha
-          for (var i = 0; i < 7; i++) {
-              var novaCelula = novaLinha.insertCell(i);
-              novaCelula.classList.add('p-1', 'text-center');
-
-              // Se não for a última célula, adicionar um campo de texto
-              if (i == 0) {
-                novaCelula.classList.add('col-2');
-                let inputContainer = document.createElement('div');
-                let inputText = document.createElement('input');
-                inputContainer.classList.add('br-input', 'small');
-                inputText.type = 'text';
-                inputText.classList.add('text-center', 'p-1', 'text-down-01')
-                inputText.setAttribute('contenteditable', 'true');
-                inputText.setAttribute('required', 'true');
-                inputText.setAttribute('minlength', '14');
-                inputContainer.appendChild(inputText);
-                novaCelula.appendChild(inputContainer);
-                inputText.addEventListener('change', function () {
-                    validarCNPJ(this);
+                // Ajusta o espaçamento dos títulos
+                var titulos = novaLinha.querySelectorAll('td');
+                titulos.forEach(function(titulo) {
+                    titulo.style.padding = "5px"; // Espaçamento interno dos títulos
                 });
-              }
-              if (i == 2 || i == 4) {
-                novaCelula.classList.add('col-2');
-                let inputContainer = document.createElement('div');
-                let inputText = document.createElement('input');
-                inputContainer.classList.add('br-input', 'small');
-                inputText.type = 'text';
-                inputText.classList.add('text-center', 'p-1', 'text-down-01')
-                inputText.setAttribute('contenteditable', 'true');
-                inputText.setAttribute('required', 'true');
-                inputContainer.appendChild(inputText);
-                novaCelula.appendChild(inputContainer);
-                  inputText.addEventListener('input', function () {
-                      validarValor(this);
-                  });
-              }
-              if (i == 5) {
-                novaCelula.classList.add('col-2');
-                let inputContainer = document.createElement('div');
-                let inputText = document.createElement('input');
-                inputContainer.classList.add('br-input', 'small');
-                inputText.type = 'text';
-                inputText.classList.add('text-center', 'p-1', 'text-down-01')
-                inputText.setAttribute('contenteditable', 'true');
-                inputText.setAttribute('required', 'true');
-                inputText.setAttribute('placeholder', 'dd/mm/aaaa');
-                inputContainer.appendChild(inputText);
-                novaCelula.appendChild(inputContainer);
-                inputText.addEventListener('change', function () {
-                    validacaoData(this);
+
+                // Ajusta o espaçamento entre os campos
+                var campos = [tipoDeclaracao, dataEntrega, cpfCnpjDebito, numeroProcesso, codigoReceita, periodoApuracao, vencimentoTributo, valorDebito, cibCnoCnpjPrestador, acoes];
+                campos.forEach(function(elemento) {
+                    elemento.style.padding = "5px"; // Espaçamento interno dos campos
                 });
-              }
-              if (i == 6) {
-                novaCelula.classList.add('col-1');
-                let btnExcluir = document.createElement('button');
-                let iconeLixeira = document.createElement('i');
-                btnExcluir.classList.add('br-button', 'p-1');
-                iconeLixeira.classList.add('fa', 'fa-trash-alt');
-                btnExcluir.appendChild(iconeLixeira);
-                novaCelula.appendChild(btnExcluir);
-                btnExcluir.addEventListener('click', function () {
-                    excluirLinha(this);
+
+                // Adiciona evento de clique ao botão de exclusão de linha
+                var btnExcluirLinha = novaLinha.querySelector('#btnExcluirLinha');
+                btnExcluirLinha.onclick = function() {
+                    // Remove a linha correspondente ao botão de exclusão
+                    novaLinha.remove();
+
+                    // Verifica se todas as linhas foram removidas e ajusta a margem esquerda da tabela
+                    if (document.querySelectorAll('#tabelaDebitosBody tr').length === 0) {
+                        var tabela = document.getElementById('tabelaDebitos');
+                        tabela.style.marginLeft = "-5px"; // Volta à margem padrão
+                    }
+                };
+
+                // Ajusta a margem esquerda da tabela após adicionar uma nova linha
+                var tabela = document.getElementById('tabelaDebitos');
+                tabela.style.marginLeft = "-5px"; // Ajusta a margem esquerda
+            })
+            .catch(error => {
+                console.error('Erro ao carregar o arquivo tabela_debitos_autorregularizar.html:', error);
+            });
+
+        // Adiciona a nova linha ao array de registros manuais
+        registrosManuais.push(novaLinha);
+    }
+
+    // Selecionar o botão pelo ID e anexar o evento onclick
+    document.getElementById("btnIncluirNovoDebito").onclick = incluirNovoDebito;
+
+
+
+
+     // ADICIONA LINHA NA TABELA CREDITO DE TERCEIROS
+     function incluirNovoCreditoTerceiros() {
+        // Cria uma nova linha de tabela
+        var novaLinha = document.createElement('tr');
+
+        // Carrega o conteúdo do arquivo tabela_debitos_autorregularizar.html
+        fetch('./tabela_creditos_terceiros/tabela_creditos_terceiros.html')
+            .then(response => response.text())
+            .then(html => {
+                // Insere o HTML carregado na nova linha
+                novaLinha.innerHTML = html;
+
+                // Seleciona os elementos dentro da nova linha pelo ID
+                var cnpjCreditoTerceiros = novaLinha.querySelector('#cnpjCreditoTerceiros');
+                var tipoCreditoTerceiros = novaLinha.querySelector('#tipoCreditoTerceiros');
+                var montanteCreditoTerceiros = novaLinha.querySelector('#montanteCreditoTerceiros');
+                var aliquotaCreditoTerceiros = novaLinha.querySelector('#aliquotaCreditoTerceiros');
+                var valorCreditoTerceiros = novaLinha.querySelector('#valorCreditoTerceiros');
+                var dataEntregaCreditoTerceiros = novaLinha.querySelector('#dataEntregaCreditoTerceiros');
+                var acoes = novaLinha.querySelector('#acoes');
+
+                // Remove a primeira célula vazia
+                novaLinha.removeChild(novaLinha.firstChild);
+
+                // Insere a linha de campos abaixo dos títulos
+                document.getElementById('tabelaTerceirosBody').appendChild(novaLinha);
+
+                // Ajusta o espaçamento dos títulos
+                var titulos = novaLinha.querySelectorAll('td');
+                titulos.forEach(function(titulo) {
+                    titulo.style.padding = "auto"; // Espaçamento interno dos títulos
                 });
-              }
-              if (i == 1 || i == 3) {
-                  let inputSelect = document.createElement('select');
-                  inputSelect.classList.add('text-center', 'p-1', 'br-select');
-                  inputSelect.setAttribute('required', 'true');
-                  novaCelula.appendChild(inputSelect);
-                  if (i == 1) {
-                    novaCelula.classList.add('col-2');
-                      for (let i = 0; i < optionValueTipoCredito.length && i < optionTextTipoCredito.length; i++) {
-                        let option = document.createElement('option');
-                        option.value = optionValueTipoCredito[i];
-                        option.text = optionTextTipoCredito[i];
-                        inputSelect.appendChild(option);
-                      }
-                      inputSelect.addEventListener('change', function () {
-                        alteraConteudoOptionsAliquota(this);
-                      });
-                  }
-                  if (i == 3) {
-                      // inicia o select com aliquotas de PF
-                      novaCelula.classList.add('col-1');
-                      for (let i = 0; i < optionAliquotaPF.length; i++) {
-                        let option = document.createElement('option');
-                        option.value = optionAliquotaPF[i];
-                        option.text = optionAliquotaPF[i];
-                        inputSelect.appendChild(option);
-                      }
-                  }
-              }
 
-              // Adiciona a nova linha ao array de registros manuais
-              registrosManuais.push(novaLinha);
-              
-          }
-      }
-
-      // Selecionar o botão pelo ID e anexar o evento onclick
-      document.getElementById("btnIncluirCreditoTerceiros").onclick = incluirNovoCreditoTerceiros;
-
-      console.log("Botão 'Incluir novo crédito' clicado!");
-
-      // ADICIONA LINHA NA TABELA CREDITO DE TERCEIROS
-      function incluirNovoPrecatorio() {
-          // Adiciona uma nova linha em branco à tabela
-          var novaLinha = tabelaPrecatoriosBody.insertRow(-1);
-
-          // Adiciona células à nova linha
-          for (var i = 0; i < 6; i++) {
-              var novaCelula = novaLinha.insertCell(i);
-              novaCelula.classList.add('p-1', 'text-center');
-
-              // Se não for a última célula, adicionar um campo de texto
-              if (i == 0 || i == 1) {
-                let inputContainer = document.createElement('div');
-                let inputText = document.createElement('input');
-                inputContainer.classList.add('br-input', 'small');
-                inputText.type = 'text';
-                inputText.classList.add('text-center', 'p-1', 'text-down-01')
-                inputText.setAttribute('contenteditable', 'true');
-                inputText.setAttribute('required', 'true');
-                inputText.setAttribute('minlength', '14');
-                inputContainer.appendChild(inputText);
-                novaCelula.appendChild(inputContainer);
-                inputText.addEventListener('change', function () {
-                    somenteDigitos(this);
+                // Ajusta o espaçamento entre os campos
+                var campos = [cnpjCreditoTerceiros, tipoCreditoTerceiros, montanteCreditoTerceiros, aliquotaCreditoTerceiros, valorCreditoTerceiros, dataEntregaCreditoTerceiros, acoes];
+                campos.forEach(function(elemento) {
+                    elemento.style.padding = "auto"; // Espaçamento interno dos campos
                 });
-              }
-              if (i == 4) {
-                let inputContainer = document.createElement('div');
-                let inputText = document.createElement('input');
-                inputContainer.classList.add('br-input', 'small');
-                inputText.type = 'text';
-                inputText.classList.add('text-center', 'p-1', 'text-down-01')
-                inputText.setAttribute('contenteditable', 'true');
-                inputText.setAttribute('required', 'true');
-                inputText.setAttribute('minlength', '14');
-                inputContainer.appendChild(inputText);
-                novaCelula.appendChild(inputContainer);
-                inputText.addEventListener('input', function () {
-                    validarValor(this);
-                });
-              }
-              if (i == 5) {
-                let btnExcluir = document.createElement('button');
-                let iconeLixeira = document.createElement('i');
-                btnExcluir.classList.add('br-button', 'p-1');
-                iconeLixeira.classList.add('fa', 'fa-trash-alt');
-                btnExcluir.appendChild(iconeLixeira);
-                novaCelula.appendChild(btnExcluir);
-                btnExcluir.addEventListener('click', function () {
-                    excluirLinha(this);
-                });
-              }
-              if (i == 2 || i == 3) {
-                let inputContainer = document.createElement('div');
-                let inputText = document.createElement('input');
-                inputContainer.classList.add('br-input', 'small');
-                inputText.type = 'text';
-                inputText.classList.add('text-center', 'p-1', 'text-down-01')
-                inputText.setAttribute('contenteditable', 'true');
-                inputText.setAttribute('required', 'true');
-                inputText.setAttribute('placeholder', 'dd/mm/aaaa');
-                inputContainer.appendChild(inputText);
-                novaCelula.appendChild(inputContainer);
-                inputText.addEventListener('change', function () {
-                    validacaoData(this);
-                });
-              }
 
-              // Adiciona a nova linha ao array de registros manuais
-              registrosManuais.push(novaLinha);
-          }
-      }
+                // Adiciona evento de clique ao botão de exclusão de linha
+                var btnExcluirLinha = novaLinha.querySelector('#btnExcluirLinha');
+                btnExcluirLinha.onclick = function() {
+                    // Remove a linha correspondente ao botão de exclusão
+                    novaLinha.remove();
 
-      // Selecionar o botão pelo ID e anexar o evento onclick
-      document.getElementById("btnIncluirNovoPrecatorio").onclick = incluirNovoPrecatorio;
+                    // Verifica se todas as linhas foram removidas e ajusta a margem esquerda da tabela
+                    if (document.querySelectorAll('#tabelaTerceirosBody tr').length === 0) {
+                        var tabela = document.getElementById('tabelaTerceiros');
+                        tabela.style.marginLeft = "auto"; // Volta à margem padrão
+                    }
+                };
 
-      console.log("Botão 'Incluir Novo Precatorio' clicado!");
+                // Ajusta a margem esquerda da tabela após adicionar uma nova linha
+                var tabela = document.getElementById('tabelaTerceiros');
+                tabela.style.marginLeft = "auto"; // Ajusta a margem esquerda
+            })
+            .catch(error => {
+                console.error('Erro ao carregar o arquivo tabela_creditos_terceiros.html:', error);
+            });
+
+        // Adiciona a nova linha ao array de registros manuais
+        registrosManuais.push(novaLinha);
+    }
+
+    // Selecionar o botão pelo ID e anexar o evento onclick
+    document.getElementById("btnIncluirCreditoTerceiros").onclick = incluirNovoCreditoTerceiros;
+
+
+
+        // ADICIONA LINHA NA TABELA CREDITO DE TERCEIROS
+     function incluirNovoPrecatorio() {
+        // Cria uma nova linha de tabela
+        var novaLinha = document.createElement('tr');
+
+        // Carrega o conteúdo do arquivo tabela_debitos_autorregularizar.html
+        fetch('./tabela_precatorios/tabela_precatorios.html')
+            .then(response => response.text())
+            .then(html => {
+                // Insere o HTML carregado na nova linha
+                novaLinha.innerHTML = html;
+
+                // Seleciona os elementos dentro da nova linha pelo ID
+                var numeroPrecatorio = novaLinha.querySelector('#numeroPrecatorio');
+                var numeroRequisicaoPagamentoPrecatorio = novaLinha.querySelector('#numeroRequisicaoPagamentoPrecatorio');
+                var dataRequisicaoPrecatorio = novaLinha.querySelector('#dataRequisicaoPrecatorio');
+                var dataVencimentoPrecatorio = novaLinha.querySelector('#dataVencimentoPrecatorio');
+                var valorPrecatorio = novaLinha.querySelector('#valorPrecatorio');
+                var acoes = novaLinha.querySelector('#acoes');
+
+                // Remove a primeira célula vazia
+                novaLinha.removeChild(novaLinha.firstChild);
+
+                // Insere a linha de campos abaixo dos títulos
+                document.getElementById('tabelaPrecatoriosBody').appendChild(novaLinha);
+
+                // Ajusta o espaçamento dos títulos
+                var titulos = novaLinha.querySelectorAll('td');
+                titulos.forEach(function(titulo) {
+                    titulo.style.padding = "auto"; // Espaçamento interno dos títulos
+                });
+
+                // Ajusta o espaçamento entre os campos
+                var campos = [numeroPrecatorio, numeroRequisicaoPagamentoPrecatorio, dataRequisicaoPrecatorio, dataVencimentoPrecatorio, valorPrecatorio, acoes];
+                campos.forEach(function(elemento) {
+                    elemento.style.padding = "auto"; // Espaçamento interno dos campos
+                });
+
+                // Adiciona evento de clique ao botão de exclusão de linha
+                var btnExcluirLinha = novaLinha.querySelector('#btnExcluirLinha');
+                btnExcluirLinha.onclick = function() {
+                    // Remove a linha correspondente ao botão de exclusão
+                    novaLinha.remove();
+
+                    // Verifica se todas as linhas foram removidas e ajusta a margem esquerda da tabela
+                    if (document.querySelectorAll('#tabelaPrecatoriosBody tr').length === 0) {
+                        var tabela = document.getElementById('tabelaPrecatorios');
+                        tabela.style.marginLeft = "auto"; // Volta à margem padrão
+                    }
+                };
+
+                // Ajusta a margem esquerda da tabela após adicionar uma nova linha
+                var tabela = document.getElementById('tabelaPrecatorios');
+                tabela.style.marginLeft = "auto"; // Ajusta a margem esquerda
+            })
+            .catch(error => {
+                console.error('Erro ao carregar o arquivo tabela_precatorios.html:', error);
+            });
+
+        // Adiciona a nova linha ao array de registros manuais
+        registrosManuais.push(novaLinha);
+    }
+
+    // Selecionar o botão pelo ID e anexar o evento onclick
+    document.getElementById("btnIncluirNovoPrecatorio").onclick = incluirNovoPrecatorio;
+
+
+
 
       // LIMPA CONTEUDO DA LINHA
       function limpaConteudoLinha(linha, colunasNaoAlterar){
@@ -981,13 +847,6 @@ document.getElementById("incluirNovoDebito").onclick = incluirNovoDebito;
           }
       }
 
-      function excluirLinha(botao) {
-          const linha = botao.closest('tr'); // Encontra a linha mais próxima do botão clicado
-          if (linha) {
-              linha.remove(); // Remove a linha
-          }
-      }
-
       function gerarJSON() {
           const tabelas = ['tabelaDebitosPrint', 'tabelaPropriosPrint', 'tabelaTerceirosPrint', 'tabelaPrecatoriosPrint'];
           const jsonData = {};
@@ -1042,3 +901,5 @@ document.getElementById("incluirNovoDebito").onclick = incluirNovoDebito;
             limparTabela();
         });
 
+        
+        

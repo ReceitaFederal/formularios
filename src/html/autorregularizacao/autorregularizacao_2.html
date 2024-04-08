@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="./bibliotecas/govbr-ds/core-lite.css" />
 
     <!--- Design próprio CSS -->
-    <link rel="stylesheet" href="./css/design.css" />
+    <link rel="stylesheet" href="./design_autorregularizacao.css" />
 
     <!--- Ícones Font Awesome - Versão 6.5.1 -->
     <link rel="stylesheet" href="./icones/css/fontawesome.css" />
@@ -56,16 +56,16 @@
                     <table id="tabelaDebitos">
                       <thead>
                         <tr>
-                          <th id="tituloTipoDeclaracao" class="text-center text-up-01">Tipo de declaração</th>
-                          <th id="tituloDataEntrega" class="text-center text-up-01">Data da entrega</th>
-                          <th id="tituloCpfCnpjDebito" class="text-center text-up-01">CPF/CNPJ do débito</th>
-                          <th id="tituloNumeroProcesso" class="text-center text-up-01">Nº do processo DEBCAD</th>
-                          <th id="tituloCodigoReceita" class="text-center text-up-01">Código receita</th>
-                          <th id="tituloPeriodoApuracao" class="text-center text-up-01">Período de apuração</th>
-                          <th id="tituloVencimentoTributo" class="text-center text-up-01">Vencimento do tributo</th>
-                          <th id="tituloValorDebito" class="text-center text-up-01">Valor (R$)</th>
-                          <th id="tituloCibCnoCnpjPrestador" class="text-center text-up-01">CIB/CNO/CNPJ Prestador</th>
-                          <th id="tituloAcoes" class="text-center text-up-01">Ações</th>
+                          <th id="tituloTipoDeclaracao" class="text-center">Tipo de declaração</th>
+                          <th id="tituloDataEntrega" class="text-center">Data da entrega</th>
+                          <th id="tituloCpfCnpjDebito" class="text-center">CPF/CNPJ do débito</th>
+                          <th id="tituloNumeroProcesso" class="text-center">Nº do processo DEBCAD</th>
+                          <th id="tituloCodigoReceita" class="text-center">Código receita</th>
+                          <th id="tituloPeriodoApuracao" class="text-center">Período de apuração</th>
+                          <th id="tituloVencimentoTributo" class="text-center">Vencimento do tributo</th>
+                          <th id="tituloValorDebito" class="text-center ">Valor (R$)</th>
+                          <th id="tituloCibCnoCnpjPrestador" class="text-center ">CIB/CNO/CNPJ Prestador</th>
+                          <th id="tituloAcoes" class="text-center ">Ações</th>
                         </tr>
                       </thead>
                       <tbody id="tabelaDebitosBody">
@@ -74,15 +74,16 @@
 
                     <!--BOTÕES ADICIONAR DEBITO-->
                     <div id="btnDebito" class="text-center my-5 esconder">
-                      <button id="incluirNovoDebito" class="br-button secondary mr-3">Incluir novo débito</button>
+                      <button id="btnIncluirNovoDebito" class="br-button secondary mr-3">Incluir novo débito</button>
                     </div>
 
                   </div>
-
                 </div>
 
+                <!--FIM DA SECAO DEBITOS A AUTORREGULARIZAR-->
+
                 <!--SECAO CREDITOS PROPRIOS-->
-                <div id="proprios" class="mt-10x">
+                <div id="proprios" style="margin-top: 85px;">
                   <div class="text-center">
                     <h2>Créditos de Prejuízo Fiscal (PF) e Base de Cálculo Negativa da CSLL (BCN)</h2>
                     <h4>Próprios</h4>
@@ -105,20 +106,20 @@
                                 <td class="text-center p-1">Prejuízo Fiscal (PF)</td>
                                 <td class="text-center p-1">
                                   <div class="br-input small">
-                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" id="validarValor">
+                                    <input id="validarValor" class="text-center p-1 text-down-01" type="number" placeholder="R$" required="true" contenteditable="true">
                                   </div>
                                 <td class="text-center p-1">
                                   <div class="br-input small">
-                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" value="25%" disabled style="opacity: 1;">
+                                    <input class="text-center" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="25%" disabled style="opacity: 1;">
                                   </div>
                                 <td class="text-center p-1">
                                   <div class="br-input small">
-                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" id="validarValor">
+                                    <input id="validarValor" class="text-center p-1 text-down-01" type="number" placeholder="R$" contenteditable="true" required="true">
                                   </div>
                                 </td>
                                 <td class="text-center p-1">
                                   <div class="br-input small">
-                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" placeholder="dd/mm/aaaa" id="validacaoData">
+                                    <input id="validacaoData" class="text-center" style="font-size: 15px;" type="date" contenteditable="true" required="true" placeholder="dd/mm/aaaa">
                                   </div>
                                 </td>
                             </tr>
@@ -126,24 +127,46 @@
                                 <td class="text-center p-1">Base de Cálculo Negativa (BCN) da CSLL</td>
                                 <td class="text-center p-1">
                                   <div class="br-input small">
-                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" id="validarValor">
+                                    <input type="number" class="text-center p-1 text-down-01" placeholder="R$" contenteditable="true" required="true" id="validarValor">
                                   </div>
                                 </td>
-                                <td class="text-center p-1">
-                                  <select class="br-select text-center input col-1" required="true">
-                                    <option value="9%">9%</option>
-                                    <option value="15%">15%</option>
-                                    <option value="20%">20%</option>
-                                  </select>
+                              <td class="text-center p-1">
+                                <div class="br-select">
+                                    <div class="br-input small">
+                                      <input id="select-simple" class="text-center" type="text" placeholder="Selecione a alíquota"/>
+                                      <button class="br-button" type="button" aria-label="Exibir lista" tabindex="-1" data-trigger="data-trigger"><i class="fas fa-angle-down" aria-hidden="true"></i>
+                                      </button>
+                                    </div>
+                                    <div class="br-list" tabindex="0">
+                                      <div class="br-item" tabindex="-1">
+                                        <div class="br-radio">
+                                          <input id="rb0" type="radio" name="estados-simples" value="rb0"/>
+                                          <label class="text-center" for="rb0">9%</label>
+                                        </div>
+                                      </div>
+                                      <div class="br-item" tabindex="-1">
+                                        <div class="br-radio">
+                                          <input id="rb1" type="radio" name="estados-simples" value="rb1"/>
+                                          <label class="text-center" for="rb1">15%</label>
+                                        </div>
+                                      </div>
+                                      <div class="br-item" tabindex="-1">
+                                        <div class="br-radio">
+                                          <input id="rb2" type="radio" name="estados-simples" value="rb2"/>
+                                          <label class="text-center" for="rb2">20%</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>    
                                 </td>
                                 <td class="text-center p-1">
                                   <div class="br-input small">
-                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" id="validarValor">
+                                    <input type="number" class="text-center p-1 text-down-01" placeholder="R$" contenteditable="true" required="true" id="validarValor">
                                   </div>
-                              </td>
+                                </td>
                                 <td class="text-center p-1">
                                   <div class="br-input small">
-                                    <input type="text" class="text-center p-1 text-down-01" contenteditable="true" required="true" placeholder="dd/mm/aaaa" id="validacaoData">
+                                    <input id="validacaoData" class="text-center" style="font-size: 15px;" type="date" contenteditable="true" required="true" placeholder="dd/mm/aaaa">
                                   </div>
                                 </td>
                             </tr>
@@ -152,9 +175,11 @@
                     </table>
                   </div>
                 </div>
+                <!--FIM DA SECAO CREDITOS PROPRIOS-->
+
 
                 <!--SECAO CREDITOS DE TERCEIROS-->
-                <div id="terceiros" class="mt-10x">
+                <div id="terceiros" style="margin-top: 85px;">
                   <div class="text-center">
                     <h2>Créditos de Prejuízo Fiscal (PF) e Base de Cálculo Negativa da CSLL (BCN)</h2>
                     <h4>Terceiros</h4>
@@ -165,13 +190,13 @@
                     <table id="tabelaTerceiros" class="table container text-center">
                         <thead>
                             <tr>
-                                <th class="text-center text-up-01 col-2">CNPJ</th>
-                                <th class="text-center text-up-01 col-2">Tipo</th>
-                                <th class="text-center text-up-01 col-2">Montante (R$)</th>
-                                <th class="text-center text-up-01 col-1">Alíquota</th>
-                                <th class="text-center text-up-01 col-2">Valor (R$)</th>
-                                <th class="text-center text-up-01 col-2">Data entrega ECF</th>
-                                <th class="text-center text-up-01 col-1">Ações</th>
+                                <th id="tituloCnpjCreditoTerceiros" class="text-center text-up-01 col-2">CNPJ</th>
+                                <th id="tituloTipoCreditoTerceiros" class="text-center text-up-01 col-2">Tipo</th>
+                                <th id="tituloMontanteCreditoTerceiros" class="text-center text-up-01 col-2">Montante (R$)</th>
+                                <th id="tituloAliquotaCreditoTerceiros" class="text-center text-up-01 col-1">Alíquota</th>
+                                <th id="tituloValorCreditoTerceiros" class="text-center text-up-01 col-2">Valor (R$)</th>
+                                <th id="tituloDataEntregaCreditoTerceiros" class="text-center text-up-01 col-2">Data entrega ECF</th>
+                                <th id="tituloAcoes" class="text-center text-up-01 col-1">Ações</th>
                             </tr>
                         </thead>
                         <tbody id="tabelaTerceirosBody"></tbody>
@@ -186,7 +211,7 @@
                 </div>
 
                 <!--SECAO DE PRECATORIOS-->
-                <div id="precatorios" class="mt-10x">
+                <div id="precatorios" style="margin-top: 85px;">
                   <div class="text-center">
                     <h2>Precatórios</h2>
                   </div>
@@ -194,11 +219,11 @@
                     <table id="tabelaPrecatorios" class="table container text-center">
                         <thead>
                             <tr>
-                                <th class="text-center text-up-01">Nº do precatório</th>
-                                <th class="text-center text-up-01">Nº da requisição de pagamento</th>
-                                <th class="text-center text-up-01">Data da requisição</th>
-                                <th class="text-center text-up-01">Vencimento</th>
-                                <th class="text-center text-up-01">Valor (R$)</th>
+                                <th id="tituloNumeroPrecatorio" class="text-center text-up-01">Nº do precatório</th>
+                                <th id="tituloNumeroRequisicaoPagamentoPrecatorio" class="text-center text-up-01">Nº da requisição de pagamento</th>
+                                <th id="tituloDataRequisicaoPrecatorio" class="text-center text-up-01">Data da requisição</th>
+                                <th id="tituloDataVencimentoPrecatorio" class="text-center text-up-01">Vencimento</th>
+                                <th id="tituloValorPrecatorio" class="text-center text-up-01">Valor (R$)</th>
                                 <th class="text-center text-up-01">Ações</th>
                             </tr>
                         </thead>
@@ -307,13 +332,13 @@
                       <table id="tabelaTerceirosPrint" class="table container text-center">
                           <thead>
                               <tr>
-                                  <th class="text-center p-1">CNPJ</th>
-                                  <th class="text-center p-1">Tipo</th>
-                                  <th class="text-center p-1">Montante (R$)</th>
-                                  <th class="text-center p-1">Alíquota</th>
-                                  <th class="text-center p-1">Valor (R$)s</th>
-                                  <th class="text-center p-1">Data entrega ECF</th>
-                                  <th class="text-center p-1">Ações</th>
+                                  <th id="tituloCnpjCreditoTerceiros" class="text-center p-1">CNPJ</th>
+                                  <th id="tituloTipoCreditoTerceiros" class="text-center p-1">Tipo</th>
+                                  <th id="tituloMontanteCreditoTerceiros" class="text-center p-1">Montante (R$)</th>
+                                  <th id="tituloAliquotaCreditoTerceiros" class="text-center p-1">Alíquota</th>
+                                  <th id="tituloValorCreditoTerceiros" class="text-center p-1">Valor (R$)s</th>
+                                  <th id="tituloDataEntregaCreditoTerceiros" class="text-center p-1">Data entrega ECF</th>
+                                  <th id="tituloAcoes" class="text-center p-1">Ações</th>
                               </tr>
                           </thead>
                           <tbody id="tabelaTerceirosPrintBody"></tbody>
@@ -370,7 +395,7 @@
     <script src="./js/main.js" type="module"></script>
     <script src="./bibliotecas/govbr-ds/core.js" type="module"></script>
     <script src="./bibliotecas/govbr-ds/core.min.js" type="module"></script>
-    <script src="./tabela_debitos_autorregularizar.js" type="module"></script>
+    <script src="./tabela_debitos_autorregularizar/tabela_debitos_autorregularizar.js" type="module"></script>
     <script src="./js/select.js" type="module"></script>
 
   </body>
