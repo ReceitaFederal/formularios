@@ -173,9 +173,31 @@ var valido = false;
       }
 
     
+    // Função para inicializar os componentes de lista suspensa conforme o padrão do design system
+    function inicializarSelectsPadraoDesignSystem(novaLinha) {
+        const notFoundElement = `
+        <div class="br-item not-found">
+        <div class="container">
+        <div class="row">
+            <div class="col">
+            <p><strong>Ops!</strong> Não encontramos o que você está procurando!</p>
+            </div>
+        </div>
+        </div>
+        </div>
+        `;
+        const selectList = [];
+        
+        // Itera sobre cada select dentro da nova linha
+        novaLinha.querySelectorAll('.br-select').forEach(function(brSelect) {
+            const brselect = new core.BRSelect('br-select', brSelect, notFoundElement);
+            brSelect.addEventListener('onChange', function (e) {
+                // Seu código de manipulação de evento aqui
+            });
+            selectList.push(brselect);
+        });
+    }
 
-        
-        
     // ADICIONA LINHA NA TABELA DEBITOS
     function incluirNovoDebito() {
         // Cria uma nova linha de tabela
@@ -188,34 +210,16 @@ var valido = false;
                 // Insere o HTML carregado na nova linha
                 novaLinha.innerHTML = html;
 
-                // Seleciona os elementos dentro da nova linha pelo ID
-                var tipoDeclaracao = novaLinha.querySelector('#tipoDeclaracao');
-                var dataEntrega = novaLinha.querySelector('#dataEntrega');
-                var cpfCnpjDebito = novaLinha.querySelector('#cpfCnpjDebito');
-                var numeroProcesso = novaLinha.querySelector('#numeroProcesso');
-                var codigoReceita = novaLinha.querySelector('#codigoReceita');
-                var periodoApuracao = novaLinha.querySelector('#periodoApuracao');
-                var vencimentoTributo = novaLinha.querySelector('#vencimentoTributo');
-                var valorDebito = novaLinha.querySelector('#valorDebito');
-                var cibCnoCnpjPrestador = novaLinha.querySelector('#cibCnoCnpjPrestador');
-                var acoes = novaLinha.querySelector('#acoes');
-
                 // Remove a primeira célula vazia
                 novaLinha.removeChild(novaLinha.firstChild);
 
                 // Insere a linha de campos abaixo dos títulos
                 document.getElementById('tabelaDebitosBody').appendChild(novaLinha);
 
-                // Ajusta o espaçamento dos títulos
-                var titulos = novaLinha.querySelectorAll('td');
-                titulos.forEach(function(titulo) {
-                    titulo.style.padding = "5px"; // Espaçamento interno dos títulos
-                });
-
-                // Ajusta o espaçamento entre os campos
-                var campos = [tipoDeclaracao, dataEntrega, cpfCnpjDebito, numeroProcesso, codigoReceita, periodoApuracao, vencimentoTributo, valorDebito, cibCnoCnpjPrestador, acoes];
-                campos.forEach(function(elemento) {
-                    elemento.style.padding = "5px"; // Espaçamento interno dos campos
+                // Ajusta o espaçamento dos títulos e campos
+                var titulosCampos = novaLinha.querySelectorAll('td');
+                titulosCampos.forEach(function(elemento) {
+                    elemento.style.padding = "5px"; // Espaçamento interno dos títulos e campos
                 });
 
                 // Adiciona evento de clique ao botão de exclusão de linha
@@ -234,6 +238,9 @@ var valido = false;
                 // Ajusta a margem esquerda da tabela após adicionar uma nova linha
                 var tabela = document.getElementById('tabelaDebitos');
                 tabela.style.marginLeft = "-5px"; // Ajusta a margem esquerda
+
+                // Inicializa os selects conforme o padrão do design system após adicionar uma nova linha
+                inicializarSelectsPadraoDesignSystem(novaLinha);
             })
             .catch(error => {
                 console.error('Erro ao carregar o arquivo tabela_debitos_autorregularizar.html:', error);
@@ -245,6 +252,7 @@ var valido = false;
 
     // Selecionar o botão pelo ID e anexar o evento onclick
     document.getElementById("btnIncluirNovoDebito").onclick = incluirNovoDebito;
+
 
 
 
@@ -304,6 +312,9 @@ var valido = false;
                 // Ajusta a margem esquerda da tabela após adicionar uma nova linha
                 var tabela = document.getElementById('tabelaTerceiros');
                 tabela.style.marginLeft = "auto"; // Ajusta a margem esquerda
+
+                // Inicializa os selects conforme o padrão do design system após adicionar uma nova linha
+                inicializarSelectsPadraoDesignSystem(novaLinha);
             })
             .catch(error => {
                 console.error('Erro ao carregar o arquivo tabela_creditos_terceiros.html:', error);
