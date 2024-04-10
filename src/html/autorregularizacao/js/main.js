@@ -174,84 +174,96 @@ var valido = false;
 
     
     // Função para inicializar os componentes de lista suspensa conforme o padrão do design system
-    function inicializarSelectsPadraoDesignSystem(novaLinha) {
-        const notFoundElement = `
-        <div class="br-item not-found">
-        <div class="container">
-        <div class="row">
-            <div class="col">
-            <p><strong>Ops!</strong> Não encontramos o que você está procurando!</p>
-            </div>
+function inicializarSelectsPadraoDesignSystem(novaLinha) {
+    const notFoundElement = `
+    <div class="br-item not-found">
+    <div class="container">
+    <div class="row">
+        <div class="col">
+        <p><strong>Ops!</strong> Não encontramos o que você está procurando!</p>
         </div>
-        </div>
-        </div>
-        `;
-        const selectList = [];
-        
-        // Itera sobre cada select dentro da nova linha
-        novaLinha.querySelectorAll('.br-select').forEach(function(brSelect) {
-            const brselect = new core.BRSelect('br-select', brSelect, notFoundElement);
-            brSelect.addEventListener('onChange', function (e) {
-                // Seu código de manipulação de evento aqui
-            });
-            selectList.push(brselect);
+    </div>
+    </div>
+    </div>
+    `;
+
+    // Itera sobre cada select dentro da nova linha
+    novaLinha.querySelectorAll('.br-select').forEach(function(brSelect) {
+        const brselect = new core.BRSelect('br-select', brSelect, notFoundElement);
+        brSelect.addEventListener('onChange', function (e) {
+            // Seu código de manipulação de evento aqui
         });
-    }
+    });
+}
 
-    // ADICIONA LINHA NA TABELA DEBITOS
-    function incluirNovoDebito() {
-        // Cria uma nova linha de tabela
-        var novaLinha = document.createElement('tr');
+// ADICIONA LINHA NA TABELA DEBITOS
+function incluirNovoDebito() {
+    // Cria uma nova linha de tabela
+    var novaLinha = document.createElement('tr');
 
-        // Carrega o conteúdo do arquivo tabela_debitos_autorregularizar.html
-        fetch('./tabela_debitos_autorregularizar/tabela_debitos_autorregularizar.html')
-            .then(response => response.text())
-            .then(html => {
-                // Insere o HTML carregado na nova linha
-                novaLinha.innerHTML = html;
+    // Carrega o conteúdo do arquivo tabela_debitos_autorregularizar.html
+    fetch('./tabela_debitos_autorregularizar/tabela_debitos_autorregularizar.html')
+        .then(response => response.text())
+        .then(html => {
+            // Insere o HTML carregado na nova linha
+            novaLinha.innerHTML = html;
 
-                // Remove a primeira célula vazia
-                novaLinha.removeChild(novaLinha.firstChild);
+            // Remove a primeira célula vazia
+            novaLinha.removeChild(novaLinha.firstChild);
 
-                // Insere a linha de campos abaixo dos títulos
-                document.getElementById('tabelaDebitosBody').appendChild(novaLinha);
+            // Seleciona os elementos dentro da nova linha pelo ID
+                var tipoDeclaracao = novaLinha.querySelector('#tipoDeclaracao');
+                var dataEntrega = novaLinha.querySelector('#dataEntrega');
+                var cpfCnpjDebito = novaLinha.querySelector('#cpfCnpjDebito');
+                var numeroProcesso = novaLinha.querySelector('#numeroProcesso');
+                var codigoReceita = novaLinha.querySelector('#codigoReceita');
+                var periodoApuracao = novaLinha.querySelector('#periodoApuracao');
+                var vencimentoTributo = novaLinha.querySelector('#vencimentoTributo');
+                var valorDebito = novaLinha.querySelector('#valorDebito');
+                var cibCnoCnpjPrestador = novaLinha.querySelector('#cibCnoCnpjPrestador');
+                var acoes = novaLinha.querySelector('#acoes');
 
-                // Ajusta o espaçamento dos títulos e campos
-                var titulosCampos = novaLinha.querySelectorAll('td');
-                titulosCampos.forEach(function(elemento) {
-                    elemento.style.padding = "5px"; // Espaçamento interno dos títulos e campos
-                });
 
-                // Adiciona evento de clique ao botão de exclusão de linha
-                var btnExcluirLinha = novaLinha.querySelector('#btnExcluirLinha');
-                btnExcluirLinha.onclick = function() {
-                    // Remove a linha correspondente ao botão de exclusão
-                    novaLinha.remove();
+            // Insere a linha de campos abaixo dos títulos
+            document.getElementById('tabelaDebitosBody').appendChild(novaLinha);
 
-                    // Verifica se todas as linhas foram removidas e ajusta a margem esquerda da tabela
-                    if (document.querySelectorAll('#tabelaDebitosBody tr').length === 0) {
-                        var tabela = document.getElementById('tabelaDebitos');
-                        tabela.style.marginLeft = "-5px"; // Volta à margem padrão
-                    }
-                };
-
-                // Ajusta a margem esquerda da tabela após adicionar uma nova linha
-                var tabela = document.getElementById('tabelaDebitos');
-                tabela.style.marginLeft = "-5px"; // Ajusta a margem esquerda
-
-                // Inicializa os selects conforme o padrão do design system após adicionar uma nova linha
-                inicializarSelectsPadraoDesignSystem(novaLinha);
-            })
-            .catch(error => {
-                console.error('Erro ao carregar o arquivo tabela_debitos_autorregularizar.html:', error);
+            // Ajusta o espaçamento dos títulos e campos
+            var titulosCampos = novaLinha.querySelectorAll('td');
+            titulosCampos.forEach(function(elemento) {
+                elemento.style.padding = "5px"; // Espaçamento interno dos títulos e campos
             });
 
-        // Adiciona a nova linha ao array de registros manuais
-        registrosManuais.push(novaLinha);
-    }
+            // Adiciona evento de clique ao botão de exclusão de linha
+            var btnExcluirLinha = novaLinha.querySelector('#btnExcluirLinha');
+            btnExcluirLinha.onclick = function() {
+                // Remove a linha correspondente ao botão de exclusão
+                novaLinha.remove();
 
-    // Selecionar o botão pelo ID e anexar o evento onclick
-    document.getElementById("btnIncluirNovoDebito").onclick = incluirNovoDebito;
+                // Verifica se todas as linhas foram removidas e ajusta a margem esquerda da tabela
+                if (document.querySelectorAll('#tabelaDebitosBody tr').length === 0) {
+                    var tabela = document.getElementById('tabelaDebitos');
+                    tabela.style.marginLeft = "-5px"; // Volta à margem padrão
+                }
+            };
+
+            // Ajusta a margem esquerda da tabela após adicionar uma nova linha
+            var tabela = document.getElementById('tabelaDebitos');
+            tabela.style.marginLeft = "-5px"; // Ajusta a margem esquerda
+
+            // Inicializa os selects conforme o padrão do design system após adicionar uma nova linha
+            inicializarSelectsPadraoDesignSystem(novaLinha);
+        })
+        .catch(error => {
+            console.error('Erro ao carregar o arquivo tabela_debitos_autorregularizar.html:', error);
+        });
+
+    // Adiciona a nova linha ao array de registros manuais
+    registrosManuais.push(novaLinha);
+}
+
+// Selecionar o botão pelo ID e anexar o evento onclick
+document.getElementById("btnIncluirNovoDebito").onclick = incluirNovoDebito;
+
 
 
 
