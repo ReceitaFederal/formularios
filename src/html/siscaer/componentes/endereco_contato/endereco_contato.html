@@ -1,10 +1,11 @@
 <div class="container-xl">
-  <fieldset id="endereco-contato" class="fieldset-border">
+  <fieldset id="endereco" class="fieldset-border">
     <legend class="legend-border" style="color: #337ab7; justify-content: right;">
       <span class="icon" style="color: #337ab7; justify-content: right;">
         <i class="fa-solid fa-address-book" aria-hidden="true"></i>
       </span>Endereço e Contato
     </legend>
+    <template class="endereco">
       
       <div class="row mt-5">
         <div class="col-sm">
@@ -295,8 +296,26 @@
                 </div>
               </fieldset>
             </div>
-   
       </div>
+    </template>
+    <div id="lista_referencia"></div>
+    <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
+      <div class="menu-item divider" href="#" id="adicionar_referencia" role="treeitem">
+        <span class="icon" style="justify-content: right;">
+          <i class="fa fa-plus" arial-hidden="true"></i>
+        </span>
+        <span class="content"></span>
+      </div>
+    </button>
+    <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
+      <div class="menu-item divider" href="#" id="remover_referencia" role="treeitem">
+        <span class="icon" style="justify-content: right;">
+          <i class="fa fa-minus" arial-hidden="true"></i>
+        </span>
+        <span class="content"></span>
+      </div>
+    </button>
+    
       
   </fieldset>
 </div>

@@ -17,12 +17,43 @@ export class Dados_pessoais extends HTMLElement{
 
                 this.appendChild(template.content.cloneNode(true));
 
+                this.adicionar_comportamento()
+                this.adicionar_campo()
+                this.remover_campo()
+
                 
                 this.dispatchEvent(new CustomEvent("carregou"));                
             });
         });
 
+        let linkFonte = document.createElement('link');
+        linkFonte.rel = 'stylesheet'
+        linkFonte.href = '../bibliotecas/Fontes - Rawline/Rawline/';
+        document.head.appendChild(linkFonte)
     }
+
+    adicionar_comportamento() {
+        let adicionar = document.querySelector("#adicionar_campo");
+
+        adicionar.addEventListener("click", (evento) => {
+            evento.preventDefault();
+            console.log("Clicou");
+            this.adicionar_campo
+        });
+    }
+
+    adicionar_campo() {
+        let template = document.querySelector("#dados");
+        let fieldsetdados = document.querySelector("#dados_naturalizados");
+
+        let tituloNaturalizacao = document.createElement("div");
+        let nomeNaturalizacao = `Naturalização ${this.Naturalizacao}`;
+
+    }
+
+
+
+
     
 }
 
