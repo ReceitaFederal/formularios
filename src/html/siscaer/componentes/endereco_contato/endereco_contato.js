@@ -3,6 +3,8 @@ export class Endereco_contato extends HTMLElement{
     constructor(){
         super();
 
+        this.numeroreferencia = 0;
+
         console.log ("Constructor do endereco_contato.js");
 
         console.log(`URL do endereco_contato.js: ${import.meta.url}`)
@@ -42,11 +44,11 @@ export class Endereco_contato extends HTMLElement{
     }
 
     adicionar_referencia() {
-        let template = document.querySelector("#endereco");
+        let template = document.querySelector("#template_endereco");
         let fieldsetendereco = document.querySelector("#lista_referencia");
 
         let tituloendereco = document.createElement("div");
-        let nomeendereco = `referencia ${this.numeroreferencia}`;
+        let nomeendereco = `referência ${this.numeroreferencia}`;
         let primeiroNomeMaiusculo = nomeendereco.charAt(0).toUpperCase() + nomeendereco.slice(1).toLowerCase();
         tituloendereco.textContent = primeiroNomeMaiusculo;
         tituloendereco.style.fontFamily = "Rawline";
@@ -81,6 +83,7 @@ export class Endereco_contato extends HTMLElement{
             }
         })
     }
+
 }
 
 customElements.define('br-endereco_contato', Endereco_contato);
