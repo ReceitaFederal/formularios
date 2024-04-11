@@ -1,12 +1,11 @@
-export class Tabela extends HTMLElement{
+export class LinhaTabelaDebitos extends HTMLElement{
     
     constructor(){
         super();
 
-        console.log ("Constructor da tabela_debitos_autorregularizar.js");
-
-        console.log(`URL dos dados da tabela_debitos_autorregularizar.js: ${import.meta.url}`)
-        fetch('./tabela_debitos_autorregularizar.html').then(resultado => {
+        console.log ("Constructor LinhaTabelaDebitos");
+        
+        fetch('./linha_tabela_debitos/linha_tabela_debitos.html').then(resultado => {
             
 
             resultado.text().then(texto_pagina => {                            
@@ -25,4 +24,4 @@ export class Tabela extends HTMLElement{
 
     }
 }
-customElements.define('br-tabela-debitos-autorregularizar', Tabela);
+customElements.define('br-linha-tabela-debitos', LinhaTabelaDebitos);
