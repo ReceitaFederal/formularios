@@ -43,48 +43,67 @@ export class Endereco_contato extends HTMLElement{
     }
 
     adicionar_referencia() {
+
         let template = document.querySelector("#template_referencia");
-        let fieldsetendereco = document.querySelector("#lista_referencia");
 
-        let tituloendereco = document.createElement("div");
-        let nomeendereco = `referência ${this.numeroreferencia}`;
-        let primeiroNomeMaiusculo = nomeendereco.charAt(0).toUpperCase() + nomeendereco.slice(1).toLowerCase();
-        tituloendereco.textContent = primeiroNomeMaiusculo;
-        tituloendereco.style.fontFamily = "Rawline";
-        tituloendereco.style.fontWeight = "bold";
-        tituloendereco.style.fontSize = "16px"
-        tituloendereco.style.color = "#333333"
+        let fieldsetendereco = document.querySelector("#lista_referencia");                        
 
-        fieldsetendereco.appendChild(tituloendereco);
+        fieldsetendereco.appendChild(template.content.cloneNode(true));        
 
-        fieldsetendereco.appendChild(template.content.cloneNode(true));
+        //Esperar o próximo laço de eventos do navegador pois ai os filhos do linha-referencia
+        //já vão estar criados e prontos para serem acessados via querySelector
+        setTimeout(()=>{
 
+            let nome_referencia = `referência ${this.numeroreferencia}`;
+            
+            let nome_com_primeira_letra_maiuscula = nome_referencia.charAt(0).toUpperCase() + nome_referencia.slice(1).toLowerCase();        
+
+            let div_titulo_referencia = fieldsetendereco.querySelector("#titulo_referencia");
+
+
+            div_titulo_referencia.id = `${div_titulo_referencia.id}_${this.numeroreferencia}`;
+
+            div_titulo_referencia.textContent = nome_com_primeira_letra_maiuscula;
+
+
+            let nova_referencia = fieldsetendereco.querySelector("#linha-referencia");
+
+            nova_referencia.id = `${nova_referencia.id}_${this.numeroreferencia}`;
+
+            this.mudar_id(
+                nova_referencia.querySelector("#nome-referencia"),
+                nova_referencia.querySelector("#label-nome-referencia"),
+                this.numeroreferencia
+            );
+
+            this.mudar_id(
+                nova_referencia.querySelector("#telefone-referencia"),
+                nova_referencia.querySelector("#label-telefone-referencia"),
+                this.numeroreferencia
+            );
+
+            this.mudar_id(
+                nova_referencia.querySelector("#vinculo-referencia"),
+                nova_referencia.querySelector("#label-vinculo-referencia"),
+                this.numeroreferencia
+            );
+
+            nova_referencia.querySelector("#remover_referencia").addEventListener("click", (evento) =>{
+                nova_referencia.remove();
+            });
+
+            this.numeroreferencia++;
+        });
+    }
+
+    mudar_id (elemento_princial, elemento_label, numeroreferencia){
         
-
-        this.numeroreferencia++;
-    }
-
-    remover_referencia() {
-        let remover = document.querySelector("#remover_referencia");
-
-        remover.addEventListener("click", (evento) => {
-            evento.preventDefault();
-            let fieldsetendereco = document.querySelector("#lista_referencia");
-            let ultimareferencia = fieldsetendereco.lastElementChild;
-
-            if (ultimareferencia) {
-
-                fieldsetendereco.removeChild(ultimareferencia.previousElementSibling);
-
-                fieldsetendereco.removeChild(ultimareferencia);
-                console.log("referência removida");
-                this.numeroreferencia--;
-            } else {
-                console.log("Nenhuma referência para remover")
-            }
-        })
-    }
-
+        elemento_princial.id =`${elemento_princial.id}_${numeroreferencia}`;        
+    
+        elemento_label.id =`${elemento_label.id}_${numeroreferencia}`;
+    
+        elemento_label.for = elemento_princial.id;
+    }   
 }
 
 customElements.define('br-endereco_contato', Endereco_contato);

@@ -1,3 +1,5 @@
+
+
 <div class="container-xl">
   <fieldset id="endereco" class="fieldset-border">
     <legend class="legend-border" style="color: #337ab7; justify-content: right;">
@@ -231,93 +233,71 @@
     </div>
 
     <template id="template_referencia">
-
-      <div class="row mt-5">
-        <div class="col-sm">
-          <fieldset>
-            <!--<legend>Nome Completo (Legend)</legend>-->
-            <div class="row">
-              <div class="col-md-10 mb-3">
-                <div class="br-input"><label for="nome-referencia1">Nome completo: </label>
-                  <input id="nome-referencia1" placeholder="Insira o nome completo" type="text" />
-                </div>
-              </div>
-              <!--<div class="col-md-10">
-                    <div class="br-input">
-                      <label for="nome-referencia2">Nome completo: </label>
-                      <input id="nome-referencia2"type="text" placeholder="Insira o nome completo"/>
-                    </div>
-                  </div>-->
-            </div>
-          </fieldset>
+      <div id="linha-referencia">
+        <div class="titulo_referencia" id="titulo_referencia">
+          Referência X        
         </div>
-        <div class="col-sm">
-          <fieldset>
-            <!--<legend>Outros Dados (Legend)</legend>-->
-            <div class="row">
-              <div class="col-md-10 mb-3">
-                <div class="br-input">
-                  <label for="telefone-referencia2">Telefone: </label>
-                  <input id="telefone-referencia2" type="number" placeholder="Insira seu número" />
-                </div>
-              </div>
-              <!--<div class="col-md-10">
-                    <div class="br-input">
-                      <label for="telefone-referencia1">Telefone: </label>
-                      <input id="telefone-referencia1" type="number" placeholder="Insira seu número"/>
-                    </div>
-                  </div>-->
-            </div>
-          </fieldset>
-        </div>
-        <div class="col-sm">
-          <fieldset>
-            <!--<legend>Outros Dados (Legend)</legend>-->
-            <div class="row">
-              <div class="col-md-10 mb-3">
-                <div class="br-input">
-                  <label for="vinculo1">Vínculo:</label><br>
-                  <select id="vinculo1" required>
-                    <option value="" disabled selected>Selecione</option>
-                    <option value="familia">Família</option>
-                    <option value="amigo">Amigo</option>
-                    <option value="trabalho">Trabalho</option>
-                    <option value="outro">Outro</option>
-                  </select>
-                </div>
-              </div>
-              <!-- <div class="col-md-10">
-                    <div class="br-input">
-                      <label for="vinculo2">Vínculo:</label><br>
-                      <select id="vinculo2" required>
-                        <option value="" disabled selected>Selecione</option>
-                        <option value="familia">Família</option>
-                        <option value="amigo">Amigo</option>
-                        <option value="trabalho">Trabalho</option>
-                        <option value="outro">Outro</option>
-                      </select>
-                    </div>
-                  </div> -->
-            </div>
-          </fieldset>
-        </div>
-        <div class="col-sm">
-          <fieldset>
-            <div class="row">
-              <div class="col-md-10 mb-3">
-                <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
-                  <div class="menu-item divider" href="#" id="remover_referencia" role="treeitem">
-                    <span class="icon" style="justify-content: right;">
-                      <i class="fa fa-minus" arial-hidden="true"></i>
-                    </span>
-                    <span class="content"></span>
+        <div class="row mt-5">
+          <div class="col-sm">
+            <fieldset>            
+              <div class="row">
+                <div class="col-md-10 mb-3">
+                  <div class="br-input"><label for="nome-referencia" id="label-nome-referencia">Nome completo: </label>
+                    <input id="nome-referencia" placeholder="Insira o nome completo" type="text" />
                   </div>
-                </button>
+                </div>              
               </div>
-            </div>
-          </fieldset>
+            </fieldset>
+          </div>
+          <div class="col-sm">
+            <fieldset>            
+              <div class="row">
+                <div class="col-md-10 mb-3">
+                  <div class="br-input">
+                    <label for="telefone-referencia" id="label-telefone-referencia">Telefone: </label>
+                    <input id="telefone-referencia" type="number" placeholder="Insira seu número" />
+                  </div>
+                </div>              
+              </div>
+            </fieldset>
+          </div>
+          <div class="col-sm">
+            <fieldset>            
+              <div class="row">
+                <div class="col-md-10 mb-3">
+                  <div class="br-input">
+                    <label for="vinculo-referencia" id="label-vinculo-referencia">Vínculo:</label><br>
+                    <select id="vinculo-referencia" required>
+                      <option value="" disabled selected>Selecione</option>
+                      <option value="familia">Família</option>
+                      <option value="amigo">Amigo</option>
+                      <option value="trabalho">Trabalho</option>
+                      <option value="outro">Outro</option>
+                    </select>
+                  </div>
+                </div>              
+              </div>
+            </fieldset>
+          </div>
+          <div class="col-sm">
+            <fieldset>
+              <div class="row">
+                <div class="col-md-10 mb-3">
+                  <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
+                    <div class="menu-item divider" href="#" id="remover_referencia" role="treeitem">
+                      <span class="icon" style="justify-content: right;">
+                        <i class="fa fa-minus" arial-hidden="true"></i>
+                      </span>
+                      <span class="content"></span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </fieldset>
+          </div>
         </div>
       </div>
+    </div>
     </template>
     <div id="lista_referencia"></div>
     <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
