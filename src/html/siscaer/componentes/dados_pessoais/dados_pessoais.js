@@ -17,9 +17,9 @@ export class Dados_pessoais extends HTMLElement{
 
                 this.appendChild(template.content.cloneNode(true));
 
-                this.adicionar_comportamento()
-                this.adicionar_campo()
-                this.remover_campo()
+                this.adicionar_comportamento();
+                this.adicionar_campo();
+                this.remover_campo();
 
                 
                 this.dispatchEvent(new CustomEvent("carregou"));                
