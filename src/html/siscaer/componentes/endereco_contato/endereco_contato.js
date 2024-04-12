@@ -3,7 +3,7 @@ export class Endereco_contato extends HTMLElement{
     constructor(){
         super();
 
-        this.numeroreferencia = 0;
+        this.numeroreferencia = 1;
 
         console.log ("Constructor do endereco_contato.js");
 
@@ -21,7 +21,6 @@ export class Endereco_contato extends HTMLElement{
 
                 this.adicionar_comportamento();
                 this.adicionar_referencia();
-                this.remover_referencia();
                 
                 this.dispatchEvent(new CustomEvent("carregou"));                
             });
@@ -44,7 +43,7 @@ export class Endereco_contato extends HTMLElement{
     }
 
     adicionar_referencia() {
-        let template = document.querySelector("#template_endereco");
+        let template = document.querySelector("#template_referencia");
         let fieldsetendereco = document.querySelector("#lista_referencia");
 
         let tituloendereco = document.createElement("div");
@@ -59,6 +58,8 @@ export class Endereco_contato extends HTMLElement{
         fieldsetendereco.appendChild(tituloendereco);
 
         fieldsetendereco.appendChild(template.content.cloneNode(true));
+
+        
 
         this.numeroreferencia++;
     }
