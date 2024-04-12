@@ -1,0 +1,139 @@
+
+<template id="template_linha_tabela_debitos">
+  <tr>  
+    <td id="tipoDeclaracao" class="col-sm-1 col-md-2 col-lg-1 mb-3 p-0">
+      <div class="br-select">
+        <div class="br-input">
+          <input id="select-simple" class="text-center" type="text" placeholder="Selecione"/>
+          <button class="br-button" type="button" aria-label="Exibir lista" tabindex="-1" data-trigger="data-trigger"><i class="fas fa-angle-down" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="br-list" tabindex="0">
+          <div class="br-item" tabindex="-1">
+            <div class="br-radio">
+              <input id="rb00" type="radio" name="estados-simples" value="rb00"/>
+              <label for="rb00">DCTF</label>
+            </div>
+          </div>
+          <div class="br-item" tabindex="-1">
+            <div class="br-radio">
+              <input id="rb01" type="radio" name="estados-simples" value="rb01"/>
+              <label for="rb01">DCTF Web/e-Social</label>
+            </div>
+          </div>
+          <div class="br-item" tabindex="-1">
+            <div class="br-radio">
+              <input id="rb02" type="radio" name="estados-simples" value="rb02"/>
+              <label for="rb02">DIRPF</label>
+            </div>
+          </div>
+          <div class="br-item" tabindex="-1">
+            <div class="br-radio">
+              <input id="rb03" type="radio" name="estados-simples" value="rb03"/>
+              <label for="rb03">DITR</label>
+            </div>
+          </div>
+          <div class="br-item" tabindex="-1">
+            <div class="br-radio">
+              <input id="rb04" type="radio" name="estados-simples" value="rb04"/>
+              <label for="rb04">GFIP</label>
+            </div>
+          </div>
+          <div class="br-item" tabindex="-1">
+            <div class="br-radio">
+              <input id="rb05" type="radio" name="estados-simples" value="rb05"/>
+              <label for="rb05">Auto de infração</label>
+            </div>
+          </div>
+          <div class="br-item" tabindex="-1">
+            <div class="br-radio">
+              <input id="rb06" type="radio" name="estados-simples" value="rb06"/>
+              <label for="rb06">TDPF</label>
+            </div>
+          </div>
+          <div class="br-item" tabindex="-1">
+            <div class="br-radio">
+              <input id="rb07" type="radio" name="estados-simples" value="rb07"/>
+              <label for="rb07">Outro</label>
+            </div>
+          </div>
+        </div>
+      </div>    
+    </td>
+    <td id="dataEntrega" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
+      <div class="br-input">
+        <input class="text-center"  style="font-size: 13px;"  type="date" placeholder="Data de entrega"/>
+      </div>
+    </td>
+    <td id="cpfCnpjDebito" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
+      <div class="br-input">
+        <input class="text-center" type="text" placeholder="CPF/CNPJ"/>
+      </div>
+    </td>
+    <td id="numeroProcesso" class="col-sm-1 col-md-2 col-lg-1 mb-3 p-0">
+      <div class="br-input">
+        <input class="text-center" type="number" placeholder="Nº processo"/>
+      </div>
+    </td>
+    <td id="codigoReceita" class="col-sm-1 col-md-2 col-lg-1 mb-3 p-0">
+      <select-codigos-receita></select-codigos-receita>        
+    </td>
+    <td id="periodoApuracao" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
+      <div class="br-input">
+        <input class="text-center"  style="font-size: 13px;" type="date" placeholder="Período de apuração"/>
+      </div>
+    </td>
+    <td id="vencimentoTributo" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
+      <div class="br-input">
+        <input class="text-center"  style="font-size: 13px;" type="date" placeholder="Vencimento"/>
+      </div>
+    </td>
+    <td id="valorDebito" class="col-sm-1 col-md-2 col-lg-1 mb-3 p-0">
+      <div class="br-input">
+        <input class="text-center" type="number" placeholder="R$"/>
+      </div>
+    </td>
+    <td id="cibCnoCnpjPrestador" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
+      <div class="br-input">
+        <input class="text-center" type="text" placeholder="CIB/CNO/CNPJ"/>
+      </div>
+    </td>
+    <td id="acoes" class="col-sm-1 col-md-2 col-lg-1 mb-3 text-center">
+      <button class="br-button circle secondary small" id="btnExcluirLinha" type="button" aria-label="Ícone ilustrativo">
+        <div class="menu-item divider" href="#" role="treeitem">
+          <span class="icon">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </span>
+          <span class="content"></span>
+        </div>
+      </button>
+    </td>  
+  </tr>
+</template>
+
+<div class="br-table">
+  <table id="tabelaDebitos">
+    <thead>
+      <tr>
+        <th id="tituloTipoDeclaracao" class="text-center">Tipo de declaração</th>
+        <th id="tituloDataEntrega" class="text-center">Data da entrega</th>
+        <th id="tituloCpfCnpjDebito" class="text-center">CPF/CNPJ do débito</th>
+        <th id="tituloNumeroProcesso" class="text-center">Nº do processo DEBCAD</th>
+        <th id="tituloCodigoReceita" class="text-center">Código receita</th>
+        <th id="tituloPeriodoApuracao" class="text-center">Período de apuração</th>
+        <th id="tituloVencimentoTributo" class="text-center">Vencimento do tributo</th>
+        <th id="tituloValorDebito" class="text-center ">Valor (R$)</th>
+        <th id="tituloCibCnoCnpjPrestador" class="text-center ">CIB/CNO/CNPJ Prestador</th>
+        <th id="tituloAcoes" class="text-center ">Ações</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaDebitosBody">                        
+    </tbody>
+  </table>
+
+  <!--BOTÕES ADICIONAR DEBITO-->
+  <div id="btnDebito" class="text-center my-5 esconder">
+    <button id="btnIncluirNovoDebito" class="br-button secondary mr-3">Incluir novo débito</button>
+  </div>
+
+</div>

@@ -1,257 +1,183 @@
+
 var valido = false;
-      let registrosManuais = [];
-      var tabelaDebitosBody = document.getElementById('tabelaDebitosBody');
-      var tabelaPropriosBody = document.getElementById('tabelaPropriosBody');
-      var tabelaTerceirosBody = document.getElementById('tabelaTerceirosBody');
-      var tabelaPrecatoriosBody = document.getElementById('tabelaPrecatoriosBody');
-
-      
-      // GERA PDF COM BIBLIOTECAS
-      function gerarPDF() {
-
-          if (validarCamposPreenchidos()) {
-
-              // Tabela débitos
-              var tabelaDebitos = document.getElementById('tabelaDebitos');
-              var linhasOriginais = tabelaDebitos.querySelectorAll('tbody tr');
-
-              if (linhasOriginais.length === 0) {
-                  alert('Deve existir pelo menos 1 débito para gerar o PDF');
-                  return false;
-              }
-
-              if (linhasOriginais.length > 0) {
-                  var tabelaDebitosPrint = document.getElementById('tabelaDebitosPrint');
-                  var tabelaDebitosPrintBody = tabelaDebitosPrint.querySelector('tbody');
-
-                  // Limpar a tabela de valores antes de criar a nova versão
-                  tabelaDebitosPrintBody.innerHTML = '';
-
-                  linhasOriginais.forEach(function (linha) {
-                      var novaLinha = tabelaDebitosPrintBody.insertRow();
-                      Array.from(linha.cells).forEach(function (cell) {
-                          var novoCell = novaLinha.insertCell();
-                          novoCell.textContent = cell.querySelector('input, select')?.value || cell.textContent;
-                      });
-                  });
-              } else {
-                  let debitosPrint = document.querySelector('#debitosPrint');
-                  debitosPrint.classList.add('d-none');
-              }
-
-              // Tabela créditos Proprios
-              var tabelaProprios = document.getElementById('tabelaProprios');
-              var linhasOriginais = tabelaProprios.querySelectorAll('tbody tr');
-
-              linhasOriginais.forEach((linha) => {
-                  const celulas = linha.querySelectorAll('td');
-                  let temVazia = false;
-
-                  celulas.forEach((celula) => {
-                      const input = celula.querySelector('input');
-                      if (input && input.value.trim() === '') {
-                          temVazia = true;
-                      }
-                  });
-
-                  if (temVazia) {
-                      linha.remove();
-                  }
-              });
-
-              linhasOriginais = tabelaProprios.querySelectorAll('tbody tr');
-
-              if (linhasOriginais.length > 0) {
-                  var tabelaPropriosPrint = document.getElementById('tabelaPropriosPrint');
-                  var tabelaPropriosPrintBody = tabelaPropriosPrint.querySelector('tbody');
-
-                  // Limpar a tabela de valores antes de criar a nova versão
-                  tabelaPropriosPrintBody.innerHTML = '';
-
-                  linhasOriginais.forEach(function (linha) {
-                      var novaLinha = tabelaPropriosPrintBody.insertRow();
-                      Array.from(linha.cells).forEach(function (cell) {
-                          var novoCell = novaLinha.insertCell();
-                          novoCell.textContent = cell.querySelector('input, select')?.value || cell.textContent;
-                      });
-                  });
-              } else {
-                  let propriosPrint = document.querySelector('#propriosPrint');
-                  propriosPrint.classList.add('d-none');
-              }
-
-              // Tabela créditos terceiros
-              var tabelaTerceiros = document.getElementById('tabelaTerceiros');
-              var linhasOriginais = tabelaTerceiros.querySelectorAll('tbody tr');
-
-              if (linhasOriginais.length > 0) {
-                  var tabelaTerceirosPrint = document.getElementById('tabelaTerceirosPrint');
-                  var tabelaTerceirosPrintBody = tabelaTerceirosPrint.querySelector('tbody');
-
-                  // Limpar a tabela de valores antes de criar a nova versão
-                  tabelaTerceirosPrintBody.innerHTML = '';
-
-                  linhasOriginais.forEach(function (linha) {
-                      var novaLinha = tabelaTerceirosPrintBody.insertRow();
-                      Array.from(linha.cells).forEach(function (cell) {
-                          var novoCell = novaLinha.insertCell();
-                          novoCell.textContent = cell.querySelector('input, select')?.value || cell.textContent;
-                      });
-                  });
-              } else {
-                  let terceirosPrint = document.querySelector('#terceirosPrint');
-                  terceirosPrint.classList.add('d-none');
-              }
-
-              // Tabela precatórios
-              var tabelaPrecatorios = document.getElementById('tabelaPrecatorios');
-              var linhasOriginais = tabelaPrecatorios.querySelectorAll('tbody tr');
-
-              if (linhasOriginais.length > 0) {
-                  var tabelaPrecatoriosPrint = document.getElementById('tabelaPrecatoriosPrint');
-                  var tabelaPrecatoriosPrintBody = tabelaPrecatoriosPrint.querySelector('tbody');
-
-                  // Limpar a tabela de valores antes de criar a nova versão
-                  tabelaPrecatoriosPrintBody.innerHTML = '';
-
-                  linhasOriginais.forEach(function (linha) {
-                      var novaLinha = tabelaPrecatoriosPrintBody.insertRow();
-                      Array.from(linha.cells).forEach(function (cell) {
-                          var novoCell = novaLinha.insertCell();
-                          novoCell.textContent = cell.querySelector('input, select')?.value || cell.textContent;
-                      });
-                  });
-              } else {
-                  let precatoriosPrint = document.querySelector('#precatoriosPrint');
-                  precatoriosPrint.classList.add('d-none');
-              }
-
-              // INICIO DA PARTE QUE GERA O PDF
-              const elements = document.querySelectorAll('.html2pdf');
-
-              // Criar um novo elemento contendo todos os elementos
-              var allElementsContent = document.createElement('div');
-              elements.forEach(function(element) {
-                  allElementsContent.appendChild(element.cloneNode(true));
-              });
-
-              // Chamar a função para gerar o JSON quando necessário
-              var json = gerarJSON();
-
-              var metadataJSON = {
-                  keywords: json,
-              }
-
-              var opt = { 
-                      html2canvas: { scale: 1 },
-                      filename: 'autorregularizacao.pdf', // Nome do arquivo PDF
-                      // margin: [0.5, 0.5, 0.5, 0.5], // Margens em polegadas: superior, esquerda, inferior, direita
-                      pagebreak: { mode: 'css', avoid: '.html2pdf' },
-                      jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' },
-                  }
-
-              // Imprimir todos os elementos em páginas separadas
-              html2pdf().set(opt).from(allElementsContent).toPdf().get('pdf').then(function(pdf) {
-                  
-                  // Adicionar metadados ao objeto jsPDF
-                  adicionarMetadados(pdf, metadataJSON);
-
-                  pdf.save(opt.filename);
-              })
-
-          };
-
-      }
-
-      // Selecionar o botão pelo ID e anexar o evento onclick
-        document.getElementById("btnGerarPDF").onclick = gerarPDF;
+let registrosManuais = [];
+var tabelaDebitosBody = document.getElementById('tabelaDebitosBody');
+var tabelaPropriosBody = document.getElementById('tabelaPropriosBody');
+var tabelaTerceirosBody = document.getElementById('tabelaTerceirosBody');
+var tabelaPrecatoriosBody = document.getElementById('tabelaPrecatoriosBody');
 
 
-      // Função para adicionar metadados ao objeto jsPDF
-      function adicionarMetadados(pdf, metadata) {
-          pdf.setProperties(metadata);
-      }
 
-    
-    // Função para inicializar os componentes de lista suspensa conforme o padrão do design system
-function inicializarSelectsPadraoDesignSystem(novaLinha) {
-    const notFoundElement = `
-    <div class="br-item not-found">
-    <div class="container">
-    <div class="row">
-        <div class="col">
-        <p><strong>Ops!</strong> Não encontramos o que você está procurando!</p>
-        </div>
-    </div>
-    </div>
-    </div>
-    `;
+// GERA PDF COM BIBLIOTECAS
+function gerarPDF() {
 
-    // Itera sobre cada select dentro da nova linha
-    novaLinha.querySelectorAll('.br-select').forEach(function(brSelect) {
-        const brselect = new core.BRSelect('br-select', brSelect, notFoundElement);
-        brSelect.addEventListener('onChange', function (e) {
-            // Seu código de manipulação de evento aqui
-        });
-    });
-}
+    if (validarCamposPreenchidos()) {
 
-// ADICIONA LINHA NA TABELA DEBITOS
-function incluirNovoDebito() {
+        // Tabela débitos
+        var tabelaDebitos = document.getElementById('tabelaDebitos');
+        var linhasOriginais = tabelaDebitos.querySelectorAll('tbody tr');
 
-    let novaLinha = document.createElement('br-linha-tabela-debitos');
-           
-    novaLinha.addEventListener("carregou", () => {
-            
-        // Seleciona os elementos dentro da nova linha pelo ID
-        let tipoDeclaracao = novaLinha.querySelector('#tipoDeclaracao');
-        let dataEntrega = novaLinha.querySelector('#dataEntrega');
-        let cpfCnpjDebito = novaLinha.querySelector('#cpfCnpjDebito');
-        let numeroProcesso = novaLinha.querySelector('#numeroProcesso');
-        let codigoReceita = novaLinha.querySelector('#codigoReceita');
-        let periodoApuracao = novaLinha.querySelector('#periodoApuracao');
-        let vencimentoTributo = novaLinha.querySelector('#vencimentoTributo');
-        let valorDebito = novaLinha.querySelector('#valorDebito');
-        let cibCnoCnpjPrestador = novaLinha.querySelector('#cibCnoCnpjPrestador');
-        let acoes = novaLinha.querySelector('#acoes');
+        if (linhasOriginais.length === 0) {
+            alert('Deve existir pelo menos 1 débito para gerar o PDF');
+            return false;
+        }
 
+        if (linhasOriginais.length > 0) {
+            var tabelaDebitosPrint = document.getElementById('tabelaDebitosPrint');
+            var tabelaDebitosPrintBody = tabelaDebitosPrint.querySelector('tbody');
 
-        // Insere a linha de campos abaixo dos títulos
-        document.getElementById('tabelaDebitosBody').appendChild(novaLinha);
+            // Limpar a tabela de valores antes de criar a nova versão
+            tabelaDebitosPrintBody.innerHTML = '';
 
-        // Ajusta o espaçamento dos títulos e campos
-        let titulosCampos = novaLinha.querySelectorAll('td');
-        titulosCampos.forEach(function(elemento) {
-            elemento.style.padding = "5px"; // Espaçamento interno dos títulos e campos
-        });
+            linhasOriginais.forEach(function (linha) {
+                var novaLinha = tabelaDebitosPrintBody.insertRow();
+                Array.from(linha.cells).forEach(function (cell) {
+                    var novoCell = novaLinha.insertCell();
+                    novoCell.textContent = cell.querySelector('input, select')?.value || cell.textContent;
+                });
+            });
+        } else {
+            let debitosPrint = document.querySelector('#debitosPrint');
+            debitosPrint.classList.add('d-none');
+        }
 
-        // Adiciona evento de clique ao botão de exclusão de linha
-        let btnExcluirLinha = novaLinha.querySelector('#btnExcluirLinha');
-        btnExcluirLinha.onclick = () => {
-            // Remove a linha correspondente ao botão de exclusão
-            novaLinha.remove();
+        // Tabela créditos Proprios
+        var tabelaProprios = document.getElementById('tabelaProprios');
+        var linhasOriginais = tabelaProprios.querySelectorAll('tbody tr');
 
-            // Verifica se todas as linhas foram removidas e ajusta a margem esquerda da tabela
-            if (document.querySelectorAll('#tabelaDebitosBody tr').length === 0) {
-                var tabela = document.getElementById('tabelaDebitos');
-                tabela.style.marginLeft = "-5px"; // Volta à margem padrão
+        linhasOriginais.forEach((linha) => {
+            const celulas = linha.querySelectorAll('td');
+            let temVazia = false;
+
+            celulas.forEach((celula) => {
+                const input = celula.querySelector('input');
+                if (input && input.value.trim() === '') {
+                    temVazia = true;
+                }
+            });
+
+            if (temVazia) {
+                linha.remove();
             }
-        };
+        });
 
-        // Ajusta a margem esquerda da tabela após adicionar uma nova linha
-        var tabela = document.getElementById('tabelaDebitos');
-        tabela.style.marginLeft = "-5px"; // Ajusta a margem esquerda
+        linhasOriginais = tabelaProprios.querySelectorAll('tbody tr');
 
-        // Inicializa os selects conforme o padrão do design system após adicionar uma nova linha
-        inicializarSelectsPadraoDesignSystem(novaLinha);
-        
-        // Adiciona a nova linha ao array de registros manuais
-        registrosManuais.push(novaLinha);
-    });
+        if (linhasOriginais.length > 0) {
+            var tabelaPropriosPrint = document.getElementById('tabelaPropriosPrint');
+            var tabelaPropriosPrintBody = tabelaPropriosPrint.querySelector('tbody');
+
+            // Limpar a tabela de valores antes de criar a nova versão
+            tabelaPropriosPrintBody.innerHTML = '';
+
+            linhasOriginais.forEach(function (linha) {
+                var novaLinha = tabelaPropriosPrintBody.insertRow();
+                Array.from(linha.cells).forEach(function (cell) {
+                    var novoCell = novaLinha.insertCell();
+                    novoCell.textContent = cell.querySelector('input, select')?.value || cell.textContent;
+                });
+            });
+        } else {
+            let propriosPrint = document.querySelector('#propriosPrint');
+            propriosPrint.classList.add('d-none');
+        }
+
+        // Tabela créditos terceiros
+        var tabelaTerceiros = document.getElementById('tabelaTerceiros');
+        var linhasOriginais = tabelaTerceiros.querySelectorAll('tbody tr');
+
+        if (linhasOriginais.length > 0) {
+            var tabelaTerceirosPrint = document.getElementById('tabelaTerceirosPrint');
+            var tabelaTerceirosPrintBody = tabelaTerceirosPrint.querySelector('tbody');
+
+            // Limpar a tabela de valores antes de criar a nova versão
+            tabelaTerceirosPrintBody.innerHTML = '';
+
+            linhasOriginais.forEach(function (linha) {
+                var novaLinha = tabelaTerceirosPrintBody.insertRow();
+                Array.from(linha.cells).forEach(function (cell) {
+                    var novoCell = novaLinha.insertCell();
+                    novoCell.textContent = cell.querySelector('input, select')?.value || cell.textContent;
+                });
+            });
+        } else {
+            let terceirosPrint = document.querySelector('#terceirosPrint');
+            terceirosPrint.classList.add('d-none');
+        }
+
+        // Tabela precatórios
+        var tabelaPrecatorios = document.getElementById('tabelaPrecatorios');
+        var linhasOriginais = tabelaPrecatorios.querySelectorAll('tbody tr');
+
+        if (linhasOriginais.length > 0) {
+            var tabelaPrecatoriosPrint = document.getElementById('tabelaPrecatoriosPrint');
+            var tabelaPrecatoriosPrintBody = tabelaPrecatoriosPrint.querySelector('tbody');
+
+            // Limpar a tabela de valores antes de criar a nova versão
+            tabelaPrecatoriosPrintBody.innerHTML = '';
+
+            linhasOriginais.forEach(function (linha) {
+                var novaLinha = tabelaPrecatoriosPrintBody.insertRow();
+                Array.from(linha.cells).forEach(function (cell) {
+                    var novoCell = novaLinha.insertCell();
+                    novoCell.textContent = cell.querySelector('input, select')?.value || cell.textContent;
+                });
+            });
+        } else {
+            let precatoriosPrint = document.querySelector('#precatoriosPrint');
+            precatoriosPrint.classList.add('d-none');
+        }
+
+        // INICIO DA PARTE QUE GERA O PDF
+        const elements = document.querySelectorAll('.html2pdf');
+
+        // Criar um novo elemento contendo todos os elementos
+        var allElementsContent = document.createElement('div');
+        elements.forEach(function(element) {
+            allElementsContent.appendChild(element.cloneNode(true));
+        });
+
+        // Chamar a função para gerar o JSON quando necessário
+        var json = gerarJSON();
+
+        var metadataJSON = {
+            keywords: json,
+        }
+
+        var opt = { 
+                html2canvas: { scale: 1 },
+                filename: 'autorregularizacao.pdf', // Nome do arquivo PDF
+                // margin: [0.5, 0.5, 0.5, 0.5], // Margens em polegadas: superior, esquerda, inferior, direita
+                pagebreak: { mode: 'css', avoid: '.html2pdf' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' },
+            }
+
+        // Imprimir todos os elementos em páginas separadas
+        html2pdf().set(opt).from(allElementsContent).toPdf().get('pdf').then(function(pdf) {
+            
+            // Adicionar metadados ao objeto jsPDF
+            adicionarMetadados(pdf, metadataJSON);
+
+            pdf.save(opt.filename);
+        })
+
+    };
+
 }
 
 // Selecionar o botão pelo ID e anexar o evento onclick
-document.getElementById("btnIncluirNovoDebito").onclick = incluirNovoDebito;
+document.getElementById("btnGerarPDF").onclick = gerarPDF;
+
+
+// Função para adicionar metadados ao objeto jsPDF
+function adicionarMetadados(pdf, metadata) {
+    pdf.setProperties(metadata);
+}
+
+    
+
+
+
 
 
 
