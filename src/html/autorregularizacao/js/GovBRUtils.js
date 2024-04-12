@@ -18,8 +18,30 @@ export class GovBRUtils{
 
         // Itera sobre cada select dentro da nova linha
         elemento_container.querySelectorAll('.br-select').forEach((brSelect) => {
+
+            let qtd_itens = 0;
+
+            brSelect.querySelectorAll('.br-item').forEach((brItem) => {
+               let input = brItem.querySelector('input');
+
+               let label = brItem.querySelector('label');
+
+               input.id = `${brSelect.id}_input_${qtd_itens}`;
+
+               label.id = `${brSelect.id}_label_${qtd_itens}`;
+
+               input.value = input.id;
+
+               label.for = input.id;
+
+               qtd_itens++;
+
+            });
+
             const brselect = new core.BRSelect('br-select', brSelect, notFoundElement);
             brSelect.addEventListener('onChange', (e) => {
+
+                
                 // Seu código de manipulação de evento aqui
             });
         });

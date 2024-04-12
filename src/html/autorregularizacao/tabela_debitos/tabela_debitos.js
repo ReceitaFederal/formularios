@@ -43,6 +43,8 @@ export class TabelaDebitos extends HTMLElement{
         setTimeout(()=>{            
             
             let novaLinha = body_tabela_debitos.children[body_tabela_debitos.children.length-1];
+
+            novaLinha.querySelector('#selectTipoDeclaracao').id = `selectTipoDeclaracao_${body_tabela_debitos.children.length-1}`;
         
             // Ajusta o espaçamento dos títulos e campos
             let titulosCampos = novaLinha.querySelectorAll('td');
