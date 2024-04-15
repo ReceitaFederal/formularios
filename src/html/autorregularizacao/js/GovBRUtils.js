@@ -32,7 +32,7 @@ export class GovBRUtils{
 
                input.value = input.id;
 
-               label.for = input.id;
+               label.htmlFor = input.id;
 
                qtd_itens++;
 

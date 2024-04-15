@@ -7,7 +7,7 @@ export class SelectCodigosReceita extends HTMLElement{
 
         console.log ("Constructor da codigos_receita.js");
 
-        console.log(`URL dos dados do codigos_receita.js": ${import.meta.url}`)
+        console.log(`URL do codigos_receita.js": ${import.meta.url}`)
         fetch('./componentes/select_codigos_receita/select_codigos_receita.html').then(resultado => {
             
 

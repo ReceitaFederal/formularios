@@ -39,40 +39,50 @@ export class TabelaDebitos extends HTMLElement{
         let body_tabela_debitos = this.querySelector('#tabelaDebitosBody');
         
         let nova_linha_debito = body_tabela_debitos.appendChild(template_linha.content.cloneNode(true));                
+        nova_linha_debito.id = "nova_linha_debito";
 
-        setTimeout(()=>{            
+        setTimeout(()=> {
+
+                nova_linha_debito = body_tabela_debitos.querySelector("#nova_linha_debito");
+
+                nova_linha_debito.id = `linhaDebito_${body_tabela_debitos.children.length-1}`;
+
+                nova_linha_debito.querySelector("select-codigos-receita").addEventListener("carregou", ()=>{
             
-            let novaLinha = body_tabela_debitos.children[body_tabela_debitos.children.length-1];
+                    let novaLinha = body_tabela_debitos.children[body_tabela_debitos.children.length-1];
 
-            novaLinha.querySelector('#selectTipoDeclaracao').id = `selectTipoDeclaracao_${body_tabela_debitos.children.length-1}`;
-        
-            // Ajusta o espaçamento dos títulos e campos
-            let titulosCampos = novaLinha.querySelectorAll('td');
-            titulosCampos.forEach(function(elemento) {
-                elemento.style.padding = "5px"; // Espaçamento interno dos títulos e campos
-            });
+                    novaLinha.querySelector('#selectTipoDeclaracao').id = `selectTipoDeclaracao_${body_tabela_debitos.children.length-1}`;
 
-            // Adiciona evento de clique ao botão de exclusão de linha
-            let btnExcluirLinha = novaLinha.querySelector('#btnExcluirLinha');
+                    novaLinha.querySelector('#selectCodigosReceitas').id = `selectCodigosReceitas_${body_tabela_debitos.children.length-1}`;
+                
+                    // Ajusta o espaçamento dos títulos e campos
+                    let titulosCampos = novaLinha.querySelectorAll('td');
+                    titulosCampos.forEach(function(elemento) {
+                        elemento.style.padding = "5px"; // Espaçamento interno dos títulos e campos
+                    });
 
-            btnExcluirLinha.addEventListener('click',  () => {
+                    // Adiciona evento de clique ao botão de exclusão de linha
+                    let btnExcluirLinha = novaLinha.querySelector('#btnExcluirLinha');
 
-                // Remove a linha correspondente ao botão de exclusão
-                novaLinha.remove();
+                    btnExcluirLinha.addEventListener('click',  () => {
 
-                // Verifica se todas as linhas foram removidas e ajusta a margem esquerda da tabela
-                if (this.querySelectorAll('#tabelaDebitosBody tr').length === 0) {
+                        // Remove a linha correspondente ao botão de exclusão
+                        novaLinha.remove();
+
+                        // Verifica se todas as linhas foram removidas e ajusta a margem esquerda da tabela
+                        if (this.querySelectorAll('#tabelaDebitosBody tr').length === 0) {
+                            let tabela = this.querySelector('#tabelaDebitos');
+                            tabela.style.marginLeft = "-5px"; // Volta à margem padrão
+                        }
+                    });
+
+                    // Ajusta a margem esquerda da tabela após adicionar uma nova linha
                     let tabela = this.querySelector('#tabelaDebitos');
-                    tabela.style.marginLeft = "-5px"; // Volta à margem padrão
-                }
+                    tabela.style.marginLeft = "-5px"; // Ajusta a margem esquerda
+                    
+                    // Inicializa os selects conforme o padrão do design system após adicionar uma nova linha
+                    GovBRUtils.inicializarSelects(novaLinha);                  
             });
-
-            // Ajusta a margem esquerda da tabela após adicionar uma nova linha
-            let tabela = this.querySelector('#tabelaDebitos');
-            tabela.style.marginLeft = "-5px"; // Ajusta a margem esquerda
-            
-            // Inicializa os selects conforme o padrão do design system após adicionar uma nova linha
-            GovBRUtils.inicializarSelects(novaLinha);  
         });              
     }    
 }
