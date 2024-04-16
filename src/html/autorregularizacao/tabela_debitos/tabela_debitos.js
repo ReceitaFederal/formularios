@@ -41,6 +41,8 @@ export class TabelaDebitos extends HTMLElement{
         let nova_linha_debito = body_tabela_debitos.appendChild(template_linha.content.cloneNode(true));                
         nova_linha_debito.id = "nova_linha_debito";
 
+        return true;
+
         setTimeout(()=> {
 
                 nova_linha_debito = body_tabela_debitos.querySelector("#nova_linha_debito");

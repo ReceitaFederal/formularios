@@ -5,28 +5,88 @@ export class SelectCodigosReceita extends HTMLElement{
     constructor(){
         super();
 
-        console.log ("Constructor da codigos_receita.js");
-
-        console.log(`URL do codigos_receita.js": ${import.meta.url}`)
-        fetch('./componentes/select_codigos_receita/select_codigos_receita.html').then(resultado => {
+        Promise.all([
             
+            this.carregar_template('./componentes/select_codigos_receita/select_codigos_receita.html'),
+            this.carregar_codigos_receita('./componentes/select_codigos_receita/codigos_receita.json')
 
-            resultado.text().then(texto_pagina => {                            
+        ]).then(() => {
+            
+            this.id_select_codigos_receita = `selectCodigosReceitas_${GovBRUtils.gerarUUID()}`;
 
-                let template = document.createElement('template');
+            this.querySelector(".br-select").id = this.id_select_codigos_receita;
 
-                template.innerHTML = texto_pagina;
+            this.criar_itens_select();
 
-                this.appendChild(template.content.cloneNode(true));
-                
-                setTimeout(() => {
-                   
-                    GovBRUtils.inicializarSelects(this);
+            GovBRUtils.inicializarSelects(this);
 
-                    this.dispatchEvent(new CustomEvent("carregou"));                
-                });                
-            });
+            this.dispatchEvent(new CustomEvent("carregou"));                
         });        
+    }
+
+
+
+    criar_itens_select(){
+
+        let template = this.querySelector("#template_br_item_codigo_receita");
+
+        for (const indice_codigo_receita in this.codigos_receita["codigos_receita"]){                        
+
+            const codigo_receita =  this.codigos_receita["codigos_receita"][indice_codigo_receita];
+        
+            this.querySelector(".br-list").appendChild(template.content.cloneNode(true));
+            
+            setTimeout(()=>{
+
+                const uuid = GovBRUtils.gerarUUID();
+
+                const novo_item = this.querySelector("#br_item_codigo_receita");
+
+                novo_item.id = `br_item_codigo_receita_${uuid}`;
+
+                const elemento_input = novo_item.querySelector("input");
+                const elemento_label = novo_item.querySelector("label");
+                
+                elemento_input.id = `br_item_input_codigo_receita_${uuid}`;                
+                elemento_input.value = elemento_input.id;
+
+                elemento_label.htmlFor = elemento_input.id;                
+                elemento_label.textContent = codigo_receita;
+            });            
+        }
+    }
+
+
+    async carregar_codigos_receita(url){
+
+        const resposta = await fetch(url);            
+
+        if (!resposta.ok) {
+            throw new Error('Erro ao carregar codigos receita');
+        }
+                
+        this.codigos_receita = await resposta.json();
+                          
+        return true;        
+    }
+
+
+
+    async carregar_template(template_url) {
+        
+        const resposta = await fetch(template_url);
+        if (!resposta.ok) {
+            throw new Error('Erro ao carregar o template');
+        }
+        
+        const texto_pagina = await resposta.text();
+        
+        const template = document.createElement('template');
+        template.innerHTML = texto_pagina;
+
+        this.appendChild(template.content.cloneNode(true));
+                
+        return true;        
     }
 }
 customElements.define('select-codigos-receita', SelectCodigosReceita);
