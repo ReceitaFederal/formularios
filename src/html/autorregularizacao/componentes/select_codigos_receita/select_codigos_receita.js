@@ -51,7 +51,10 @@ export class SelectCodigosReceita extends HTMLElement{
             this.querySelector(".br-list").appendChild(novo_item);                                                
         }
             
+        //Usando setTimeout para que os elementos recem criados existam        
+        //O código abaixo será executado após a próxima renderização do navegador
         setTimeout(()=>{
+            
             // Agora que todos os itens foram criados, inicializa os selects
             GovBRUtils.inicializarSelects(this);
         });
