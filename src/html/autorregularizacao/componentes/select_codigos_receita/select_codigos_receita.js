@@ -24,7 +24,7 @@ export class SelectCodigosReceita extends HTMLElement{
 
 
 
-    async criar_itens_select() {
+    criar_itens_select() {
 
         let template_item = this.querySelector("#template_br_item_codigo_receita");
 
@@ -34,34 +34,27 @@ export class SelectCodigosReceita extends HTMLElement{
 
             const codigo_receita = this.codigos_receita["codigos_receita"][indice_codigo_receita];
             
-            const itemPromise = new Promise((resolve) => {
-                setTimeout(() => {
-                    const uuid = GovBRUtils.gerarUUID();
-                    const novo_item = template_item.content.cloneNode(true);
-    
-                    novo_item.id = `br_item_codigo_receita_${uuid}`;
-                    const elemento_input = novo_item.querySelector("input");
-                    const elemento_label = novo_item.querySelector("label");
-    
-                    elemento_input.id = `br_item_input_codigo_receita_${uuid}`;
-                    elemento_input.value = elemento_input.id;
-    
-                    elemento_label.htmlFor = elemento_input.id;
-                    elemento_label.textContent = codigo_receita;
-    
-                    this.querySelector(".br-list").appendChild(novo_item);
-                    resolve(); // Resolve a Promise assim que o item for criado e adicionado ao DOM
-                });
-            });
-    
-            itens_promises.push(itemPromise);
+            
+            const uuid = GovBRUtils.gerarUUID();
+            const novo_item = template_item.content.cloneNode(true);
+
+            novo_item.id = `br_item_codigo_receita_${uuid}`;
+            const elemento_input = novo_item.querySelector("input");
+            const elemento_label = novo_item.querySelector("label");
+
+            elemento_input.id = `br_item_input_codigo_receita_${uuid}`;
+            elemento_input.value = elemento_input.id;
+
+            elemento_label.htmlFor = elemento_input.id;
+            elemento_label.textContent = codigo_receita;
+
+            this.querySelector(".br-list").appendChild(novo_item);                                                
         }
-    
-        // Espera até que todas as Promises de criação de itens sejam resolvidas
-        await Promise.all(itens_promises);
-    
-        // Agora que todos os itens foram criados, inicializa os selects
-        GovBRUtils.inicializarSelects(this);
+            
+        setTimeout(()=>{
+            // Agora que todos os itens foram criados, inicializa os selects
+            GovBRUtils.inicializarSelects(this);
+        });
     }
 
 
