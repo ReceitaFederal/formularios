@@ -19,7 +19,7 @@ export class GovBRUtils{
             </div>
             </div>
             </div>
-        `;
+        `;        
 
         // Itera sobre cada select dentro da nova linha
         elemento_container.querySelectorAll('.br-select').forEach((brSelect) => {

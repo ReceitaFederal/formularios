@@ -3,7 +3,7 @@ import { GovBRUtils } from "../../js/GovBRUtils.js";
 export class SelectCodigosReceita extends HTMLElement{
     
     constructor(){
-        super();
+        super();      
 
         Promise.all([
             
@@ -18,42 +18,50 @@ export class SelectCodigosReceita extends HTMLElement{
 
             this.criar_itens_select();
 
-            GovBRUtils.inicializarSelects(this);
-
             this.dispatchEvent(new CustomEvent("carregou"));                
         });        
     }
 
 
 
-    criar_itens_select(){
+    async criar_itens_select() {
 
-        let template = this.querySelector("#template_br_item_codigo_receita");
+        let template_item = this.querySelector("#template_br_item_codigo_receita");
 
-        for (const indice_codigo_receita in this.codigos_receita["codigos_receita"]){                        
+        let itens_promises = []; // Array para armazenar as Promises de criação de itens
+    
+        for (const indice_codigo_receita in this.codigos_receita["codigos_receita"]) {
 
-            const codigo_receita =  this.codigos_receita["codigos_receita"][indice_codigo_receita];
-        
-            this.querySelector(".br-list").appendChild(template.content.cloneNode(true));
+            const codigo_receita = this.codigos_receita["codigos_receita"][indice_codigo_receita];
             
-            setTimeout(()=>{
-
-                const uuid = GovBRUtils.gerarUUID();
-
-                const novo_item = this.querySelector("#br_item_codigo_receita");
-
-                novo_item.id = `br_item_codigo_receita_${uuid}`;
-
-                const elemento_input = novo_item.querySelector("input");
-                const elemento_label = novo_item.querySelector("label");
-                
-                elemento_input.id = `br_item_input_codigo_receita_${uuid}`;                
-                elemento_input.value = elemento_input.id;
-
-                elemento_label.htmlFor = elemento_input.id;                
-                elemento_label.textContent = codigo_receita;
-            });            
+            const itemPromise = new Promise((resolve) => {
+                setTimeout(() => {
+                    const uuid = GovBRUtils.gerarUUID();
+                    const novo_item = template_item.content.cloneNode(true);
+    
+                    novo_item.id = `br_item_codigo_receita_${uuid}`;
+                    const elemento_input = novo_item.querySelector("input");
+                    const elemento_label = novo_item.querySelector("label");
+    
+                    elemento_input.id = `br_item_input_codigo_receita_${uuid}`;
+                    elemento_input.value = elemento_input.id;
+    
+                    elemento_label.htmlFor = elemento_input.id;
+                    elemento_label.textContent = codigo_receita;
+    
+                    this.querySelector(".br-list").appendChild(novo_item);
+                    resolve(); // Resolve a Promise assim que o item for criado e adicionado ao DOM
+                });
+            });
+    
+            itens_promises.push(itemPromise);
         }
+    
+        // Espera até que todas as Promises de criação de itens sejam resolvidas
+        await Promise.all(itens_promises);
+    
+        // Agora que todos os itens foram criados, inicializa os selects
+        GovBRUtils.inicializarSelects(this);
     }
 
 
