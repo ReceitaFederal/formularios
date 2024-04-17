@@ -5,109 +5,115 @@
         <i class="fa fa-user" aria-hidden="true"></i>
       </span>Dados Pessoais
     </legend>
-      
-      <div class="row mt-5">
-        <div class="col-sm">
-          <fieldset>
-            <!--<legend>Nome Completo (Legend)</legend>-->
-            <div class="row">
-              <div class="col-md-10 mb-3">
-                <div class="br-input"><label for="nome-solicitante">Nome completo: </label>
-                <input id="nome-solicitante" placeholder="Insira seu nome completo" type="text" required/>
-                </div>
-              </div>
-              <div class="col-md-10 mb-3">
-                <div class="br-input">
-                  <label for="cpf">CPF: </label>
-                  <input id="cpf" type="text" placeholder="Insira seu CPF" required/>
-                </div>
-              </div>
-              <div class="col-md-10 mb-3">
-                <div class="br-input">
-                  <label for="nome-mae">Nome da Mãe</label>
-                  <input id="nome-mae" type="text" placeholder="Ex: Adriana da Silva"/>
-                </div>
-              </div>
-              <div class="col-md-10">
-                <div class="br-input">
-                  <label for="nome-pai">Nome do Pai</label>
-                  <input id="nome-pai" type="text" placeholder="Ex: Francisco da Silva"/>
-                </div>
-              </div>
-              
-            </div>
-          </fieldset>
-        </div>
 
-        <div class="col-sm">
-          <fieldset>
-            <!--<legend>Outros Dados (Legend)</legend>-->
-            <div class="row"> 
-              <div class="col-md-10 mb-3">
-                <div class="br-input">
-                  <label for="data-aniversario">Data de nascimento:</label>
-                  <input id="data-aniversario" type="date" placeholder="data de nascimento" required/>
-                </div>
+    <div class="row mt-5">
+      <div class="col-sm">
+        <fieldset>
+          <!--<legend>Nome Completo (Legend)</legend>-->
+          <div class="row">
+            <div class="col-md-10 mb-3">
+              <div class="br-input"><label for="nome-solicitante">Nome completo: </label>
+                <input id="nome-solicitante" placeholder="Insira seu nome completo" type="text" required />
               </div>
-              <div class="col-md-10">
-                <div class="br-input">
-                  <label for="documento">Documento de Identidicação:</label><br>
-                  
-                  <div class="icon-container">
-                    <i class="fas fa-info-circle"></i>
-                    <div class="mb-3">
-                      <div class="br-tooltip" role="tooltip" success="success" popover="popover" timer="5000" place="bottom">    
-                        <div class="popover-header"><span class="text">Cadastro Concluído!</span>    
-                        </div>    
-                        <div class="popover-body"><span class="subtext">Podem servir como documento de identidade: 
-                          Cédula de identidade (RG) | Carteira de habilitação (CNH) | Carteira de trabalho (CTPS) | 
-                          Carteira de identidade militar, dos Bombeiros ou da Polícia Militar | Passaporte brasileiro anterio |
-                          Carteira funcional expedida por Órgão público, reconhecida por lei federal como válida em todo território
-                          nacinal e carteira de identidade expendida por Órgão fiscalizador do exercício de profissão regulamentada por lei.</span>    
-                        </div>    
+            </div>
+            <div class="col-md-10 mb-3">
+              <div class="br-input">
+                <label for="cpf">CPF: </label>
+                <input id="cpf" type="text" placeholder="Insira seu CPF" required />
+              </div>
+            </div>
+            <div class="col-md-10 mb-3">
+              <div class="br-input">
+                <label for="nome-mae">Nome da Mãe</label>
+                <input id="nome-mae" type="text" placeholder="Ex: Adriana da Silva" />
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="br-input">
+                <label for="nome-pai">Nome do Pai</label>
+                <input id="nome-pai" type="text" placeholder="Ex: Francisco da Silva" />
+              </div>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="col-sm">
+        <fieldset>
+          <!--<legend>Outros Dados (Legend)</legend>-->
+          <div class="row">
+            <div class="col-md-10 mb-3">
+              <div class="br-input">
+                <label for="data-aniversario">Data de nascimento:</label>
+                <input id="data-aniversario" type="date" placeholder="data de nascimento" required />
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="br-input">
+                <label for="documento">Documento de Identidicação:</label><br>
+
+                <div class="icon-container">
+                  <i class="fas fa-info-circle"></i>
+                  <div class="mb-3">
+                    <div class="br-tooltip" role="tooltip" success="success" popover="popover" timer="5000"
+                      place="bottom">
+                      <div class="popover-header"><span class="text">Cadastro Concluído!</span>
+                      </div>
+                      <div class="popover-body"><span class="subtext">Podem servir como documento de identidade:
+                          Cédula de identidade (RG) | Carteira de habilitação (CNH) | Carteira de trabalho (CTPS) |
+                          Carteira de identidade militar, dos Bombeiros ou da Polícia Militar | Passaporte brasileiro
+                          anterio |
+                          Carteira funcional expedida por Órgão público, reconhecida por lei federal como válida em todo
+                          território
+                          nacinal e carteira de identidade expendida por Órgão fiscalizador do exercício de profissão
+                          regulamentada por lei.</span>
                       </div>
                     </div>
                   </div>
-                  <input type="number" id="documento" required />
                 </div>
+                <input type="number" id="documento" required />
               </div>
-              
-              <div class="col-md-10 mb-3">
-                <div class="br-input">
-                  <label for="orgao-expedidos">Órgão Expedidor:</label><br>
-                  <input type="text" id="orgao-expedidos" required>
-                </div>
-              </div>
-              <div class="col-md-10 mb-3">
-                <div class="br-input">
-                  <label for="sexo">Sexo: </label><br>
-                  <select id="sexo" required>
-                    <option value="" disabled selected>Selecione</option>
-                    <option value="feminino">Feminino</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="outro">Outro</option>
-                </select>
-                </div>
-              </div>
-              
             </div>
-          </fieldset>
-        </div> 
 
-        <div class="col-sm">
-          <fieldset>
-            <!--<legend>Outros Dados (Legend)</legend>-->
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                 <!--<div class="br-input">-->
+            <div class="col-md-10 mb-3">
+              <div class="br-input">
+                <label for="orgao-expedidos">Órgão Expedidor:</label><br>
+                <input type="text" id="orgao-expedidos" required>
+              </div>
+            </div>
+            <div class="col-md-10 mb-3">
+              <div class="br-input">
+                <label for="sexo">Sexo: </label><br>
+                <select id="sexo" required>
+                  <option value="" disabled selected>Selecione</option>
+                  <option value="feminino">Feminino</option>
+                  <option value="masculino">Masculino</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <template id="template_nacionalidade">
+        <div id="campos-adicionais">
+          <div class="col-sm">
+            <fieldset>
+              <!--<legend>Outros Dados (Legend)</legend>-->
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <!--<div class="br-input">-->
                   <label for="brasileiroNaturalizado">Brasileiro Naturalizado</label>
                   <input type="checkbox" id="brasileiroNaturalizado">
-                <!--</div>-->
-              </div>
-              <div class="col-md-10 mb-3">
-                <div class="br-input">
-                  <label for="nacionalidade">Nacionalidade:</label><br>
-                  <select id="nacionalidade" required>
+                  <!--</div>-->
+                </div>
+                <div class="col-md-10 mb-3">
+                  <div class="br-input">
+                    <label for="nacionalidade">Nacionalidade:</label><br>
+                    <select id="nacionalidade" required>
                       <option value="" disabled selected>Selecione</option>
                       <option value="Afeganistão">Afeganistão</option>
                       <option value="África do Sul">África do Sul</option>
@@ -203,13 +209,13 @@
                       <option value="Irlanda">Irlanda</option>
                       <option value="Islândia">Islândia</option>
                       <option value="Israel">Israel</option>
-                  </select>
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-10">
-                <div class="br-input">
-                  <label for="uf_nascimento">UF de Nascimento:</label><br>
-                  <select id="uf_nascimento" required>
+                <div class="col-md-10">
+                  <div class="br-input">
+                    <label for="uf_nascimento">UF de Nascimento:</label><br>
+                    <select id="uf_nascimento" required>
                       <option value="" disabled selected>Selecione</option>
                       <option value="Acre">AC</option>
                       <option value="Alagoas">AL</option>
@@ -238,12 +244,14 @@
                       <option value="São Paulo">SP</option>
                       <option value="Sergipe">SE</option>
                       <option value="Tocantins">TO</option>
-                  </select>
+                    </select>
+                  </div>
                 </div>
               </div>
-            </div>
-          </fieldset>
+            </fieldset>
+          </div>
         </div>
-      </div>
+      </template>
+    </div>
   </fieldset>
 </div>
