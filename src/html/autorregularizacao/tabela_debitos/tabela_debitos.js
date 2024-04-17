@@ -1,5 +1,6 @@
 import { GovBRUtils } from "../js/GovBRUtils.js";
 import { SelectCodigosReceita } from "../componentes/select_codigos_receita/select_codigos_receita.js";
+import { SelectTiposDeclaracao } from "../componentes/select_tipos_declaracao/select_tipos_declaracao.js";
 
 export class TabelaDebitos extends HTMLElement{
     

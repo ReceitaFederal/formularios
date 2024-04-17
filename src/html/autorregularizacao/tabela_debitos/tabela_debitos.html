@@ -2,63 +2,7 @@
 <template id="template_linha_tabela_debitos">
   <tr>  
     <td id="tipoDeclaracao" class="col-sm-1 col-md-2 col-lg-1 mb-3 p-0">
-      <div class="br-select" id="selectTipoDeclaracao">
-        <div class="br-input">
-          <input id="select-simple" class="text-center" type="text" placeholder="Selecione"/>
-          <button class="br-button" type="button" aria-label="Exibir lista" tabindex="-1" data-trigger="data-trigger"><i class="fas fa-angle-down" aria-hidden="true"></i>
-          </button>
-        </div>
-        <div class="br-list" tabindex="0">
-          <div class="br-item" tabindex="-1">
-            <div class="br-radio">
-              <input id="rb00" type="radio" name="estados-simples" value="rb00"/>
-              <label for="rb00">DCTF</label>
-            </div>
-          </div>
-          <div class="br-item" tabindex="-1">
-            <div class="br-radio">
-              <input id="rb01" type="radio" name="estados-simples" value="rb01"/>
-              <label for="rb01">DCTF Web/e-Social</label>
-            </div>
-          </div>
-          <div class="br-item" tabindex="-1">
-            <div class="br-radio">
-              <input id="rb02" type="radio" name="estados-simples" value="rb02"/>
-              <label for="rb02">DIRPF</label>
-            </div>
-          </div>
-          <div class="br-item" tabindex="-1">
-            <div class="br-radio">
-              <input id="rb03" type="radio" name="estados-simples" value="rb03"/>
-              <label for="rb03">DITR</label>
-            </div>
-          </div>
-          <div class="br-item" tabindex="-1">
-            <div class="br-radio">
-              <input id="rb04" type="radio" name="estados-simples" value="rb04"/>
-              <label for="rb04">GFIP</label>
-            </div>
-          </div>
-          <div class="br-item" tabindex="-1">
-            <div class="br-radio">
-              <input id="rb05" type="radio" name="estados-simples" value="rb05"/>
-              <label for="rb05">Auto de infração</label>
-            </div>
-          </div>
-          <div class="br-item" tabindex="-1">
-            <div class="br-radio">
-              <input id="rb06" type="radio" name="estados-simples" value="rb06"/>
-              <label for="rb06">TDPF</label>
-            </div>
-          </div>
-          <div class="br-item" tabindex="-1">
-            <div class="br-radio">
-              <input id="rb07" type="radio" name="estados-simples" value="rb07"/>
-              <label for="rb07">Outro</label>
-            </div>
-          </div>
-        </div>
-      </div>    
+      <select-tipos-declaracao></select-tipos-declaracao>
     </td>
     <td id="dataEntrega" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
       <div class="br-input">
