@@ -17,10 +17,9 @@ export class Dados_pessoais extends HTMLElement{
 
                 this.appendChild(template.content.cloneNode(true));
 
-                this.adicionar_comportamento();
-                this.adicionar_campo();
-                this.remover_campo();
+                this.alternarCamposAdicionais();
 
+                this.adicionar_comportamento_check();
                 
                 this.dispatchEvent(new CustomEvent("carregou"));                
             });
@@ -32,23 +31,29 @@ export class Dados_pessoais extends HTMLElement{
         document.head.appendChild(linkFonte)
     }
 
-    adicionar_comportamento() {
-        let adicionar = document.querySelector("#adicionar_campo");
+    adicionar_comportamento_check() {
+        let adicionar = document.querySelector("#alternarCamposAdicionais")
 
         adicionar.addEventListener("click", (evento) => {
             evento.preventDefault();
             console.log("Clicou");
-            this.adicionar_campo
+            this.alternarCamposAdicionais();
         });
     }
 
-    adicionar_campo() {
-        let template = document.querySelector("#dados");
-        let fieldsetdados = document.querySelector("#dados_naturalizados");
+    alternarCamposAdicionais() {
+        let template = document.querySelector("#template_nacionalidade");
 
-        let tituloNaturalizacao = document.createElement("div");
-        let nomeNaturalizacao = `Naturalização ${this.Naturalizacao}`;
+        let fieldsetendereco = document.querySelector("#campos-adicionais");
+        
+        let checkbox = this.querySelector("#brasileiroNaturalizado");
+        
 
+        if (checkbox.checkbox) {
+            camposAdicionais.style.display = "block";
+        } else {
+            camposAdicionais.style.display = "none";
+        }
     }
 
 

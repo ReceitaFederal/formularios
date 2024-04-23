@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>RFB | SISCAER</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <script src="./componentes/cabecalho/cabecalho.js" type="module"></script>
-    <script src="./componentes/rodape/rodape.js" type="module"></script>
-    
+  <title>RFB | SISCAER</title>
 
-    <!-- Font Rawline-->
-    <link
-      rel="stylesheet"
-      href="../bibliotecas/govbr-ds-assets/fonts/rawline/css/rawline.css"/>
+  <script src="./componentes/cabecalho/cabecalho.js" type="module"></script>
+  <script src="./componentes/rodape/rodape.js" type="module"></script>
 
-    <!-- Font Raleway-->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap"/>
-      
-    <!-- Design System GOV.BR CSS-->
-    <link rel="stylesheet" href="../bibliotecas/govbr-ds/core-lite.css" />
 
-    <!--- Design próprio CSS -->
-    <!-- <link rel="stylesheet" href="./css/design.css" /> -->
-    <link rel="stylesheet" href="./css/design.css" />
+  <!-- Font Rawline-->
+  <link rel="stylesheet" href="../bibliotecas/govbr-ds-assets/fonts/rawline/css/rawline.css" />
 
-    <!--- Ícones Font Awesome - Versão 6.5.1 -->
-    <link rel="stylesheet" href="./icones/css/fontawesome.css" />
-    <link rel="stylesheet" href="./icones/css/brands.css" />
-    <link rel="stylesheet" href="./icones/css/solid.css" />
-    
-  </head>
+  <!-- Font Raleway-->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap" />
 
-  <body>
-    <div class="template-base">
-      <div class="grid-container">
+  <!-- Design System GOV.BR CSS-->
+  <link rel="stylesheet" href="../bibliotecas/govbr-ds/core-lite.css" />
 
-      
+  <!--- Design próprio CSS -->
+  <!-- <link rel="stylesheet" href="./css/design.css" /> -->
+  <link rel="stylesheet" href="./css/design.css" />
+
+  <!--- Ícones Font Awesome - Versão 6.5.1 -->
+  <link rel="stylesheet" href="./icones/css/fontawesome.css" />
+  <link rel="stylesheet" href="./icones/css/brands.css" />
+  <link rel="stylesheet" href="./icones/css/solid.css" />
+
+</head>
+
+<body>
+  <div class="template-base">
+    <div class="grid-container">
+
+
       <br-cabecalho></br-cabecalho>
 
       <div class="container">
@@ -48,24 +46,25 @@
           <div class="icon-container">
             <i class="fas fa-info-circle"></i>
             <div class="mb-3">
-              <div class="br-tooltip" role="tooltip" success="success" popover="popover" timer="5000" place="bottom">    
-                <div class="popover-header"><span class="text">Cadastro Concluído!</span>    
-                </div>    
-                <div class="popover-body"><span class="subtext">Para verificar mais detalhes a respeito do seu acesso, clique no link abaixo.</span>    
-                </div>    
+              <div class="br-tooltip" role="tooltip" success="success" popover="popover" timer="5000" place="bottom">
+                <div class="popover-header"><span class="text">Cadastro Concluído!</span>
+                </div>
+                <div class="popover-body"><span class="subtext">Para verificar mais detalhes a respeito do seu acesso,
+                    clique no link abaixo.</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>       
-       
+      </div>
+
       <br-credenciamento></br-credenciamento>
 
       <br-dados_pessoais></br-dados_pessoais>
-      
+
       <br-endereco_contato></br-endereco_contato>
 
-    <!--  <div id="container">
+      <!--  <div id="container">
         <div class="tab-buttons">
           <button class="tab-btn active" content-id="credenciamento">
             Credenciamento
@@ -147,27 +146,38 @@
 
       </div>
     </div> -->
-  </div> 
+    </div>
+
+
+    <div class="p-3">
+      <button class="br-button primary mr-3" type="button">Salvar
+      </button>
+      <button class="br-button secondary mr-3" type="button">Baixar<i class="fa-solid fa-download" aria-hidden="true""></i>
+      </button>
+      <button class="br-button" type="button">Cancelar
+      </button>
+    </div>
 
     <br-rodape></br-rodape>
   </div>
 
-    <nav class="back-to-top active" aria-label="Voltar ao topo da página">
-      <a href="#wrapper">
-          <span class="fa fa-chevron-up"></span>
-          <span class="sr-only">Voltar ao topo da página</span>
-      </a>
-    </nav>
-   
-    <!-- Scripts de componentes -->
-    <script src="./js/inicializacao.js"  type="module"></script>
-    <script src="./js/script.js" type="module"></script>
-    <script src="./componentes/credenciamento/credenciamento.js" type="module"></script>
-    <script src="./componentes/dados_pessoais/dados_pessoais.js" type="module"></script>
-    <script src="./componentes/endereco_contato/endereco_contato.js" type="module"></script>
-    <script src="../bibliotecas/govbr-ds/core.js" type="module"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <nav class="back-to-top active" aria-label="Voltar ao topo da página">
+    <a href="#wrapper">
+      <span class="fa fa-chevron-up"></span>
+      <span class="sr-only">Voltar ao topo da página</span>
+    </a>
+  </nav>
+
+  <!-- Scripts de componentes -->
+  <script src="./js/inicializacao.js" type="module"></script>
+  <script src="./js/script.js" type="module"></script>
+  <script src="./componentes/credenciamento/credenciamento.js" type="module"></script>
+  <script src="./componentes/dados_pessoais/dados_pessoais.js" type="module"></script>
+  <script src="./componentes/endereco_contato/endereco_contato.js" type="module"></script>
+  <script src="../bibliotecas/govbr-ds/core.js" type="module"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
-  </body>
+</body>
+
 </html>
