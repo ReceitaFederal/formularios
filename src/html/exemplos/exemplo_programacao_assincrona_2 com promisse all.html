@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Programação Assíncrona</title>
+</head>
+<body>
+    
+    
+    <img id="imagem_1"></img>
+    <img id="imagem_2"></img>
+
+    <textarea id="conteudo_json"></textarea>
+
+    <button id="btn_continuar" disabled>Continuar</button>
+
+    <script>
+        
+        function carregarImagem(url) {
+            return new Promise((resolve) => {
+                // Fazendo a solicitação GET usando fetch
+                fetch(url)
+                    .then(response => {
+                        // Verificando se a solicitação foi bem-sucedida
+                        if (!response.ok) {
+                            throw new Error('Não foi possível carregar a imagem.');
+                        }
+                        // Convertendo a resposta para um blob de imagem
+                        return response.blob();
+
+                    }).then(blob => {
+                        // Criando um URL temporário para a imagem
+                        const imageUrl = URL.createObjectURL(blob);
+                            
+                        resolve(imageUrl);
+                        
+                    }).catch(error => {
+                        console.error('Ocorreu um erro:', error);
+                    });
+            });
+        }
+
+        function carregarJSON(url) {
+            return new Promise((resolve) => {
+                // Fazendo a solicitação GET usando fetch
+                fetch(url)
+                    .then(response => {
+                        // Verificando se a solicitação foi bem-sucedida
+                        if (!response.ok) {
+                            throw new Error('Não foi possível carregar a imagem.');
+                        }
+                        // Convertendo a resposta para um json
+                        return response.json();
+
+                    }).then(json => {
+                    
+                        resolve(json);
+                        
+                    }).catch(error => {
+                        console.error('Ocorreu um erro:', error);
+                    });
+            });
+        }
+
+        Promise.all([
+            carregarImagem("./imagem1.jfif"),
+            carregarImagem("./imagem2.jfif"),
+            carregarJSON("./exemplo.json")
+        ])
+        .then((lista_retorno) =>{
+
+            //Atualiza elementos
+            document.querySelector("#imagem_1").src = lista_retorno[0];
+            document.querySelector("#imagem_2").src = lista_retorno[1];
+            document.querySelector("#conteudo_json").value = JSON.stringify(lista_retorno[2]);
+
+            //Habilita botão continuar
+            document.querySelector("#btn_continuar").disabled = false;
+        });  
+
+        
+
+
+    </script>
+
+</body>
+</html>

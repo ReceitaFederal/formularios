@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Programação Assíncrona</title>
+</head>
+<body>
+    
+    <button id="btn_1">Botão 1</button>
+    <button id="btn_2">Botão 2</button>
+    <button id="btn_3">Botão 3</button>
+    <input type="text" id="input_texto"></input>
+    <script>
+        
+        esperar_clique_botao_1().then(()=>{
+            console.log ("resolveu a promessa do clique do botão 1");
+        });
+
+        Promise.all([
+            esperar_clique_botao_1(), 
+            esperar_clique_botao_2(), 
+            esperar_clique_botao_3()]).then((values) => {
+        
+            console.log ("Clicou em todos os botões!!!")
+        });
+
+        function esperar_clique_botao_1(){
+            return new Promise((resolve) => {
+                let botao_1 = document.querySelector("#btn_1");
+                botao_1.addEventListener("click", ()=>{
+                    console.log("clicou no botão 1");
+                    resolve();
+                });
+            });
+        }
+
+        function esperar_clique_botao_2(){
+            return new Promise((resolve) => {
+                let botao_2 = document.querySelector("#btn_2");
+                botao_2.addEventListener("click", ()=>{
+                    console.log("clicou no botão 2");
+                    resolve();
+                });
+            });
+        }
+
+        function esperar_clique_botao_3(){
+            return new Promise((resolve) => {
+                let botao_3 = document.querySelector("#btn_3");
+                botao_3.addEventListener("click", ()=>{
+                    console.log("clicou no botão 3");
+                    resolve();
+                });
+            });
+        }
+
+      
+        let input_texto = document.querySelector("#input_texto");
+        input_texto.addEventListener("change", ()=>{
+            console.log("meu input de texto mudou de valor");
+        });
+        
+
+    </script>
+
+</body>
+</html>
