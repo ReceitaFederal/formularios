@@ -1,41 +1,61 @@
-<div id="tabela_precatorios">
-  <div class="row">
-    <fieldset>
-      <td id="numeroPrecatorio" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
-        <div class="br-input">
-          <input class="text-center"  style="font-size: 13px;"  type="number" placeholder="Número do precatório"/>
+<template id="template_linha_tabela_precatorios"> 
+  <tr>
+    <td id="numeroPrecatorio" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
+      <div class="br-input">
+        <input class="text-center"  style="font-size: 13px;"  type="number" placeholder="Número do precatório"/>
+      </div>
+    </td>
+    <td id="numeroRequisicaoPagamentoPrecatorio" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
+      <div class="br-input">
+        <input class="text-center"  style="font-size: 13px;"  type="number" placeholder="Número da requisição de pagamento"/>
+      </div>
+    </td>
+    <td id="dataRequisicaoPrecatorio" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
+      <div class="br-input">
+        <input class="text-center" style="font-size: 15px;" type="date" placeholder="Data da requisição"/>
+      </div>
+    </td>
+    <td id="dataVencimentoPrecatorio" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
+      <div class="br-input">
+        <input class="text-center" style="font-size: 15px;" type="date" placeholder="Data do vencimento"/>
+      </div>
+    </td>
+    <td id="valorPrecatorio" class="col-sm-1 col-md-2 col-lg-1 mb-3 p-0">
+      <div class="br-input">
+        <input  class="text-center" type="number" placeholder="R$"/>
+      </div>
+    </td>
+    <td id="acoes" class="col-sm-1 col-md-2 col-lg-1 mb-3 text-center">
+      <button class="br-button circle secondary small" id="btnExcluirLinha" type="button" aria-label="Ícone ilustrativo">
+        <div class="menu-item divider" href="#" role="treeitem">
+          <span class="icon">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </span>
+          <span class="content"></span>
         </div>
-      </td>
-      <td id="numeroRequisicaoPagamentoPrecatorio" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
-        <div class="br-input">
-          <input class="text-center"  style="font-size: 13px;"  type="number" placeholder="Número da requisição de pagamento"/>
-        </div>
-      </td>
-      <td id="dataRequisicaoPrecatorio" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
-        <div class="br-input">
-          <input class="text-center" style="font-size: 15px;" type="date" placeholder="Data da requisição"/>
-        </div>
-      </td>
-      <td id="dataVencimentoPrecatorio" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
-        <div class="br-input">
-          <input class="text-center" style="font-size: 15px;" type="date" placeholder="Data do vencimento"/>
-        </div>
-      </td>
-      <td id="valorPrecatorio" class="col-sm-1 col-md-2 col-lg-1 mb-3 p-0">
-        <div class="br-input">
-          <input  class="text-center" type="number" placeholder="R$"/>
-        </div>
-      </td>
-      <td id="acoes" class="col-sm-1 col-md-2 col-lg-1 mb-3 text-center">
-        <button class="br-button circle secondary small" onclick="excluirLinha(this)" id="btnExcluirLinha" type="button" aria-label="Ícone ilustrativo">
-          <div class="menu-item divider" href="#" role="treeitem">
-            <span class="icon">
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            </span>
-            <span class="content"></span>
-          </div>
-        </button>
-      </td>
-    </fieldset>
+      </button>
+    </td>
+  </tr>
+</template> 
+
+<div class="br-table">
+  <table id="tabelaPrecatorios" class="table container text-center">
+      <thead>
+          <tr>
+              <th id="tituloNumeroPrecatorio" class="text-center text-up-01">Nº do precatório</th>
+              <th id="tituloNumeroRequisicaoPagamentoPrecatorio" class="text-center text-up-01">Nº da requisição de pagamento</th>
+              <th id="tituloDataRequisicaoPrecatorio" class="text-center text-up-01">Data da requisição</th>
+              <th id="tituloDataVencimentoPrecatorio" class="text-center text-up-01">Vencimento</th>
+              <th id="tituloValorPrecatorio" class="text-center text-up-01">Valor (R$)</th>
+              <th class="text-center text-up-01">Ações</th>
+          </tr>
+      </thead>
+      <tbody id="tabelaPrecatoriosBody"></tbody>
+      <!-- A tabela será preenchida dinamicamente com JavaScript -->
+  </table>
+
+  <!--BOTÕES ADICIONAR REGISTRO-->
+  <div id="btnPrecatorio" class="text-center my-5 esconder">
+      <button id="btnIncluirNovoPrecatorio" class="br-button secondary mr-3">Incluir novo precatório</button>
   </div>
 </div>

@@ -1,0 +1,67 @@
+<template id="template_linha_tabela_creditos_proprios">
+    <tr>
+        <td class="text-center p-1">
+            Prejuízo Fiscal (PF)
+        </td>
+        <td class="text-center p-1">
+            <div class="br-input small">
+                <input id="validarValor" class="text-center p-1 text-down-01" type="number" placeholder="R$" required="true" contenteditable="true">
+            </div>
+        </td>
+        <td class="text-center p-1">
+            <div class="br-input small">
+                <input class="text-center" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="25%" disabled style="opacity: 1;">
+            </div>
+        </td>
+        <td class="text-center p-1">
+            <div class="br-input small">
+                <input id="validarValor" class="text-center p-1 text-down-01" type="number" placeholder="R$" contenteditable="true" required="true">
+            </div>
+        </td>
+        <td class="text-center p-1">
+            <div class="br-input small">
+                <input id="validacaoData" class="text-center" style="font-size: 15px;" type="date" contenteditable="true" required="true" placeholder="dd/mm/aaaa">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="text-center p-1">
+            Base de Cálculo Negativa (BCN) da CSLL
+        </td>
+        <td class="text-center p-1">
+            <div class="br-input small">
+                <input type="number" class="text-center p-1 text-down-01" placeholder="R$" contenteditable="true" required="true" id="validarValor">
+            </div>
+        </td>
+        <td id="aliquotasCreditosProprios" class="text-center p-1">
+            <select-aliquotas-creditos-proprios></select-aliquotas-creditos-proprios>
+        </td>
+        <td class="text-center p-1">
+            <div class="br-input small">
+                <input type="number" class="text-center p-1 text-down-01" placeholder="R$" contenteditable="true" required="true" id="validarValor">
+            </div>
+        </td>
+        <td class="text-center p-1">
+            <div class="br-input small">
+                <input id="validacaoData" class="text-center" style="font-size: 15px;" type="date" contenteditable="true" required="true" placeholder="dd/mm/aaaa">
+            </div>
+        </td>
+    </tr>
+</template>
+
+<div class="br-table">
+    <table id="tabelaProprios">
+        <thead>
+            <tr>
+                <th class="text-center text-up-01">Tipo</th>
+                <th class="text-center text-up-01">Montante (R$)</th>
+                <th class="text-center text-up-01">Alíquota</th>
+                <th class="text-center text-up-01">Valor (R$)</th>
+                <th class="text-center text-up-01">Data entrega ECF</th>
+            </tr>
+        </thead>
+        <tbody id="tabelaPropriosBody">
+        </tbody>
+        <!-- A tabela será preenchida dinamicamente com JavaScript -->
+    </table>
+</div>

@@ -1,76 +1,97 @@
-<div id="tabela_creditos_terceiros">
-  <div class="row">
-    <fieldset>
-      <td id="cnpjCreditoTerceiros" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
-        <div class="br-input">
-          <input class="text-center"  style="font-size: 13px;"  type="number" placeholder="CNPJ"/>
-        </div>
-      </td>
-      <td id="tipoCreditoTerceiros" class="col-sm-1 col-md-2 col-lg-1 mb-3 p-0">
-        <div class="br-select">
-            <div class="br-input">
-              <input id="select-simple" class="text-center" type="text" placeholder="Selecione o tipo"/>
-              <button class="br-button" type="button" aria-label="Exibir lista" tabindex="-1" data-trigger="data-trigger"><i class="fas fa-angle-down" aria-hidden="true"></i>
-              </button>
-            </div>
-            <div class="br-list" tabindex="0">
-              <div class="br-item" tabindex="-1">
-                <div class="br-radio">
-                  <input id="rb0" type="radio" name="estados-simples" value="rb0"/>
-                  <label for="rb0">Acre</label>
-                </div>
-              </div>
-              <div class="br-item" tabindex="-1">
-                <div class="br-radio">
-                  <input id="rb1" type="radio" name="estados-simples" value="rb1"/>
-                  <label for="rb1">Alagoas</label>
-                </div>
-              </div>
-              <div class="br-item" tabindex="-1">
-                <div class="br-radio">
-                  <input id="rb2" type="radio" name="estados-simples" value="rb2"/>
-                  <label for="rb2">Amapá</label>
-                </div>
-              </div>
-              <div class="br-item" tabindex="-1">
-                <div class="br-radio">
-                  <input id="rb3" type="radio" name="estados-simples" value="rb3"/>
-                  <label for="rb3">Amazonas</label>
-                </div>
-              </div>
-            </div>
-          </div>    
-        </td>
-      <td id="montanteCreditoTerceiros" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
-        <div class="br-input">
-          <input class="text-center"  style="font-size: 13px;"  type="number" placeholder="R$"/>
-        </div>
-      </td>
-      <td id="aliquotaCreditoTerceiros" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
-        <div class="br-input">
-          <input class="text-center" type="number" placeholder="%"/>
-        </div>
-      </td>
-      <td id="valorCreditoTerceiros" class="col-sm-1 col-md-2 col-lg-1 mb-3 p-0">
-        <div class="br-input">
-          <input  class="text-center" type="number" placeholder="R$"/>
-        </div>
-      </td>
-      <td id="dataEntregaCreditoTerceiros" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
-        <div class="br-input">
-          <input class="text-center" style="font-size: 15px;" type="date" placeholder="Data de entrega"/>
-        </div>
-      </td>
-      <td id="acoes" class="col-sm-1 col-md-2 col-lg-1 mb-3 text-center">
-        <button class="br-button circle secondary small" onclick="excluirLinha(this)" id="btnExcluirLinha" type="button" aria-label="Ícone ilustrativo">
-          <div class="menu-item divider" href="#" role="treeitem">
-            <span class="icon">
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            </span>
-            <span class="content"></span>
+<template id="template_linha_tabela_creditos_terceiros">  
+  <tr>
+    <td id="cnpjCreditoTerceiros" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
+      <div class="br-input">
+        <input class="text-center"  style="font-size: 13px;"  type="number" placeholder="CNPJ"/>
+      </div>
+    </td>
+    <td id="tipoCreditoTerceiros" class="col-sm-1 col-md-2 col-lg-1 mb-3 p-0">
+      <div class="br-select">
+          <div class="br-input">
+            <input id="select-simple" class="text-center" type="text" placeholder="Selecione o tipo"/>
+            <button class="br-button" type="button" aria-label="Exibir lista" tabindex="-1" data-trigger="data-trigger"><i class="fas fa-angle-down" aria-hidden="true"></i>
+            </button>
           </div>
-        </button>
+          <div class="br-list" tabindex="0">
+            <div class="br-item" tabindex="-1">
+              <div class="br-radio">
+                <input id="rb0" type="radio" name="estados-simples" value="rb0"/>
+                <label for="rb0">Acre</label>
+              </div>
+            </div>
+            <div class="br-item" tabindex="-1">
+              <div class="br-radio">
+                <input id="rb1" type="radio" name="estados-simples" value="rb1"/>
+                <label for="rb1">Alagoas</label>
+              </div>
+            </div>
+            <div class="br-item" tabindex="-1">
+              <div class="br-radio">
+                <input id="rb2" type="radio" name="estados-simples" value="rb2"/>
+                <label for="rb2">Amapá</label>
+              </div>
+            </div>
+            <div class="br-item" tabindex="-1">
+              <div class="br-radio">
+                <input id="rb3" type="radio" name="estados-simples" value="rb3"/>
+                <label for="rb3">Amazonas</label>
+              </div>
+            </div>
+          </div>
+        </div>    
       </td>
-    </fieldset>
+    <td id="montanteCreditoTerceiros" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
+      <div class="br-input">
+        <input class="text-center"  style="font-size: 13px;"  type="number" placeholder="R$"/>
+      </div>
+    </td>
+    <td id="aliquotaCreditoTerceiros" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
+      <div class="br-input">
+        <input class="text-center" type="number" placeholder="%"/>
+      </div>
+    </td>
+    <td id="valorCreditoTerceiros" class="col-sm-1 col-md-2 col-lg-1 mb-3 p-0">
+      <div class="br-input">
+        <input  class="text-center" type="number" placeholder="R$"/>
+      </div>
+    </td>
+    <td id="dataEntregaCreditoTerceiros" class="col-sm-1 col-md-2 col-lg-2 mb-3 p-0">
+      <div class="br-input">
+        <input class="text-center" style="font-size: 15px;" type="date" placeholder="Data de entrega"/>
+      </div>
+    </td>
+    <td id="acoes" class="col-sm-1 col-md-2 col-lg-1 mb-3 text-center">
+      <button class="br-button circle secondary small" onclick="excluirLinha(this)" id="btnExcluirLinha" type="button" aria-label="Ícone ilustrativo">
+        <div class="menu-item divider" href="#" role="treeitem">
+          <span class="icon">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </span>
+          <span class="content"></span>
+        </div>
+      </button>
+    </td>
+  </tr>
+</template>
+
+<div class="br-table">
+  <table id="tabelaTerceiros" class="table container text-center">
+      <thead>
+          <tr>
+              <th id="tituloCnpjCreditoTerceiros" class="text-center text-up-01 col-2">CNPJ</th>
+              <th id="tituloTipoCreditoTerceiros" class="text-center text-up-01 col-2">Tipo</th>
+              <th id="tituloMontanteCreditoTerceiros" class="text-center text-up-01 col-2">Montante (R$)</th>
+              <th id="tituloAliquotaCreditoTerceiros" class="text-center text-up-01 col-1">Alíquota</th>
+              <th id="tituloValorCreditoTerceiros" class="text-center text-up-01 col-2">Valor (R$)</th>
+              <th id="tituloDataEntregaCreditoTerceiros" class="text-center text-up-01 col-2">Data entrega ECF</th>
+              <th id="tituloAcoes" class="text-center text-up-01 col-1">Ações</th>
+          </tr>
+      </thead>
+      <tbody id="tabelaTerceirosBody"></tbody>
+      <!-- A tabela será preenchida dinamicamente com JavaScript -->
+  </table>
+
+  <!--BOTÕES ADICIONAR REGISTRO-->
+  <div class="text-center my-5">
+      <button id="btnIncluirCreditoTerceiros" class="br-button secondary mr-3">Incluir novo crédito</button>
   </div>
 </div>

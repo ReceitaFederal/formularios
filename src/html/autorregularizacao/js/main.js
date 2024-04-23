@@ -320,7 +320,7 @@ function adicionarMetadados(pdf, metadata) {
     }
 
     // Selecionar o botão pelo ID e anexar o evento onclick
-    document.getElementById("btnIncluirNovoPrecatorio").onclick = incluirNovoPrecatorio;
+    // document.getElementById("btnIncluirNovoPrecatorio").onclick = incluirNovoPrecatorio;
 
 
 
@@ -643,13 +643,27 @@ function adicionarMetadados(pdf, metadata) {
           }
       }
 
-      // Selecione o elemento pelo ID
         var inputElement = document.getElementById("validarValor");
+        if (inputElement) {
+            inputElement.addEventListener("input", function() {
+                validarValor(this);
+            });
+        } else {
+            console.error("Element with ID 'validarValor' not found.");
+        }
 
-        // Adicione um listener para o evento input
-        inputElement.addEventListener("input", function() {
-            validarValor(this);
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var inputElement = document.getElementById("validarValor");
+            if (inputElement) {
+                inputElement.addEventListener("input", function() {
+                    validarValor(this);
+                });
+            } else {
+                console.error("Element with ID 'validarValor' not found.");
+            }
         });
+   
 
 
       function validarCIBCNOCNPJ(input) {
@@ -732,14 +746,26 @@ function adicionarMetadados(pdf, metadata) {
           }
       }
 
-      // Selecione o elemento pelo ID
         var inputElement = document.getElementById("validacaoData");
+        if (inputElement) {
+            inputElement.addEventListener("change", function() {
+                validacaoData(this);
+            });
+        } else {
+            console.error("Element with ID 'validacaoData' not found.");
+        }
 
-        // Adicione um listener para o evento change
-        inputElement.addEventListener("change", function() {
-            validacaoData(this);
+        document.addEventListener("DOMContentLoaded", function() {
+            var inputElement = document.getElementById("validacaoData");
+            if (inputElement) {
+                inputElement.addEventListener("change", function() {
+                    validacaoData(this);
+                });
+            } else {
+                console.error("Element with ID 'validacaoData' not found.");
+            }
         });
-
+        
       
       function validacaoVencimentoEApuração(input) {
           let valor = input.value.replace(/\D/g, '');
@@ -840,4 +866,23 @@ function adicionarMetadados(pdf, metadata) {
         });
 
         
+        document.addEventListener("DOMContentLoaded", function() {
+            var inputElement1 = document.getElementById("validarValor");
+            if (inputElement1) {
+                inputElement1.addEventListener("input", function() {
+                    validarValor(this);
+                });
+            } else {
+                console.error("Element with ID 'validarValor' not found.");
+            }
+        
+            var inputElement2 = document.getElementById("validacaoData");
+            if (inputElement2) {
+                inputElement2.addEventListener("change", function() {
+                    validacaoData(this);
+                });
+            } else {
+                console.error("Element with ID 'validacaoData' not found.");
+            }
+        });
         
