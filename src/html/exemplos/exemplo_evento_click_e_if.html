@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Programação Assíncrona</title>
+</head>
+<body>
+    
+    <button id="btn_1">Botão 1</button>
+    <button id="btn_2">Botão 2</button>
+    <button id="btn_3">Botão 3</button>
+    <input type="text" id="input_texto"></input>
+    <script>
+
+        let clicou_botao_1 = false;
+        let clicou_botao_2 = false;
+        let clicou_botao_3 = false;
+
+        let botao_1 = document.querySelector("#btn_1");
+        botao_1.addEventListener("click", ()=>{
+            console.log("clicou no botão 1");
+            clicou_botao_1 = true;
+            verificar_se_clicou_em_todos_botoes();
+        });
+
+        let botao_2 = document.querySelector("#btn_2");
+        botao_2.addEventListener("click", ()=>{
+            console.log("clicou no botão 2");
+            clicou_botao_2 = true;
+            verificar_se_clicou_em_todos_botoes();
+        });
+
+        let botao_3 = document.querySelector("#btn_3");
+        botao_3.addEventListener("click", ()=>{
+            console.log("clicou no botão 3");
+            clicou_botao_3 = true;
+            verificar_se_clicou_em_todos_botoes();
+        });
+
+        let input_texto = document.querySelector("#input_texto");
+        input_texto.addEventListener("change", ()=>{
+            console.log("meu input de texto mudou de valor");
+        });
+
+        function verificar_se_clicou_em_todos_botoes(){
+            if (clicou_botao_1 && clicou_botao_2 && clicou_botao_3){
+                console.log ("EBA!!!!!!! CLICOU EM TODOS!!!!");
+            }else{
+                console.log ("....... ainda falta clicar em botões");
+            }
+        }
+
+    </script>
+
+</body>
+</html>

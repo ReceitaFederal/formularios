@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Programação Assíncrona</title>
+</head>
+<body>
+    
+    
+    <img id="imagem_1"></img>
+    <img id="imagem_2"></img>
+
+    <textarea id="conteudo_json"></textarea>
+
+    <button id="btn_continuar" disabled>Continuar</button>
+
+    <script>
+        
+        let carregou_imagem_1 = false;
+        let carregou_imagem_2 = false;
+        let carregou_json = false;
+
+        function carregarImagem(url) {
+            return new Promise((resolve) => {
+                // Fazendo a solicitação GET usando fetch
+                fetch(url)
+                    .then(response => {
+                        // Verificando se a solicitação foi bem-sucedida
+                        if (!response.ok) {
+                            throw new Error('Não foi possível carregar a imagem.');
+                        }
+                        // Convertendo a resposta para um blob de imagem
+                        return response.blob();
+
+                    }).then(blob => {
+                        // Criando um URL temporário para a imagem
+                        const imageUrl = URL.createObjectURL(blob);
+                            
+                        resolve(imageUrl);
+                        
+                    }).catch(error => {
+                        console.error('Ocorreu um erro:', error);
+                    });
+            });
+        }
+
+        function carregarJSON(url) {
+            return new Promise((resolve) => {
+                // Fazendo a solicitação GET usando fetch
+                fetch(url)
+                    .then(response => {
+                        // Verificando se a solicitação foi bem-sucedida
+                        if (!response.ok) {
+                            throw new Error('Não foi possível carregar a imagem.');
+                        }
+                        // Convertendo a resposta para um json
+                        return response.json();
+
+                    }).then(json => {
+                    
+                        resolve(json);
+                        
+                    }).catch(error => {
+                        console.error('Ocorreu um erro:', error);
+                    });
+            });
+        }
+
+        
+        carregarImagem("./imagem1.jfif").then((imagem) =>{
+
+            document.querySelector("#imagem_1").src = imagem;
+            carregou_imagem_1 = true;
+            verificar_se_carregou_tudo();
+        });  
+        
+
+        carregarImagem("./imagem2.jfif").then((imagem) =>{
+
+            document.querySelector("#imagem_2").src = imagem;
+            carregou_imagem_2 = true;
+            verificar_se_carregou_tudo();
+        });
+       
+
+        carregarJSON("./exemplo.json").then((json) =>{
+
+            document.querySelector("#conteudo_json").value = JSON.stringify(json);
+            carregou_json = true;
+            verificar_se_carregou_tudo();
+        });
+        
+        function verificar_se_carregou_tudo(){
+            if (carregou_imagem_1 && carregou_imagem_2 && carregou_json){
+                document.querySelector("#btn_continuar").disabled = false;
+            }
+        }
+
+    </script>
+
+</body>
+</html>

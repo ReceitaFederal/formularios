@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Programação Assíncrona</title>
+</head>
+<body>
+    
+    <button id="btn_1">Botão 1</button>
+    <button id="btn_2">Botão 2</button>
+    <button id="btn_3">Botão 3</button>
+    <input type="text" id="input_texto"></input>
+    <script>
+        
+        let botao_1 = document.querySelector("#btn_1");
+
+        botao_1.addEventListener("click", ()=>{
+            console.log("PRIMEIRO EVENT LISTENER: clicou no botão 1");            
+        });
+        
+        botao_1.addEventListener("click", ()=>{
+            console.log("SEGUNDO EVENT LISTENER: clicou no botão 1");
+            //colocar mais código            
+        });
+
+    </script>
+
+</body>
+</html>
