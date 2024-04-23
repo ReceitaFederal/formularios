@@ -251,11 +251,6 @@ function adicionarMetadados(pdf, metadata) {
         registrosManuais.push(novaLinha);
     }
 
-    // Selecionar o botão pelo ID e anexar o evento onclick
-    document.getElementById("btnIncluirCreditoTerceiros").onclick = incluirNovoCreditoTerceiros;
-
-
-
         // ADICIONA LINHA NA TABELA CREDITO DE TERCEIROS
      function incluirNovoPrecatorio() {
         // Cria uma nova linha de tabela

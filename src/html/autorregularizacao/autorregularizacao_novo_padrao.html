@@ -65,90 +65,7 @@
                     <h4>Exclusivo para Pessoa Jurídica</h4>
                     <h4>Nos termos da legislação, o uso dos créditos de PF/BCN é limitado a 50% da dívida consolidada</h4>
                   </div>
-                  <div class="br-table">
-                    <table id="tabelaProprios" class="table container text-center">
-                        <thead>
-                            <tr>
-                                <th class="text-center text-up-01">Tipo</th>
-                                <th class="text-center text-up-01">Montante (R$)</th>
-                                <th class="text-center text-up-01">Alíquota</th>
-                                <th class="text-center text-up-01">Valor (R$)</th>
-                                <th class="text-center text-up-01">Data entrega ECF</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tabelaPropriosBody" class="">
-                            <tr>
-                                <td class="text-center p-1">Prejuízo Fiscal (PF)</td>
-                                <td class="text-center p-1">
-                                  <div class="br-input small">
-                                    <input id="validarValor" class="text-center p-1 text-down-01" type="number" placeholder="R$" required="true" contenteditable="true">
-                                  </div>
-                                <td class="text-center p-1">
-                                  <div class="br-input small">
-                                    <input class="text-center" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="25%" disabled style="opacity: 1;">
-                                  </div>
-                                <td class="text-center p-1">
-                                  <div class="br-input small">
-                                    <input id="validarValor" class="text-center p-1 text-down-01" type="number" placeholder="R$" contenteditable="true" required="true">
-                                  </div>
-                                </td>
-                                <td class="text-center p-1">
-                                  <div class="br-input small">
-                                    <input id="validacaoData" class="text-center" style="font-size: 15px;" type="date" contenteditable="true" required="true" placeholder="dd/mm/aaaa">
-                                  </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center p-1">Base de Cálculo Negativa (BCN) da CSLL</td>
-                                <td class="text-center p-1">
-                                  <div class="br-input small">
-                                    <input type="number" class="text-center p-1 text-down-01" placeholder="R$" contenteditable="true" required="true" id="validarValor">
-                                  </div>
-                                </td>
-                              <td class="text-center p-1">
-                                <div class="br-select">
-                                    <div class="br-input small">
-                                      <input id="select-simple" class="text-center" type="text" placeholder="Selecione a alíquota"/>
-                                      <button class="br-button" type="button" aria-label="Exibir lista" tabindex="-1" data-trigger="data-trigger"><i class="fas fa-angle-down" aria-hidden="true"></i>
-                                      </button>
-                                    </div>
-                                    <div class="br-list" tabindex="0">
-                                      <div class="br-item" tabindex="-1">
-                                        <div class="br-radio">
-                                          <input id="rb-credito-proprio-9perc" type="radio" name="estados-simples" value="rb-credito-proprio-9perc"/>
-                                          <label class="text-center" for="rb-credito-proprio-9perc">9%</label>
-                                        </div>
-                                      </div>
-                                      <div class="br-item" tabindex="-1">
-                                        <div class="br-radio">
-                                          <input id="rb-credito-proprio-15perc" type="radio" name="estados-simples" value="rb-credito-proprio-15perc"/>
-                                          <label class="text-center" for="rb-credito-proprio-15perc">15%</label>
-                                        </div>
-                                      </div>
-                                      <div class="br-item" tabindex="-1">
-                                        <div class="br-radio">
-                                          <input id="rb-credito-proprio-20perc" type="radio" name="estados-simples" value="rb-credito-proprio-20perc"/>
-                                          <label class="text-center" for="rb-credito-proprio-20perc">20%</label>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>    
-                                </td>
-                                <td class="text-center p-1">
-                                  <div class="br-input small">
-                                    <input type="number" class="text-center p-1 text-down-01" placeholder="R$" contenteditable="true" required="true" id="validarValor">
-                                  </div>
-                                </td>
-                                <td class="text-center p-1">
-                                  <div class="br-input small">
-                                    <input id="validacaoData" class="text-center" style="font-size: 15px;" type="date" contenteditable="true" required="true" placeholder="dd/mm/aaaa">
-                                  </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <!-- A tabela será preenchida dinamicamente com JavaScript -->
-                    </table>
-                  </div>
+                  <br-tabela-creditos-proprios></br-tabela-creditos-proprios>
                 </div>
                 <!--FIM DA SECAO CREDITOS PROPRIOS-->
 
@@ -162,7 +79,7 @@
                     <h4>Exclusivo para Pessoa Jurídica</h4>
                     <h4>Nos termos da legislação, o uso dos créditos de PF/BCN é limitado a 50% da dívida consolidada</h4>
                   </div>
-                  <br-tabela_creditos_terceiros></br-tabela_creditos_terceiros>
+                  <br-tabela-creditos-terceiros></br-tabela-creditos-terceiros>
                 </div>
 
                 <!--SECAO DE PRECATORIOS-->
@@ -331,7 +248,8 @@
     <script src="./bibliotecas/govbr-ds/core.js" type="module"></script>
     <script src="./bibliotecas/govbr-ds/core.min.js" type="module"></script>
     <script src="./tabela_debitos/tabela_debitos.js" type="module"></script>
-    <script src="./tabela_creditos_proprios/tabela_creditos_proprios.js" type="module"></script>     
+    <script src="./tabela_creditos_proprios/tabela_creditos_proprios.js" type="module"></script> 
+    <script src="./tabela_creditos_terceiros/tabela_creditos_terceiros.js" type="module"></script>     
 
   </body>
 </html>

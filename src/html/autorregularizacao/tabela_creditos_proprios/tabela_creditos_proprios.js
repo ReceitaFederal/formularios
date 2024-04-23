@@ -19,8 +19,18 @@ export class TabelaCreditosProprios extends HTMLElement{
                 template.innerHTML = texto_pagina;
 
                 this.appendChild(template.content.cloneNode(true));
+
+                setTimeout(() => {
                 
-                this.dispatchEvent(new CustomEvent("carregou")); 
+                    let select_creditos_proprios = this.querySelector("#select-creditos-proprios");
+
+                    console.dir(select_creditos_proprios);
+
+                    // Inicializa o select_creditos_proprios conforme o padrão do design system 
+                    GovBRUtils.inicializarSelects(select_creditos_proprios);
+                    
+                    this.dispatchEvent(new CustomEvent("carregou")); 
+                });
         });
       
     });
