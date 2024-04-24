@@ -1,5 +1,4 @@
 import { GovBRUtils } from "../js/GovBRUtils.js";
-import { SelectPrecatorios } from "../componentes/select_precatorios/select_precatorios.js";
 
 export class TabelaPrecatorios extends HTMLElement{
     
@@ -48,42 +47,35 @@ export class TabelaPrecatorios extends HTMLElement{
                 nova_linha_precatorio = body_tabela_precatorios.querySelector("#nova_linha_precatorio");
 
                 nova_linha_precatorio.id = `linhaprecatorio_${body_tabela_precatorios.children.length-1}`;
-
-                nova_linha_precatorio.querySelector("select-codigos-receita").addEventListener("carregou", ()=>{
             
-                    let novaLinha = body_tabela_precatorios.children[body_tabela_precatorios.children.length-1];
+                // Ajusta o espaçamento dos títulos e campos
+                let titulosCampos = novaLinha.querySelectorAll('td');
+                titulosCampos.forEach(function(elemento) {
+                    elemento.style.padding = "5px"; // Espaçamento interno dos títulos e campos
+                });
 
-                    novaLinha.querySelector('#selectPrecatorios').id = `selectPrecatorios_${body_tabela_precatorios.children.length-1}`;
+                // Adiciona evento de clique ao botão de exclusão de linha
+                let btnExcluirLinha = novaLinha.querySelector('#btnExcluirLinha');
 
-                    // Ajusta o espaçamento dos títulos e campos
-                    let titulosCampos = novaLinha.querySelectorAll('td');
-                    titulosCampos.forEach(function(elemento) {
-                        elemento.style.padding = "5px"; // Espaçamento interno dos títulos e campos
-                    });
+                btnExcluirLinha.addEventListener('click',  () => {
 
-                    // Adiciona evento de clique ao botão de exclusão de linha
-                    let btnExcluirLinha = novaLinha.querySelector('#btnExcluirLinha');
+                    // Remove a linha correspondente ao botão de exclusão
+                    novaLinha.remove();
 
-                    btnExcluirLinha.addEventListener('click',  () => {
+                    // Verifica se todas as linhas foram removidas e ajusta a margem esquerda da tabela
+                    if (this.querySelectorAll('#tabelaPrecatoriosBody tr').length === 0) {
+                        let tabela = this.querySelector('#tabelaPrecatorios');
+                        tabela.style.marginLeft = "-5px"; // Volta à margem padrão
+                    }
+                });
 
-                        // Remove a linha correspondente ao botão de exclusão
-                        novaLinha.remove();
-
-                        // Verifica se todas as linhas foram removidas e ajusta a margem esquerda da tabela
-                        if (this.querySelectorAll('#tabelaPrecatoriosBody tr').length === 0) {
-                            let tabela = this.querySelector('#tabelaPrecatorios');
-                            tabela.style.marginLeft = "-5px"; // Volta à margem padrão
-                        }
-                    });
-
-                    // Ajusta a margem esquerda da tabela após adicionar uma nova linha
-                    let tabela = this.querySelector('#tabelaPrecatorios');
-                    tabela.style.marginLeft = "-5px"; // Ajusta a margem esquerda
-                    
-                    // Inicializa os selects conforme o padrão do design system após adicionar uma nova linha
-                    GovBRUtils.inicializarSelects(novaLinha);                  
-            });
-        });              
+                // Ajusta a margem esquerda da tabela após adicionar uma nova linha
+                let tabela = this.querySelector('#tabelaPrecatorios');
+                tabela.style.marginLeft = "-5px"; // Ajusta a margem esquerda
+                
+                // Inicializa os selects conforme o padrão do design system após adicionar uma nova linha
+                GovBRUtils.inicializarSelects(novaLinha);                  
+            });             
     }    
 }
 customElements.define('br-tabela-precatorios', TabelaPrecatorios);

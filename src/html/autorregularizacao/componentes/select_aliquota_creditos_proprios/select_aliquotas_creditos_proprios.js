@@ -8,7 +8,7 @@ export class SelectAliquotasCreditosProprios extends HTMLElement{
         Promise.all([
             
             this.carregar_template('./componentes/select_aliquotas_creditos_proprios/select_aliquotas_creditos_proprios.html'),
-            this.carregar_aliquotas_creditos_proprios('./componentes/select_aliquotas_creditos_proprios/aliquotas_creditos_proprios.json')
+            this.carregar_aliquotas_creditos_proprios('./componentes/select_aliquota_creditos_proprios/aliquotas_creditos_proprios.json')
 
         ]).then(() => {
             

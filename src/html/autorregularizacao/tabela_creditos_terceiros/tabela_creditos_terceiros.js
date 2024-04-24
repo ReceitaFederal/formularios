@@ -1,5 +1,5 @@
 import { GovBRUtils } from "../js/GovBRUtils.js";
-import { SelectCodigosReceita } from "../componentes/select_codigos_receita/select_codigos_receita.js";
+import { SelectCreditosTerceiros } from "../componentes/select_creditos_terceiros/select_creditos_terceiros.js";
 
 export class TabelaCreditosTerceiros extends HTMLElement{
     
@@ -49,13 +49,11 @@ export class TabelaCreditosTerceiros extends HTMLElement{
 
                 nova_linha_credito_terceiros.id = `linhaCreditoTerceiros_${body_tabela_creditos_terceiros.children.length-1}`;
 
-                nova_linha_credito_terceiros.querySelector("select-codigos-receita").addEventListener("carregou", ()=>{
+                nova_linha_credito_terceiros.querySelector("select-creditos-terceiros").addEventListener("carregou", ()=>{
             
                     let novaLinha = body_tabela_creditos_terceiros.children[body_tabela_creditos_terceiros.children.length-1];
 
-                    novaLinha.querySelector('#selectTipoDeclaracao').id = `selectTipoDeclaracao_${body_tabela_creditos_terceiros.children.length-1}`;
-
-                    novaLinha.querySelector('#selectCodigosReceitas').id = `selectCodigosReceitas_${body_tabela_creditos_terceiros.children.length-1}`;
+                    novaLinha.querySelector('#selectCreditosTerceiros').id = `selectCreditosTerceiros_${body_tabela_creditos_terceiros.children.length-1}`;
                 
                     // Ajusta o espaçamento dos títulos e campos
                     let titulosCampos = novaLinha.querySelectorAll('td');
