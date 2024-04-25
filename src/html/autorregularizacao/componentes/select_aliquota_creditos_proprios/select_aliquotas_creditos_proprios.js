@@ -80,7 +80,7 @@ export class SelectAliquotasCreditosProprios extends HTMLElement{
         
         const resposta = await fetch(template_url);
         if (!resposta.ok) {
-            throw new Error('Erro ao carregar o template');
+            throw new Error(`Erro ao carregar o template: ${template_url}`);
         }
         
         const texto_pagina = await resposta.text();
