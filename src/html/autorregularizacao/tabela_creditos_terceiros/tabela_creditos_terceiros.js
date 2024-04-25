@@ -1,5 +1,6 @@
 import { GovBRUtils } from "../js/GovBRUtils.js";
 import { SelectCreditosTerceiros } from "../componentes/select_creditos_terceiros/select_creditos_terceiros.js";
+import { SelectAliquotasCreditosTerceiros } from "../componentes/select_creditos_terceiros/select_aliquotas_creditos_terceiros.js";
 
 export class TabelaCreditosTerceiros extends HTMLElement{
     
@@ -41,49 +42,38 @@ export class TabelaCreditosTerceiros extends HTMLElement{
         let nova_linha_credito_terceiros = body_tabela_creditos_terceiros.appendChild(template_linha.content.cloneNode(true));                
         nova_linha_credito_terceiros.id = "nova_linha_credito_terceiros";
 
-        return true;
-
         setTimeout(()=> {
-
-                nova_linha_credito_terceiros = body_tabela_creditos_terceiros.querySelector("#nova_linha_credito_terceiros");
-
-                nova_linha_credito_terceiros.id = `linhaCreditoTerceiros_${body_tabela_creditos_terceiros.children.length-1}`;
-
-                nova_linha_credito_terceiros.querySelector("select-creditos-terceiros").addEventListener("carregou", ()=>{
             
-                    let novaLinha = body_tabela_creditos_terceiros.children[body_tabela_creditos_terceiros.children.length-1];
+            let novaLinha = body_tabela_creditos_terceiros.children[body_tabela_creditos_terceiros.children.length-1];
 
-                    novaLinha.querySelector('#selectCreditosTerceiros').id = `selectCreditosTerceiros_${body_tabela_creditos_terceiros.children.length-1}`;
-                
-                    // Ajusta o espaçamento dos títulos e campos
-                    let titulosCampos = novaLinha.querySelectorAll('td');
-                    titulosCampos.forEach(function(elemento) {
-                        elemento.style.padding = "5px"; // Espaçamento interno dos títulos e campos
-                    });
-
-                    // Adiciona evento de clique ao botão de exclusão de linha
-                    let btnExcluirLinha = novaLinha.querySelector('#btnExcluirLinha');
-
-                    btnExcluirLinha.addEventListener('click',  () => {
-
-                        // Remove a linha correspondente ao botão de exclusão
-                        novaLinha.remove();
-
-                        // Verifica se todas as linhas foram removidas e ajusta a margem esquerda da tabela
-                        if (this.querySelectorAll('#tabelaCreditosTerceirosBody tr').length === 0) {
-                            let tabela = this.querySelector('#tabelaCreditosTerceiros');
-                            tabela.style.marginLeft = "-5px"; // Volta à margem padrão
-                        }
-                    });
-
-                    // Ajusta a margem esquerda da tabela após adicionar uma nova linha
-                    let tabela = this.querySelector('#tabelaCreditosTerceiros');
-                    tabela.style.marginLeft = "-5px"; // Ajusta a margem esquerda
-                    
-                    // Inicializa os selects conforme o padrão do design system após adicionar uma nova linha
-                    GovBRUtils.inicializarSelects(novaLinha);                  
+            // Ajusta o espaçamento dos títulos e campos
+            let titulosCampos = novaLinha.querySelectorAll('td');
+            titulosCampos.forEach(function(elemento) {
+                elemento.style.padding = "5px"; // Espaçamento interno dos títulos e campos
             });
-        });              
+
+            // Adiciona evento de clique ao botão de exclusão de linha
+            let btnExcluirLinha = novaLinha.querySelector('#btnExcluirLinha');
+
+            btnExcluirLinha.addEventListener('click',  () => {
+
+                // Remove a linha correspondente ao botão de exclusão
+                novaLinha.remove();
+
+                // Verifica se todas as linhas foram removidas e ajusta a margem esquerda da tabela
+                if (this.querySelectorAll('#tabelaCreditosTerceirosBody tr').length === 0) {
+                    let tabela = this.querySelector('#tabelaCreditosTerceiros');
+                    tabela.style.marginLeft = "-5px"; // Volta à margem padrão
+                }
+            });
+
+            // Ajusta a margem esquerda da tabela após adicionar uma nova linha
+            let tabela = this.querySelector('#tabelaCreditosTerceiros');
+            tabela.style.marginLeft = "-5px"; // Ajusta a margem esquerda
+            
+            // Inicializa os selects conforme o padrão do design system após adicionar uma nova linha
+            GovBRUtils.inicializarSelects(novaLinha);                  
+         });            
     }    
 }
 customElements.define('br-tabela-creditos-terceiros', TabelaCreditosTerceiros);
