@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Função em Javascript</title>
+</head>
+<body>    
+    
+    
+    <script>
+
+        window.addEventListener("load", ()=>{
+
+            let nome = "abelha";
+            let sobrenome = "inseto";
+            let telefone = "222-3333";
+            
+            document.querySelector("#input_nome").value = nome;                             
+            document.querySelector("#input_sobrenome").value = sobrenome;  
+            document.querySelector("#input_telefone").value = telefone;  
+
+
+            
+            document.querySelector("#copiar1").addEventListener("click", ()=>{
+                document.querySelector("#input_nome").value = document.querySelector("#input_nome1").value;
+                document.querySelector("#input_sobrenome").value = document.querySelector("#input_sobrenome1").value;
+                document.querySelector("#input_telefone").value = document.querySelector("#input_telefone1").value;
+            });
+
+            document.querySelector("#copiar2").addEventListener("click", ()=>{
+                document.querySelector("#input_nome").value = document.querySelector("#input_nome2").value;
+                document.querySelector("#input_sobrenome").value = document.querySelector("#input_sobrenome2").value;
+                document.querySelector("#input_telefone").value = document.querySelector("#input_telefone2").value;
+            });
+
+        });
+    </script>
+    <div>
+        <span>
+            <input id="input_nome1" type="text"></input>
+            <input id="input_sobrenome1" type="text"></input>
+            <input id="input_telefone1" type="text"></input>
+            <button id="copiar1">Copiar</button>
+        </span>
+        <br>
+        <span>
+            <input id="input_nome2" type="text"></input>
+            <input id="input_sobrenome2" type="text"></input>
+            <input id="input_telefone2" type="text"></input>
+            <button id="copiar2">Copiar</button>
+        </span>
+        <br>
+        <span>
+            <input id="input_nome" type="text"></input>
+            <input id="input_sobrenome" type="text"></input>
+            <input id="input_telefone" type="text"></input>    
+        </span>
+    </div>
+</body>
+</html>
