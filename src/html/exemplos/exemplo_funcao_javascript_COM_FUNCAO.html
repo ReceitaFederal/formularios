@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Função em Javascript</title>
+</head>
+<body>    
+    
+    
+    <script>
+
+        window.addEventListener("load", ()=>{
+                                    
+
+            atualizar_dados_com_data("abelha", "inseto", "222-3333");
+
+            atualizar_dados_com_data("teste", "aaaa", "1");
+            
+            
+            document.querySelector("#copiar1").addEventListener("click", ()=>{
+                
+                atualizar_dados_com_data(
+                    document.querySelector("#input_nome1").value, 
+                    document.querySelector("#input_sobrenome1").value, 
+                    document.querySelector("#input_telefone1").value
+                );
+
+            });
+
+
+            document.querySelector("#copiar2").addEventListener("click", ()=>{
+                atualizar_dados_com_data(
+                    document.querySelector("#input_nome2").value, 
+                    document.querySelector("#input_sobrenome2").value, 
+                    document.querySelector("#input_telefone2").value
+                );
+            });
+
+
+
+            function atualizar_dados_com_data(parametro_nome, parametro_sobrenome, parametro_telefone){
+
+                let data_atual = new Date();
+                let data_hora_atual_em_texto = `${data_atual.getHours()}h${data_atual.getMinutes()}m${data_atual.getSeconds()}s`;
+
+                document.querySelector("#input_nome").value = `${data_hora_atual_em_texto} - ${parametro_nome}`; 
+                document.querySelector("#input_sobrenome").value = `${data_hora_atual_em_texto} - ${parametro_sobrenome}`; 
+                document.querySelector("#input_telefone").value = `${data_hora_atual_em_texto} - ${parametro_telefone}`;  
+
+                if (parametro_nome.localeCompare("abelha") == 0){
+                    document.querySelector("#input_nome").style.backgroundColor = "red";
+                }else{
+                    document.querySelector("#input_nome").style.backgroundColor = "white";
+                }
+            }
+
+        });
+    </script>
+    <div>
+        <span>
+            <input id="input_nome1" type="text"></input>
+            <input id="input_sobrenome1" type="text"></input>
+            <input id="input_telefone1" type="text"></input>
+            <button id="copiar1">Copiar</button>
+        </span>
+        <br>
+        <span>
+            <input id="input_nome2" type="text"></input>
+            <input id="input_sobrenome2" type="text"></input>
+            <input id="input_telefone2" type="text"></input>
+            <button id="copiar2">Copiar</button>
+        </span>
+        <br>
+        <span>
+            <input id="input_nome" type="text"></input>
+            <input id="input_sobrenome" type="text"></input>
+            <input id="input_telefone" type="text"></input>    
+        </span>
+    </div>
+</body>
+</html>
