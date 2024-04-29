@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo escopo variavel</title>
+    <!--script src="./exemplo_classe.js" type="module"></script-->
+    <script type="module">
+        //import {BRUsuario} from './exemplo_classe_2.js';
+        import {BRUsuario} from './exemplo_classe.js';
+    </script>
+</head>
+<body>    
+    <br-usuario></br-usuario>
+    <abelha-comp></abelha-comp>
+    <script>
+        let abelha = document.querySelector("abelha-comp");
+        abelha.appendChild(document.createElement("textarea"));
+    </script>
+</body>
+</html>

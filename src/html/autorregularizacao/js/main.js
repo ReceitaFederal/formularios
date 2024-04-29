@@ -1,4 +1,4 @@
-
+/*
 var valido = false;
 let registrosManuais = [];
 var tabelaDebitosBody = document.getElementById('tabelaDebitosBody');
@@ -880,4 +880,4 @@ function adicionarMetadados(pdf, metadata) {
                 console.error("Element with ID 'validacaoData' not found.");
             }
         });
-        
+        */
