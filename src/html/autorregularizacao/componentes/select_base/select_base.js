@@ -2,6 +2,10 @@ import { GovBRUtils } from "../../js/GovBRUtils.js";
 
 export class SelectBase extends HTMLElement{
     
+
+    static template = undefined;
+
+    
     constructor(url_json_codigos, campo_codigos, classe_alinhamento){
         super();      
 
@@ -11,11 +15,13 @@ export class SelectBase extends HTMLElement{
 
         Promise.all([
             
-            this.carregar_template('./componentes/select_base/select_base.html'),
+            SelectBase.carregar_template('./componentes/select_base/select_base.html'),
             this.carregar_codigos(url_json_codigos)
 
-        ]).then(() => {
+        ]).then((retorno) => {
             
+            this.appendChild(retorno[0]);
+
             this.id_select = `selectBase_${GovBRUtils.gerarUUID()}`;
 
             this.querySelector(".br-select").id = this.id_select;
@@ -78,20 +84,21 @@ export class SelectBase extends HTMLElement{
 
 
 
-    async carregar_template(template_url) {
+    static async carregar_template(template_url) {
         
-        const resposta = await fetch(template_url);
-        if (!resposta.ok) {
-            throw new Error('Erro ao carregar o template');
-        }
-        
-        const texto_pagina = await resposta.text();
-        
-        const template = document.createElement('template');
-        template.innerHTML = texto_pagina;
+        if (!SelectBase.template){
 
-        this.appendChild(template.content.cloneNode(true));
+            const resposta = await fetch(template_url);
+            if (!resposta.ok) {
+                throw new Error('Erro ao carregar o template');
+            }
+            
+            const texto_pagina = await resposta.text();
+            
+            SelectBase.template = document.createElement('template');
+            SelectBase.template.innerHTML = texto_pagina;
+        }
                 
-        return true;        
+        return SelectBase.template.content.cloneNode(true);        
     }
 }
