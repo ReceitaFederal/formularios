@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let texto_json = `
+            {
+                "animal":"abelha",
+                "tipo":"inseto",
+                "idade":12,
+                "vivo": true,
+                "altura": 0.12,
+                "lista_amigos":["zangao", "formiga", "tatu"],
+                "animal_amigo":{
+                    "animal":"gato",
+                    "idade":13
+                }
+            }
+        `;
+
+        console.log (texto_json);
+        console.log (texto_json["animal"]);
+        try{
+            texto_json["animal"] = "baleia";
+            console.log (texto_json["animal"]);
+        }catch(excecao){
+            console.log(excecao);
+        }
+
+        let objeto_json = JSON.parse(texto_json);
+
+        console.log (objeto_json);
+        console.log (objeto_json["animal"]);
+        objeto_json["animal"] = "baleia";
+        console.log (objeto_json["animal"]);
+
+        let novo_texto_json = JSON.stringify(objeto_json);
+        console.log (novo_texto_json);
+
+
+    </script>
+</body>
+</html>
