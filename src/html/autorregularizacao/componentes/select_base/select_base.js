@@ -4,6 +4,7 @@ export class SelectBase extends HTMLElement{
     
 
     static template = undefined;
+    static dicionario_codigos = {};
 
     
     constructor(url_json_codigos, campo_codigos, classe_alinhamento){
@@ -16,11 +17,13 @@ export class SelectBase extends HTMLElement{
         Promise.all([
             
             SelectBase.carregar_template('./componentes/select_base/select_base.html'),
-            this.carregar_codigos(url_json_codigos)
+            SelectBase.carregar_codigos(url_json_codigos)
 
         ]).then((retorno) => {
             
             this.appendChild(retorno[0]);
+
+            this.codigos = retorno[1];
 
             this.id_select = `selectBase_${GovBRUtils.gerarUUID()}`;
 
@@ -69,7 +72,28 @@ export class SelectBase extends HTMLElement{
     }
 
 
-    async carregar_codigos(url){
+    static async carregar_codigos(url){
+
+        let json_retorno = undefined;
+
+        if (!SelectBase.dicionario_codigos[url]){
+
+            const resposta = await fetch(url);            
+
+            if (!resposta.ok) {
+                throw new Error('Erro ao carregar codigos');
+            }
+                    
+            SelectBase.dicionario_codigos[url] = await resposta.json();
+        }
+                          
+        return SelectBase.dicionario_codigos[url];        
+    }
+
+    async carregar_codigos_1(url){
+
+        let json_retorno = undefined;
+    
 
         const resposta = await fetch(url);            
 
@@ -77,9 +101,8 @@ export class SelectBase extends HTMLElement{
             throw new Error('Erro ao carregar codigos');
         }
                 
-        this.codigos = await resposta.json();
-                          
-        return true;        
+        return await resposta.json();
+       
     }
 
 

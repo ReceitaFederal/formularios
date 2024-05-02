@@ -69,10 +69,7 @@ export class TabelaDebitos extends HTMLElement{
 
             // Ajusta a margem esquerda da tabela após adicionar uma nova linha
             let tabela = this.querySelector('#tabelaDebitos');
-            tabela.style.marginLeft = "-5px"; // Ajusta a margem esquerda
-            
-            // Inicializa os selects conforme o padrão do design system após adicionar uma nova linha
-            GovBRUtils.inicializarSelects(novaLinha);                              
+            tabela.style.marginLeft = "-5px"; // Ajusta a margem esquerda                           
         });              
     }    
 }
