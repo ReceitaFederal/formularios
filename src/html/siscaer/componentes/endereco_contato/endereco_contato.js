@@ -60,6 +60,13 @@ export class Endereco_contato extends HTMLElement {
 
             let div_titulo_referencia = fieldsetendereco.querySelector("#titulo_referencia");
 
+            //Linha nova...
+            const referenciaAtual = 
+        document.querySelector(`[name="referencia${numeroreferencia - 1}"]`);
+            const novoCampo = referenciaAtual.cloneNode(true);
+            novoCampo.name = `referencia${this.numeroreferencia}`;
+            novoCampo.id = `Referência ${this.numeroreferencia}`;
+
 
             div_titulo_referencia.id = `${div_titulo_referencia.id}_${this.numeroreferencia}`;
 
