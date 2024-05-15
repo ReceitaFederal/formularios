@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Input e Botão</title>
+
+    <script>
+        window.addEventListener("load", () => {
+
+
+
+            function mudar_cor_baseado_no_input_cor_de_fundo (){
+
+                //Mudar cor de fundo do botão mudar_cor com o valor do input cor_de_fundo
+                botao_muda_cor.style.background = input_cor_de_fundo.value;
+                input_cor_de_fundo.style.borderColor = input_cor_de_fundo.value;
+            }
+
+
+
+            //Pegar elemento input cor_de_fundo
+            let input_cor_de_fundo = document.querySelector("#cor_de_fundo");
+
+            //Pegar elemento botao mudar_cor
+            let botao_muda_cor = document.querySelector("#botao_mudar_cor");   
+
+            //Verificar evento de mudança do input cor_de_fundo
+            input_cor_de_fundo.addEventListener("input", ()=>{
+                mudar_cor_baseado_no_input_cor_de_fundo();                
+            });     
+            
+            botao_muda_cor.addEventListener("click", ()=>{
+                let nome_cor = prompt("Digite o nome de uma cor");
+                input_cor_de_fundo.value = nome_cor;
+                mudar_cor_baseado_no_input_cor_de_fundo();
+            });
+            
+        });
+    </script>
+
+</head>
+<body>
+    <input type="text" id="cor_de_fundo">
+    <button id="botao_mudar_cor">Mudar Cor</button>
+</body>
+</html>
