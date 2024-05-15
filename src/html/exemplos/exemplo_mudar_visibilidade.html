@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Mudar visibilidade</title>
+    <script>
+
+        window.addEventListener("load", ()=> {
+
+            document.querySelector("#btn_1").addEventListener("click", () => {
+                document.querySelector("#div_1").style.display = "block";
+                document.querySelector("#div_2").style.display = "none";
+                document.querySelector("#div_3").style.display = "none";
+            });
+
+
+            document.querySelector("#btn_2").addEventListener("click", () => {
+                document.querySelector("#div_1").style.display = "none";
+                document.querySelector("#div_2").style.display = "block";
+                document.querySelector("#div_3").style.display = "none";
+            });
+
+
+            document.querySelector("#btn_3").addEventListener("click", () => {
+                document.querySelector("#div_1").style.display = "none";
+                document.querySelector("#div_2").style.display = "none";
+                document.querySelector("#div_3").style.display = "block";
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div style="width: 100px; height: 100px; background-color: red; display: block;" id="div_1"></div>
+    <div style="width: 100px; height: 100px; background-color: rgb(25, 0, 255); display: none;" id="div_2"></div>
+    <div style="width: 100px; height: 100px; background-color: yellow;  display: none;" id="div_3"></div>
+    <button id="btn_1">1</button>
+    <button id="btn_2">2</button>
+    <button id="btn_3">3</button>
+</body>
+</html>
