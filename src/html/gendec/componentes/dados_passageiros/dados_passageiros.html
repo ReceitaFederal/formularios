@@ -5,34 +5,58 @@
     </span>Passageiros
   </legend>
   <template id="passageiro">
-    <div class="two-columns">
-      <div class="column">
-        <div class="form-group">
-          <label for="nome-passageiro">Nome completo</label>
-          <input type="text" class="form-control" id="nome-passageiro" placeholder="Insira seu nome completo">
-        </div>
-        <div class="form-group">
-          <label for="cpf-passageiro">CPF</label>
-          <input type="text" class="form-control" id="cpf-passageiro" placeholder="Insira seu cpf">
-        </div>
+    <div class="row mt-5">
+      <div class="col-sm">
+        <fieldset>
+          <div class="row">
+            <div class="col-md-10 mb-3">
+              <div class="br-input"><label for="nome-passageiro">Nome completo</label>
+                <input id="nome-passageiro" placeholder="Insira seu nome completo" type="text" />
+              </div>
+            </div>
+            <div class="col-md-10 mb-3">
+              <div class="br-input">
+                <label for="cpf-passageiro">CPF</label>
+                <input id="cpf-passageiro" type="text" placeholder="Insira seu CPF" />
+              </div>
+            </div>
+          </div>
+        </fieldset>
       </div>
-      <div class="column">
-        <div class="form-group">
-          <label for="email">E-mail</label>
-          <input type="email" class="form-control" id="email" placeholder="Insira seu e-mail">
-        </div>  
-        <div class="form-group">
-          <label for="niver-passageiro">Data de nascimento</label>
-          <input type="date" class="form-control" id="niver-passageiro" placeholder="Insira a sua data de nascimento">
-        </div>
+      <div class="col-sm">
+        <fieldset>
+          <div class="row">
+            <div class="col-md-10 mb-3">
+              <div class="br-input">
+                <label for="email-passageiro">E-mail</label>
+                <input id="email-passageiro" type="text" placeholder="Insira seu e-mail"/>
+              </div>
+            </div>
+            <div class="col-md-10 mb-3">
+              <div class="br-input">
+                <label for="niver-passageiro">Data de nascimento</label>
+                <input id="niver-passageiro" type="date" placeholder="Insira sua data de nascimento"/>
+              </div>
+            </div>
+          </div>
+        </fieldset>
       </div>
-      <div class="column">
-        <div class="form-group">
-          <label for="telefone-passageiro">Telefone</label>
-          <input type="number" class="form-control" id="telefone-passageiro" placeholder="Insira seu número de telefone">
-        </div>
+      <div class="col-sm">
+        <fieldset>
+          <div class="row">
+            <div class="col-md-10 mb-3">
+              <div class="br-input">
+                <label for="telefone-passageiro">Telefone</label>
+                <input type="number" class="form-control" id="telefone-passageiro"
+                  placeholder="Insira seu número de telefone">
+              </div>
+            </div>
+          </div>
+        </fieldset>
       </div>
-  </div>
+
+
+    </div>
   </template>
   <div id="lista_passageiros"></div>
   <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
