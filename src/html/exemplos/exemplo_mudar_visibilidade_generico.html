@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Mudar visibilidade</title>
+    <script>
+
+        window.addEventListener("load", ()=> {
+
+            function mudar_visibilidade (elemento_atual, quantidade_botoes){
+
+                for (let contador = 1; contador <= quantidade_botoes; contador++){
+                    document.querySelector(`#div_${contador}`).style.display = "none";
+                }
+                document.querySelector(`#div_${elemento_atual}`).style.display = "block";
+            }
+
+
+            
+
+            let todos_botoes = document.querySelectorAll("#botoes_navegacao > button");
+
+            todos_botoes.forEach(botao => {
+
+                botao.addEventListener("click", () => {
+                
+                    let indice = botao.id.indexOf("_");
+                    let botao_atual = botao.id.slice(indice+1, botao.id.length);                    
+                    mudar_visibilidade (botao_atual, todos_botoes.length);
+
+                });
+            });            
+        });
+
+    </script>
+</head>
+<body>
+    <div style="width: 100px; height: 100px; background-color: red; display: block;" id="div_1"></div>
+    <div style="width: 100px; height: 100px; background-color: rgb(25, 0, 255); display: none;" id="div_2"></div>
+    <div style="width: 100px; height: 100px; background-color: yellow;  display: none;" id="div_3"></div>
+    <div style="width: 100px; height: 100px; background-color: rgb(11, 241, 7);  display: none;" id="div_4"></div>
+    <div style="width: 100px; height: 100px; background-color: rgb(0, 255, 234);  display: none;" id="div_5"></div>
+    <div style="width: 100px; height: 100px; background-color: black;  display: none;" id="div_6"></div>
+    <div style="width: 100px; height: 100px; background-color: white;  display: none;" id="div_7"></div>
+    <div style="width: 100px; height: 100px; background-color: pink;  display: none;" id="div_8"></div>
+    <div id="botoes_navegacao">
+        <button id="btn_1">1</button>
+        <button id="btn_2">2</button>
+        <button id="btn_3">3</button>
+        <button id="btn_4">4</button>
+        <button id="btn_5">5</button>
+        <button id="btn_6">6</button>
+        <button id="btn_7">7</button>
+        <button id="btn_8">8</button>
+    </div>
+</body>
+</html>

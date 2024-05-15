@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Mudar visibilidade</title>
+    <script>
+
+        window.addEventListener("load", ()=> {
+
+            function mudar_visibilidade (visibilidade_div_1, visibilidade_div_2, visibilidade_div_3, visibilidade_div_4, visibilidade_div_5){
+                document.querySelector("#div_1").style.display = visibilidade_div_1;
+                document.querySelector("#div_2").style.display = visibilidade_div_2;
+                document.querySelector("#div_3").style.display = visibilidade_div_3;
+                document.querySelector("#div_4").style.display = visibilidade_div_4;
+                document.querySelector("#div_5").style.display = visibilidade_div_5;
+            }
+
+            let dicionario_elementos = {
+                '#btn_1':["block", "none", "none", "none", "none"],
+                '#btn_2':["none", "block", "none", "none", "none"],
+                '#btn_3':["none", "none", "block", "none", "none"],
+                '#btn_4':["none", "none", "none", "block", "none"],
+                '#btn_5':["none", "none", "none", "none", "block"],
+            };
+
+            for (let chave_elemento in dicionario_elementos) {
+                document.querySelector(chave_elemento).addEventListener("click", () => {
+                    let lista_visibilidade_botao = dicionario_elementos[chave_elemento];
+                    mudar_visibilidade (
+                        lista_visibilidade_botao[0], 
+                        lista_visibilidade_botao[1], 
+                        lista_visibilidade_botao[2],
+                        lista_visibilidade_botao[3],
+                        lista_visibilidade_botao[4]);
+                });
+            }
+        });
+
+    </script>
+</head>
+<body>
+    <div style="width: 100px; height: 100px; background-color: red; display: block;" id="div_1"></div>
+    <div style="width: 100px; height: 100px; background-color: rgb(25, 0, 255); display: none;" id="div_2"></div>
+    <div style="width: 100px; height: 100px; background-color: yellow;  display: none;" id="div_3"></div>
+    <div style="width: 100px; height: 100px; background-color: rgb(11, 241, 7);  display: none;" id="div_4"></div>
+    <div style="width: 100px; height: 100px; background-color: rgb(0, 255, 234);  display: none;" id="div_5"></div>
+    <button id="btn_1">1</button>
+    <button id="btn_2">2</button>
+    <button id="btn_3">3</button>
+    <button id="btn_4">4</button>
+    <button id="btn_5">5</button>
+</body>
+</html>
