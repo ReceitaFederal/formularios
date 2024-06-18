@@ -1,0 +1,522 @@
+@font-face {
+  font-family: 'Rawline Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Regular'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-400') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Italic'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-400i') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Thin'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-100') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Thin Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Thin Italic'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-100i') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline ExtraLight';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline ExtraLight'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-200') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline ExtraLight Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline ExtraLight Italic'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-200i') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Light'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-300') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Light Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Light Italic'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-300i') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Medium'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-500') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Medium Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Medium Italic'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-500i') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline SemiBold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline SemiBold'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-600') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline SemiBold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline SemiBold Italic'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-600i') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Bold'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-700') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Bold Italic'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-700i') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline ExtraBold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline ExtraBold'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-800') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline ExtraBold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline ExtraBold Italic'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-800i') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Black'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-900') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Black Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Black Italic'), url('../../bibliotecas/Fontes\ -\ Rawline/rawline-900i') format('ttf');
+  }
+
+/* CABEÇALHO */
+
+
+/* Style the tab */
+div.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+div.tabcontent.active {
+display:block;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+  background-color: #071D41;
+  color: white;
+}
+
+/* Style the tab content */
+.tabcontent {
+  /* display: none; */
+  padding: 15px;
+  border: 1px solid #ccc;
+  margin-bottom: 25px;
+}
+
+.fieldset-border {
+  border: 1px groove #ddd !important;
+  padding: 0 1.4em 1.4em 1.4em !important;
+  margin: 0 0 1.5em 0 !important;
+  -webkit-box-shadow: 0px 0px 0px 0px #000;
+  box-shadow: 0px 0px 0px 0px #000;
+}
+
+.fieldset-border .legend-border {
+  font-size: 1.4em !important;
+  text-align: left !important;
+  width: auto;
+  padding: 0 10px;
+  border-bottom: none;
+}
+
+.form-group {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* CSS para separar DIV em 2 colunas */
+
+.two-columns {
+  display: flex;
+}
+
+.column {
+  flex: 1;
+  padding: 0 15px; /* Adicione espaço entre as colunas, se necessário */
+}
+
+
+.secao {
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  width: 1145px;
+  margin: auto; /* Define as margens como automáticas */
+}
+
+.label {
+  font-family: 'Rawline Regular', sans-serif;
+  font-size: 15px !important;
+  font-weight: 550;
+  text-align: left !important;
+  width: auto;
+  margin-bottom: 0px;
+  border-bottom: none;
+  color: #333333;
+  
+}
+
+.form-control {
+  width: 240px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 7px;
+  display:block;
+  clear:left;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+.br-tooltip {
+  align-items: flex-start;
+  background: var(--color-info, #155bcb);
+  border-radius: 4px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  color: var(--color-secondary-01, #fff);
+  display: flex !important;
+  flex-wrap: wrap;
+  font-size: var(--font-size-scale-down-01, 11.662px);
+  font-weight: var(--font-weight-medium, 500);
+  justify-content: flex-start;
+  max-width: 240px;
+  opacity: 0;
+  padding: var(--spacing-scale-2x);
+  position: absolute !important;
+  visibility: hidden;
+  z-index: 999;
+}
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOutOpacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.br-tooltip[data-show] {
+  animation: fadeInOpacity ease-in-out 0.5s;
+  opacity: 1;
+  visibility: visible;
+}
+.br-tooltip[popover] {
+  max-width: 320px;
+  min-width: 240px;
+  overflow-x: hidden;
+  width: auto;
+}
+.br-tooltip[success] {
+  background: var(--color-success, #168821);
+}
+.br-tooltip[success] .arrow {
+  border-color: var(--color-success, #168821);
+}
+.br-tooltip[error] {
+  background: var(--color-danger, #e52207);
+}
+.br-tooltip[error] .arrow {
+  border-color: var(--color-danger, #e52207);
+}
+.br-tooltip[warning] {
+  background: var(--color-warning, #ffcd07);
+  color: var(--color-secondary-08, #333);
+}
+.br-tooltip[warning] .arrow {
+  border-color: var(--color-warning, #ffcd07);
+}
+.br-tooltip[info], .br-tooltip {
+  background: var(--color-info, #155bcb);
+}
+.br-tooltip[info] .arrow, .br-tooltip .arrow {
+  border-color: var(--color-info, #155bcb);
+}
+.br-tooltip .arrow {
+  height: 0 !important;
+  position: absolute !important;
+  width: 0 !important;
+  z-index: -1 !important;
+}
+.br-tooltip[data-popper-placement^=top] > .arrow {
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top-style: solid;
+  border-top-width: 8px;
+  bottom: -7px;
+  margin-left: 0;
+}
+.br-tooltip[data-popper-placement^=bottom] > .arrow {
+  border-bottom-style: solid;
+  border-bottom-width: 8px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  margin-left: 0;
+  top: -8px;
+}
+.br-tooltip[data-popper-placement^=left] > .arrow {
+  border-bottom: 8px solid transparent;
+  border-left-style: solid;
+  border-left-width: 8px;
+  border-top: 8px solid transparent;
+  right: calc(var(--spacing-scale-base) * -1);
+}
+.br-tooltip[data-popper-placement^=right] > .arrow {
+  border-bottom: 8px solid transparent;
+  border-right-style: solid;
+  border-right-width: 8px;
+  border-top: 8px solid transparent;
+  left: calc(var(--spacing-scale-base) * -1);
+}
+.br-tooltip .text,
+.br-tooltip .subtext,
+.br-tooltip .link {
+  display: block;
+  max-width: 100%;
+  min-width: 0;
+}
+.br-tooltip .popover-header {
+  font-size: var(--font-size-scale-base, 14px);
+  margin-bottom: 1em;
+  min-width: 180px;
+  text-align: center;
+  width: 100%;
+}
+.br-tooltip .popover-header .fas,
+.br-tooltip .popover-header .svg-inline--fa {
+  font-size: var(--font-size-scale-up-06, 41.804px);
+  text-align: center;
+}
+.br-tooltip .popover-image {
+  border: 3px solid var(--color-secondary-01, #fff);
+  height: auto;
+  margin-left: -10px;
+  max-height: 120px;
+  max-width: 45%;
+  overflow: hidden;
+  width: auto;
+}
+.br-tooltip .popover-icon {
+  height: auto;
+  margin-left: -10px;
+  margin-top: 10%;
+  max-height: 120px;
+  max-width: 45%;
+  overflow: hidden;
+  width: auto;
+}
+.br-tooltip .popover-body {
+  font-size: var(--font-size-scale-down-01, 11.662px);
+  margin-bottom: 1em;
+  min-width: 180px;
+  width: 100%;
+}
+.br-tooltip .popover-image + div {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  text-align: left;
+  width: 65%;
+}
+.br-tooltip .popover-image + div div {
+  padding-left: var(--spacing-scale-base);
+  text-align: left;
+}
+.br-tooltip .popover-icon + div {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  text-align: left;
+  width: 65%;
+}
+.br-tooltip .popover-icon + div div {
+  padding-left: var(--spacing-scale-base);
+  text-align: left;
+}
+.br-tooltip .popover-footer {
+  font-size: var(--font-size-scale-down-01, 11.662px);
+  min-width: 180px;
+  text-align: center;
+  width: 100%;
+}
+.br-tooltip .text {
+  font-size: var(--font-size-scale-base, 14px);
+  font-weight: var(--font-weight-semi-bold, 600);
+}
+.br-tooltip .subtext {
+  font-size: var(--font-size-scale-down-01, 11.662px);
+  font-weight: var(--font-weight-medium, 500);
+}
+.br-tooltip .link {
+  color: inherit;
+  text-align: right;
+  text-decoration: underline;
+  width: 100%;
+}
+.br-tooltip .close {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+/*# sourceMappingURL=tooltip.css.map*/
+
+/* @media (max-width: 576px){
+
+  .br-input > .valor-remessa, 
+  .br-input > .valor-total-remessa {
+      height: 50px;
+      width: 150px;
+  }
+} */
+
+@media (max-width: 576px){
+
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .coluna-row {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .br-input {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .coluna-row {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1rem;
+  }
+
+  .coluna-input {
+      flex: 1 1 45%;
+      max-width: 45%;
+  }
+
+  .coluna-row > .coluna-input:nth-child(1) {
+    order: 2;
+  }
+
+  .coluna-row > .coluna-input:nth-child(2) {
+    order: 1;
+  }
+
+  .coluna-row > .coluna-input:nth-child(3) {
+    order: 4;
+  }
+
+  .coluna-row > .coluna-input:nth-child(4) {
+    order: 6;
+  }
+
+  .coluna-row > .coluna-input:nth-child(5) {
+    order: 3;
+  }
+
+  .coluna-row > .coluna-input:nth-child(6) {
+    order: 5;
+  }
+}
+
+
+
+

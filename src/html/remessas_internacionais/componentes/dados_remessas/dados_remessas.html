@@ -1,0 +1,201 @@
+<fieldset id="remessas" class="fieldset-border">
+  <legend class="legend-border" style="color: #155BCB; justify-content: right;">
+    <span class="icon" style="color: #155BCB; justify-content: right;">
+      <i class="fa fa-user-tie" aria-hidden="true"></i>
+    </span>Tripulação
+  </legend>
+  <template id="remessa">
+    <div class="row mt-5">
+      <div class="col-sm">
+        <fieldset>
+          <!--<legend>Valor (Legend)</legend>-->
+          <div class="row coluna-row">
+            <div class="coluna-input col-md-6 mb-3">
+              <div class="br-input">
+                <label for="valor-remessa">Valor da remessa</label>
+                <input class="input valor-remessa" id="valor-remessa" placeholder="Em dólar (US$)" type="text" />
+              </div>  
+            </div>
+            <div class="coluna-input col-md-6 mb-3">
+              <div class="br-input">
+                <label for="valor-total-remessa">Valor total</label>
+                <input class="input valor-total-remessa" id="valor-total-remessa" placeholder="Em dólar (US$)" type="text" />
+              </div>  
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-sm">
+        <fieldset>
+          <!--<legend>Outros Dados (Legend)</legend>-->
+          <div class="row coluna-row">
+            <div class="coluna-input col-md-6 mb-3">
+              <div class="br-input">
+                <label for="aliquota-remessa">Alíquota</label>
+                <input class="input aliquota-remessa" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="25%" disabled style="opacity: 1;">
+              </div> 
+            </div>
+            <div class="coluna-input col-md-6 mb-3">
+              <div class="br-input">
+                <label for="surname">Sobrenome</label>
+                <input class="input" id="surname" type="text" placeholder="Placeholder"/>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-sm">
+        <fieldset>
+          <!--<legend>Outros Dados (Legend)</legend>-->
+          <div class="row coluna-row">
+            <div class="coluna-input col-md-6 mb-3">
+              <div class="br-input">
+                <label for="aliquota-remessa">ICMS</label>
+                <input class="input icms-remessa" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="17%" disabled style="opacity: 1;">
+              </div> 
+            </div>
+            <div class="coluna-input col-md-6 mb-3">
+              <div class="br-input">
+                <label for="surname">Desconto</label>
+                <input class="input" id="surname" type="text" placeholder="Placeholder"/>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </template>
+  <div id="lista_remessas"></div>
+  <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
+    <div class="menu-item divider" href="#" id="adicionar_remessa" role="treeitem">
+      <span class="icon" style="justify-content: right;">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </span>
+      <span class="content"></span>
+    </div>
+  </button>
+  <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
+    <div class="menu-item divider" href="#" id="remover_remessa" role="treeitem">
+      <span class="icon" style="justify-content: right;">
+        <i class="fa fa-minus" aria-hidden="true"></i>
+      </span>
+      <span class="content"></span>
+    </div>
+  </button>
+</fieldset>
+
+
+<div class="row">
+  <div class="col-sm">
+    <fieldset>
+      <div class="row coluna-row">
+        <div class="coluna-input col-md-6 mb-3">
+          <div class="br-input"><label for="name">Nome</label>
+            <input class="teste-input" id="name" value="Fulano (input preenchido)" type="text" />
+          </div>
+        </div>
+        <div class="coluna-input col-md-6 mb-3">
+          <div class="br-input">
+            <label for="surname">Sobrenome</label>
+            <input class="teste-input" id="surname" type="text" placeholder="Placeholder"/>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  <div class="col-sm">
+    <fieldset>
+      <div class="row coluna-row">
+        <div class="coluna-input col-md-6 mb-3">
+          <div class="br-input"><label for="name">CPF</label>
+            <input class="teste-input" id="name" value="Fulano (input preenchido)" type="text" />
+          </div>
+        </div>
+        <div class="coluna-input col-md-6 mb-3">
+          <div class="br-input">
+            <label for="surname">Sei lá o que</label>
+            <input class="teste-input" id="surname" type="text" placeholder="Placeholder"/>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm">
+    <fieldset>
+      <legend>Nome Completo (Legend)</legend>
+      <div class="row coluna-row">
+        <div class="col-md-6 mb-3">
+          <div class="br-input"><label for="name">Nome</label>
+            <input class="teste-input" id="name" value="Fulano (input preenchido)" type="text" />
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="br-input">
+            <label for="surname">Sobrenome</label>
+            <input class="teste-input" id="surname" type="text" placeholder="Placeholder"/>
+          </div>
+        </div>
+      </div>
+      <div class="row coluna-row">
+        <div class="col-md-6 mb-3">
+          <div class="br-input"><label for="name">CPF</label>
+            <input class="teste-input" id="name" value="Fulano (input preenchido)" type="text" />
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="br-input">
+            <label for="surname">Sei lá o que</label>
+            <input class="teste-input" id="surname" type="text" placeholder="Placeholder"/>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+      <div class="col-sm">
+          <fieldset>
+              <legend>Nome Completo (Legend)</legend>
+              <div class="row teste-row">
+                  <div class="col-md-6 mb-3">
+                      <div class="br-input">
+                          <label for="name">Nome</label>
+                          <input class="teste-input" id="name" value="Fulano (input preenchido)" type="text" />
+                      </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                      <div class="br-input">
+                          <label for="surname">Sobrenome</label>
+                          <input class="teste-input" id="surname" type="text" placeholder="Placeholder"/>
+                      </div>
+                  </div>
+              </div>
+          </fieldset>
+      </div>
+      <div class="col-sm">
+          <fieldset>
+              <legend>Outros Dados (Legend)</legend>
+              <div class="row teste-row">
+                  <div class="col-md-6 mb-3">
+                      <div class="br-input">
+                          <label for="cpf">CPF</label>
+                          <input class="teste-input" id="cpf" value="Fulano (input preenchido)" type="text" />
+                      </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                      <div class="br-input">
+                          <label for="something">Sei lá o que</label>
+                          <input class="teste-input" id="something" type="text" placeholder="Placeholder"/>
+                      </div>
+                  </div>
+              </div>
+          </fieldset>
+      </div>
+  </div>
+</div>
