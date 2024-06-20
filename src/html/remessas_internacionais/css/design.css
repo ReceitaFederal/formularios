@@ -626,14 +626,75 @@ div.tab button.active {
 
   .br-input > .valor-remessa-mobile,
   .br-input > .total-remessa-mobile {
-    height: 100px;
-    margin-bottom: 20px;
+    height: 165px;
+    margin-bottom: 30px;
     text-align: center;
     justify-content: center;
     justify-self: center;
     align-items: center;
   }
+
 }
 
+ /* Estilos para o botão flutuante */
+ .floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #155BCB;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+/* Estilo para o valor total */
+.total-sum {
+  position: fixed;
+  bottom: 90px; /* Posição ajustada para ficar acima do botão flutuante */
+  right: 40px;
+  background-color: #f0f0f0;
+  color: #155BCB;
+  border: 1px solid #155BCB;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
 
+.total-counter {
+  position: fixed;
+  bottom: 90px;
+  right: 40px;
+  background-color: #ffffff;
+  color: #155BCB;
+  border: 2px solid #155BCB;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.sum-display {
+  position: fixed;
+  top: 50%;
+  right: 100px; /* Ajuste para posicionar corretamente ao lado do ícone */
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #155BCB;
+  font-weight: bold;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0; /* Começa oculto */
+}
