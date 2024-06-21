@@ -1,23 +1,11 @@
-export class Rodape extends HTMLElement{
+import { ComponenteBase } from "../../../bibliotecas/ultima/componente_base.js";
+
+
+export class Rodape extends ComponenteBase{
     
     constructor(){
-        super();
-        console.log(`URL do rodape.js: ${import.meta.url}`)
-        fetch('./componentes/rodape/rodape.html').then(resultado => {
-            resultado.text().then(texto_pagina => {
-            
-                let template = document.createElement('template');
-
-                template.innerHTML = texto_pagina;
-
-                this.appendChild(template.content.cloneNode(true));
-
-                this.dispatchEvent(new CustomEvent("carregou"));
-            });
-        });
-
         
-
+        super({templateURL:"./rodape.html", shadowDOM:false}, import.meta.url);
     }
 }
 customElements.define('br-rodape', Rodape);

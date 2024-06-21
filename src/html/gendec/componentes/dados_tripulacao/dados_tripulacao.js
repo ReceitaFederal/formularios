@@ -1,26 +1,25 @@
-export class Tripulacao extends HTMLElement {
+import { ComponenteBase } from "../../../bibliotecas/ultima/componente_base.js";
+
+
+export class Tripulacao extends ComponenteBase {
+
     constructor() {
-        super();
+
+        super({templateURL:"./dados_tripulacao.html", shadowDOM:false}, import.meta.url); 
 
         this.numeroTripulantes = 1; // Inicializa o contador de tripulantes
+    
+        this.addEventListener("carregou", evento => {
 
-        console.log("Constructor dos dados da tripulação.js");
-
-        console.log(`URL dos dados da tripulação.js: ${import.meta.url}`);
-        fetch('./componentes/dados_tripulacao/dados_tripulacao.html').then(resultado => {
-            resultado.text().then(texto_pagina => {
-                let template = document.createElement('template');
-                template.innerHTML = texto_pagina;
-                this.appendChild(template.content.cloneNode(true));
-
-                this.adicionar_comportamento();
-                this.adicionar_tripulante();
-                this.remover_tripulante();
-
-                this.dispatchEvent(new CustomEvent("carregou"));
-            });
+            this.adicionar_comportamento();
+            this.adicionar_tripulante();
+            this.remover_tripulante(); 
+            
+            //TODO: tirei o disparar carregou pois é o mesmo evento de ComponenteBase e entrava em loop
+            //o evento deve ser propagado acho que vai dar certo
         });
 
+        //TODO: Verificar como lidar com esse Rawline, novo uso do ComponenteBase deve ter função para adicionar CSS
         // Adiciona o link para o arquivo de fonte Rawline
         let linkFonte = document.createElement('link');
         linkFonte.rel = 'stylesheet';
