@@ -1,28 +1,9 @@
-export class Aeronave extends HTMLElement{
+import { ComponenteBase } from "../../../bibliotecas/ultima/componente_base.js";
+
+export class Aeronave extends ComponenteBase{
     
     constructor(){
-        super();
-
-        console.log ("Constructor dos dados da aeronave.js");
-
-        console.log(`URL dos dados da aeronave.js: ${import.meta.url}`)
-        fetch('./componentes/dados_aeronave/dados_aeronave.html').then(resultado => {
-            
-
-            resultado.text().then(texto_pagina => {                            
-
-                let template = document.createElement('template');
-
-                template.innerHTML = texto_pagina;
-
-                this.appendChild(template.content.cloneNode(true));
-                
-                this.dispatchEvent(new CustomEvent("carregou"));                
-            });
-        });
-
-        
-
+        super({templateURL:"./dados_aeronave.html", shadowDOM:false}, import.meta.url);          
     }
 }
 customElements.define('br-aeronave', Aeronave);
