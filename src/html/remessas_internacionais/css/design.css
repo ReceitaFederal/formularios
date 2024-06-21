@@ -453,6 +453,29 @@ div.tab button.active {
   top: 10px;
 }
 
+/* CSS para posicionar os botões */
+
+.container-botoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Alinha os itens verticalmente no centro */
+  width: 100%;
+  padding: 10px;
+}
+
+.botao-esquerda {
+  text-align: left;
+  justify-items: left;
+  align-items: left;
+  }
+
+.botao-direita {
+  text-align: right;
+  justify-items: right;
+  align-items: right;
+  margin-bottom: 0;
+}
+
 /*# sourceMappingURL=tooltip.css.map*/
 
 /* @media (max-width: 576px){

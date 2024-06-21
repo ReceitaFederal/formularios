@@ -85,22 +85,30 @@
     </div>
   </template>
   <div id="lista_remessas"></div>
-  <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
-    <div class="menu-item divider" href="#" id="adicionar_remessa" role="treeitem">
-      <span class="icon" style="justify-content: right;">
-        <i class="fa fa-plus" aria-hidden="true"></i>
-      </span>
-      <span class="content"></span>
+  <div class="container-botoes">
+      
+      <div class="botao-esquerda">
+          <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
+              <div class="menu-item divider" href="#" id="adicionar_remessa" role="treeitem">
+                  <span class="icon" style="justify-content: right;">
+                      <i class="fa fa-plus" aria-hidden="true"></i>
+                  </span>
+                  <span class="content"></span>
+              </div>
+          </button>
+      </div>
+      <div class="botao-direita">
+        <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
+            <div class="menu-item divider" href="#" id="remover_remessa" role="treeitem">
+                <span class="icon" style="justify-content: right;">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </span>
+                <span class="content"></span>
+            </div>
+        </button>
     </div>
-  </button>
-  <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
-    <div class="menu-item divider" href="#" id="remover_remessa" role="treeitem">
-      <span class="icon" style="justify-content: right;">
-        <i class="fa fa-minus" aria-hidden="true"></i>
-      </span>
-      <span class="content"></span>
-    </div>
-  </button>
+  </div>
+  
 </fieldset>
 
 <fieldset id="remessas-mobile" class="fieldset-border">
