@@ -1,27 +1,25 @@
-export class remessas extends HTMLElement {
+
+
+import { ComponenteBase } from "../../../bibliotecas/ultima/componente_base.js";
+import { DadosRemessa } from "./dados_remessa.js";
+
+export class ListaRemessas extends ComponenteBase {
+    
     constructor() {
-        super();
+        super({templateURL:"./lista_remessas.html", shadowDOM:false}, import.meta.url);
 
         // Inicializa os contadores de remessas para desktop e mobile
         this.numeroremessasDesktop = 0; // Inicia com 0 para que o primeiro seja 1
         this.numeroremessasMobile = 0; // Inicia com 0 para que o primeiro seja 1
+        
+        this.addEventListener("carregou", ()=> {
+           
+            //this.adicionar_comportamento();
+            //this.adicionar_remessa('#remessas-desktop', ++this.numeroremessasDesktop); // Adicionar primeira remessa no desktop
+            //this.adicionar_remessa('#remessas-mobile', ++this.numeroremessasMobile); // Adicionar primeira remessa no mobile
+            //this.remover_remessa();
 
-        console.log("Constructor dos dados da remessas.js");
-
-        console.log(`URL dos dados da remessas.js: ${import.meta.url}`);
-        fetch('./componentes/dados_remessas/dados_remessas.html').then(resultado => {
-            resultado.text().then(texto_pagina => {
-                let template = document.createElement('template');
-                template.innerHTML = texto_pagina;
-                this.appendChild(template.content.cloneNode(true));
-
-                this.adicionar_comportamento();
-                this.adicionar_remessa('#remessas-desktop', ++this.numeroremessasDesktop); // Adicionar primeira remessa no desktop
-                this.adicionar_remessa('#remessas-mobile', ++this.numeroremessasMobile); // Adicionar primeira remessa no mobile
-                this.remover_remessa();
-
-                this.dispatchEvent(new CustomEvent("carregou"));
-            });
+            //this.dispatchEvent(new CustomEvent("carregou_lista_remessa"));
         });
 
         // Adiciona o link para o arquivo de fonte Rawline
@@ -116,4 +114,4 @@ export class remessas extends HTMLElement {
     }
 }
 
-customElements.define('br-remessas', remessas);
+customElements.define('lista-remessas', ListaRemessas);

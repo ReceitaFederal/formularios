@@ -7,8 +7,17 @@
 
     <title>Padrão Digital de Governo</title>
 
+    <!-- Scripts de componentes -->
     <script src="./componentes/cabecalho/cabecalho.js" type="module"></script>
     <script src="./componentes/rodape/rodape.js" type="module"></script>
+    <script src="./componentes/dados_remessas/lista_remessas.js" type="module"></script>
+
+     <!-- Scripts da aplicação principal -->
+     <script src="./js/main.js" type="module"></script>
+
+     <!-- Scripts do gov.br -->
+     <script src="../bibliotecas/govbr-ds/core.js" type="module"></script>
+     <script src="../bibliotecas/govbr-ds/core.min.js" type="module"></script>
 
 
     <!-- Font Rawline-->
@@ -42,7 +51,7 @@
         
         <div class="container-lg">          
           
-          <br-remessas></br-remessas>  
+          <lista-remessas></lista-remessas>
           
         </div>
       </main>
@@ -70,13 +79,5 @@
       </footer>
       <div class="br-cookiebar default d-none" tabindex="-1"></div>
     </div>    
-
-     <!-- Scripts de componentes -->
-     <!--script src="./js/inicializacao.js"  type="module"></script-->
-    <script src="./componentes/dados_remessas/dados_remessas.js" type="module"></script>
-    <script src="./js/main.js" type="module"></script>
-    <script src="../bibliotecas/govbr-ds/core.js" type="module"></script>
-    <script src="../bibliotecas/govbr-ds/core.min.js" type="module"></script>
-
   </body>
 </html>
