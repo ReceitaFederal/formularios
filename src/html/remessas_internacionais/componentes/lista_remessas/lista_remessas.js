@@ -2,6 +2,8 @@
 
 import { ComponenteBase } from "../../../bibliotecas/ultima/componente_base.js";
 import { DadosRemessa } from "./dados_remessa/dados_remessa.js";
+import { GovBRUtils } from "../../../bibliotecas/GovBRUtils.js";
+
 
 export class ListaRemessas extends ComponenteBase {
     
@@ -17,47 +19,14 @@ export class ListaRemessas extends ComponenteBase {
         this.addEventListener("carregou", ()=> {
            
             this.adicionar_comportamento();
-            //this.adicionar_remessa('#remessas-desktop', ++this.numeroremessasDesktop); // Adicionar primeira remessa no desktop
-            //this.adicionar_remessa('#remessas-mobile', ++this.numeroremessasMobile); // Adicionar primeira remessa no mobile
-            //this.remover_remessa();
-
-            //this.dispatchEvent(new CustomEvent("carregou_lista_remessa"));
         });
-    }
+    }    
 
     adicionar_comportamento() {
-
-
-        let dados_remessas = this.noRaiz.querySelectorAll("br-remessa");
         
 
-        dados_remessas.forEach(dado_remessa => {
+        this.atualizar_comportamento_dados_remessa();
 
-            dado_remessa.addEventListener("atualizou_valores", evento=>{
-
-                let dados_remessas_i = this.noRaiz.querySelectorAll("br-remessa");
-
-                this.total = 0;
-
-                dados_remessas_i.forEach(dado_remessa_i => {
-
-                    this.total += dado_remessa_i.valor_total;
-                });
-
-                this.dispatchEvent(new CustomEvent("atualizou_total"));
-            });            
-        });
-
-        //Percorre as remessas que estão inicialmente no leiaute
-        this.noRaiz.querySelectorAll("br-remessa").forEach (remessa => {
-
-            //Adicionar comportamento de remoção
-            remessa.addEventListener("remover", (evento)=>{
-                console.log ("remover remessa");
-                console.dir(evento);
-                this.remover_remessa('#remessas-mobile');
-            });
-        });
 
                 
         let btn_adicionar = this.querySelector("#adicionar_remessa");
@@ -65,52 +34,87 @@ export class ListaRemessas extends ComponenteBase {
         btn_adicionar.addEventListener("click", (evento) => {
             evento.preventDefault(); // Impede o comportamento padrão do link
             console.log("Clicou em adicionar no mobile");
-            this.adicionar_remessa('#remessas-mobile', ++this.numeroremessasMobile);
+            this.adicionar_remessa();
         });                    
     }
 
-    adicionar_remessa(idTemplate, contador) {
-        let template = this.querySelector(`${idTemplate} template`);
-        let fieldsetRemessas = this.querySelector(`${idTemplate} #lista_remessas`);
 
-        if (template && fieldsetRemessas) {
-            // Criar título para a remessa
-            let tituloremessa = document.createElement("div");
-            let nomeremessa = contador === 1 ? "remessa 1" : `remessa ${contador}`;
-            let primeiroNomeMaiusculo = nomeremessa.charAt(0).toUpperCase() + nomeremessa.slice(1).toLowerCase();
-            tituloremessa.textContent = primeiroNomeMaiusculo;
-            tituloremessa.style.fontFamily = "Rawline"; // Aplicar a fonte Rawline
-            tituloremessa.style.fontWeight = "bold"; // Aplicar negrito ao título
-            tituloremessa.style.fontSize = "16px"; // Definir tamanho da fonte
-            tituloremessa.style.color = "#333333"; // Definir cor da fonte
+    atualizar_comportamento_dados_remessa(){
+        
+        let remessas = this.noRaiz.querySelectorAll("br-remessa");
+        
+        let elemento_unico = (remessas.length == 1);
 
-            // Adicionar título antes do bloco da remessa
-            fieldsetRemessas.appendChild(tituloremessa);
+        remessas.forEach(remessa => {
+            
+            if (remessa.carregado){
 
-            // Adicionar bloco da remessa
-            fieldsetRemessas.appendChild(template.content.cloneNode(true));
-        }
+                this.adicionar_comportamento_remessa (remessa, elemento_unico);            
+
+            }else{
+
+                remessa.addEventListener("carregou", evento => {
+                    
+                    this.adicionar_comportamento_remessa (remessa, elemento_unico);  
+                });
+            }
+        });
+    }
+    
+
+
+
+    adicionar_remessa() {
+        
+        let divRemessas = this.noRaiz.querySelector(`#lista_remessas`);
+        let nova_remessa = document.createElement("br-remessa"); 
+        
+        nova_remessa.id = GovBRUtils.gerarUUID();
+
+        divRemessas.appendChild(nova_remessa);
+
+        this.atualizar_comportamento_dados_remessa();
     }
 
-    remover_remessa(idTemplate) {
-        let fieldsetRemessas = this.querySelector(`${idTemplate} #lista_remessas`);
-        let ultimoremessa = fieldsetRemessas.lastElementChild;
 
-        if (ultimoremessa) {
-            // Remover título da remessa
-            fieldsetRemessas.removeChild(ultimoremessa.previousElementSibling);
-            // Remover bloco da remessa
-            fieldsetRemessas.removeChild(ultimoremessa);
+    atualizou_valores(evento){
 
-            // Decrementar o contador correspondente
-            if (idTemplate === '#remessas-desktop') {
-                this.numeroremessasDesktop--;
-            } else if (idTemplate === '#remessas-mobile') {
-                this.numeroremessasMobile--;
-            }
-        } else {
-            console.log("Nenhuma remessa para remover");
-        }
+        let dados_remessas_i = this.noRaiz.querySelectorAll("br-remessa");
+
+        this.total = 0;
+
+        dados_remessas_i.forEach(dado_remessa_i => {
+
+            this.total += dado_remessa_i.valor_total;
+        });
+
+        this.dispatchEvent(new CustomEvent("atualizou_total"));
+    }
+
+    adicionar_comportamento_remessa(remessa, elemento_unico){
+        
+        remessa.elemento_unico = elemento_unico;
+
+        remessa.removeEventListener("atualizou_valores", this.atualizou_valores.bind(this));
+
+        remessa.addEventListener("atualizou_valores", this.atualizou_valores.bind(this));  
+        
+        remessa.removeEventListener("remover", this.remover_remessa.bind(this));
+
+         //Adicionar comportamento de remoção
+        remessa.addEventListener("remover", this.remover_remessa.bind(this));
+    }
+
+
+    remover_remessa(evento) {
+
+        let elemento = evento.currentTarget;
+
+        let divRemessas = this.querySelector(`#lista_remessas`);
+        
+        divRemessas.removeChild(elemento);  
+        
+        this.atualizar_comportamento_dados_remessa();
     }
 }
 

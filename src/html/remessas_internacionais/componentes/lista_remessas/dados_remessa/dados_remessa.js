@@ -24,7 +24,7 @@ export class DadosRemessa extends ComponenteBase {
 
         this.addEventListener("carregou", ()=> {
            
-            this.elemento_unico = true;
+            this.elemento_unico = false;
 
             this.usar_icms = true;
 
@@ -72,13 +72,15 @@ export class DadosRemessa extends ComponenteBase {
                 }else{
 
                     //Dispara o evento "remover"
-                    this.dispatchEvent(new CustomEvent("remover"));
+                    let instancia_evento_customizado = new CustomEvent("remover");
+                    this.dispatchEvent(instancia_evento_customizado);
                 }
             });
         }
     }
 
-
+    
+    
     set elemento_unico(valor){
 
         this._elemento_unico = valor;        
@@ -98,6 +100,7 @@ export class DadosRemessa extends ComponenteBase {
         return this._elemento_unico;
     }
 
+    
 
     set usar_icms(valor){
 
