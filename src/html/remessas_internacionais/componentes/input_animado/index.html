@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Animation</title>
+    <style>
+        .input-container {
+            position: relative;
+            width: 100px;
+            height: 30px;
+            overflow: hidden;
+        }
+        
+        .input-field {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ccc;
+            text-align: center;
+            font-size: 16px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .input-field.new {
+            transform: translateY(100%);
+        }
+
+        .input-field.old {
+            transform: translateY(-100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="input-container">
+        <input type="text" id="inputField" class="input-field" readonly>
+    </div>
+    <button onclick="updateInput()">Sorteie Número</button>
+
+    <script>
+        function updateInput() {
+            const inputContainer = document.querySelector('.input-container');
+            const oldInput = document.getElementById('inputField');
+            const newInput = document.createElement('input');
+
+            newInput.type = 'text';
+            newInput.classList.add('input-field', 'new');
+            newInput.value = Math.floor(Math.random() * 100);
+            newInput.readOnly = true;
+
+            inputContainer.appendChild(newInput);
+
+            setTimeout(() => {
+                oldInput.classList.add('old');
+                newInput.classList.remove('new');
+
+                setTimeout(() => {
+                    inputContainer.removeChild(oldInput);
+                    newInput.id = 'inputField';
+                }, 500);
+            }, 10);
+        }
+    </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 
 
 import { ComponenteBase } from "../../../bibliotecas/ultima/componente_base.js";
-import { DadosRemessa } from "./dados_remessa.js";
+import { DadosRemessa } from "./dados_remessa/dados_remessa.js";
 
 export class ListaRemessas extends ComponenteBase {
     
@@ -23,12 +23,6 @@ export class ListaRemessas extends ComponenteBase {
 
             //this.dispatchEvent(new CustomEvent("carregou_lista_remessa"));
         });
-
-        // Adiciona o link para o arquivo de fonte Rawline
-        let linkFonte = document.createElement('link');
-        linkFonte.rel = 'stylesheet';
-        linkFonte.href = '../bibliotecas/Fontes - Rawline/Rawline/';
-        document.head.appendChild(linkFonte);
     }
 
     adicionar_comportamento() {
@@ -54,45 +48,25 @@ export class ListaRemessas extends ComponenteBase {
             });            
         });
 
-        /*
-        let adicionarDesktop = this.querySelector("#remessas-desktop #adicionar_remessa");
-        let adicionarMobile = this.querySelector("#remessas-mobile #adicionar_remessa");
+        //Percorre as remessas que estão inicialmente no leiaute
+        this.noRaiz.querySelectorAll("br-remessa").forEach (remessa => {
 
-        if (adicionarDesktop) {
-            adicionarDesktop.addEventListener("click", (evento) => {
-                evento.preventDefault(); // Impede o comportamento padrão do link
-                console.log("Clicou em adicionar no desktop");
-                this.adicionar_remessa('#remessas-desktop', ++this.numeroremessasDesktop);
-            });
-        }
-
-        if (adicionarMobile) {
-            adicionarMobile.addEventListener("click", (evento) => {
-                evento.preventDefault(); // Impede o comportamento padrão do link
-                console.log("Clicou em adicionar no mobile");
-                this.adicionar_remessa('#remessas-mobile', ++this.numeroremessasMobile);
-            });
-        }
-
-        let removerDesktop = this.querySelector("#remessas-desktop #remover_remessa");
-        let removerMobile = this.querySelector("#remessas-mobile #remover_remessa");
-
-        if (removerDesktop) {
-            removerDesktop.addEventListener("click", (evento) => {
-                evento.preventDefault(); // Impede o comportamento padrão do link
-                console.log("Clicou em remover no desktop");
-                this.remover_remessa('#remessas-desktop');
-            });
-        }
-
-        if (removerMobile) {
-            removerMobile.addEventListener("click", (evento) => {
-                evento.preventDefault(); // Impede o comportamento padrão do link
-                console.log("Clicou em remover no mobile");
+            //Adicionar comportamento de remoção
+            remessa.addEventListener("remover", (evento)=>{
+                console.log ("remover remessa");
+                console.dir(evento);
                 this.remover_remessa('#remessas-mobile');
             });
-        }
-            */
+        });
+
+                
+        let btn_adicionar = this.querySelector("#adicionar_remessa");
+
+        btn_adicionar.addEventListener("click", (evento) => {
+            evento.preventDefault(); // Impede o comportamento padrão do link
+            console.log("Clicou em adicionar no mobile");
+            this.adicionar_remessa('#remessas-mobile', ++this.numeroremessasMobile);
+        });                    
     }
 
     adicionar_remessa(idTemplate, contador) {

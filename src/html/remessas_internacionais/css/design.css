@@ -476,142 +476,14 @@ div.tab button.active {
   margin-bottom: 0;
 }
 
-/*# sourceMappingURL=tooltip.css.map*/
-
-/* @media (max-width: 576px){
-
-  .br-input > .valor-remessa, 
-  .br-input > .valor-total-remessa {
-      height: 50px;
-      width: 150px;
-  }
-} */
-
-/* @media (max-width: 576px) {
-  .row {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .coluna-row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .coluna-input {
-    flex: 1 1 45%;
-    max-width: 45%;
-  }
-
-  .coluna-row-1 > .coluna-input:nth-child(1) {
-    order: 8;
-  }
-
-  .coluna-row-1 > .coluna-input:nth-child(2) {
-    order: 1;
-  }
-
-  .coluna-row-1 > .coluna-input:nth-child(3) {
-    order: 7;
-  }
-
-  .coluna-row-1 > .coluna-input:nth-child(4) {
-    order: 6;
-  }
-
-  .coluna-row-1 > .coluna-input:nth-child(5) {
-    order: 3;
-  }
-
-  .coluna-row-1 > .coluna-input:nth-child(6) {
-    order: 5;
-  }
-
-  .coluna-row-1 > .coluna-input:nth-child(7) {
-    order: 2;
-  }
-
-  .coluna-row-1 > .coluna-input:nth-child(8) {
-    order: 4;
-  }
 
 
-  .coluna-row-2 > .coluna-input:nth-child(1) {
-    order: 4;
-  }
-
-  .coluna-row-2 > .coluna-input:nth-child(2) {
-    order: 3;
-  }
-
-  .coluna-row-2 > .coluna-input:nth-child(3) {
-    order: 2;
-  }
-
-  .coluna-row-2 > .coluna-input:nth-child(4) {
-    order: 1;
-  }
-
-  .coluna-row-2 > .coluna-input:nth-child(5) {
-    order: 8;
-  }
-
-  .coluna-row-2 > .coluna-input:nth-child(6) {
-    order: 7;
-  }
-
-  .coluna-row-2 > .coluna-input:nth-child(7) {
-    order: 6;
-  }
-
-  .coluna-row-2 > .coluna-input:nth-child(8) {
-    order: 5;
-  }
-
-
-  .coluna-row-3 > .coluna-input:nth-child(1) {
-    order: 2;
-  }
-
-  .coluna-row-3 > .coluna-input:nth-child(2) {
-    order: 4;
-  }
-
-  .coluna-row-3 > .coluna-input:nth-child(3) {
-    order: 1;
-  }
-
-  .coluna-row-3 > .coluna-input:nth-child(4) {
-    order: 3;
-  }
-
-  .coluna-row-3 > .coluna-input:nth-child(5) {
-    order: 6;
-  }
-
-  .coluna-row-3 > .coluna-input:nth-child(6) {
-    order: 5;
-  }
-
-  .coluna-row-3 > .coluna-input:nth-child(7) {
-    order: 8;
-  }
-
-  .coluna-row-3 > .coluna-input:nth-child(8) {
-    order: 7;
-  }
-} */
 
 /* Estilo padrão para telas maiores que 576px */
 #remessas-desktop {
   display: block;
 }
 
-#remessas-mobile {
-  display: none;
-}
 
 /* Estilo para telas com largura máxima de 576px */
 @media (max-width: 576px) {
@@ -636,21 +508,8 @@ div.tab button.active {
     display: none; /* Esconde o desktop */
   }
 
-  #remessas-mobile {
-    display: block; /* Mostra o mobile */
-  }
 
   .br-input label{
-    text-align: center;
-    justify-content: center;
-    justify-self: center;
-    align-items: center;
-  }
-
-  .br-input > .valor-remessa-mobile,
-  .br-input > .total-remessa-mobile {
-    height: 165px;
-    margin-bottom: 30px;
     text-align: center;
     justify-content: center;
     justify-self: center;

@@ -1,0 +1,64 @@
+
+
+<link rel="stylesheet" href="./dados_remessa.css">
+
+<!-- Design System GOV.BR CSS-->
+ <!-- TODO: Removi o design system desse componente pois não estava conseguindo fazer a altura funcionar no input text-->
+<!--link rel="stylesheet" href="../../../../bibliotecas/govbr-ds/core-lite.css" /-->
+
+<div class="mt-5 linha">
+  <div class="col-sm">
+    <fieldset>
+      <!--<legend>Valor (Legend)</legend>-->
+      <div class="linha coluna-linha">
+        <div class="coluna-input col-12 col-md-6 mb-3">
+          <div class="br-input">
+            <label class="titulo-bloco" for="valor-remessa">Valor da remessa</label>
+            <input class="valor-remessa" id="valor-remessa" placeholder="Dólar (US$)" type="text" />            
+          </div>
+          <div class="br-input">
+            <label for="valor-remessa">Total da remessa</label>
+            <input-animado class="total-remessa" id="total-remessa" placeholder="Dólar (US$)" type="text" />
+          </div>
+        </div>
+        <div class="coluna-input col-12 col-md-6 mb-3">
+          <div class="br-input">
+            <label for="valor-remessa">Alíquota</label>
+            <input-animado class="aliquota-remessa" id="aliquota-remessa" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="US$ ?" disabled style="opacity: 1;">
+          </div>  
+          <div class="br-input">
+            <label for="iiinicial-remessa">II Inicial</label>
+            <input-animado class="iiinicial-remessa" id="iiinicial-remessa" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="US$ ?" disabled style="opacity: 1;">
+          </div>
+          <div class="br-input">
+            <label for="desconto-remessa">Desconto</label>
+            <input-animado class="desconto-remessa" id="desconto-remessa" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="US$ ?" disabled style="opacity: 1;">
+          </div> 
+          <div class="br-input">
+            <label for="iifinal-remessa">II Final</label>
+            <input-animado class="iifinal-remessa" id="iifinal-remessa" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="US$ ?" disabled style="opacity: 1;">
+          </div>
+          <!-- TODO: consertar botão agora que ta sem design system aqui -->
+          <!--button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
+            <div class="menu-item divider" href="#" id="remover_remessa" role="treeitem">
+              <span class="icon" style="justify-content: right;">
+                <i class="fa fa-minus" aria-hidden="true"></i>
+              </span>
+              <span class="content"></span>
+            </div>
+          </button-->
+          <button id="btn_remover">Remover</button>
+          <!-- TODO: Por enquanto a parte do ICMS está desligada esperando definição dos Estados -->
+          <!--div class="br-input">
+            <label for="soma-remessa">Soma</label>
+            <input-animado class="soma-remessa" id="soma-remessa" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="US$ ?" disabled style="opacity: 1;">
+          </div>
+            <div class="br-input">
+            <label for="icms-remessa">ICMS</label>
+            <input-animado class="icms-remessa" id="icms-remessa" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="17%" disabled style="opacity: 1;">
+          </div-->  
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
