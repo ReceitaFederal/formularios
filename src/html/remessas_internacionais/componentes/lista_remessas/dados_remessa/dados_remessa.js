@@ -26,6 +26,8 @@ export class DadosRemessa extends ComponenteBase {
            
             this.elemento_unico = true;
 
+            this.usar_icms = false;
+
             this.adicionar_comportamento();            
         });
     }
@@ -95,6 +97,20 @@ export class DadosRemessa extends ComponenteBase {
     }
 
 
+    set usar_icms(valor){
+
+        this._usar_icms = valor;        
+
+        this.noRaiz.querySelector("#div_soma").style.display = (this._usar_icms ? "block" : "none");
+        this.noRaiz.querySelector("#div_icms").style.display = (this._usar_icms ? "block" : "none");
+    }
+
+
+    get usar_icms(){
+        return this._usar_icms;
+    }
+
+
     calcular_imposto(valor_input){
         
 
@@ -139,18 +155,15 @@ export class DadosRemessa extends ComponenteBase {
             let soma = 0;
             let icms = 0;
 
-            //TODO: cálculo do ICM Destativado aguardando os Estados
-            /*            
-            {
+            if (this._usar_icms){
+
                 soma = valor + ii_final;
 
                 icms = (soma/(1-DadosRemessa.ALIQUOTA_ICMS))*DadosRemessa.ALIQUOTA_ICMS;
 
                 this.valor_total = soma + icms;
-            }
-            */
-            //TODO: Provissóriamente valor total é o valor do produto mas o ii_final
-            {
+            }else{
+
                 this.valor_total = valor + ii_final;
             }
 
@@ -176,10 +189,9 @@ export class DadosRemessa extends ComponenteBase {
         this.noRaiz.querySelector("#aliquota-remessa").value = aliquota;
         this.noRaiz.querySelector("#iiinicial-remessa").value = ii_inicial;
         this.noRaiz.querySelector("#desconto-remessa").value = desconto;
-        this.noRaiz.querySelector("#iifinal-remessa").value = ii_final;
-        //TODO: cálculo do ICM Destativado aguardando os Estados
-        //this.noRaiz.querySelector("#soma-remessa").value = soma;
-        //this.noRaiz.querySelector("#icms-remessa").value = icms;
+        this.noRaiz.querySelector("#iifinal-remessa").value = ii_final;        
+        this.noRaiz.querySelector("#soma-remessa").value = soma;
+        this.noRaiz.querySelector("#icms-remessa").value = icms;
         this.noRaiz.querySelector("#total-remessa").value = valor_total;
     }
 
