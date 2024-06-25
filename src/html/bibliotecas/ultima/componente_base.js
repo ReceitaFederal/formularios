@@ -1,3 +1,5 @@
+
+
 export class ComponenteBase extends HTMLElement{
 
     static LIMITE_TENTATIVAS_CARREGAR_RECURSO = 3; //Tenta no máximo 3 vezes carregar um recurso antes de desistir
@@ -39,6 +41,7 @@ export class ComponenteBase extends HTMLElement{
     set noRaiz (noRaiz){
         this._noRaiz = noRaiz;
     }
+
 
     //TODO: usar tag A com href para fazer parse no endereço e extrair o caminho
     static extrairCaminhoURL(url){

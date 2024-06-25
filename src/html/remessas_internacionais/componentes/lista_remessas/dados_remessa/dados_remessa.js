@@ -26,7 +26,7 @@ export class DadosRemessa extends ComponenteBase {
            
             this.elemento_unico = true;
 
-            this.usar_icms = false;
+            this.usar_icms = true;
 
             this.adicionar_comportamento();            
         });
@@ -70,6 +70,8 @@ export class DadosRemessa extends ComponenteBase {
                 //Caso esse seja um elemento de uma lista, o botão chama remover e 
                 //dispara um evento para a lista remover este elemento
                 }else{
+
+                    //Dispara o evento "remover"
                     this.dispatchEvent(new CustomEvent("remover"));
                 }
             });
