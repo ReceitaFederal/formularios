@@ -8,13 +8,15 @@ export class ListaRemessas extends ComponenteBase {
     constructor() {
         super({templateURL:"./lista_remessas.html", shadowDOM:false}, import.meta.url);
 
+        this.total = 0;
+
         // Inicializa os contadores de remessas para desktop e mobile
         this.numeroremessasDesktop = 0; // Inicia com 0 para que o primeiro seja 1
         this.numeroremessasMobile = 0; // Inicia com 0 para que o primeiro seja 1
         
         this.addEventListener("carregou", ()=> {
            
-            //this.adicionar_comportamento();
+            this.adicionar_comportamento();
             //this.adicionar_remessa('#remessas-desktop', ++this.numeroremessasDesktop); // Adicionar primeira remessa no desktop
             //this.adicionar_remessa('#remessas-mobile', ++this.numeroremessasMobile); // Adicionar primeira remessa no mobile
             //this.remover_remessa();
@@ -30,6 +32,29 @@ export class ListaRemessas extends ComponenteBase {
     }
 
     adicionar_comportamento() {
+
+
+        let dados_remessas = this.noRaiz.querySelectorAll("br-remessa");
+        
+
+        dados_remessas.forEach(dado_remessa => {
+
+            dado_remessa.addEventListener("atualizou_valores", evento=>{
+
+                let dados_remessas_i = this.noRaiz.querySelectorAll("br-remessa");
+
+                this.total = 0;
+
+                dados_remessas_i.forEach(dado_remessa_i => {
+
+                    this.total += dado_remessa_i.valor_total;
+                });
+
+                this.dispatchEvent(new CustomEvent("atualizou_total"));
+            });            
+        });
+
+        /*
         let adicionarDesktop = this.querySelector("#remessas-desktop #adicionar_remessa");
         let adicionarMobile = this.querySelector("#remessas-mobile #adicionar_remessa");
 
@@ -67,6 +92,7 @@ export class ListaRemessas extends ComponenteBase {
                 this.remover_remessa('#remessas-mobile');
             });
         }
+            */
     }
 
     adicionar_remessa(idTemplate, contador) {

@@ -11,6 +11,8 @@ export class DadosRemessa extends ComponenteBase {
     constructor() {
         super({templateURL:"./dados_remessa.html", shadowDOM:false}, import.meta.url);
 
+        this.valor_total = 0;
+
         // Inicializa os contadores de remessas para desktop e mobile
         //this.numeroremessasDesktop = 0; // Inicia com 0 para que o primeiro seja 1
         //this.numeroremessasMobile = 0; // Inicia com 0 para que o primeiro seja 1
@@ -35,7 +37,15 @@ export class DadosRemessa extends ComponenteBase {
     adicionar_comportamento() {
         let input_valor = this.noRaiz.querySelector("#valor-remessa-mobile");
 
-        input_valor.addEventListener("keyup", evento => {
+         // Adiciona um event listener para capturar eventos de teclado
+        input_valor.addEventListener('keydown', evento => {
+            // Permite apenas números e teclas de controle como Backspace, Delete e setas
+            if (!/[0-9]/.test(evento.key) && !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight'].includes(evento.key)) {
+                evento.preventDefault(); // Cancela a ação padrão se a tecla não for um número
+            }
+        });
+
+        input_valor.addEventListener("input", evento => {
             
             this.calcula_imposto(input_valor.value);
         });
@@ -43,11 +53,18 @@ export class DadosRemessa extends ComponenteBase {
 
     calcula_imposto(valor_input){
         
+
+        //Se nada foi digitado
+        if (valor_input.length == 0){
+
+            this.atualiza_inputs("", "", "", "", "", "", "", "");
+
         //Se não é um número valido
-        if (!DadosRemessa.isNumeroValido(valor_input)){
+        }else if (!DadosRemessa.isNumeroValido(valor_input)){
 
             //Faz alguma coisa
             alert(`${valor_input} não é um número válido!`)
+
 
         }else{
             
@@ -76,18 +93,20 @@ export class DadosRemessa extends ComponenteBase {
 
             let icms = (soma/(1-DadosRemessa.ALIQUOTA_ICMS))*DadosRemessa.ALIQUOTA_ICMS;
 
-            let valor_total = soma + icms;
+            this.valor_total = soma + icms;
 
             this.atualiza_inputs(
                 valor, 
-                aliquota, 
-                ii_inicial, 
-                desconto, 
-                ii_final, 
-                soma, 
-                icms, 
-                valor_total);
+                aliquota.toFixed(2), 
+                ii_inicial.toFixed(2), 
+                desconto.toFixed(2), 
+                ii_final.toFixed(2), 
+                soma.toFixed(2), 
+                icms.toFixed(2), 
+                this.valor_total.toFixed(2));            
         }
+
+        this.dispatchEvent(new CustomEvent("atualizou_valores"));
     }
 
     atualiza_inputs(valor, aliquota, ii_inicial, desconto, ii_final, soma, icms, valor_total){
