@@ -172,11 +172,14 @@ export class DadosRemessa extends ComponenteBase {
                 this.valor_total = valor + ii_final;
             }
 
+            // Convertendo input para porcentagem
+            const aliquotaPorcentagem = aliquota * 100;
+
             this.atualizar_inputs(
                 valor, 
-                aliquota.toFixed(2), 
+                aliquotaPorcentagem.toFixed(0) + '%',
                 ii_inicial.toFixed(2), 
-                desconto.toFixed(2), 
+                'US$' + ' ' +  desconto.toFixed(0), 
                 ii_final.toFixed(2), 
                 soma.toFixed(2), 
                 icms.toFixed(2), 
