@@ -3,8 +3,10 @@
 import { ComponenteBase } from "../../../bibliotecas/ultima/componente_base.js";
 import { DadosRemessa } from "./dados_remessa/dados_remessa.js";
 import { GovBRUtils } from "../../../bibliotecas/GovBRUtils.js";
-import { ModalRemessas } from "../modal/modal_remessas.js";
 import { TermoDeUso } from "../modal/termo_de_uso/termo_de_uso.js";
+import { RemessaConforme } from "../modal/remessa_conforme/remessa_conforme.js";
+
+
 
 export class ListaRemessas extends ComponenteBase {
     
@@ -19,9 +21,14 @@ export class ListaRemessas extends ComponenteBase {
         
         this.addEventListener("carregou", ()=> {
                        
-            const modal = this.noRaiz.querySelector("termo-de-uso");
-            modal.addEventListener("carregou", ()=>{
-                modal.exibir();
+            const modal_termo_de_uso = this.noRaiz.querySelector("termo-de-uso");
+
+            modal_termo_de_uso.addEventListener("carregou", ()=>{
+                modal_termo_de_uso.exibir();
+            });
+
+            modal_termo_de_uso.addEventListener("fechou", ()=>{                
+                this.noRaiz.querySelector("remessa-conforme").exibir();
             });
 
             this.adicionar_comportamento();

@@ -20,6 +20,11 @@
     width: 100%;
 }
 
+.modal-body {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
 .modal-header,
 .modal-body,
 .modal-footer {

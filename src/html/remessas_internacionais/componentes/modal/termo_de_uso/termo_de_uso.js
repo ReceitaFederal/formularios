@@ -7,7 +7,7 @@ export class TermoDeUso extends ComponenteBase {
 
         this.addEventListener("carregou", ()=>{
             this.noRaiz.querySelector('#btn_eu_concordo').addEventListener('click', () => {
-                this.ocultar();
+                this.ocultar();                
             });
         });
     }
@@ -19,7 +19,8 @@ export class TermoDeUso extends ComponenteBase {
 
     ocultar() {
         const modal = this.noRaiz.querySelector('.modal-overlay');        
-        modal.style.display = 'none';        
+        modal.style.display = 'none';
+        this.dispatchEvent(new CustomEvent("fechou"));     
     }
 }
 
