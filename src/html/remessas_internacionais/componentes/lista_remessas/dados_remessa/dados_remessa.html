@@ -1,64 +1,57 @@
 
+<link rel="stylesheet" href="./dados_remessa.css" />
 
-<link rel="stylesheet" href="./dados_remessa.css">
-
-<!-- Design System GOV.BR CSS-->
- <!-- TODO: Removi o design system desse componente pois não estava conseguindo fazer a altura funcionar no input text-->
-<!--link rel="stylesheet" href="../../../../bibliotecas/govbr-ds/core-lite.css" /-->
-
-<div class="mt-5 linha">
+<div class="row mt-5">
   <div class="col-sm">
     <fieldset>
       <!--<legend>Valor (Legend)</legend>-->
-      <div class="linha coluna-linha">
+      <div class="row coluna-row">
         <div class="coluna-input col-12 col-md-6 mb-3">
           <div class="br-input">
             <label class="titulo-bloco" for="valor-remessa">Valor da encomenda</label>
-            <input class="valor-remessa" id="valor-remessa" placeholder="Reais R$" type="text" />            
+            <input class="valor-remessa" id="valor-remessa" placeholder="Reais (R$)" type="text" />
           </div>
           <div class="br-input">
             <label for="valor-remessa">Total da encomenda com impostos</label>
-            <input-animado class="total-remessa" id="total-remessa" placeholder="Dólar (US$)" type="text"/>
+            <input class="total-remessa" id="total-remessa" placeholder="Reais (R$)" type="text" />
           </div>
         </div>
         <div class="coluna-input col-12 col-md-6 mb-3">
           <div class="br-input">
             <label for="valor-remessa">Alíquota</label>
-            <input-animado class="aliquota-remessa" id="aliquota-remessa" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="US$ ?" disabled style="opacity: 1;">
+            <input class="campos-calculados" id="aliquota-remessa" disabled>
           </div>  
           <div class="br-input">
             <label for="iiinicial-remessa">II Inicial</label>
-            <input-animado class="iiinicial-remessa" id="iiinicial-remessa" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="US$ ?" disabled style="opacity: 1;">
+            <input class="campos-calculados" id="iiinicial-remessa" disabled>
           </div>
           <div class="br-input">
             <label for="desconto-remessa">Desconto</label>
-            <input-animado class="desconto-remessa" id="desconto-remessa" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="US$ ?" disabled style="opacity: 1;">
+            <input class="campos-calculados" id="desconto-remessa" disabled>
           </div> 
           <div class="br-input">
             <label for="iifinal-remessa">II Final</label>
-            <input-animado class="iifinal-remessa" id="iifinal-remessa" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="US$ ?" disabled style="opacity: 1;">
-          </div>
-          <div class="br-input" id="div_soma">
+            <input class="campos-calculados" id="iifinal-remessa" disabled>
+          </div> 
+          <div class="br-input">
             <label for="soma-remessa">Soma</label>
-            <input-animado class="soma-remessa" id="soma-remessa" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="US$ ?" disabled style="opacity: 1;">
+            <input class="campos-calculados" id="soma-remessa" disabled>
           </div>
-          <div class="br-input" id="div_icms">
+            <div class="br-input">
             <label for="icms-remessa">ICMS</label>
-            <input-animado class="icms-remessa" id="icms-remessa" style="font-size: 15px;" type="text" contenteditable="true" required="true" value="17%" disabled style="opacity: 1;">
+            <input class="campos-calculados" id="icms-remessa" disabled>
           </div>  
-          <!-- TODO: consertar botão agora que ta sem design system aqui -->
-          <!--button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
-            <div class="menu-item divider" href="#" id="remover_remessa" role="treeitem">
-              <span class="icon" style="justify-content: right;">
-                <i class="fa fa-minus" aria-hidden="true"></i>
-              </span>
-              <span class="content"></span>
-            </div>
-          </button-->
-          <button id="btn_remover">Remover</button>          
-          
         </div>
       </div>
+      <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
+        <div class="menu-item divider" href="#" id="btn_remover" role="treeitem">
+          <span class="icon" style="justify-content: right;">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </span>
+          <span class="content"></span>
+        </div>
+    </button> 
     </fieldset>
   </div>
 </div>
+

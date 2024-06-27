@@ -16,7 +16,7 @@ export class DadosRemessa extends ComponenteBase {
 
 
     constructor() {
-        super({templateURL:"./dados_remessa.html", shadowDOM:true}, import.meta.url);
+        super({templateURL:"./dados_remessa.html", shadowDOM:false}, import.meta.url);
 
 
         this.valor_total = 0;        
@@ -85,14 +85,14 @@ export class DadosRemessa extends ComponenteBase {
 
         this._elemento_unico = valor;        
 
-        if (this._elemento_unico){
+       /* if (this._elemento_unico){
 
             this.noRaiz.querySelector("#btn_remover").textContent = "Limpar";
 
         }else{
 
             this.noRaiz.querySelector("#btn_remover").textContent = "Remover";
-        }
+        } */
     }
 
 
@@ -106,8 +106,8 @@ export class DadosRemessa extends ComponenteBase {
 
         this._usar_icms = valor;        
 
-        this.noRaiz.querySelector("#div_soma").style.display = (this._usar_icms ? "block" : "none");
-        this.noRaiz.querySelector("#div_icms").style.display = (this._usar_icms ? "block" : "none");
+        this.noRaiz.querySelector("#soma-remessa").style.display = (this._usar_icms ? "block" : "none");
+        this.noRaiz.querySelector("#icms-remessa").style.display = (this._usar_icms ? "block" : "none");
     }
 
 
@@ -183,7 +183,7 @@ export class DadosRemessa extends ComponenteBase {
                 ii_final.toFixed(2), 
                 soma.toFixed(2), 
                 icms.toFixed(2), 
-                this.valor_total.toFixed(2));            
+                'R$' + ' ' +  this.valor_total.toFixed(2));            
         }
 
         this.dispatchEvent(new CustomEvent("atualizou_valores"));

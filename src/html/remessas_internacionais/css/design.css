@@ -484,15 +484,26 @@ div.tab button.active {
   display: block;
 }
 
+@media (max-width: 576px){
+  .br-input > .valor-remessa-mobile,
+  .br-input > .total-remessa-mobile {
+    height: 165px;
+    margin-bottom: 30px;
+    text-align: center;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+  }
+} 
 
 /* Estilo para telas com largura máxima de 576px */
 @media (max-width: 576px) {
-  .row {
+  .linha {
     display: flex;
     flex-direction: column;
   }
 
-  .coluna-row {
+  .coluna-linha {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
