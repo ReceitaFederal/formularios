@@ -191,10 +191,10 @@ export class DadosRemessa extends ComponenteBase {
             this.atualizar_inputs(
                 valor, 
                 aliquotaPorcentagem.toFixed(0) + '%',
-                ii.toFixed(2),                 
-                soma.toFixed(2), 
-                icms.toFixed(2), 
-                'R$' + ' ' +  this.valor_total.toFixed(2));            
+                `R$ ${ii.toFixed(2)}`,                 
+                `R$ ${soma.toFixed(2)}`, 
+                `R$ ${icms.toFixed(2)}`, 
+                `R$ ${this.valor_total.toFixed(2)}`);            
         }
 
         this.dispatchEvent(new CustomEvent("atualizou_valores"));

@@ -5,7 +5,6 @@ import { DadosRemessa } from "./dados_remessa/dados_remessa.js";
 import { GovBRUtils } from "../../../bibliotecas/GovBRUtils.js";
 import { TermoDeUso } from "../modal/termo_de_uso/termo_de_uso.js";
 import { RemessaConforme } from "../modal/remessa_conforme/remessa_conforme.js";
-import { Cotacao } from "../../js/cotacao.js";
 
 
 export class ListaRemessas extends ComponenteBase {
@@ -16,13 +15,7 @@ export class ListaRemessas extends ComponenteBase {
         this.total = 0;
         
         
-        this.addEventListener("carregou", ()=> {
-            
-            Cotacao.COTACAO_DOLAR().then(cotacao => {
-                this.cotacao_dolar = cotacao;
-                this.noRaiz.querySelector("#valor_cotacao_dolar").textContent = this.cotacao_dolar;
-            });
-        
+        this.addEventListener("carregou", ()=> {                                
             
             const modal_termo_de_uso = this.noRaiz.querySelector("termo-de-uso");
 
@@ -35,20 +28,19 @@ export class ListaRemessas extends ComponenteBase {
                 const modal_remessa_conforme = this.noRaiz.querySelector("remessa-conforme");
                 
                 modal_remessa_conforme.exibir();
-
+             
                 modal_remessa_conforme.addEventListener("fechou", ()=>{
 
                     this.remessa_conforme = modal_remessa_conforme.remessa_conforme;
                     this.adicionar_comportamento();
-                });
+                });                
             });            
         });
     }    
 
 
     set remessa_conforme (valor){
-        this._remessa_conforme = valor;
-        this.querySelector("#remessa_conforme").checked = this._remessa_conforme;
+        this._remessa_conforme = valor;        
         this.atualizar_comportamento_dados_remessa();
     }
 
@@ -57,14 +49,7 @@ export class ListaRemessas extends ComponenteBase {
     }
 
 
-    adicionar_comportamento() {
-        
-        let checkbox_remessa_conforme = this.querySelector("#remessa_conforme");
-
-        checkbox_remessa_conforme.addEventListener("click", ()=>{
-
-            this.remessa_conforme = checkbox_remessa_conforme.checked;
-        });
+    adicionar_comportamento() {          
 
 
         this.atualizar_comportamento_dados_remessa();

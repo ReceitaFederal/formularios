@@ -81,7 +81,7 @@ export class ComponenteBase extends HTMLElement{
             tentativas = 0;
         }
 
-        console.info (`Carregando template: ${url_template} (TENTAVIAS: ${tentativas})`);
+        //console.info (`Carregando template: ${url_template} (TENTAVIAS: ${tentativas})`);
         
         //TODO: Não está implementado tentar novamente carregar o CSS caso haja erro. Implementar.
         tentativas++;
@@ -192,7 +192,7 @@ export class ComponenteBase extends HTMLElement{
         
         let url_css = (url_filho? ComponenteBase.resolverEndereco(endereco, url_filho) : this.resolverEndereco(endereco)); 
 
-        console.log (`Carregando CSS: ${url_css} (TENTAVIAS: ${tentativas})`);
+        //console.log (`Carregando CSS: ${url_css} (TENTAVIAS: ${tentativas})`);
         
         if (tentativas == undefined){
             tentativas = 0;

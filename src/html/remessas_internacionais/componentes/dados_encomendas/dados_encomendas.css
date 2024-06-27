@@ -1,0 +1,33 @@
+
+
+.card-content {      
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.br-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+#container_remessa_conforme label {
+  margin-left: 8px;    
+}
+
+#container_cotacao_dolar {     
+}
+
+.total-sum {  
+  font-weight: bold;
+  text-align: center;  
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+#sum-value {
+}

@@ -33,7 +33,16 @@ export class RemessaConforme extends ComponenteBase {
     ocultar() {
         const modal = this.noRaiz.querySelector('.modal-overlay');        
         modal.style.display = 'none';    
-        this.dispatchEvent(new CustomEvent("fechou"));     
+        this.dispatchEvent(
+            new CustomEvent(
+                "fechou",                 
+                {
+                    bubbles: true, // Permite que o evento suba a árvore do DOM
+                    composed: true, // Permite que o evento atravesse os limites do shadow DOM
+                    detail: {"remessa_conforme":this._remessa_conforme},
+                }
+            )
+        );     
     }
 
     set remessa_conforme(valor){
