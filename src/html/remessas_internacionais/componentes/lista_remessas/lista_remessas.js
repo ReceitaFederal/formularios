@@ -3,7 +3,8 @@
 import { ComponenteBase } from "../../../bibliotecas/ultima/componente_base.js";
 import { DadosRemessa } from "./dados_remessa/dados_remessa.js";
 import { GovBRUtils } from "../../../bibliotecas/GovBRUtils.js";
-
+import { ModalRemessas } from "../modal/modal_remessas.js";
+import { TermoDeUso } from "../modal/termo_de_uso/termo_de_uso.js";
 
 export class ListaRemessas extends ComponenteBase {
     
@@ -17,7 +18,12 @@ export class ListaRemessas extends ComponenteBase {
         this.numeroremessasMobile = 0; // Inicia com 0 para que o primeiro seja 1
         
         this.addEventListener("carregou", ()=> {
-           
+                       
+            const modal = this.noRaiz.querySelector("termo-de-uso");
+            modal.addEventListener("carregou", ()=>{
+                modal.exibir();
+            });
+
             this.adicionar_comportamento();
         });
     }    
@@ -29,7 +35,7 @@ export class ListaRemessas extends ComponenteBase {
 
 
                 
-        let btn_adicionar = this.querySelector("#adicionar_remessa");
+        let btn_adicionar = this.noRaiz.querySelector("#adicionar_remessa");
 
         btn_adicionar.addEventListener("click", (evento) => {
             evento.preventDefault(); // Impede o comportamento padrão do link

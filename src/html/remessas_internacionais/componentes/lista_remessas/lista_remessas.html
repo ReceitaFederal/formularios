@@ -1,25 +1,27 @@
-
 <link rel="stylesheet" href="./lista_remessas.css">
 
-<fieldset id="listaRemessas" class="fieldset-border">
-  <legend class="legend-border" style="color: #155BCB; justify-content: right;">
-    <span class="icon" style="color: #155BCB; justify-content: right;">
-      <i class="fa fa-filter-circle-dollar" aria-hidden="true"></i>
-    </span>Suas compras
-  </legend>
-  
-  <div id="lista_remessas">
-    <br-remessa></br-remessa>              
-  </div>
-  <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
-    <div class="menu-item divider" href="#" id="adicionar_remessa" role="treeitem">
-      <span class="icon" style="justify-content: right;">
-        <i class="fa fa-plus" aria-hidden="true"></i>
-      </span>
-      <span class="content"></span>
+<div id="container-lista-remessa">
+  <div id="sobrepor"></div>
+  <termo-de-uso></termo-de-uso>
+  <modal-remessas></modal-remessas>
+
+  <fieldset id="listaRemessas" class="fieldset-border">
+    <legend class="legend-border" style="color: #155BCB; justify-content: right;">
+      <span class="icon" style="color: #155BCB; justify-content: right;">
+        <i class="fa fa-filter-circle-dollar" aria-hidden="true"></i>
+      </span>Suas compras
+    </legend>
+    
+    <div id="lista_remessas">
+      <br-remessa></br-remessa>              
     </div>
-  </button> 
-   
-</fieldset>
-  
-  
+    <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
+      <div class="menu-item divider" href="#" id="adicionar_remessa" role="treeitem">
+        <span class="icon" style="justify-content: right;">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </span>
+        <span class="content"></span>
+      </div>
+    </button> 
+  </fieldset>
+</div>   

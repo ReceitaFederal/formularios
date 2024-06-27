@@ -11,6 +11,7 @@
     <script src="./componentes/cabecalho/cabecalho.js" type="module"></script>
     <script src="./componentes/rodape/rodape.js" type="module"></script>
     <script src="./componentes/lista_remessas/lista_remessas.js" type="module"></script>
+    <script src="./componentes/total_encomendas/total_encomendas.js" type="module"></script>
 
      <!-- Scripts da aplicação principal -->
      <script src="./js/main.js" type="module"></script>
@@ -35,7 +36,7 @@
     <link rel="stylesheet" href="../bibliotecas/govbr-ds/core-lite.css" />
 
     <!--- Design próprio CSS -->
-    <link rel="stylesheet" href="./componentes/lista_remessas/dados_remessa/dados_remessa.css" />
+    <link rel="stylesheet" href="./css/design.css" />
 
     <!--- Ícones Font Awesome - Versão 6.5.1 -->
     <link rel="stylesheet" href="../icones/css/fontawesome.css" />
@@ -57,11 +58,8 @@
       </main>
 
       <div class="row">
-      <div class="col-md">
-          <div  class="card-content">
-            <div id="total-sum" class="total-sum">Total da encomenda com impostos: R$ <span id="sum-value">0.00</span></div>
-            </div>
-          </div>
+        <div class="col-md">
+          <total-encomendas></total-encomendas>  
         </div>
       </div>
 
