@@ -1,0 +1,10 @@
+
+
+#remessas {
+    display: block; /* Mostra o mobile */
+}
+
+
+#container-lista-remessa {
+    position: relative; 
+}

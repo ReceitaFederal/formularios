@@ -10,10 +10,12 @@ export class RemessaConforme extends ComponenteBase {
         this.addEventListener("carregou", ()=>{
 
             this.noRaiz.querySelector('#btn_sim').addEventListener('click', () => {
+                this.remessa_conforme = true;
                 this.ocultar();
             });
 
             this.noRaiz.querySelector('#btn_nao').addEventListener('click', () => {
+                this.remessa_conforme = false;
                 this.ocultar();
             });
 
@@ -30,7 +32,16 @@ export class RemessaConforme extends ComponenteBase {
 
     ocultar() {
         const modal = this.noRaiz.querySelector('.modal-overlay');        
-        modal.style.display = 'none';        
+        modal.style.display = 'none';    
+        this.dispatchEvent(new CustomEvent("fechou"));     
+    }
+
+    set remessa_conforme(valor){
+        this._remessa_conforme = valor;
+    }
+
+    get remessa_conforme(){
+        return this._remessa_conforme;
     }
 }
 

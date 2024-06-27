@@ -1,7 +1,12 @@
+
 export class Cotacao {
+
     static cotacoesCache = {};
 
-    static async DOLAR_DIA_ANTERIOR() {
+    static async COTACAO_DOLAR() {
+
+        return 5.53;
+
         // Defina as datas de início e fim como a data de ontem
         const endDate = new Date();
         endDate.setDate(endDate.getDate() - 1);

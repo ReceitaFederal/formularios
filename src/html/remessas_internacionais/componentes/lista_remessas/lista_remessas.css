@@ -8,3 +8,16 @@
 #container-lista-remessa {
     position: relative; 
 }
+
+#cabecalho_informacoes {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; /* Opcional, para centralizar verticalmente os elementos */
+    text-align: right; /* Para garantir que o texto dentro dos elementos também esteja alinhado à direita */
+}
+
+#container_remessa_conforme{
+    margin-right: 20px;
+}

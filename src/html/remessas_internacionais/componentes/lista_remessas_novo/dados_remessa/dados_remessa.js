@@ -26,7 +26,7 @@ export class DadosRemessa extends ComponenteBase {
            
             this.elemento_unico = false;
 
-            this.remessa_conforme = true;
+            this.usar_icms = true;
 
             this.adicionar_comportamento();            
         });
@@ -52,7 +52,7 @@ export class DadosRemessa extends ComponenteBase {
             // Sempre que uma tecla for pressionada chama o calcula_imposto
             input_valor.addEventListener("input", evento => {
                 
-                this.calcular_imposto();
+                this.calcular_imposto(input_valor.value);
             });
         }
 
@@ -65,7 +65,7 @@ export class DadosRemessa extends ComponenteBase {
                 if (this.elemento_unico){
 
                     input_valor.value = "";
-                    this.calcular_imposto();
+                    this.calcular_imposto(input_valor.value);
 
                 //Caso esse seja um elemento de uma lista, o botão chama remover e 
                 //dispara um evento para a lista remover este elemento
@@ -83,7 +83,16 @@ export class DadosRemessa extends ComponenteBase {
     
     set elemento_unico(valor){
 
-        this._elemento_unico = valor;              
+        this._elemento_unico = valor;        
+
+       /* if (this._elemento_unico){
+
+            this.noRaiz.querySelector("#btn_remover").textContent = "Limpar";
+
+        }else{
+
+            this.noRaiz.querySelector("#btn_remover").textContent = "Remover";
+        } */
     }
 
 
@@ -91,39 +100,24 @@ export class DadosRemessa extends ComponenteBase {
         return this._elemento_unico;
     }
 
+    
 
-    set cotacao_dolar(valor){
+    set usar_icms(valor){
 
-        this._cotacao_dolar = valor;
-        this.calcular_imposto();                
-    }    
+        this._usar_icms = valor;        
 
-
-    get cotacao_dolar(){
-
-        return this._cotacao_dolar;
+        this.noRaiz.querySelector("#soma-remessa").style.display = (this._usar_icms ? "block" : "none");
+        this.noRaiz.querySelector("#icms-remessa").style.display = (this._usar_icms ? "block" : "none");
     }
 
 
-    set remessa_conforme(valor){
-
-        this._remessa_conforme = valor;
-        this.calcular_imposto();                
+    get usar_icms(){
+        return this._usar_icms;
     }
 
 
-    get remessa_conforme(){
-        return this._remessa_conforme;
-    }
-
-
-    calcular_imposto(){
+    calcular_imposto(valor_input){
         
-
-        let input_valor = this.noRaiz.querySelector("#valor-remessa");
-
-        let valor_input = input_valor.value;
-
 
         //Se nada foi digitado
         if (valor_input.length == 0){
@@ -143,47 +137,40 @@ export class DadosRemessa extends ComponenteBase {
             
             let valor = parseFloat(valor_input);
 
-            let valor_em_dolar = valor / this.cotacao_dolar;
-
             //Inicializa variáveis
-            let aliquota = -1;            
+            let aliquota = -1;
+            let desconto = -1;
             
-            //Se não for remessa conforme
-            /*
-                A calculadora pergunta à pessoa se ela comprou de site certificado no PRC. Haverá 3 respostas: sim, não ou não sei.
-                se ela optar por não sei, haverá um link para a listagem dos sites certificados
-                a pessoa digitará o VALOR DA COMPRA em REAIS
 
-                no caso da resposta da pergunta 1 ser "não", a calculadora exibirá diretamente os resultados, que serão: 
-                II no valor de 60%, sempre em reais e ICMS no valor de 17% "por dentro" e incidindo também sobre o II calculado .
-                 
-                no caso da resposta da pergunta 2 ser "sim", a calculadora comparará o valor digitado com o equivalente, em reais,
-                 a USD 50. A calculadora deverá calcular esse valor utilizando o dólar do Siscomex do dia anterior. 
-                No caso de o valor calculado ser MAIOR que o equivalente a USD 50, a calculadora exibirá os resultados exatamente 
-                como no item 4, acima. 
-                No caso de o valor calculado ser IGUAL OU MENOR que o equivalente em reais a USD 50, a calculadora exibirá 
-                o II no valor zero (alíquota 0%) e o ICMS no valor de 17% "por dentro" (na prática, o ICMS será de pouco mais de 20%)                 
-            */
-            if (!this.remessa_conforme || (valor_em_dolar > 50)){
+            if (valor > DadosRemessa.VALOR_BASE){
 
-                aliquota = 0.6;
-
+                aliquota = 0.60; //60% de II
+                desconto = 20; //$20 de desconto
 
             }else{
-                
-                aliquota = 0;
+
+                aliquota = 0.20; //20% de II
+                desconto = 0; //Não tem desconto
             }
-       
 
-            let ii = valor * aliquota;            
+            let ii_inicial = valor * aliquota;
+            let ii_final = ii_inicial - desconto;
             
 
-            let soma = valor + ii;
+            let soma = 0;
+            let icms = 0;
 
-            let icms = (soma/(1-DadosRemessa.ALIQUOTA_ICMS))*DadosRemessa.ALIQUOTA_ICMS;
-            this.valor_total = soma + icms;
-            
+            if (this._usar_icms){
 
+                soma = valor + ii_final;
+
+                icms = (soma/(1-DadosRemessa.ALIQUOTA_ICMS))*DadosRemessa.ALIQUOTA_ICMS;
+
+                this.valor_total = soma + icms;
+            }else{
+
+                this.valor_total = valor + ii_final;
+            }
 
             // Convertendo input para porcentagem
             const aliquotaPorcentagem = aliquota * 100;
@@ -191,7 +178,9 @@ export class DadosRemessa extends ComponenteBase {
             this.atualizar_inputs(
                 valor, 
                 aliquotaPorcentagem.toFixed(0) + '%',
-                ii.toFixed(2),                 
+                ii_inicial.toFixed(2), 
+                'US$' + ' ' +  desconto.toFixed(0), 
+                ii_final.toFixed(2), 
                 soma.toFixed(2), 
                 icms.toFixed(2), 
                 'R$' + ' ' +  this.valor_total.toFixed(2));            
@@ -202,11 +191,13 @@ export class DadosRemessa extends ComponenteBase {
 
 
 
-    atualizar_inputs(valor, aliquota, ii, soma, icms, valor_total){
+    atualizar_inputs(valor, aliquota, ii_inicial, desconto, ii_final, soma, icms, valor_total){
 
         this.noRaiz.querySelector("#valor-remessa").value = valor;
         this.noRaiz.querySelector("#aliquota-remessa").value = aliquota;
-        this.noRaiz.querySelector("#ii-remessa").value = ii;        
+        this.noRaiz.querySelector("#iiinicial-remessa").value = ii_inicial;
+        this.noRaiz.querySelector("#desconto-remessa").value = desconto;
+        this.noRaiz.querySelector("#iifinal-remessa").value = ii_final;        
         this.noRaiz.querySelector("#soma-remessa").value = soma;
         this.noRaiz.querySelector("#icms-remessa").value = icms;
         this.noRaiz.querySelector("#total-remessa").value = valor_total;

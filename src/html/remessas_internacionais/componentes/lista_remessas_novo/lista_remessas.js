@@ -5,77 +5,48 @@ import { DadosRemessa } from "./dados_remessa/dados_remessa.js";
 import { GovBRUtils } from "../../../bibliotecas/GovBRUtils.js";
 import { TermoDeUso } from "../modal/termo_de_uso/termo_de_uso.js";
 import { RemessaConforme } from "../modal/remessa_conforme/remessa_conforme.js";
-import { Cotacao } from "../../js/cotacao.js";
+
 
 
 export class ListaRemessas extends ComponenteBase {
     
     constructor() {
-        super({templateURL:"./lista_remessas.html", shadowDOM:false}, import.meta.url);        
+        super({templateURL:"./lista_remessas.html", shadowDOM:false}, import.meta.url);
 
         this.total = 0;
-        
+
+        // Inicializa os contadores de remessas para desktop e mobile
+        this.numeroremessasDesktop = 0; // Inicia com 0 para que o primeiro seja 1
+        this.numeroremessasMobile = 0; // Inicia com 0 para que o primeiro seja 1
         
         this.addEventListener("carregou", ()=> {
-            
-            Cotacao.COTACAO_DOLAR().then(cotacao => {
-                this.cotacao_dolar = cotacao;
-                this.noRaiz.querySelector("#valor_cotacao_dolar").textContent = this.cotacao_dolar;
-            });
-        
-            
+                       
             const modal_termo_de_uso = this.noRaiz.querySelector("termo-de-uso");
 
             modal_termo_de_uso.addEventListener("carregou", ()=>{
                 modal_termo_de_uso.exibir();
             });
 
-            modal_termo_de_uso.addEventListener("fechou", ()=>{    
-                
-                const modal_remessa_conforme = this.noRaiz.querySelector("remessa-conforme");
-                
-                modal_remessa_conforme.exibir();
+            modal_termo_de_uso.addEventListener("fechou", ()=>{                
+                this.noRaiz.querySelector("remessa-conforme").exibir();
+            });
 
-                modal_remessa_conforme.addEventListener("fechou", ()=>{
-
-                    this.remessa_conforme = modal_remessa_conforme.remessa_conforme;
-                    this.adicionar_comportamento();
-                });
-            });            
+            this.adicionar_comportamento();
         });
     }    
 
-
-    set remessa_conforme (valor){
-        this._remessa_conforme = valor;
-        this.querySelector("#remessa_conforme").checked = this._remessa_conforme;
-        this.atualizar_comportamento_dados_remessa();
-    }
-
-    get remessa_conforme(){
-        return this._remessa_conforme;
-    }
-
-
     adicionar_comportamento() {
         
-        let checkbox_remessa_conforme = this.querySelector("#remessa_conforme");
-
-        checkbox_remessa_conforme.addEventListener("click", ()=>{
-
-            this.remessa_conforme = checkbox_remessa_conforme.checked;
-        });
-
 
         this.atualizar_comportamento_dados_remessa();
+
 
                 
         let btn_adicionar = this.noRaiz.querySelector("#adicionar_remessa");
 
         btn_adicionar.addEventListener("click", (evento) => {
-
             evento.preventDefault(); // Impede o comportamento padrão do link
-            
+            console.log("Clicou em adicionar no mobile");
             this.adicionar_remessa();
         });                    
     }
@@ -119,27 +90,6 @@ export class ListaRemessas extends ComponenteBase {
     }
 
 
-    adicionar_comportamento_remessa(remessa, elemento_unico){
-        
-        remessa.elemento_unico = elemento_unico;
-        
-        remessa.remessa_conforme = this.remessa_conforme;
-
-        remessa.cotacao_dolar = this.cotacao_dolar;
-
-        //Primeiro remove para evitar ter vários listeners
-        remessa.removeEventListener("atualizou_valores", this.atualizou_valores.bind(this));
-        //Depois adiciona um listener para quando um valor é atualizado
-        remessa.addEventListener("atualizou_valores", this.atualizou_valores.bind(this));  
-        
-        //Primeiro remove para evitar ter vários listeners
-        remessa.removeEventListener("remover", this.remover_remessa.bind(this));        
-        //Depois adiciona um listener para quando um item indica que deve ser removido
-        remessa.addEventListener("remover", this.remover_remessa.bind(this));
-    }
-
-
-
     atualizou_valores(evento){
 
         let dados_remessas_i = this.noRaiz.querySelectorAll("br-remessa");
@@ -152,8 +102,21 @@ export class ListaRemessas extends ComponenteBase {
         });
 
         this.dispatchEvent(new CustomEvent("atualizou_total"));
-    }    
+    }
 
+    adicionar_comportamento_remessa(remessa, elemento_unico){
+        
+        remessa.elemento_unico = elemento_unico;
+
+        remessa.removeEventListener("atualizou_valores", this.atualizou_valores.bind(this));
+
+        remessa.addEventListener("atualizou_valores", this.atualizou_valores.bind(this));  
+        
+        remessa.removeEventListener("remover", this.remover_remessa.bind(this));
+
+         //Adicionar comportamento de remoção
+        remessa.addEventListener("remover", this.remover_remessa.bind(this));
+    }
 
 
     remover_remessa(evento) {
