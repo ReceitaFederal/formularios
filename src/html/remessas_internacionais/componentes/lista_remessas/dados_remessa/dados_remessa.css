@@ -42,7 +42,15 @@
   align-items: center;
 }
 
-.br-input > .valor-remessa,
+.br-input > .valor-remessa{
+  height: 165px;
+  margin-bottom: 30px;
+  text-align: center;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+}
+
 .br-input > .total-remessa {
   height: 165px;
   margin-bottom: 30px;
@@ -50,6 +58,7 @@
   justify-content: center;
   justify-self: center;
   align-items: center;
+  
 }
 
 
