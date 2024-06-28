@@ -33,6 +33,42 @@ export class DadosRemessa extends ComponenteBase {
     }
 
 
+    tecla_valida(tecla, valor){
+
+        let retorno = false;        
+
+        //Número são teclas válidas
+        if (/[0-9]/.test(tecla)){
+
+            retorno = true;
+
+        //Teclas especiais válidas de edição e navegação
+        }else if (['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight'].includes(tecla)){
+
+            retorno = true;
+
+        //Vírgula é válido apenas em alguma situações
+        }else if (tecla == ','){
+
+            //Se for o único caracter não é válido
+            if (valor.length == 0){
+
+                retorno = false;
+
+            //Se já existir uma vírgula também não é válido
+            }else if (valor.includes(",")){
+
+                retorno = false;                
+            
+            }else{
+
+                retorno = true;
+            }
+        }
+
+        return retorno;
+    }
+
 
     adicionar_comportamento() {        
 
@@ -42,10 +78,13 @@ export class DadosRemessa extends ComponenteBase {
         {            
             // Adiciona um event listener para capturar eventos de teclado
             input_valor.addEventListener('keydown', evento => {
+
                 // Permite apenas números e teclas de controle como Backspace, Delete e setas
-                if (!/[0-9]/.test(evento.key) && !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight'].includes(evento.key)) {
-                    evento.preventDefault(); // Cancela a ação padrão se a tecla não for um número
-                }
+                if (!this.tecla_valida(evento.key, input_valor.value)){
+
+                    // Cancela a ação padrão se a tecla não for um número
+                    evento.preventDefault(); 
+                }                
             });
 
             
@@ -125,10 +164,20 @@ export class DadosRemessa extends ComponenteBase {
         let valor_input = input_valor.value;
 
 
+        //Se termina com vírgula
+        if (valor_input.endsWith(",")){
+
+            //Adiciona um zero apenas para processar corretamente
+            valor_input += "0"; 
+        }
+
+        //Troca a vírgula por ponto para o javascript processar como float
+        valor_input = valor_input.replace(",", ".");
+
         //Se nada foi digitado
         if (valor_input.length == 0){
 
-            this.atualizar_inputs("", "", "", "", "", "", "", "");
+            this.atualizar_inputs("", "", "", "", "", "", "");
             this.valor_total = 0;
             this.dispatchEvent(new CustomEvent("atualizou_valores"));
 
@@ -148,29 +197,15 @@ export class DadosRemessa extends ComponenteBase {
             //Inicializa variáveis
             let aliquota = -1;            
             
-            //Se não for remessa conforme
-            /*
-                A calculadora pergunta à pessoa se ela comprou de site certificado no PRC. Haverá 3 respostas: sim, não ou não sei.
-                se ela optar por não sei, haverá um link para a listagem dos sites certificados
-                a pessoa digitará o VALOR DA COMPRA em REAIS
-
-                no caso da resposta da pergunta 1 ser "não", a calculadora exibirá diretamente os resultados, que serão: 
-                II no valor de 60%, sempre em reais e ICMS no valor de 17% "por dentro" e incidindo também sobre o II calculado .
-                 
-                no caso da resposta da pergunta 2 ser "sim", a calculadora comparará o valor digitado com o equivalente, em reais,
-                 a USD 50. A calculadora deverá calcular esse valor utilizando o dólar do Siscomex do dia anterior. 
-                No caso de o valor calculado ser MAIOR que o equivalente a USD 50, a calculadora exibirá os resultados exatamente 
-                como no item 4, acima. 
-                No caso de o valor calculado ser IGUAL OU MENOR que o equivalente em reais a USD 50, a calculadora exibirá 
-                o II no valor zero (alíquota 0%) e o ICMS no valor de 17% "por dentro" (na prática, o ICMS será de pouco mais de 20%)                 
-            */
+            //Se não for remessa conforme ou o valor em dolar for maior que 50 dólares
             if (!this.remessa_conforme || (valor_em_dolar > 50)){
 
+                //Alíquota de 60%
                 aliquota = 0.6;
-
 
             }else{
                 
+                //Caso contrário alíquota zero
                 aliquota = 0;
             }
        
@@ -189,7 +224,6 @@ export class DadosRemessa extends ComponenteBase {
             const aliquotaPorcentagem = aliquota * 100;
 
             this.atualizar_inputs(
-                valor, 
                 aliquotaPorcentagem.toFixed(0) + '%',
                 `R$ ${ii.toFixed(2)}`,                 
                 `R$ ${soma.toFixed(2)}`, 
@@ -202,9 +236,8 @@ export class DadosRemessa extends ComponenteBase {
 
 
 
-    atualizar_inputs(valor, aliquota, ii, soma, icms, valor_total){
+    atualizar_inputs(aliquota, ii, soma, icms, valor_total){
 
-        this.noRaiz.querySelector("#valor-remessa").value = valor;
         this.noRaiz.querySelector("#aliquota-remessa").value = aliquota;
         this.noRaiz.querySelector("#ii-remessa").value = ii;        
         this.noRaiz.querySelector("#soma-remessa").value = soma;
