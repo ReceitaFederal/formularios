@@ -6,10 +6,10 @@ import { RemessaUtil } from "../../js/remessa_util.js";
 
 
 
-export class DadosEncomendas extends ComponenteBase {
+export class PainelInformacoes extends ComponenteBase {
     
     constructor() {
-        super({templateURL:"./dados_encomendas.html", shadowDOM:false}, import.meta.url);
+        super({templateURL:"./painel_informacoes.html", shadowDOM:false}, import.meta.url);
 
         this.addEventListener("carregou", ()=>{
 
@@ -79,4 +79,4 @@ export class DadosEncomendas extends ComponenteBase {
         }
     }
 }
-customElements.define('dados-encomendas', DadosEncomendas);
+customElements.define('painel-informacoes', PainelInformacoes);

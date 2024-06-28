@@ -1,5 +1,5 @@
 import { ComponenteBase } from "../../../bibliotecas/ultima/componente_base.js";
-import { DadosEncomendas } from "../dados_encomendas/dados_encomendas.js";
+import { PainelInformacoes } from "../painel_informacoes/painel_informacoes.js";
 
 export class Cabecalho extends ComponenteBase{
     
