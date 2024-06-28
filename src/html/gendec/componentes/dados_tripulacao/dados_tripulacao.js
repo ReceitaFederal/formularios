@@ -1,4 +1,4 @@
-import { ComponenteBase } from "../../../bibliotecas/ultima/componente_base.js";
+import { ComponenteBase } from "../../bibliotecas/ultima/componente_base.js";
 
 
 export class Tripulacao extends ComponenteBase {
@@ -23,7 +23,7 @@ export class Tripulacao extends ComponenteBase {
         // Adiciona o link para o arquivo de fonte Rawline
         let linkFonte = document.createElement('link');
         linkFonte.rel = 'stylesheet';
-        linkFonte.href = '../bibliotecas/Fontes - Rawline/Rawline/';
+        linkFonte.href = './bibliotecas/Fontes - Rawline/Rawline/';
         document.head.appendChild(linkFonte);
     }
 

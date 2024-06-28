@@ -1,4 +1,4 @@
-import { ComponenteBase } from "../../../bibliotecas/ultima/componente_base.js";
+import { ComponenteBase } from "../../bibliotecas/ultima/componente_base.js";
 
 export class Cabecalho extends ComponenteBase{
     

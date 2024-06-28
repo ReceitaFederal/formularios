@@ -1,6 +1,6 @@
 
 
-import { ComponenteBase } from "../../../bibliotecas/ultima/componente_base.js";
+import { ComponenteBase } from "../../bibliotecas/ultima/componente_base.js";
 import { Cotacao } from "../../js/cotacao.js";
 import { RemessaUtil } from "../../js/remessa_util.js";
 

@@ -1,6 +1,6 @@
 
 
-import { ComponenteBase } from "../../../../bibliotecas/ultima/componente_base.js";
+import { ComponenteBase } from "../../../bibliotecas/ultima/componente_base.js";
 import { InputAnimado } from "../../input_animado/input_animado.js";
 
 

@@ -23,12 +23,12 @@ Promise.all([promessa_carregou_cabecalho, promessa_carregou_rodape]).then(() => 
 
   let script_core = document.createElement("script");
   script_core.type = "module";
-  script_core.src = "../bibliotecas/govbr-ds/core.js";
+  script_core.src = "./bibliotecas/govbr-ds/core.js";
 
   body.appendChild(script_core);
 
   let script_core_init = document.createElement("script");        
-  script_core_init.src = "../bibliotecas/govbr-ds/core-init.js";
+  script_core_init.src = "./bibliotecas/govbr-ds/core-init.js";
 
   body.appendChild(script_core_init);
 

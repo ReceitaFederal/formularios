@@ -27,7 +27,7 @@ export class Dados_pessoais extends HTMLElement{
 
         let linkFonte = document.createElement('link');
         linkFonte.rel = 'stylesheet'
-        linkFonte.href = '../bibliotecas/Fontes - Rawline/Rawline/';
+        linkFonte.href = './bibliotecas/Fontes - Rawline/Rawline/';
         document.head.appendChild(linkFonte)
     }
 
