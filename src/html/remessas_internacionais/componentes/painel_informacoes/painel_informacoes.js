@@ -55,7 +55,11 @@ export class PainelInformacoes extends ComponenteBase {
             
             // Sempre que uma tecla for pressionada indica atualização da cotação do dolar
             input_valor_cotacao_dolar.addEventListener("input", evento => {
+
                 this.cotacao_dolar = parseFloat(this.noRaiz.querySelector("#valor_cotacao_dolar").value.replace(",","."));
+
+                Cotacao.atualizarCotacao(this.cotacao_dolar);
+                
                 this.dispatchEvent(new CustomEvent("atualizou_cotacao_dolar"));
             });
         }
