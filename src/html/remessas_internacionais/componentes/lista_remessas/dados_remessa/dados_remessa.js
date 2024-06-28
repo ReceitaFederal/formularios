@@ -4,7 +4,6 @@ import { ComponenteBase } from "../../../../bibliotecas/ultima/componente_base.j
 import { InputAnimado } from "../../input_animado/input_animado.js";
 
 
-
 export class DadosRemessa extends ComponenteBase {
     
 

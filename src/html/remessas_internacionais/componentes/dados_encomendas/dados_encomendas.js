@@ -13,6 +13,7 @@ export class DadosEncomendas extends ComponenteBase {
             Cotacao.COTACAO_DOLAR().then(cotacao => {
                 this.cotacao_dolar = cotacao;
                 this.noRaiz.querySelector("#valor_cotacao_dolar").textContent = this.cotacao_dolar;
+                this.dispatchEvent(new CustomEvent("atualizou_cotacao_dolar"));
             });
 
             this.adicionar_comportamento();

@@ -38,6 +38,15 @@ export class ListaRemessas extends ComponenteBase {
         });
     }    
 
+    set cotacao_dolar (valor){
+        this._cotacao_dolar = valor;        
+        this.atualizar_comportamento_dados_remessa();
+    }
+
+    get cotacao_dolar(){
+        return this._cotacao_dolar;
+    }
+
 
     set remessa_conforme (valor){
         this._remessa_conforme = valor;        

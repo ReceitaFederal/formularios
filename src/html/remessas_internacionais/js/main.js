@@ -34,10 +34,19 @@ window.addEventListener("load", () => {
         }        
       });
     
-    
+      
       dados_encomendas.addEventListener("atualizou_remessa_conforme", ()=>{
         lista_remessas.remessa_conforme = dados_encomendas.remessa_conforme;
       });
+
+      //Cotação pode ser atualizada por mudança no input do usuário
+      dados_encomendas.addEventListener("atualizou_cotacao_dolar", ()=>{
+        lista_remessas.cotacao_dolar = dados_encomendas.cotacao_dolar;
+      });
+      //Cotação também pode ser trazida por API e estar disponível desde o começo
+      if (dados_encomendas.cotacao_dolar){
+        lista_remessas.cotacao_dolar = dados_encomendas.cotacao_dolar;
+      }
     });
   });
 });
