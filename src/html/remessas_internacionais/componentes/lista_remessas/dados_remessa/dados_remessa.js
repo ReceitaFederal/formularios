@@ -6,6 +6,7 @@ import { RemessaUtil } from "../../../js/remessa_util.js";
 
 
 
+
 export class DadosRemessa extends ComponenteBase {
     
 
@@ -129,14 +130,7 @@ export class DadosRemessa extends ComponenteBase {
         let input_valor = this.noRaiz.querySelector("#valor-remessa");
 
         let valor_input = input_valor.value;
-
-
-        //Se termina com vírgula
-        if (valor_input.endsWith(",")){
-
-            //Adiciona um zero apenas para processar corretamente
-            valor_input += "0"; 
-        }
+    
 
         //Troca a vírgula por ponto para o javascript processar como float
         valor_input = valor_input.replace(",", ".");

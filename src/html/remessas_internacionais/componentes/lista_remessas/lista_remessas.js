@@ -117,7 +117,7 @@ export class ListaRemessas extends ComponenteBase {
         
         remessa.elemento_unico = elemento_unico;
         
-        remessa.remessa_conforme = this.remessa_conforme;
+        remessa.remessa_conforme = this.remessa_conforme;        
 
         remessa.cotacao_dolar = this.cotacao_dolar;
 

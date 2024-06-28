@@ -26,7 +26,7 @@ window.addEventListener("load", () => {
       lista_remessas.addEventListener("fechou", (evento)=>{
         
         painel_informacoes.remessa_conforme = evento.detail.remessa_conforme;        
-    });
+      });
 
       lista_remessas.addEventListener("atualizou_total", ()=>{        
         if (painel_informacoes){
@@ -40,11 +40,11 @@ window.addEventListener("load", () => {
       });
 
       //Cotação pode ser atualizada por mudança no input do usuário
-      painel_informacoes.addEventListener("atualizou_cotacao_dolar", ()=>{
+      painel_informacoes.addEventListener("atualizou_cotacao_dolar", ()=>{        
         lista_remessas.cotacao_dolar = painel_informacoes.cotacao_dolar;
       });
-      //Cotação também pode ser trazida por API e estar disponível desde o começo
-      if (painel_informacoes.cotacao_dolar){
+      //Cotação também pode ser trazida por API e estar disponível desde o começo      
+      if (painel_informacoes.cotacao_dolar){        
         lista_remessas.cotacao_dolar = painel_informacoes.cotacao_dolar;
       }
     });

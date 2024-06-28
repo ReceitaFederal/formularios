@@ -13,9 +13,9 @@ export class PainelInformacoes extends ComponenteBase {
 
         this.addEventListener("carregou", ()=>{
 
-            Cotacao.COTACAO_DOLAR().then(cotacao => {
+            Cotacao.COTACAO_DOLAR().then(cotacao => {                
                 this.cotacao_dolar = cotacao;
-                this.noRaiz.querySelector("#valor_cotacao_dolar").value = this.cotacao_dolar.toFixed(2).replace(".",",");
+                this.noRaiz.querySelector("#valor_cotacao_dolar").value = this.cotacao_dolar.toFixed(2).replace(".",",");                
                 this.dispatchEvent(new CustomEvent("atualizou_cotacao_dolar"));
             });
 

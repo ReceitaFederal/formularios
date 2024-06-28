@@ -4,11 +4,11 @@ export class RemessaUtil{
 
 
     
-    static tecla_valida(tecla, valor){
+    static tecla_valida(tecla, valor){        
 
         let retorno = false;        
 
-        //Número são teclas válidas
+        //Número são teclas válidas. Verifica usando expressão regular /[0-9]/
         if (/[0-9]/.test(tecla)){
 
             retorno = true;
