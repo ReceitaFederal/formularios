@@ -2,6 +2,8 @@
 
 import { ComponenteBase } from "../../../../bibliotecas/ultima/componente_base.js";
 import { InputAnimado } from "../../input_animado/input_animado.js";
+import { RemessaUtil } from "../../../js/remessa_util.js";
+
 
 
 export class DadosRemessa extends ComponenteBase {
@@ -32,41 +34,7 @@ export class DadosRemessa extends ComponenteBase {
     }
 
 
-    tecla_valida(tecla, valor){
-
-        let retorno = false;        
-
-        //Número são teclas válidas
-        if (/[0-9]/.test(tecla)){
-
-            retorno = true;
-
-        //Teclas especiais válidas de edição e navegação
-        }else if (['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight'].includes(tecla)){
-
-            retorno = true;
-
-        //Vírgula é válido apenas em alguma situações
-        }else if (tecla == ','){
-
-            //Se for o único caracter não é válido
-            if (valor.length == 0){
-
-                retorno = false;
-
-            //Se já existir uma vírgula também não é válido
-            }else if (valor.includes(",")){
-
-                retorno = false;                
-            
-            }else{
-
-                retorno = true;
-            }
-        }
-
-        return retorno;
-    }
+    
 
 
     adicionar_comportamento() {        
@@ -79,7 +47,7 @@ export class DadosRemessa extends ComponenteBase {
             input_valor.addEventListener('keydown', evento => {
 
                 // Permite apenas números e teclas de controle como Backspace, Delete e setas
-                if (!this.tecla_valida(evento.key, input_valor.value)){
+                if (!RemessaUtil.tecla_valida(evento.key, input_valor.value)){
 
                     // Cancela a ação padrão se a tecla não for um número
                     evento.preventDefault(); 

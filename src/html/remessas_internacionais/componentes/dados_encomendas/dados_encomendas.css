@@ -31,3 +31,8 @@
 
 #sum-value {
 }
+
+#valor_cotacao_dolar{
+  width: 60px;
+  text-align: right;
+}
