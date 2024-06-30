@@ -2,7 +2,7 @@
 
 import { ComponenteBase } from "../../bibliotecas/ultima/componente_base.js";
 import { DadosRemessa } from "./dados_remessa/dados_remessa.js";
-import { GovBRUtils } from "../../bibliotecas/GovBRUtils.js";
+import { GovBRUtils } from "../../bibliotecas/govbrutils.js";
 import { TermoDeUso } from "../modal/termo_de_uso/termo_de_uso.js";
 import { RemessaConforme } from "../modal/remessa_conforme/remessa_conforme.js";
 
