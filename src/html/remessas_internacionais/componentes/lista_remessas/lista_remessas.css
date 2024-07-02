@@ -17,7 +17,3 @@
     align-items: center; /* Opcional, para centralizar verticalmente os elementos */
     text-align: right; /* Para garantir que o texto dentro dos elementos também esteja alinhado à direita */
 }
-
-#container_remessa_conforme{
-    margin-right: 20px;
-}

@@ -13,19 +13,26 @@
 .br-checkbox {
   display: flex;
   align-items: center;
+  text-align: center; 
+  justify-content: center;
+  align-items: center;
 }
 
 #container_remessa_conforme label {
-  margin-left: 8px;    
+  align-items: center;
+  text-align: center; 
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1px;  
 }
 
-#container_cotacao_dolar {     
+#atualizar_dolar_label { 
+  margin-bottom: 100px;      
 }
 
 .total-sum {  
   font-weight: bold;
-  text-align: center;  
-  border-top: 1px solid #ddd;
+  text-align: center;
   padding-top: 10px;
 }
 
@@ -35,4 +42,62 @@
 #valor_cotacao_dolar{
   width: 60px;
   text-align: right;
+}
+
+
+/* Tirar daqui para baixo - "Interferência" com o CSS do dados_remessa
+
+.valor-remessa{
+  height: 165px;
+  margin-bottom: 30px;
+  text-align: center;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;   
+}
+
+.campos-calculados [disabled]{
+display: flex;
+}
+
+.row {
+display: flex;
+flex-direction: column;
+}
+.coluna-row {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+gap: 1rem;
+}
+.coluna-input {
+flex: 1 1 45%;
+max-width: 45%;
+}
+
+.br-input label{
+text-align: center;
+justify-content: center;
+justify-self: center;
+align-items: center;
+}
+
+.br-input input{
+text-align: center;
+justify-content: center;
+justify-self: center;
+align-items: center;
+}
+
+
+.br-input input{
+margin-top: 15px;
+}
+
+
+.container-acoes-remessa {
+display: flex;
+justify-content: flex-end;
+margin-top: 30px;
+margin-right: 30px;
 }

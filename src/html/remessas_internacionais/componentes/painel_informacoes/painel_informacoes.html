@@ -1,15 +1,37 @@
 <link rel="stylesheet" href="./painel_informacoes.css">
 
-<div class="card-content">
+<!--<div class="card-content">
     <div id="container_configuracoes" class="flex-container">
-        <div class="br-checkbox" id="container_remessa_conforme">
+        
+        <div id="container_cotacao_dolar">
+            <b class="atualizar_dolar_label">Atualize a cotação do dólar aqui: R$ </b>
+            <input id="valor_cotacao_dolar" placeholder="Reais (R$)" type="text" />
+        </div>
+    </div>
+    <span class="br-divider my-3"></span>
+    <div class="br-checkbox" id="container_remessa_conforme">
+        <input id="remessa_conforme" name="remessa_conforme" type="checkbox" aria-label="Remessa Conforme"/>
+        <label for="remessa_conforme">Remessa Conforme</label>
+    </div>
+    <div id="total-sum" class="total-sum">Total da encomenda com impostos: R$ <span id="sum-value">0.00</span></div>    
+    
+</div>-->
+
+<div class="card-content d-flex">
+    <div id="container_configuracoes" class="flex-container mt-2">
+        <div id="container_cotacao_dolar">
+            <b class="atualizar_dolar_label">Atualize a cotação do <br>dólar aqui: R$ </b>
+            <input id="valor_cotacao_dolar" placeholder="Reais (R$)" type="text" />
+        </div>
+    </div>
+    <span class="br-divider vertical mx-5 mt-0"></span>
+    <div class="row">
+        <div class="br-checkbox mt-2" id="container_remessa_conforme">
             <input id="remessa_conforme" name="remessa_conforme" type="checkbox" aria-label="Remessa Conforme"/>
             <label for="remessa_conforme">Remessa Conforme</label>
         </div>
-        <div id="container_cotacao_dolar">
-            Cotação dólar (R$) <input id="valor_cotacao_dolar" placeholder="Reais (R$)" type="text" />
-        </div>
+        <div id="total-sum" class="total-sum">Total da encomenda com impostos: R$ <span id="sum-value">0.00</span></div>    
+    
     </div>
-    <div id="total-sum" class="total-sum">Total da encomenda com impostos: R$ <span id="sum-value">0.00</span></div>    
     
 </div>
