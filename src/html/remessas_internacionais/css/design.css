@@ -477,6 +477,37 @@ div.tab button.active {
 }
 
 
+/* Estilos gerais */
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 576px) {
+  .header-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .header-logo {
+    display: block;
+    margin-bottom: 10px; /* Espaçamento entre o logo e os demais componentes */
+  }
+
+  .header-sign {
+    display: block;
+    margin-top: 10px; /* Espaçamento entre o logo e a descrição */
+  }
+
+  .logo_cabecalho {
+    max-width: max-content;
+  }
+
+}
+
 
 
 /* Estilo padrão para telas maiores que 576px */

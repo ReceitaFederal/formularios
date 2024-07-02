@@ -6,31 +6,37 @@
     <fieldset>
       <!--<legend>Valor (Legend)</legend>-->
       <div class="row">
-        <div class="br-input col-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="br-input text-center col-6 col-sm-6 col-md-6 col-lg-6">
           <label class="titulo-bloco" for="valor-remessa">Valor da encomenda (R$)</label>
           <input class="valor-remessa" id="valor-remessa" placeholder="Reais (R$)" type="text" />
         </div>
-        <div class="br-input col-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="br-input text-center col-6 col-sm-6 col-md-6 col-lg-6">
           <label for="valor-remessa">Total da encomenda com impostos</label>
           <input class="total-remessa" id="total-remessa" placeholder="Reais (R$)" type="text" disabled/>
         </div>
       </div>
-      <div class="row">
-        <div class="br-input">
+      <div class="row mt-5">
+        <div class="br-input campo-oculto">
           <label for="valor-remessa">Alíquota Imposto de Importação (II) - Federal</label>
           <input class="campos-calculados" id="aliquota-remessa" disabled>
         </div>  
-        <div class="br-input">
-          <label for="ii-remessa">Imposto de Importação (II) - Federal</label>
+        <div class="br-input text-center col-6 col-sm-6 col-md-6 col-lg-6">
+          <label for="ii-remessa">Federal - Imposto de Importação (II)</label>
           <input class="campos-calculados" id="ii-remessa" disabled>
+          <div class="p-3">
+            <a href="#">Entenda esse valor</a>
+          </div>
         </div>                 
-        <div class="br-input">
+        <div class="br-input campo-oculto">
           <label for="soma-remessa">Valor da Encomenda + II</label>
           <input class="campos-calculados" id="soma-remessa" disabled>
         </div>
-        <div class="br-input">
-          <label for="icms-remessa">ICMS - Estadual</label>
+        <div class="br-input text-center col-6 col-sm-6 col-md-6 col-lg-6">
+          <label for="icms-remessa">Estadual - ICMS</label>
           <input class="campos-calculados" id="icms-remessa" disabled>
+          <div class="p-3">
+            <a href="#">Entenda esse valor</a>
+          </div>
         </div>
       </div>
       <div class="container-acoes-remessa">

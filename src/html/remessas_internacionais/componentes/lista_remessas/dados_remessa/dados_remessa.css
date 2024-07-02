@@ -1,3 +1,16 @@
+.row {
+display: flex;
+flex-direction: none;
+}
+
+.campo-oculto{
+  display: none;
+}
+
+.br-input > .campos-calculados{
+  border: none;
+}
+
 .br-input label{
   text-align: center;
   justify-content: center;
@@ -6,6 +19,7 @@
 }
 
 .br-input input{
+  margin-top: 15px;
   text-align: center;
   justify-content: center;
   justify-self: center;
@@ -27,6 +41,62 @@
   
 }
 
-.br-input input{
-  margin-top: 15px;
+.container-acoes-remessa {
+display: flex;
+text-align: end;
+justify-content: flex-end;
+justify-self: flex-end;
+align-items: flex-end;
+margin-top: 30px;
+margin-right: 30px;
+} 
+
+/*
+.valor-remessa{
+  height: 165px;
+  margin-bottom: 30px;
+  text-align: center;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;   
 }
+
+.campos-calculados [disabled]{
+display: flex;
+}
+
+
+.coluna-row {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+gap: 1rem;
+}
+.coluna-input {
+flex: 1 1 45%;
+max-width: 45%;
+}
+
+.br-input label{
+text-align: center;
+justify-content: center;
+justify-self: center;
+align-items: center;
+}
+
+.br-input input{
+text-align: center;
+justify-content: center;
+justify-self: center;
+align-items: center;
+}
+
+
+.br-input input{
+margin-top: 15px;
+}
+
+
+
+
+*/
