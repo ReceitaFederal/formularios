@@ -22,10 +22,6 @@
   margin-bottom: 1px;  
 }
 
-#atualizar_dolar_label { 
-  margin-bottom: 100px;      
-}
-
 .total-sum {  
   font-weight: bold;
   text-align: center;
@@ -40,4 +36,15 @@
 .painel_informacoes > .row{
 display: flex;
 flex-direction: column;
+}
+
+@media (min-width: 398px) {
+
+  .atualizar_dolar_label,
+  #valor_cotacao_dolar,
+  #remessa_conforme,
+  .remessa_conforme_label{
+    font-size: 12px;
+  }
+
 }

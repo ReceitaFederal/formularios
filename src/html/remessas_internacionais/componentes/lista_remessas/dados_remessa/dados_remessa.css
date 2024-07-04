@@ -41,7 +41,7 @@ flex-direction: none;
   
 }
 
-@media (max-width: 650px) {
+@media (min-width: 398px) and (max-width: 650px) {
   .valor-remessa::after {
     content: "";
     display: block;

@@ -265,9 +265,8 @@ div.tab button.active {
 }
 
 
-/* Estilo padrão para telas maiores que 576px */
-#remessas-desktop {
-  display: block;
+.br-message {
+  margin-top: 5px;
 }
 
 /* Estilo para telas com largura máxima de 576px */
