@@ -55,7 +55,7 @@ flex-direction: column;
   .remessa_conforme_label,
   .total-sum,
   #sum-value{
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .total-sum::before {
@@ -75,6 +75,20 @@ flex-direction: column;
 
   .atualizar_dolar_label::after{
     content: "do dólar aqui: R$ ";
+    display: block;
+  }
+
+}
+
+@media (min-width: 398px) {
+
+  .atualizar_dolar_label::before{
+    content: "Atualize a cotação do";
+    display: block;
+  }
+
+  .atualizar_dolar_label::after{
+    content: "dólar aqui: R$ ";
     display: block;
   }
 
