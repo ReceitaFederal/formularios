@@ -27,10 +27,19 @@
   text-align: center;
   padding-top: 10px;
 }
+.atualizar_dolar_label{
+  align-items: center;
+  text-align: center; 
+  justify-content: center;
+  align-items: center;
+}
 
 #valor_cotacao_dolar{
   width: 60px;
-  text-align: right;
+  align-items: center;
+  text-align: center; 
+  justify-content: center;
+  align-items: center;
 }
 
 .painel_informacoes > .row{
@@ -38,12 +47,14 @@ display: flex;
 flex-direction: column;
 }
 
-@media (min-width: 398px) {
+@media (max-width: 397px) {
 
   .atualizar_dolar_label,
   #valor_cotacao_dolar,
   #remessa_conforme,
-  .remessa_conforme_label{
+  .remessa_conforme_label,
+  .total-sum,
+  #sum-value{
     font-size: 12px;
   }
 

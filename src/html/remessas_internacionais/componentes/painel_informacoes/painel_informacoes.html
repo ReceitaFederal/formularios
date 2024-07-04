@@ -20,17 +20,19 @@
 <div class="card-content painel_informacoes d-flex">
     <div id="container_configuracoes" class="flex-container mt-2">
         <div id="container_cotacao_dolar">
-            <b class="atualizar_dolar_label">Atualize a cotação do <br>dólar aqui: R$ </b>
-            <input id="valor_cotacao_dolar" placeholder="Reais (R$)" type="text" />
+            <b class="atualizar_dolar_label text-center">Atualize a cotação <br>do dólar aqui: R$ </b><br>
+            <input class="text-center" id="valor_cotacao_dolar" placeholder="Reais (R$)" type="text" />
         </div>
     </div>
     <span class="br-divider vertical mx-4 mt-0"></span>
     <div class="row">
-        <div class="br-checkbox mt-2" id="container_remessa_conforme">
+        <div class="br-checkbox mt-2 mr-5" id="container_remessa_conforme">
             <input id="remessa_conforme" name="remessa_conforme" type="checkbox" aria-label="Remessa Conforme"/>
-            <label for="remessa_conforme">Remessa Conforme</label>
+            <label class="remessa_conforme_label" for="remessa_conforme">Remessa Conforme</label>
         </div>
-        <div id="total-sum" class="total-sum">Total da encomenda com impostos: R$ <span id="sum-value">0.00</span></div>    
+        <div id="total-sum" class="total-sum">Total da encomenda com impostos: R$ 
+            <span id="sum-value">0.00</span>
+        </div>    
     
     </div>
     
