@@ -59,22 +59,22 @@ flex-direction: column;
   }
 
   .total-sum::before {
-    content: "Total da encomenda";
+    content: "Total da encomenda com";
     display: block;
   }
 
   .total-sum::after {
-    content: "com impostos: R$";
+    content: "impostos: R$";
     display: block;
   }
 
   .atualizar_dolar_label::before{
-    content: "Atualize a cotação do";
+    content: "Atualize a cotação";
     display: block;
   }
 
   .atualizar_dolar_label::after{
-    content: "dólar aqui: R$ ";
+    content: "do dólar aqui: R$ ";
     display: block;
   }
 
