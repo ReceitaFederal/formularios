@@ -58,4 +58,24 @@ flex-direction: column;
     font-size: 12px;
   }
 
+  .total-sum::before {
+    content: "Total da encomenda";
+    display: block;
+  }
+
+  .total-sum::after {
+    content: "com impostos: R$";
+    display: block;
+  }
+
+  .atualizar_dolar_label::before{
+    content: "Atualize a cotação do";
+    display: block;
+  }
+
+  .atualizar_dolar_label::after{
+    content: "dólar aqui: R$ ";
+    display: block;
+  }
+
 }
