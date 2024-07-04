@@ -79,17 +79,3 @@ flex-direction: column;
   }
 
 }
-
-@media (min-width: 398px) {
-
-  .atualizar_dolar_label::before{
-    content: "Atualize a cotação do";
-    display: block;
-  }
-
-  .atualizar_dolar_label::after{
-    content: "dólar aqui: R$ ";
-    display: block;
-  }
-
-}
