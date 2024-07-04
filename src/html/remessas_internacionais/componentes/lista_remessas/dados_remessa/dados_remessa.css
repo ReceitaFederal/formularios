@@ -41,6 +41,22 @@ flex-direction: none;
   
 }
 
+@media (max-width: 650px) {
+  .valor-remessa::after {
+    content: "";
+    display: block;
+    height: 1.5em; /* Altura do espaço do <br> */
+  }
+}
+
+@media (max-width: 655px) {
+  .icms-remessa::after {
+    content: "";
+    display: block;
+    height: 1.5em; /* Altura do espaço do <br> */
+  }
+}
+
 .container-acoes-remessa {
 display: flex;
 text-align: end;

@@ -37,9 +37,6 @@
   text-align: right;
 }
 
-
-/* Tirar daqui para baixo - "Interferência" com o CSS do dados_remessa */
-
 .painel_informacoes > .row{
 display: flex;
 flex-direction: column;
