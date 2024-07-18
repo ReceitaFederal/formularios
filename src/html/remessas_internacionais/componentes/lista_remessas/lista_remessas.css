@@ -1,4 +1,7 @@
 
+#adicionar_remessa{
+    display: none;
+}
 
 #remessas {
     display: block; /* Mostra o mobile */
