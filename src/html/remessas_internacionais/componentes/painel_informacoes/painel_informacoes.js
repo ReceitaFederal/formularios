@@ -11,7 +11,7 @@ export class PainelInformacoes extends ComponenteBase {
     constructor() {
         super({templateURL:"./painel_informacoes.html", shadowDOM:false}, import.meta.url);
 
-        this.addEventListener("carregou", ()=>{
+        this.addEventListener(ComponenteBase.EVENTO_CARREGOU, ()=>{
 
             Cotacao.COTACAO_DOLAR().then(cotacao => {                
                 this.cotacao_dolar = cotacao;

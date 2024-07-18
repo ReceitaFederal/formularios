@@ -5,7 +5,7 @@ export class TermoDeUso extends ComponenteBase {
     constructor() {
         super({templateURL:"./termo_de_uso.html", shadowDOM:false}, import.meta.url);
 
-        this.addEventListener("carregou", ()=>{
+        this.addEventListener(ComponenteBase.EVENTO_CARREGOU, ()=>{
             this.noRaiz.querySelector('#btn_eu_concordo').addEventListener('click', () => {
                 this.ocultar();                
             });

@@ -7,7 +7,7 @@ export class RemessaConforme extends ComponenteBase {
     constructor() {
         super({templateURL:"./remessa_conforme.html", shadowDOM:false}, import.meta.url);
 
-        this.addEventListener("carregou", ()=>{
+        this.addEventListener(ComponenteBase.EVENTO_CARREGOU, ()=>{
 
             this.noRaiz.querySelector('#btn_sim').addEventListener('click', () => {
                 this.remessa_conforme = true;

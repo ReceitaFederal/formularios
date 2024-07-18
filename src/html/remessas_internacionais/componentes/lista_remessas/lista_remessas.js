@@ -15,11 +15,11 @@ export class ListaRemessas extends ComponenteBase {
         this.total = 0;
         
         
-        this.addEventListener("carregou", ()=> {                                
+        this.addEventListener(ComponenteBase.EVENTO_CARREGOU, ()=> {                                
             
             const modal_termo_de_uso = this.noRaiz.querySelector("termo-de-uso");
 
-            modal_termo_de_uso.addEventListener("carregou", ()=>{
+            modal_termo_de_uso.addEventListener(ComponenteBase.EVENTO_CARREGOU, ()=>{
                 modal_termo_de_uso.exibir();
             });
 
@@ -89,7 +89,7 @@ export class ListaRemessas extends ComponenteBase {
 
             }else{
 
-                remessa.addEventListener("carregou", evento => {
+                remessa.addEventListener(ComponenteBase.EVENTO_CARREGOU, evento => {
                     
                     this.adicionar_comportamento_remessa (remessa, elemento_unico);  
                 });

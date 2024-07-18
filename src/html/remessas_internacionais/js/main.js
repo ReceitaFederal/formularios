@@ -1,7 +1,7 @@
 
 
 import { Cabecalho } from "../componentes/cabecalho/cabecalho.js";
-
+import { ComponenteBase } from "../bibliotecas/ultima/componente_base.js";
 
 window.addEventListener("load", () => {
 
@@ -15,13 +15,13 @@ window.addEventListener("load", () => {
   }
 
   Promise.all([
-    esperarEvento(cabecalho, "carregou"),
-    esperarEvento(lista_remessas, "carregou")
+    esperarEvento(cabecalho, ComponenteBase.EVENTO_CARREGOU),
+    esperarEvento(lista_remessas, ComponenteBase.EVENTO_CARREGOU)
   ]).then(() => {
 
     const painel_informacoes = cabecalho.noRaiz.querySelector("painel-informacoes");
 
-    esperarEvento(painel_informacoes, "carregou").then(() => {
+    esperarEvento(painel_informacoes, ComponenteBase.EVENTO_CARREGOU).then(() => {
 
       lista_remessas.addEventListener("fechou", (evento)=>{
         

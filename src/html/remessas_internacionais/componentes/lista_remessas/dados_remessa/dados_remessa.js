@@ -24,7 +24,7 @@ export class DadosRemessa extends ComponenteBase {
         this.valor_total = 0;        
 
 
-        this.addEventListener("carregou", ()=> {
+        this.addEventListener(ComponenteBase.EVENTO_CARREGOU, ()=> {
            
             this.elemento_unico = false;
 

@@ -6,7 +6,7 @@ let rodape = document.querySelector("br-rodape");
 
 function esperarPeloEventoCarregou(elemento){
   return new Promise((resolve, reject) => {
-    elemento.addEventListener("carregou", () => {
+    elemento.addEventListener(ComponenteBase.EVENTO_CARREGOU, () => {
       resolve();
     });    
   });
