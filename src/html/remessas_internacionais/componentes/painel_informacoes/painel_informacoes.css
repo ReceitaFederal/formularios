@@ -49,6 +49,7 @@ flex-direction: column;
 
 @media (max-width: 397px) {
 
+/*
   .atualizar_dolar_label,
   #valor_cotacao_dolar,
   #remessa_conforme,
@@ -77,5 +78,5 @@ flex-direction: column;
     content: "do dólar aqui: R$ ";
     display: block;
   }
-
+*/
 }
