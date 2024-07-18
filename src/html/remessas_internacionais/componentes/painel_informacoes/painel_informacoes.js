@@ -11,18 +11,22 @@ export class PainelInformacoes extends ComponenteBase {
     constructor() {
         super({templateURL:"./painel_informacoes.html", shadowDOM:false}, import.meta.url);
 
-        this.addEventListener(ComponenteBase.EVENTO_CARREGOU, ()=>{
-
-            Cotacao.COTACAO_DOLAR().then(cotacao => {                
-                this.cotacao_dolar = cotacao;
-                this.noRaiz.querySelector("#valor_cotacao_dolar").value = this.cotacao_dolar.toFixed(2).replace(".",",");                
-                this.dispatchEvent(new CustomEvent("atualizou_cotacao_dolar"));
-            });
-
-            this.adicionar_comportamento();
-        });
+        this.addEventListener(ComponenteBase.EVENTO_CARREGOU, this.processarCarregamento);
     }
 
+    processarCarregamento(evento){
+        evento.preventDefault();
+        this.removeEventListener(ComponenteBase.EVENTO_CARREGOU, this.processarCarregamento);
+
+        Cotacao.COTACAO_DOLAR().then(cotacao => {                
+            this.cotacao_dolar = cotacao;
+            this.noRaiz.querySelector("#valor_cotacao_dolar").value = this.cotacao_dolar.toFixed(2).replace(".",",");                            
+            this.dispatchEvent(new CustomEvent("atualizou_cotacao_dolar"));
+            this.dispatchEvent(new CustomEvent(ComponenteBase.EVENTO_CARREGOU));
+        });
+
+        this.adicionar_comportamento();
+    }
 
 
     adicionar_comportamento() {

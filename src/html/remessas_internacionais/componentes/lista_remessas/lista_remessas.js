@@ -15,28 +15,37 @@ export class ListaRemessas extends ComponenteBase {
         this.total = 0;
         
         
-        this.addEventListener(ComponenteBase.EVENTO_CARREGOU, ()=> {                                
-            
-            const modal_termo_de_uso = this.noRaiz.querySelector("termo-de-uso");
-
-            modal_termo_de_uso.addEventListener(ComponenteBase.EVENTO_CARREGOU, ()=>{
-                modal_termo_de_uso.exibir();
-            });
-
-            modal_termo_de_uso.addEventListener("fechou", ()=>{    
-                
-                const modal_remessa_conforme = this.noRaiz.querySelector("remessa-conforme");
-                
-                modal_remessa_conforme.exibir();
-             
-                modal_remessa_conforme.addEventListener("fechou", ()=>{
-
-                    this.remessa_conforme = modal_remessa_conforme.remessa_conforme;
-                    this.adicionar_comportamento();
-                });                
-            });            
-        });
+        this.addEventListener(ComponenteBase.EVENTO_CARREGOU, this.processarCarregamento);
     }    
+
+
+
+    processarCarregamento(evento){
+
+        evento.preventDefault();
+
+        this.removeEventListener(ComponenteBase.EVENTO_CARREGOU, this.processarCarregamento);
+
+        const modal_termo_de_uso = this.noRaiz.querySelector("termo-de-uso");
+
+        modal_termo_de_uso.addEventListener(ComponenteBase.EVENTO_CARREGOU, ()=>{
+            modal_termo_de_uso.exibir();
+            this.dispatchEvent(new CustomEvent(ComponenteBase.EVENTO_CARREGOU));
+        });
+
+        modal_termo_de_uso.addEventListener("fechou", ()=>{    
+            
+            const modal_remessa_conforme = this.noRaiz.querySelector("remessa-conforme");
+            
+            modal_remessa_conforme.exibir();
+            
+            modal_remessa_conforme.addEventListener("fechou", ()=>{
+
+                this.remessa_conforme = modal_remessa_conforme.remessa_conforme;
+                this.adicionar_comportamento();
+            });                
+        }); 
+    }
 
     set cotacao_dolar (valor){
         this._cotacao_dolar = valor;        
