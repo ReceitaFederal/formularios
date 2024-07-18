@@ -19,6 +19,13 @@ window.addEventListener("load", () => {
     esperarEvento(lista_remessas, ComponenteBase.EVENTO_CARREGOU)
   ]).then(() => {
 
+    // Para funcionar o botão fechar do br-message
+    const alertList = []
+    for (const brAlert of window.document.querySelectorAll('.br-message')) {
+      alertList.push(new core.BRAlert('br-message', brAlert))
+    }
+
+    
     const painel_informacoes = cabecalho.noRaiz.querySelector("painel-informacoes");
 
     esperarEvento(painel_informacoes, ComponenteBase.EVENTO_CARREGOU).then(() => {
