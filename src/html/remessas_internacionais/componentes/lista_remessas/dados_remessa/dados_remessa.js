@@ -151,49 +151,75 @@ export class DadosRemessa extends ComponenteBase {
 
         }else{
             
-            let valor = parseFloat(valor_input);
-
-            let valor_em_dolar = valor / this.cotacao_dolar;
-
-            //Inicializa variáveis
-            let aliquota = -1;            
-            
-            //Se não for remessa conforme ou o valor em dolar for maior que 50 dólares
-            if (!this.remessa_conforme || (valor_em_dolar > 50)){
-
-                //Alíquota de 60%
-                aliquota = 0.6;
-
-            }else{
-                
-                //Caso contrário alíquota zero
-                aliquota = 0;
-            }
-       
-
-            let ii = valor * aliquota;            
-            
-
-            let soma = valor + ii;
-
-            let icms = (soma/(1-DadosRemessa.ALIQUOTA_ICMS))*DadosRemessa.ALIQUOTA_ICMS;
-            this.valor_total = soma + icms;
-            
-
-
-            // Convertendo input para porcentagem
-            const aliquotaPorcentagem = aliquota * 100;
-
-            this.atualizar_inputs(
-                aliquotaPorcentagem.toFixed(0) + '%',
-                `R$ ${ii.toFixed(2)}`,                 
-                `R$ ${soma.toFixed(2)}`, 
-                `R$ ${icms.toFixed(2)}`, 
-                `R$ ${this.valor_total.toFixed(2)}`);            
+            this.processar_calculo(valor_input);
         }
 
         this.dispatchEvent(new CustomEvent("atualizou_valores"));
     }
+
+
+
+    processar_calculo (valor_input){
+
+        let valor = parseFloat(valor_input);
+
+        let valor_em_dolar = valor / this.cotacao_dolar;
+
+        //Inicializa variáveis
+        let aliquota = -1;
+        let desconto = -1;
+        
+
+        if (!this.remessa_conforme){
+
+            aliquota = 0.60; //60% de II
+            desconto = 0; //Não tem desconto
+
+        }else{
+            if (valor_em_dolar <= DadosRemessa.VALOR_BASE){
+
+                aliquota = 0.20; //20% de II
+                desconto = 0; //Não tem desconto
+
+            }else{
+                aliquota = 0.60; //60% de II
+                desconto = 20 * this.cotacao_dolar; //$20 de desconto            
+            }
+        }
+
+        let ii_inicial = valor * aliquota;
+        let ii_final = ii_inicial - desconto;
+        
+
+        let soma = valor + ii_final;
+
+        let icms = (soma/(1-DadosRemessa.ALIQUOTA_ICMS))*DadosRemessa.ALIQUOTA_ICMS;
+
+        this.valor_total = soma + icms;
+
+
+        // Convertendo input para porcentagem
+        const aliquotaPorcentagem = aliquota * 100;
+        
+        /*
+        console.log(`em dolar: $ ${valor_em_dolar.toFixed(2)}`);
+        console.log(`aliquota: ${aliquotaPorcentagem.toFixed(0)}%`);
+        console.log(`ii inicial: R$ ${ii_inicial.toFixed(2)}`);
+        console.log(`desconto: R$ ${desconto}`);        
+        console.log(`ii_final: R$ ${ii_final.toFixed(2)}`);                 
+        console.log(`soma: R$ ${soma.toFixed(2)}`); 
+        console.log(`icms: R$ ${icms.toFixed(2)}`); 
+        console.log(`total: R$ ${this.valor_total.toFixed(2)}`);  
+        console.log ("----------------");
+        */
+       
+        this.atualizar_inputs(
+            aliquotaPorcentagem.toFixed(0) + '%',
+            `R$ ${ii_final.toFixed(2)}`,                 
+            `R$ ${soma.toFixed(2)}`, 
+            `R$ ${icms.toFixed(2)}`, 
+            `R$ ${this.valor_total.toFixed(2)}`);                    
+    }    
 
 
 
