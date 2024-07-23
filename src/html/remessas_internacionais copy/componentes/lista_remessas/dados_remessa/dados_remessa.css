@@ -1,0 +1,126 @@
+.row {
+display: flex;
+flex-direction: none;
+}
+
+.campo-oculto{
+  display: none;
+}
+
+.br-input > .campos-calculados{
+  border: none;
+}
+
+.input-content > .campos-calculados{
+  border: none;
+  text-align: right;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+}
+
+.br-input label{
+  text-align: center;
+  justify-content: center;
+  justify-self: right;
+  align-items: center;
+}
+
+.br-input input{
+  margin-top: 15px;
+  text-align: center;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+}
+
+.br-input > .valor-remessa{
+  text-align: left;
+  justify-content: left;
+  justify-self: left;
+  align-items: left;
+}
+
+.br-input > .total-remessa {
+  text-align: center;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+  
+}
+
+@media (min-width: 398px) and (max-width: 650px) {
+  .valor-remessa::after {
+    content: "";
+    display: block;
+    height: 1.5em; /* Altura do espaço do <br> */
+  }
+}
+
+@media (max-width: 655px) {
+  .icms-remessa::after {
+    content: "";
+    display: block;
+    height: 1.5em; /* Altura do espaço do <br> */
+  }
+}
+
+.container-acoes-remessa {
+display: flex;
+text-align: end;
+justify-content: flex-end;
+justify-self: flex-end;
+align-items: flex-end;
+margin-top: 30px;
+margin-right: 30px;
+} 
+
+/*
+.valor-remessa{
+  height: 165px;
+  margin-bottom: 30px;
+  text-align: center;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;   
+}
+
+.campos-calculados [disabled]{
+display: flex;
+}
+
+
+.coluna-row {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+gap: 1rem;
+}
+.coluna-input {
+flex: 1 1 45%;
+max-width: 45%;
+}
+
+.br-input label{
+text-align: center;
+justify-content: center;
+justify-self: center;
+align-items: center;
+}
+
+.br-input input{
+text-align: center;
+justify-content: center;
+justify-self: center;
+align-items: center;
+}
+
+
+.br-input input{
+margin-top: 15px;
+}
+
+
+
+
+*/

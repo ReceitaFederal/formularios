@@ -1,0 +1,338 @@
+@font-face {
+  font-family: 'Rawline Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Regular'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-400') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Italic'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-400i') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Thin'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-100') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Thin Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Thin Italic'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-100i') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline ExtraLight';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline ExtraLight'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-200') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline ExtraLight Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline ExtraLight Italic'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-200i') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Light'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-300') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Light Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Light Italic'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-300i') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Medium'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-500') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Medium Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Medium Italic'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-500i') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline SemiBold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline SemiBold'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-600') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline SemiBold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline SemiBold Italic'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-600i') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Bold'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-700') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Bold Italic'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-700i') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline ExtraBold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline ExtraBold'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-800') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline ExtraBold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline ExtraBold Italic'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-800i') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Black'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-900') format('ttf');
+  }
+  
+
+  @font-face {
+  font-family: 'Rawline Black Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Rawline Black Italic'), url('../bibliotecas/Fontes\ -\ Rawline/rawline-900i') format('ttf');
+  }
+
+/* CABEÇALHO */
+
+
+/* Style the tab */
+div.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+div.tabcontent.active {
+display:block;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+  background-color: #071D41;
+  color: white;
+}
+
+/* Style the tab content */
+.tabcontent {
+  /* display: none; */
+  padding: 15px;
+  border: 1px solid #ccc;
+  margin-bottom: 25px;
+}
+
+.fieldset-border {
+  border: 1px groove #ddd !important;
+  padding: 0 1.4em 1.4em 1.4em !important;
+  margin: 0 0 1.5em 0 !important;
+  -webkit-box-shadow: 0px 0px 0px 0px #000;
+  box-shadow: 0px 0px 0px 0px #000;
+}
+
+.fieldset-border .legend-border {
+  font-size: 1.4em !important;
+  text-align: left !important;
+  width: auto;
+  padding: 0 10px;
+  border-bottom: none;
+}
+
+.form-group {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* CSS para separar DIV em 2 colunas */
+
+.two-columns {
+  display: flex;
+}
+
+.column {
+  flex: 1;
+  padding: 0 15px; /* Adicione espaço entre as colunas, se necessário */
+}
+
+
+.secao {
+  border: 0.5px solid rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  width: 1145px;
+  margin: auto; /* Define as margens como automáticas */
+}
+
+.label {
+  font-family: 'Rawline Regular', sans-serif;
+  font-size: 15px !important;
+  font-weight: 550;
+  text-align: left !important;
+  width: auto;
+  margin-bottom: 0px;
+  border-bottom: none;
+  color: #333333;
+  
+}
+
+.form-control {
+  width: 240px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 7px;
+  display:block;
+  clear:left;
+}
+
+/* CSS para posicionar os botões */
+
+.container-botoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Alinha os itens verticalmente no centro */
+  width: 100%;
+  padding: 10px;
+}
+
+.botao-esquerda {
+  text-align: left;
+  justify-items: left;
+  align-items: left;
+  }
+
+.botao-direita {
+  text-align: right;
+  justify-items: right;
+  align-items: right;
+  margin-bottom: 0;
+}
+
+
+.br-message {
+  margin-top: 5px;
+}
+
+/* Estilo para telas com largura máxima de 576px */
+/*@media (max-width: 576px) {
+  .linha {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .coluna-linha {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .coluna-input {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+
+  #remessas-desktop {
+    display: none;
+  }
+
+  .br-input label{
+    text-align: center;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+  }
+
+} */
+
+ /* Estilos para o botão flutuante */
+ .floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #155BCB;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* br-cabecalho {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;    
+  text-align: center;  
+  z-index: 1000;
+}
+
+main {
+  margin-top: 120px;
+  padding: 20px;
+}
+*/

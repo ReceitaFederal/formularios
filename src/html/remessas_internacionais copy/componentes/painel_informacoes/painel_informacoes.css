@@ -1,0 +1,82 @@
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.br-checkbox {
+  display: flex;
+  align-items: center;
+  text-align: center; 
+  justify-content: center;
+  align-items: center;
+}
+
+#container_remessa_conforme label {
+  align-items: center;
+  text-align: center; 
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1px;  
+}
+
+.total-sum {  
+  font-weight: bold;
+  text-align: center;
+  padding-top: 10px;
+}
+.atualizar_dolar_label{
+  align-items: center;
+  text-align: center; 
+  justify-content: center;
+  align-items: center;
+}
+
+#valor_cotacao_dolar{
+  width: 60px;
+  align-items: center;
+  text-align: center; 
+  justify-content: center;
+  align-items: center;
+}
+
+.painel_informacoes > .row{
+display: flex;
+flex-direction: column;
+}
+
+@media (max-width: 397px) {
+
+/*
+  .atualizar_dolar_label,
+  #valor_cotacao_dolar,
+  #remessa_conforme,
+  .remessa_conforme_label,
+  .total-sum,
+  #sum-value{
+    font-size: 11px;
+  }
+
+  .total-sum::before {
+    content: "Total da encomenda com";
+    display: block;
+  }
+
+  .total-sum::after {
+    content: "impostos: R$";
+    display: block;
+  }
+
+  .atualizar_dolar_label::before{
+    content: "Atualize a cotação";
+    display: block;
+  }
+
+  .atualizar_dolar_label::after{
+    content: "do dólar aqui: R$ ";
+    display: block;
+  }
+*/
+}

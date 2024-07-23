@@ -1,0 +1,57 @@
+
+<link rel="stylesheet" href="./dados_remessa.css" />
+
+<div class="row mt-5">
+  <div class="col-sm">
+    <fieldset>
+      <!--<legend>Valor (Legend)</legend>-->
+      <div class="row">
+        <div class="br-input text-left col-12">
+          <label class="valor-remessa" for="valor-remessa">Valor da encomenda (R$)</label>
+          <input class="valor-remessa" id="valor-remessa" placeholder="Reais (R$)" type="text" />
+        </div>
+        <div class="col-md mt-5">
+          <div class="br-switch right mr-5" role="presentation" id="container_remessa_conforme">
+            <input id="switch-right" type="checkbox" name="switch-right" checked="checked" role="switch" aria-label="Remessa Conforme"/>
+            <label class="remessa_conforme_label" for="switch-right">Remessa Conforme</label>
+          </div>
+        </div>
+      </div>
+      <span class="br-divider my-3"></span>
+      <div class="row mt-5">
+        <div class="br-input campo-oculto">
+          <label for="valor-remessa">Alíquota Imposto de Importação (II) - Federal</label>
+          <input class="campos-calculados" id="aliquota-remessa" disabled>
+        </div>  
+        <div class="col-12 mb-3">
+          <div class="br-input input-inline">
+            <div class="input-label">
+              <label class="text-nowrap" for="ii-remessa">Federal - Imposto de Importação (II)</label>
+            </div>
+            <div class="input-content text-right">
+              <input id="ii-remessa" class="campos-calculados" type="text" placeholder="Placeholder"/>
+            </div>
+          </div>
+        </div>                 
+        <div class="br-input campo-oculto">
+          <label for="soma-remessa">Valor da Encomenda + II</label>
+          <input class="campos-calculados" id="soma-remessa" disabled>
+        </div>
+        <div class="br-input text-left col-12">
+          <label class="icms-remessa" for="icms-remessa">Estadual - ICMS</label>
+          <input class="campos-calculados" id="icms-remessa" disabled>
+        </div>
+      </div>
+      <div class="container-acoes-remessa">
+        <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
+          <div class="menu-item divider" href="#" id="btn_remover" role="treeitem">
+            <span class="icon" style="justify-content: right;">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </span>          
+          </div>
+        </button> 
+      </div>      
+    </fieldset>
+  </div>
+</div>
+

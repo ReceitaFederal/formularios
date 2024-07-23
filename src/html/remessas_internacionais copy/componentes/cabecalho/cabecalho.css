@@ -1,0 +1,59 @@
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 1050px) {
+    .header-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .header-logo {
+      display: block;
+      margin-bottom: 10px; /* Espaçamento entre o logo e os demais componentes */
+    }
+
+   .br-header > .br-divider{
+        display: none;
+    }
+  
+    .header-logo > .header-sign {
+      display: none;
+    }
+  
+    .img-logo{
+      max-width: max-content;
+    }
+  
+    .br-message {
+      margin-top: 5px;
+    }
+      
+  }
+
+  /* Estilos para dispositivos móveis */
+  @media (min-width: 1051px) {
+  
+    .img-logo {
+      max-width: max-content;
+    }
+  
+    .br-message {
+      margin-top: 5px;
+    }
+  
+    .header-logo > .br-divider{
+        display: block;
+    }
+  
+    .header-logo > .header-sign {
+      display: block;
+    }
+
+    #valor_cotacao_dolar{
+      align-items: center;
+      text-align: center; 
+      justify-content: center;
+      align-items: center;
+    }
+  }
