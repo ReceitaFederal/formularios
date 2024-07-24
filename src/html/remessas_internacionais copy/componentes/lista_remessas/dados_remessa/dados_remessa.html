@@ -24,7 +24,7 @@
           <input class="campos-calculados" id="aliquota-remessa" disabled>
         </div>  
         <div class="col-12 mb-3">
-          <div class="br-input input-inline">
+          <div class="br-input small input-inline">
             <div class="input-label">
               <label class="text-nowrap" for="ii-remessa">Federal - Imposto de Importação (II)</label>
             </div>
@@ -37,11 +37,44 @@
           <label for="soma-remessa">Valor da Encomenda + II</label>
           <input class="campos-calculados" id="soma-remessa" disabled>
         </div>
-        <div class="br-input text-left col-12">
-          <label class="icms-remessa" for="icms-remessa">Estadual - ICMS</label>
-          <input class="campos-calculados" id="icms-remessa" disabled>
+        <div class="col-12 mb-3">
+          <span class="br-divider dashed my-3"></span>
+          <div class="br-input small input-inline">
+            <div class="input-label">
+              <label class="text-nowrap" for="icms-remessa">Estadual - ICMS</label>
+            </div>
+            <div class="input-content text-right">
+              <input id="icms-remessa" class="campos-calculados" type="text" placeholder="Placeholder"/>
+            </div>
+          </div>
+        </div>   
+      </div>
+
+      <div class="row">
+        <div class="col-md">
+          <div class="br-card">
+            <div class="card-content">
+              <div class="br-input text-left col-6 col-sm-6 col-md-6 col-lg-6">
+                <label class="text-left" for="valor-remessa">Total da encomenda com impostos</label>
+                <input class="campos-calculados total-remessa" id="total-remessa" placeholder="Reais (R$)" type="text" disabled/>
+              </div>
+              <div class="col-12 mb-3" style="justify-content: center; justify-self: center; align-items: center; text-align: center;">
+                <div class="br-input small input-inline"style="justify-content: center; justify-self: center; align-items: center; text-align: center;">
+                  <div class="input-label"style="justify-content: center; justify-self: center; align-items: center; text-align: center;">
+                    <label class="text-nowrap" for="lateral">Seria</label>
+                  </div>
+                  <div class="input-content"style="justify-content: center; justify-self: center; align-items: center; text-align: center;">
+                    <input id="lateral" type="text" placeholder="Placeholder"/>
+                  </div>
+                  <label class="text-nowrap" for="lateral">sem a Remessa Conforme</label>
+                </div>
+              </div>
+              <a>Entenda esses valores</a>
+            </div>
+          </div>
         </div>
       </div>
+
       <div class="container-acoes-remessa">
         <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
           <div class="menu-item divider" href="#" id="btn_remover" role="treeitem">
