@@ -23,8 +23,8 @@
 
 #valor_cotacao_dolar{
     width: 60px;
-    align-items: center;
-    text-align: center; 
+    text-align: center;
     justify-content: center;
+    justify-self: center;
     align-items: center;
   }

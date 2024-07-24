@@ -5,10 +5,10 @@
 
   <div class="row">
 
-    <div class="row col-6 col-sm-6 col-md-6 col-lg-6">
+    <div class="row col-6 col-sm-12 col-md-6 col-lg-6">
       <div class="main-content pl-sm-3 mt-4" id="main-content">
-        <h1>Calculadora</h1>
-        <h2>Remessa Conforme</h2>
+        <h1 class="titulo mb-2">Calculadora</h1>
+        <h2 class="mt-1">Compras Internacionais</h2>
         <p>Se você está comprando em um site internacional certificado pelo Programa Remessa Conforme, como AliExpress, 
           Shein,  Shopee, entre outros (veja a lista), o Imposto de Importação será reduzido a zero para compras de até 
           $50,00 (cinquenta dólares).
@@ -20,31 +20,25 @@
           especiais, como isenções para medicamentos. 
         </p>
       
-        <p>
-          <b>Atualize a Cotação do Dólar: R$</b>
-          <input class="text-center" id="valor_cotacao_dolar" placeholder="Reais (R$)" type="text" />
-        </p>
+        <div class="br-input input-inline">
+          <div class="input-label">
+            <p><b>Atualize a Cotação do Dólar: </b></p>
+          </div>
+          <div class="input-content">
+            <input class="text-center" id="valor_cotacao_dolar" style="width: 30%" placeholder="R$ 0,00" type="text" />
+          </div>
+        </div>
       </div>
+
     </div>
 
-    <fieldset id="listaRemessas" class="fieldset-border col-6 col-sm-6 col-md-6 col-lg-6">
-      <legend class="legend-border" style="color: #155BCB; justify-content: right;">
-        <span class="icon" style="color: #155BCB; justify-content: right;">
-          <i class="fa fa-filter-circle-dollar" aria-hidden="true"></i>
-        </span>Suas compras
-      </legend>
-      <div id="lista_remessas">
-        <br-remessa></br-remessa>              
-      </div>
-      <button id="adicionar_remessa" class="br-button primary mr-3" type="button" aria-label="Ícone ilustrativo">
-        <div class="menu-item divider" href="#"  role="treeitem">
-          <span class="icon" style="justify-content: right;">
-            <i class="fa fa-plus" aria-hidden="true"></i>Adicionar
-          </span>
-          <span class="content"></span>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="br-card">
+
+        <div id="lista_remessas">
+          <br-remessa></br-remessa>              
         </div>
-      </button> 
-    </fieldset>
-  </div>   
-</div>
-  
+      </div>
+    </div> 
+  </div>
+</div>  

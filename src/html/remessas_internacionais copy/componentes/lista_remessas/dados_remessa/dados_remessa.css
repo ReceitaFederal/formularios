@@ -7,12 +7,54 @@ flex-direction: none;
   display: none;
 }
 
+.br-input, 
+.input-inline,
+.input-label,
+.text-nowrap,
+.input-content,
+.diferenca-remessa-conforme,
+.text-nowrap {
+  text-align: center;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+}
+
+.segundo-label{
+  margin-top: 11px;
+  margin-left: 10px;
+}
+
+.input-content > .diferenca-remessa-conforme{
+  width: 90px;
+  background-color: #F8F8F8;
+}
+
+.titulo,
+.valor-remessa{
+  color: #0C326F;
+  font-weight: bold;
+}
+
+.br-input > .total-remessa {
+  font-size: 25px;
+}
+
+.card-total,
+.input-highlight input,
+.br-input > .total-remessa{
+  background-color: #F8F8F8;
+}
+
+
 .br-input > .campos-calculados{
   border: none;
+  background-color: none;
 }
 
 .input-content > .campos-calculados{
   border: none;
+  background-color: none;
   text-align: right;
   justify-content: center;
   justify-self: center;

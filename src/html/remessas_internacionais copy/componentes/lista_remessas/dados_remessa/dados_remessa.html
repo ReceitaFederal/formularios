@@ -1,24 +1,31 @@
 
 <link rel="stylesheet" href="./dados_remessa.css" />
 
-<div class="row mt-5">
+<div class="row m-3">
   <div class="col-sm">
     <fieldset>
-      <!--<legend>Valor (Legend)</legend>-->
+      <h3>Suas Compras</h3>
       <div class="row">
-        <div class="br-input text-left col-12">
-          <label class="valor-remessa" for="valor-remessa">Valor da encomenda (R$)</label>
-          <input class="valor-remessa" id="valor-remessa" placeholder="Reais (R$)" type="text" />
-        </div>
-        <div class="col-md mt-5">
-          <div class="br-switch right mr-5" role="presentation" id="container_remessa_conforme">
-            <input id="switch-right" type="checkbox" name="switch-right" checked="checked" role="switch" aria-label="Remessa Conforme"/>
-            <label class="remessa_conforme_label" for="switch-right">Remessa Conforme</label>
-          </div>
+        <div class="br-input input-highlight text-left col-12">
+          <h6 class="valor-remessa" for="valor-remessa">Valor da encomenda</h6>
+          <!--<label class="sr-only valor-remessa" for="valor-remessa">Valor da encomenda (R$)</label>-->
+          <input class="valor-remessa" id="valor-remessa" placeholder="R$ 0,00" type="text" />
         </div>
       </div>
-      <span class="br-divider my-3"></span>
-      <div class="row mt-5">
+      <p class="label my-3">Sua compra é em site Remessa Conforme?</p>
+      <div class="d-inline-block mr-5">
+        <div class="br-radio">
+          <input id="h-radio-1" type="radio" name="h-radio" value="h-radio-1"/>
+          <label for="h-radio-1">Sim</label>
+        </div>
+      </div>
+      <div class="d-inline-block mr-5">
+        <div class="br-radio">
+          <input id="h-radio-2" type="radio" name="h-radio" value="h-radio-2"/>
+          <label for="h-radio-2">Não</label>
+        </div>
+      </div>
+      <div class="row mt-3">
         <div class="br-input campo-oculto">
           <label for="valor-remessa">Alíquota Imposto de Importação (II) - Federal</label>
           <input class="campos-calculados" id="aliquota-remessa" disabled>
@@ -29,7 +36,7 @@
               <label class="text-nowrap" for="ii-remessa">Federal - Imposto de Importação (II)</label>
             </div>
             <div class="input-content text-right">
-              <input id="ii-remessa" class="campos-calculados" type="text" placeholder="Placeholder"/>
+              <input id="ii-remessa" class="campos-calculados" type="text" placeholder="R$ 0,00"/>
             </div>
           </div>
         </div>                 
@@ -38,13 +45,13 @@
           <input class="campos-calculados" id="soma-remessa" disabled>
         </div>
         <div class="col-12 mb-3">
-          <span class="br-divider dashed my-3"></span>
+          <span class="br-divider dashed my-1"></span>
           <div class="br-input small input-inline">
             <div class="input-label">
               <label class="text-nowrap" for="icms-remessa">Estadual - ICMS</label>
             </div>
             <div class="input-content text-right">
-              <input id="icms-remessa" class="campos-calculados" type="text" placeholder="Placeholder"/>
+              <input id="icms-remessa" class="campos-calculados" type="text" placeholder="R$ 0,00"/>
             </div>
           </div>
         </div>   
@@ -52,38 +59,30 @@
 
       <div class="row">
         <div class="col-md">
-          <div class="br-card">
+          <div class="br-card card-total">
             <div class="card-content">
               <div class="br-input text-left col-6 col-sm-6 col-md-6 col-lg-6">
-                <label class="text-left" for="valor-remessa">Total da encomenda com impostos</label>
-                <input class="campos-calculados total-remessa" id="total-remessa" placeholder="Reais (R$)" type="text" disabled/>
+                <label class="text-left" for="valor-remessa">Total com impostos</label>
+                <input class="campos-calculados total-remessa text-left" id="total-remessa" placeholder="R$ 0,00" type="text" disabled/>
               </div>
-              <div class="col-12 mb-3" style="justify-content: center; justify-self: center; align-items: center; text-align: center;">
-                <div class="br-input small input-inline"style="justify-content: center; justify-self: center; align-items: center; text-align: center;">
-                  <div class="input-label"style="justify-content: center; justify-self: center; align-items: center; text-align: center;">
-                    <label class="text-nowrap" for="lateral">Seria</label>
+              <div class="col-12 mb-3">
+                <div class="d-flex align-items-center">
+                  <div class="br-input small input-inline">
+                    <div class="input-label">
+                      <label class="text-nowrap" for="lateral">Seria</label>
+                    </div>
+                    <div class="input-content">
+                      <input class="diferenca-remessa-conforme campos-calculados text-center" id="lateral" type="text" placeholder="R$ 0,00"/>
+                    </div>
+                    <label class="text-nowrap segundo-label" for="lateral">sem a Remessa Conforme</label>
                   </div>
-                  <div class="input-content"style="justify-content: center; justify-self: center; align-items: center; text-align: center;">
-                    <input id="lateral" type="text" placeholder="Placeholder"/>
-                  </div>
-                  <label class="text-nowrap" for="lateral">sem a Remessa Conforme</label>
                 </div>
               </div>
               <a>Entenda esses valores</a>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="container-acoes-remessa">
-        <button class="br-button circle secondary small" type="button" aria-label="Ícone ilustrativo">
-          <div class="menu-item divider" href="#" id="btn_remover" role="treeitem">
-            <span class="icon" style="justify-content: right;">
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            </span>          
-          </div>
-        </button> 
-      </div>      
+      </div>  
     </fieldset>
   </div>
 </div>
