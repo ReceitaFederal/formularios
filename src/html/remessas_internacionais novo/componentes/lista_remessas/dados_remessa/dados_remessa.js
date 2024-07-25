@@ -42,7 +42,7 @@ export class DadosRemessa extends ComponenteBase {
 
         let input_valor = this.noRaiz.querySelector("#valor-remessa");
 
-        //Mudança de valore do produto da remessa
+        //Mudança de valores do produto da remessa
         {            
             // Adiciona um event listener para capturar eventos de teclado
             input_valor.addEventListener('keydown', evento => {
@@ -64,26 +64,6 @@ export class DadosRemessa extends ComponenteBase {
         }
 
 
-        //Remoção ou limpeza do valor
-        {
-            this.noRaiz.querySelector("#btn_remover").addEventListener("click", ()=>{
-
-                //Se ele for um elemento único, o botão chama limpar e apenas zera o valor
-                if (this.elemento_unico){
-
-                    input_valor.value = "";
-                    this.calcular_imposto();
-
-                //Caso esse seja um elemento de uma lista, o botão chama remover e 
-                //dispara um evento para a lista remover este elemento
-                }else{
-
-                    //Dispara o evento "remover"
-                    let instancia_evento_customizado = new CustomEvent("remover");
-                    this.dispatchEvent(instancia_evento_customizado);
-                }
-            });
-        }
     }
 
     
