@@ -10,7 +10,6 @@
   
     .header-logo {
       display: block;
-      margin-bottom: 10px; /* Espaçamento entre o logo e os demais componentes */
     }
 
    .br-header > .br-divider{
@@ -18,7 +17,7 @@
     }
   
     .header-logo > .header-sign {
-      display: none;
+      display: block;
     }
   
     .img-logo{

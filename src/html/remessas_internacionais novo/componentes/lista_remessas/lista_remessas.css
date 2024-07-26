@@ -21,10 +21,20 @@
     text-align: right; /* Para garantir que o texto dentro dos elementos também esteja alinhado à direita */
 }
 
-#valor_cotacao_dolar{
-    width: 60px;
-    text-align: center;
-    justify-content: center;
-    justify-self: center;
-    align-items: center;
+.br-input, 
+.input-inline,
+.input-label,
+.input-content,
+.valor_cotacao_dolar {
+  text-align: center;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+}
+
+  @media (max-width: 575px){
+  .row-texto{
+    margin-left: 15px;
+    margin-right: 15px;
   }
+}

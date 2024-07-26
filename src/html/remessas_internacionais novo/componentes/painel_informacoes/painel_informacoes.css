@@ -46,37 +46,3 @@
 display: flex;
 flex-direction: column;
 }
-
-@media (max-width: 397px) {
-
-/*
-  .atualizar_dolar_label,
-  #valor_cotacao_dolar,
-  #remessa_conforme,
-  .remessa_conforme_label,
-  .total-sum,
-  #sum-value{
-    font-size: 11px;
-  }
-
-  .total-sum::before {
-    content: "Total da encomenda com";
-    display: block;
-  }
-
-  .total-sum::after {
-    content: "impostos: R$";
-    display: block;
-  }
-
-  .atualizar_dolar_label::before{
-    content: "Atualize a cotação";
-    display: block;
-  }
-
-  .atualizar_dolar_label::after{
-    content: "do dólar aqui: R$ ";
-    display: block;
-  }
-*/
-}
