@@ -32,7 +32,7 @@ window.addEventListener("load", () => {
       calculadora_compras.cotacao_dolar = painel_informacoes.cotacao_dolar;
     });
     //Cotação também pode ser trazida por API e estar disponível desde o começo      
-    if (painel_informacoes.cotacao_dolar){              
+    if (painel_informacoes.cotacao_dolar !== undefined) {              
       calculadora_compras.cotacao_dolar = painel_informacoes.cotacao_dolar;
     }    
   });
