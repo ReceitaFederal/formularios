@@ -222,7 +222,7 @@ export class CalculadoraCompras extends ComponenteBase {
 
 
 
-    atualizar_inputs(aliquota, ii, soma, icms, valor_total){
+    atualizar_inputs(aliquota, ii, icms, valor_total){
 
         this.noRaiz.querySelector("#aliquota-remessa").value = aliquota;
         this.noRaiz.querySelector("#ii-remessa").value = ii;                
