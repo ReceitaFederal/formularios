@@ -77,10 +77,29 @@ export class ComponenteBase extends HTMLElement {
         ]).then(resultados => {
             this.noRaiz.appendChild(elemento);
             this.observar();
-            this._carregado = true;
-            this.dispatchEvent(new Event(ComponenteBase.EVENTO_CARREGOU));
+            this._carregado = true;                       
+            
+            this.disparar_evento_carregou ();
         });
     }
+
+    disparar_evento_carregou(){
+        this.dispatchEvent(new CustomEvent(ComponenteBase.EVENTO_CARREGOU, {
+            bubbles: true,
+            composed: true
+        }));
+    }
+
+    async aguardar_carrregamento(){
+        return new Promise((resolve) => {
+            if (this._carregado){
+                resolve();
+            } else {
+                this.addEventListener(ComponenteBase.EVENTO_CARREGOU, resolve, { once: true });
+            }
+        });
+    }
+    
 
     corrigirCaminhosRelativos(elemento) {
         const tagsParaCorrigir = {

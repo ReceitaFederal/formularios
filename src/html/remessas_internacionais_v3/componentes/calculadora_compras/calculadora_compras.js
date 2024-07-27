@@ -18,11 +18,12 @@ export class CalculadoraCompras extends ComponenteBase {
     constructor() {
         super({templateURL:"./calculadora_compras.html", shadowDOM:false}, import.meta.url);
 
-        this.addEventListener(ComponenteBase.EVENTO_CARREGOU, ()=> {
+        this.addEventListener(ComponenteBase.EVENTO_CARREGOU, ()=> {            
+
 
             this.remessa_conforme = undefined;
 
-            this.adicionar_comportamento();            
+            this.adicionar_comportamento();                        
         });
     }
 

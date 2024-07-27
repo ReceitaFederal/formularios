@@ -19,13 +19,15 @@ export class PainelInformacoes extends ComponenteBase {
         this.removeEventListener(ComponenteBase.EVENTO_CARREGOU, this.processarCarregamento);
 
         Cotacao.COTACAO_DOLAR().then(cotacao => {                
-            this.cotacao_dolar = cotacao;
-            this.noRaiz.querySelector("#valor_cotacao_dolar").value = `R$ ${this.cotacao_dolar.toFixed(2).replace(".",",")}`;                            
-            this.dispatchEvent(new CustomEvent("atualizou_cotacao_dolar"));
-            this.dispatchEvent(new CustomEvent(ComponenteBase.EVENTO_CARREGOU));
-        });
 
-        this.adicionar_comportamento();
+            this.adicionar_comportamento();
+
+            this.cotacao_dolar = cotacao;            
+
+            this.noRaiz.querySelector("#valor_cotacao_dolar").value = `R$ ${this.cotacao_dolar.toFixed(2).replace(".",",")}`;                                        
+            this.dispatchEvent(new CustomEvent("atualizou_cotacao_dolar"));            
+            super.disparar_evento_carregou();
+        });        
     }
 
 
