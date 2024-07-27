@@ -109,8 +109,13 @@ export class CalculadoraCompras extends ComponenteBase {
 
         //Se nada foi digitado
         if (valor_input.length == 0){
+            
+            this.noRaiz.querySelector("#card_total").classList.remove('com-remessa-conforme','sem-remessa-conforme');
+            this.noRaiz.querySelector("#card_total").classList.add('remessa-conforme-inativo');
 
-            this.atualizar_inputs("", "", "", "", "", "", "");            
+            this.noRaiz.querySelector("#container_valor_alternativo").style.display = "none";
+
+            this.atualizar_inputs("", "", "", "", "R$ 0,00");            
             this.dispatchEvent(new CustomEvent("atualizou_valores"));
 
         //Se não é um número valido
@@ -122,6 +127,11 @@ export class CalculadoraCompras extends ComponenteBase {
 
         }else{
             
+            this.noRaiz.querySelector("#card_total").classList.remove('com-remessa-conforme','sem-remessa-conforme', 'remessa-conforme-inativo');
+            this.noRaiz.querySelector("#card_total").classList.add((this.remessa_conforme?'com-remessa-conforme':'sem-remessa-conforme'));
+
+            this.noRaiz.querySelector("#container_valor_alternativo").style.display = "block";
+
             this.processar_calculo(valor_input, this.remessa_conforme, true);
             let valor_alternativo = this.processar_calculo(valor_input, !this.remessa_conforme, false);
             this.noRaiz.querySelector("#valor_alternativo").textContent = `Seria ${valor_alternativo} ${!this.remessa_conforme?"com":"sem"} Remessa Conforme.`;
