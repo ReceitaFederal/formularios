@@ -59,7 +59,22 @@ export class CalculadoraCompras extends ComponenteBase {
             // Sempre que uma tecla for pressionada chama o calcula_imposto
             input_valor.addEventListener("input", evento => {
                 
+                const value = input_valor.value.replace(/^R\$\s?/, ''); // Remove prefixo existente
+                input_valor.value = 'R$ ' + value;
+
                 this.calcular_imposto();
+            });
+
+            input_valor.addEventListener('focus', () => {
+                if (input_valor.value === '') {
+                    input_valor.value = 'R$ ';
+                }
+            });
+
+            input_valor.addEventListener('blur', () => {
+                if (input_valor.value === 'R$ ') {
+                    input_valor.value = '';
+                }
             });
         }
 
@@ -97,11 +112,10 @@ export class CalculadoraCompras extends ComponenteBase {
 
 
     calcular_imposto(){
-        
-
+    
         let input_valor = this.noRaiz.querySelector("#valor-remessa");
-
-        let valor_input = input_valor.value;
+        
+        let valor_input = input_valor.value.replace(/^R\$\s?/, '');
     
 
         //Troca a vírgula por ponto para o javascript processar como float

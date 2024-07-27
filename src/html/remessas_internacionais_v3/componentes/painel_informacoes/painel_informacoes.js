@@ -20,7 +20,7 @@ export class PainelInformacoes extends ComponenteBase {
 
         Cotacao.COTACAO_DOLAR().then(cotacao => {                
             this.cotacao_dolar = cotacao;
-            this.noRaiz.querySelector("#valor_cotacao_dolar").value = this.cotacao_dolar.toFixed(2).replace(".",",");                            
+            this.noRaiz.querySelector("#valor_cotacao_dolar").value = `R$ ${this.cotacao_dolar.toFixed(2).replace(".",",")}`;                            
             this.dispatchEvent(new CustomEvent("atualizou_cotacao_dolar"));
             this.dispatchEvent(new CustomEvent(ComponenteBase.EVENTO_CARREGOU));
         });
@@ -50,11 +50,31 @@ export class PainelInformacoes extends ComponenteBase {
             // Sempre que uma tecla for pressionada indica atualização da cotação do dolar
             input_valor_cotacao_dolar.addEventListener("input", evento => {
 
-                this.cotacao_dolar = parseFloat(this.noRaiz.querySelector("#valor_cotacao_dolar").value.replace(",","."));
+                const valor = input_valor_cotacao_dolar.value.replace(/^R\$\s?/, ''); // Remove prefixo existente
+                input_valor_cotacao_dolar.value = 'R$ ' + valor;
+                valor.replace(",",".");
+
+                if (valor === ''){
+                    this.cotacao_dolar = 0;
+                }else{
+                    this.cotacao_dolar = parseFloat(valor);
+                }
 
                 Cotacao.atualizarCotacao(this.cotacao_dolar);
                 
                 this.dispatchEvent(new CustomEvent("atualizou_cotacao_dolar"));
+            });
+
+            input_valor_cotacao_dolar.addEventListener('focus', () => {
+                if (input_valor_cotacao_dolar.value === '') {
+                    input_valor_cotacao_dolar.value = 'R$ ';
+                }
+            });
+
+            input_valor_cotacao_dolar.addEventListener('blur', () => {
+                if (input_valor_cotacao_dolar.value === 'R$ ') {
+                    input_valor_cotacao_dolar.value = '';
+                }
             });
         }
     }
