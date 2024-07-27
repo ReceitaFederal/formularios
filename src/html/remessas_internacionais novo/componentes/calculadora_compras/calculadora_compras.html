@@ -1,30 +1,30 @@
 
-<link rel="stylesheet" href="./dados_remessa.css" />
+<link rel="stylesheet" href="./calculadora_compras.css" />
 
 <div class="row m-3">
   <div class="col-sm">
     <fieldset>
       <h3>Suas Compras</h3>
+      <p class="label my-3">Sua compra é em site Remessa Conforme?</p>
+      <div class="d-inline-block mr-5">
+        <div class="br-radio">
+          <input id="com_remessa_conforme" type="radio" name="remessa_conforme" value="sim"/>
+          <label for="com_remessa_conforme">Sim</label>
+        </div>
+      </div>
+      <div class="d-inline-block mr-5">
+        <div class="br-radio">
+          <input id="sem_remessa_conforme" type="radio" name="remessa_conforme" value="não"/>
+          <label for="sem_remessa_conforme">Não</label>
+        </div>
+      </div>
       <div class="row">
         <div class="br-input input-highlight text-left col-12">
           <h6 class="valor-remessa" for="valor-remessa">Valor da encomenda</h6>
           <!--<label class="sr-only valor-remessa" for="valor-remessa">Valor da encomenda (R$)</label>-->
-          <input class="valor-remessa" id="valor-remessa" placeholder="R$ 0,00" type="text" />
+          <input class="valor-remessa" id="valor-remessa" placeholder="R$ 0,00" type="text" disabled/>
         </div>
-      </div>
-      <p class="label my-3">Sua compra é em site Remessa Conforme?</p>
-      <div class="d-inline-block mr-5">
-        <div class="br-radio">
-          <input id="com_remessa_conforme" type="radio" name="h-radio" value="h-radio-1"/>
-          <label for="h-radio-1">Sim</label>
-        </div>
-      </div>
-      <div class="d-inline-block mr-5">
-        <div class="br-radio">
-          <input id="sem_remessa_conforme" type="radio" name="h-radio" value="h-radio-2"/>
-          <label for="h-radio-2">Não</label>
-        </div>
-      </div>
+      </div>      
       <div class="row mt-3">
         <div class="br-input campo-oculto">
           <label for="valor-remessa">Alíquota Imposto de Importação (II) - Federal</label>
@@ -61,24 +61,16 @@
         <div class="col-md">
           <div class="br-card card-total">
             <div class="card-content">
-              <div class="br-input text-left col-6">
-                <label class="text-left" for="valor-remessa">Total com impostos</label>
-                <input class="campos-calculados total-remessa text-left" id="total-remessa" placeholder="R$ 0,00" type="text" disabled/>
-              </div>
+              <div class="br-input text-left col-6 container-total-remessa">
+                <div>Total com impostos</div>                
+                <div class="campos-calculados total-remessa text-left" id="total-remessa">R$ 45,00</div>
+              </div>              
               <div class="col-12 mb-3">
-                <div class="d-flex align-items-center">
-                  <div class="br-input small input-inline">
-                    <div class="input-label">
-                      <label class="text-nowrap" for="lateral">Seria</label>
-                    </div>
-                    <div class="input-content">
-                      <input class="diferenca-remessa-conforme campos-calculados text-center" id="lateral" type="text" placeholder="R$ 0,00"/>
-                    </div>
-                    <label class="text-nowrap segundo-label" for="lateral">sem a Remessa Conforme</label>
-                  </div>
+                <div class="d-flex align-items-center">                                     
+                  <span class="text-nowrap" id="valor_alternativo">Seria R$ 45,00 sem a Remessa Conforme</span>                  
                 </div>
-              </div>
-              <a>Entenda esses valores</a>
+                <a target="_blank" href="https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/manuais/remessas-postal-e-expressa/programa-remessa-conforme-o-que-e-como-funciona">Entenda esses valores</a>
+              </div>              
             </div>
           </div>
         </div>

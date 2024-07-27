@@ -3,6 +3,10 @@ display: flex;
 flex-direction: none;
 }
 
+.container-total-remessa{
+  margin-bottom: 15px;
+}
+
 .campo-oculto{
   display: none;
 }

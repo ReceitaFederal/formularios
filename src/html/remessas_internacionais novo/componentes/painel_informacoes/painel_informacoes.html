@@ -1,22 +1,20 @@
-<link rel="stylesheet" href="./painel_informacoes.css">
-
-<div class="card-content painel_informacoes d-flex">
-    <div id="container_configuracoes" class="flex-container mt-2">
-        <div id="container_cotacao_dolar">
-            <b class="atualizar_dolar_label text-center">Atualize a cotação <span class="break">do dólar aqui: R$ </span></b>
-            <input class="text-center" id="valor_cotacao_dolar" placeholder="Reais (R$)" type="text" />
-        </div>
+<div class="main-content pl-sm-3 mt-4" id="main-content">
+    <h1 class="titulo mb-2">Calculadora</h1>
+    <h2 class="mt-1">Compras Internacionais</h2>
+    <p>Se você está comprando em um site internacional certificado pelo <a target="_blank" href="https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/manuais/remessas-postal-e-expressa">Programa Remessa Conforme</a> (PRC) - <a target="_blank" href="https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/manuais/remessas-postal-e-expressa/empresas-certificadas-no-programa-remessa-conforme-prc">veja a lista</a> - o imposto é reduzido.
+    </p>
+    <p>
+      <b>Aviso importante:</b>
+      <br>
+      Esta calculadora fornece apenas estimativas para mercadorias comuns, excluindo situações especiais como medicamentos ou isenções. 
+    </p>
+  
+    <div class="br-input small input-inline">
+      <div class="input-label">
+        <p><b>Atualize a Cotação do Dólar: </b></p>
+      </div>
+      <div class="input-content">
+        <input class="text-center" id="valor_cotacao_dolar" style="width: 40%" placeholder="R$ 0,00" type="text" />
+      </div>
     </div>
-    <span class="br-divider vertical mx-4 mt-0"></span>
-    <div class="row">
-        <div class="br-checkbox mt-2 mr-5" id="container_remessa_conforme">
-            <input id="remessa_conforme" name="remessa_conforme" type="checkbox" aria-label="Remessa Conforme"/>
-            <label class="remessa_conforme_label" for="remessa_conforme">Remessa Conforme</label>
-        </div>
-        <div id="total-sum" class="total-sum">Total da encomenda com impostos: R$ 
-            <span id="sum-value">0.00</span>
-        </div>    
-    
-    </div>
-    
 </div>

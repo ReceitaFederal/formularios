@@ -1,13 +1,11 @@
 
 
-import { ComponenteBase } from "../../../bibliotecas/ultima/componente_base.js";
-import { InputAnimado } from "../../input_animado/input_animado.js";
-import { RemessaUtil } from "../../../js/remessa_util.js";
+import { ComponenteBase } from "../../bibliotecas/ultima/componente_base.js";
+import { RemessaUtil } from "../../js/remessa_util.js";
 
 
 
-
-export class DadosRemessa extends ComponenteBase {
+export class CalculadoraCompras extends ComponenteBase {
     
 
 
@@ -18,17 +16,11 @@ export class DadosRemessa extends ComponenteBase {
 
 
     constructor() {
-        super({templateURL:"./dados_remessa.html", shadowDOM:false}, import.meta.url);
-
-
-        this.valor_total = 0;        
-
+        super({templateURL:"./calculadora_compras.html", shadowDOM:false}, import.meta.url);
 
         this.addEventListener(ComponenteBase.EVENTO_CARREGOU, ()=> {
-           
-            this.elemento_unico = false;
 
-            this.remessa_conforme = true;
+            this.remessa_conforme = undefined;
 
             this.adicionar_comportamento();            
         });
@@ -39,6 +31,14 @@ export class DadosRemessa extends ComponenteBase {
 
 
     adicionar_comportamento() {        
+
+        this.noRaiz.querySelector("#com_remessa_conforme").addEventListener("click", ()=>{
+            this.remessa_conforme = true;
+        });
+
+        this.noRaiz.querySelector("#sem_remessa_conforme").addEventListener("click", ()=>{
+            this.remessa_conforme = false;
+        });
 
         let input_valor = this.noRaiz.querySelector("#valor-remessa");
 
@@ -66,18 +66,6 @@ export class DadosRemessa extends ComponenteBase {
 
     }
 
-    
-    
-    set elemento_unico(valor){
-
-        this._elemento_unico = valor;              
-    }
-
-
-    get elemento_unico(){
-        return this._elemento_unico;
-    }
-
 
     set cotacao_dolar(valor){
 
@@ -93,6 +81,10 @@ export class DadosRemessa extends ComponenteBase {
 
 
     set remessa_conforme(valor){
+                
+        //Quando um valor para remessa conforme é definido o valor passa a estar disponível para mudança (enabled)
+        //Caso contrário, se o valor for undefined, então o valor-remessa será desabilitado
+        this.noRaiz.querySelector("#valor-remessa").disabled = (valor === undefined);
 
         this._remessa_conforme = valor;
         this.calcular_imposto();                
@@ -118,12 +110,11 @@ export class DadosRemessa extends ComponenteBase {
         //Se nada foi digitado
         if (valor_input.length == 0){
 
-            this.atualizar_inputs("", "", "", "", "", "", "");
-            this.valor_total = 0;
+            this.atualizar_inputs("", "", "", "", "", "", "");            
             this.dispatchEvent(new CustomEvent("atualizou_valores"));
 
         //Se não é um número valido
-        }else if (!DadosRemessa.isNumeroValido(valor_input)){
+        }else if (!CalculadoraCompras.isNumeroValido(valor_input)){
 
             //Faz alguma coisa
             alert(`${valor_input} não é um número válido!`)
@@ -131,7 +122,9 @@ export class DadosRemessa extends ComponenteBase {
 
         }else{
             
-            this.processar_calculo(valor_input);
+            this.processar_calculo(valor_input, this.remessa_conforme, true);
+            let valor_alternativo = this.processar_calculo(valor_input, !this.remessa_conforme, false);
+            this.noRaiz.querySelector("#valor_alternativo").textContent = `Seria ${valor_alternativo} ${!this.remessa_conforme?"com":"sem"} Remessa Conforme.`;
         }
 
         this.dispatchEvent(new CustomEvent("atualizou_valores"));
@@ -139,7 +132,7 @@ export class DadosRemessa extends ComponenteBase {
 
 
 
-    processar_calculo (valor_input){
+    processar_calculo (valor_input, remessa_conforme, atualizar_campos){
 
         let valor = parseFloat(valor_input);
 
@@ -150,13 +143,13 @@ export class DadosRemessa extends ComponenteBase {
         let desconto = -1;
         
 
-        if (!this.remessa_conforme){
+        if (!remessa_conforme){
 
             aliquota = 0.60; //60% de II
             desconto = 0; //Não tem desconto
 
         }else{
-            if (valor_em_dolar <= DadosRemessa.VALOR_BASE){
+            if (valor_em_dolar <= CalculadoraCompras.VALOR_BASE){
 
                 aliquota = 0.20; //20% de II
                 desconto = 0; //Não tem desconto
@@ -173,9 +166,9 @@ export class DadosRemessa extends ComponenteBase {
 
         let soma = valor + ii_final;
 
-        let icms = (soma/(1-DadosRemessa.ALIQUOTA_ICMS))*DadosRemessa.ALIQUOTA_ICMS;
+        let icms = (soma/(1-CalculadoraCompras.ALIQUOTA_ICMS))*CalculadoraCompras.ALIQUOTA_ICMS;
 
-        this.valor_total = soma + icms;
+        let valor_total = soma + icms;
 
 
         // Convertendo input para porcentagem
@@ -192,13 +185,16 @@ export class DadosRemessa extends ComponenteBase {
         console.log(`total: R$ ${this.valor_total.toFixed(2)}`);  
         console.log ("----------------");
         */
-       
-        this.atualizar_inputs(
-            aliquotaPorcentagem.toFixed(0) + '%',
-            `R$ ${ii_final.toFixed(2)}`,                 
-            `R$ ${soma.toFixed(2)}`, 
-            `R$ ${icms.toFixed(2)}`, 
-            `R$ ${this.valor_total.toFixed(2)}`);                    
+        if (atualizar_campos){
+            this.atualizar_inputs(
+                aliquotaPorcentagem.toFixed(0) + '%',
+                `R$ ${ii_final.toFixed(2)}`,                 
+                `R$ ${soma.toFixed(2)}`, 
+                `R$ ${icms.toFixed(2)}`, 
+                `R$ ${valor_total.toFixed(2)}`);   
+        }
+
+        return `R$ ${valor_total.toFixed(2)}`;
     }    
 
 
@@ -209,7 +205,7 @@ export class DadosRemessa extends ComponenteBase {
         this.noRaiz.querySelector("#ii-remessa").value = ii;        
         this.noRaiz.querySelector("#soma-remessa").value = soma;
         this.noRaiz.querySelector("#icms-remessa").value = icms;
-        this.noRaiz.querySelector("#total-remessa").value = valor_total;
+        this.noRaiz.querySelector("#total-remessa").textContent = valor_total;
     }
 
 
@@ -224,5 +220,5 @@ export class DadosRemessa extends ComponenteBase {
 }
 
 
-customElements.define('br-remessa', DadosRemessa);
+customElements.define('calculadora-compras', CalculadoraCompras);
 

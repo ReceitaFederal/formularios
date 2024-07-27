@@ -10,21 +10,14 @@
     <!-- Scripts de componentes -->
     <script src="./componentes/cabecalho/cabecalho.js" type="module"></script>
     <script src="./componentes/rodape/rodape.js" type="module"></script>
-    <script src="./componentes/lista_remessas/lista_remessas.js" type="module"></script>    
+    <script src="./componentes/painel_informacoes/painel_informacoes.js" type="module"></script>    
+    <script src="./componentes/calculadora_compras/calculadora_compras.js" type="module"></script>    
 
      <!-- Scripts da aplicação principal -->
      <script src="./js/main.js" type="module"></script>
 
      <!-- Scripts do gov.br -->
      <script src="./bibliotecas/govbr-ds/core.js" type="module"></script>
-
-    <!-- Font Rawline-->
-    <!--link
-    rel="stylesheet"
-    href="./bibliotecas/govbr-ds-assets/fonts/rawline/css/rawline.css"/-->
-
-    <!-- TODO: não entendi adicionar um diretório como stylesheet 
-    <link rel="stylesheet" href="./bibliotecas/Fontes - Rawline/Rawline/"/-->
 
     <!-- Font Raleway-->
     <link
@@ -48,33 +41,34 @@
       <br-cabecalho></br-cabecalho>
 
       <main class="d-flex flex-fill mb-5" id="main">
-        
-        <div class="container-lg">         
+        <div class="container-lg">                   
+          <div id="container-lista-remessa">
+            <div id="sobrepor"></div>
           
-          <!--div class="br-message warning">
-            <div class="icon"><i class="fas fa-info-circle fa-lg" aria-hidden="true"></i>
-            </div>
-            <div class="content" aria-label="Atenção. Estes cálculos são válidos até dia 31 de julho de 2024." role="alert"><span class="message-title">Atenção. </span><span class="message-body">Estes cálculos são válidos até dia 31 de julho de 2024</span></div>
-            <div class="close">
-              <button class="br-button circle small" type="button" aria-label="Fechar a messagem alterta">
-                <i class="fas fa-times" aria-hidden="true"></i>
-              </button>
-            </div>
-          </div-->
+            <div class="row">
           
-          <lista-remessas></lista-remessas>
-
+              <div class="row row-texto col-lg-6 col-md-6 col-sm-12">
+                <painel-informacoes></painel-informacoes>
+              </div>
+          
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="br-card">
+          
+                  <div id="lista_remessas">
+                    <calculadora-compras></calculadora-compras>              
+                  </div>
+                </div>
+                <div style="justify-content: right; text-align: right; justify-items: right;">
+                  <a target="_blank" href="https://forms.office.com/r/C41h9fkzaX" aria-label="Avalie esse serviço">
+                    <i class="fa fa-message" style="color: 0C326F;" aria-hidden="true"></i>
+                    <b>Avalie esse serviço</b>
+                  </a>
+                </div>
+              </div> 
+            </div>
+          </div>  
         </div>
       </main>
-
-      <div class="row">
-        <div class="col-md">
-          <total-encomendas></total-encomendas>  
-        </div>
-      </div>
-
-    
-
       <footer class="br-footer pt-3" id="footer">
         <div class="container-lg">
           <div class="info">            

@@ -9,8 +9,7 @@ import { RemessaUtil } from "../../js/remessa_util.js";
 export class PainelInformacoes extends ComponenteBase {
     
     constructor() {
-        super({templateURL:"./dados_remessa.html", shadowDOM:false}, import.meta.url);
-        super({templateURL:"./lista_remessa.html", shadowDOM:false}, import.meta.url);
+        super({templateURL:"./painel_informacoes.html", shadowDOM:false}, import.meta.url);
 
         this.addEventListener(ComponenteBase.EVENTO_CARREGOU, this.processarCarregamento);
     }
@@ -32,19 +31,9 @@ export class PainelInformacoes extends ComponenteBase {
 
     adicionar_comportamento() {
         
-        let radio_remessa_conforme = this.querySelector("#com_remessa_conforme");
-
-        radio_remessa_conforme.addEventListener("click", ()=>{
-
-            this.remessa_conforme = radio_remessa_conforme.checked;
-            this.dispatchEvent(new CustomEvent("atualizou_remessa_conforme"));
-        });
-
-
-
         let input_valor_cotacao_dolar = this.noRaiz.querySelector("#valor_cotacao_dolar");
 
-        //Mudança de valores do produto da remessa
+        //Mudança de valore do produto da remessa
         {            
             // Adiciona um event listener para capturar eventos de teclado
             input_valor_cotacao_dolar.addEventListener('keydown', evento => {
@@ -67,24 +56,6 @@ export class PainelInformacoes extends ComponenteBase {
                 
                 this.dispatchEvent(new CustomEvent("atualizou_cotacao_dolar"));
             });
-        }
-    }
-
-
-    set remessa_conforme (valor){
-        this._remessa_conforme = valor;
-        this.noRaiz.querySelector("#com_remessa_conforme").checked = this._remessa_conforme;        
-    }
-    
-    get remessa_conforme(){
-        return this._remessa_conforme;
-    }
-
-
-    set valor_total (valor){
-        const span_valor_total = this.noRaiz.querySelector("#total-remessa");
-        if (span_valor_total){
-            span_valor_total.textContent = valor;
         }
     }
 }
