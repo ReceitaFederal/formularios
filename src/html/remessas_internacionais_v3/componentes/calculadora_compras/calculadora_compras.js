@@ -129,7 +129,7 @@ export class CalculadoraCompras extends ComponenteBase {
 
             this.noRaiz.querySelector("#container_valor_alternativo").style.display = "none";
 
-            this.atualizar_inputs("", "", "", "", "R$ 0,00");            
+            this.atualizar_inputs("", "", "", "R$ 0,00");            
             this.dispatchEvent(new CustomEvent("atualizou_valores"));
 
         //Se não é um número valido
@@ -213,7 +213,6 @@ export class CalculadoraCompras extends ComponenteBase {
             this.atualizar_inputs(
                 aliquotaPorcentagem.toFixed(0) + '%',
                 `R$ ${ii_final.toFixed(2)}`,                 
-                `R$ ${soma.toFixed(2)}`, 
                 `R$ ${icms.toFixed(2)}`, 
                 `R$ ${valor_total.toFixed(2)}`);   
         }
@@ -226,8 +225,7 @@ export class CalculadoraCompras extends ComponenteBase {
     atualizar_inputs(aliquota, ii, soma, icms, valor_total){
 
         this.noRaiz.querySelector("#aliquota-remessa").value = aliquota;
-        this.noRaiz.querySelector("#ii-remessa").value = ii;        
-        this.noRaiz.querySelector("#soma-remessa").value = soma;
+        this.noRaiz.querySelector("#ii-remessa").value = ii;                
         this.noRaiz.querySelector("#icms-remessa").value = icms;
         this.noRaiz.querySelector("#total-remessa").textContent = valor_total;
     }
