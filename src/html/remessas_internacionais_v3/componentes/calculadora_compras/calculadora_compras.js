@@ -71,7 +71,7 @@ export class CalculadoraCompras extends ComponenteBase {
                     input_valor.value = 'R$ ';
                 }
 
-                 // Reposiciona o cursor após o $
+                // Reposiciona o cursor após o $
                 if (input_valor.value.startsWith('R$') && input_valor.selectionStart < 3) {
                     input_valor.setSelectionRange(3, 3);
                 }
