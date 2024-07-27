@@ -1,0 +1,14 @@
+.br-input, 
+.input-inline,
+.input-label,
+.input-content,
+.valor_cotacao_dolar {
+  text-align: center;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+}
+
+#valor_cotacao_dolar{
+    width: 100px;
+}
