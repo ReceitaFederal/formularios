@@ -71,6 +71,18 @@ export class PainelInformacoes extends ComponenteBase {
                 if (input_valor_cotacao_dolar.value === '') {
                     input_valor_cotacao_dolar.value = 'R$ ';
                 }
+
+                // Reposiciona o cursor após o $
+                if (input_valor_cotacao_dolar.value.startsWith('R$') && input_valor_cotacao_dolar.selectionStart < 3) {
+                    input_valor_cotacao_dolar.setSelectionRange(3, 3);
+                }
+            });
+
+            input_valor_cotacao_dolar.addEventListener('click', () => {
+                // Reposiciona o cursor após o $
+                if (input_valor_cotacao_dolar.value.startsWith('R$') && input_valor_cotacao_dolar.selectionStart < 3) {
+                    input_valor_cotacao_dolar.setSelectionRange(3, 3);
+                }
             });
 
             input_valor_cotacao_dolar.addEventListener('blur', () => {

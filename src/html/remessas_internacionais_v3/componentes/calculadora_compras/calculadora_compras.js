@@ -70,12 +70,25 @@ export class CalculadoraCompras extends ComponenteBase {
                 if (input_valor.value === '') {
                     input_valor.value = 'R$ ';
                 }
+
+                 // Reposiciona o cursor após o $
+                if (input_valor.value.startsWith('R$') && input_valor.selectionStart < 3) {
+                    input_valor.setSelectionRange(3, 3);
+                }
+            });
+
+            input_valor.addEventListener('click', () => {
+                // Reposiciona o cursor após o $
+                if (input_valor.value.startsWith('R$') && input_valor.selectionStart < 3) {
+                    input_valor.setSelectionRange(3, 3);
+                }
             });
 
             input_valor.addEventListener('blur', () => {
                 if (input_valor.value === 'R$ ') {
                     input_valor.value = '';
                 }
+                
             });
         }
 
