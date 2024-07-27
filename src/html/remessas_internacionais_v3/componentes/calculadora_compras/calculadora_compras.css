@@ -57,7 +57,12 @@ flex-direction: none;
 }
 
 
-
+.left-aligned-label {
+  text-align: left;
+  display: block; /* Certifica-se de que o label ocupa a largura total disponível */
+  margin: 0; /* Remove qualquer margem indesejada */
+  padding: 0; /* Remove qualquer padding indesejado */
+}
 
 .br-input > .campos-calculados{
   border: none;
@@ -73,13 +78,14 @@ flex-direction: none;
   align-items: center;
 }
 
+/*
 .br-input label{
   text-align: center;
   justify-content: center;
   justify-self: right;
   align-items: center;
 }
-
+*/
 .br-input input{
   margin-top: 15px;
   text-align: center;
