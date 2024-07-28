@@ -213,6 +213,7 @@ export class CalculadoraCompras extends ComponenteBase {
         const aliquotaPorcentagem = aliquota * 100;
         
         /*
+        console.log(`cotação dolar: $ ${this.cotacao_dolar.toFixed(2)}`);
         console.log(`em dolar: $ ${valor_em_dolar.toFixed(2)}`);
         console.log(`aliquota: ${aliquotaPorcentagem.toFixed(0)}%`);
         console.log(`ii inicial: R$ ${ii_inicial.toFixed(2)}`);
@@ -220,9 +221,10 @@ export class CalculadoraCompras extends ComponenteBase {
         console.log(`ii_final: R$ ${ii_final.toFixed(2)}`);                 
         console.log(`soma: R$ ${soma.toFixed(2)}`); 
         console.log(`icms: R$ ${icms.toFixed(2)}`); 
-        console.log(`total: R$ ${this.valor_total.toFixed(2)}`);  
+        console.log(`total: R$ ${valor_total.toFixed(2)}`);  
         console.log ("----------------");
         */
+       
         if (atualizar_campos){
             this.atualizar_inputs(
                 aliquotaPorcentagem.toFixed(0) + '%',

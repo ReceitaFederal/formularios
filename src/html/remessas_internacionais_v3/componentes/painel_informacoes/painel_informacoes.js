@@ -52,9 +52,9 @@ export class PainelInformacoes extends ComponenteBase {
             // Sempre que uma tecla for pressionada indica atualização da cotação do dolar
             input_valor_cotacao_dolar.addEventListener("input", evento => {
 
-                const valor = input_valor_cotacao_dolar.value.replace(/^R\$\s?/, ''); // Remove prefixo existente
+                let valor = input_valor_cotacao_dolar.value.replace(/^R\$\s?/, ''); // Remove prefixo existente
                 input_valor_cotacao_dolar.value = 'R$ ' + valor;
-                valor.replace(",",".");
+                valor = valor.replace(",",".");
 
                 if (valor === ''){
                     this.cotacao_dolar = 0;
