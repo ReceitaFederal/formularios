@@ -1,3 +1,5 @@
+
+
 @font-face {
   font-family: 'Rawline Regular';
   font-style: normal;
@@ -269,37 +271,6 @@ div.tab button.active {
   margin-top: 5px;
 }
 
-/* Estilo para telas com largura máxima de 576px */
-/*@media (max-width: 576px) {
-  .linha {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .coluna-linha {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .coluna-input {
-    flex: 1 1 45%;
-    max-width: 45%;
-  }
-
-  #remessas-desktop {
-    display: none;
-  }
-
-  .br-input label{
-    text-align: center;
-    justify-content: center;
-    justify-self: center;
-    align-items: center;
-  }
-
-} */
 
  /* Estilos para o botão flutuante */
  .floating-btn {
@@ -321,18 +292,3 @@ div.tab button.active {
   justify-content: center;
 }
 
-
-/* br-cabecalho {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;    
-  text-align: center;  
-  z-index: 1000;
-}
-
-main {
-  margin-top: 120px;
-  padding: 20px;
-}
-*/
