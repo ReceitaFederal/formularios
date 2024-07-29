@@ -64,6 +64,23 @@ flex-direction: none;
   padding: 0; /* Remove qualquer padding indesejado */
 }
 
+.left-aligned-label-mobile{
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .left-aligned-label{
+    display: none;
+  }
+
+  .left-aligned-label-mobile{
+    text-align: left;
+    display: block; /* Certifica-se de que o label ocupa a largura total disponível */
+    margin: 0; /* Remove qualquer margem indesejada */
+    padding: 0; /* Remove qualquer padding indesejado */
+  }
+}
+
 .br-input > .campos-calculados{
   border: none;
   background-color: none;
