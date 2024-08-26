@@ -17,7 +17,7 @@ class CORSRequestHandler (SimpleHTTPRequestHandler):
 
 os.chdir("../html/")
 
-endereco_ip = '192.168.1.155'
+endereco_ip = '127.0.0.1'
 
 httpd = http.server.HTTPServer((endereco_ip, 443), CORSRequestHandler)
 httpd.socket = ssl.wrap_socket (httpd.socket, certfile='../resources/certificadoDigital/ultima.selfsigned.pem', server_side=True)

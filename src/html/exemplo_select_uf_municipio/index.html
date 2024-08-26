@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Select</title>
+
+    <script src="./bibliotecas/govbr-ds/core.js" type="module"></script>
+    <link rel="stylesheet" href="./bibliotecas/govbr-ds/core-lite.css" />
+
+    <!--- Ícones Font Awesome - Versão 6.5.1 -->
+    <link rel="stylesheet" href="./icones/css/fontawesome.css" />
+    <link rel="stylesheet" href="./icones/css/brands.css" />
+    <link rel="stylesheet" href="./icones/css/solid.css" />
+
+    <script src="./municipios_por_uf.js"></script>
+
+    <script src="./componentes/select_uf/select_ufs.js" type="module"></script>
+    <script src="./componentes/select_municipio/select_municipio.js" type="module"></script>
+
+    <script type="module">
+
+        // Função para gerar o objeto de opções de municípios sem duplicados
+        function gerarOpcoesDeMunicipios(ufSelecionada) {
+            const municipios = municipiosPorUF[ufSelecionada] || [];
+            
+            const opcoes = [...new Set(
+                municipios.map(municipioObj => municipioObj.Municipio)
+            )].sort((a, b) => a.localeCompare(b));
+            
+            return { opcoes: opcoes };
+        }
+
+        window.addEventListener("load", ()=>{
+            const select_ufs = document.querySelector("select-ufs");
+
+            select_ufs.addEventListener ("change", ()=>{                
+
+                const label = select_ufs.querySelector (".br-item.selected>.br-radio>label");
+                
+                const uf_selecionada = label.textContent;                
+
+                const opcoes_municipios = gerarOpcoesDeMunicipios(uf_selecionada);                
+
+                //Remove o atual
+                document.querySelector("select-municipio").remove();
+
+                //Cria um novo e adiciona logo em seguida do select uf
+                select_ufs.insertAdjacentElement('afterend', document.createElement("select-municipio"));
+
+                const select_municipio = document.querySelector("select-municipio");
+
+                //setTimeout(()=>{
+                    select_municipio.addEventListener("carregou", ()=> {
+                        select_municipio.setAttribute(
+                            "opcoes", 
+                            JSON.stringify(opcoes_municipios)                      
+                        );
+                    });
+                //});
+
+            })
+        });
+    </script>
+
+</head>
+<body>
+    <select-ufs></select-ufs>
+    <select-municipio></select-municipio>
+</body>
+</html>
