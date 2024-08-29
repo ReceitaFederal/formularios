@@ -1,14 +1,10 @@
-export class Dados_pessoais extends HTMLElement{
+import { ComponenteBase } from "../../bibliotecas/ultima/componente_base.js";
+
+export class Dados_pessoais extends ComponenteBase{
     
     constructor(){
-        super();
-
-        console.log ("Constructor do dados_pessoais.js");
-
-        console.log(`URL do dados_pessoais.js: ${import.meta.url}`)
-        fetch('./componentes/dados_pessoais/dados_pessoais.html').then(resultado => {
+        super({templateURL:"dados_pessoais.html", shadowDOM:false}, import.meta.url); 
             
-
             resultado.text().then(texto_pagina => {                            
 
                 let template = document.createElement('template');
@@ -23,7 +19,6 @@ export class Dados_pessoais extends HTMLElement{
                 
                 this.dispatchEvent(new CustomEvent("carregou"));                
             });
-        });
 
         let linkFonte = document.createElement('link');
         linkFonte.rel = 'stylesheet'
@@ -56,10 +51,6 @@ export class Dados_pessoais extends HTMLElement{
         }
     }
 
-
-
-
-    
 }
 
 customElements.define('br-dados_pessoais', Dados_pessoais);
