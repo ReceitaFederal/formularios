@@ -689,192 +689,13 @@
   outline-style: var(--focus-style);
   outline-width: var(--focus-width);
 }
-
-/*# sourceMappingURL=carousel.css.map*/
-
-/*TENTATIVAS ANA --------*/
-/*.row-canais {
-  display: block;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-.row-canais a{
-  box-sizing: border-box;
-  width: 170px;
-  min-height: 170px;
-  height: 170px;
-  background: rgb(237, 237, 237);
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} 
-.row-canais .row-content{
-  display: flex;
-  flex-wrap: wrap;
-}
-.row-canais .canais-atendimento{
-  margin: 0 0 24px;
-  padding: 0;
-  border: 0;
-  letter-spacing: normal;
-  vertical-align: baseline;
-  text-align: center;
-  color: #0c326f;
-  font-size: 1.6rem;
-  font-weight: 600;
-  line-height: 1.5;
-}
-.row-canais .title-header{
-  margin-bottom: 24px;
-  font-weight: 500;
-  font-size: 2.2rem;
-  color: #555;
-  line-height: 3.2rem;
-  text-align: center;
-}
-.row-canais .cards{
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.row-canais .cards li {
-  list-style: none;
-  background-color: #ededed;
-  box-shadow: 0 3px 6px 0 rgba(0,0,0,0.16);
-  text-align: center;
-  flex-basis: 23%;
-  box-sizing: border-box;
-  min-height: 230px;
-}
-.row-canais .cards li a {
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-}
-.row-canais .cards li span {
-  display: block;
-  font-size: 50px;
-  margin-bottom: 30px;
-  color: #0c326f;
-  width: auto;
-}
-.row-canais .cards li .title{
-  display: block;
-  font-size: 20px;
-  color: #0c326f;
-  font-weight: 600;
-  margin: 0;
-  text-transform: uppercase;
-  text-align: center;
-}
-.back-to-top.active {
-  animation-duration: normal;
-  animation-name: bounceIn;
-}
-.back-to-top {
-  animation-duration: 500ms;
-  animation-fill-mode: forwards;
-  animation-timing-function: linear;
-  bottom: 16px;
-  height: 50px;
-  opacity: 0;
-  border-radius: 50%;
-  position: fixed;
-  right: 16px;
-  transform-origin: center center;
-  width: 50px;
-  z-index: 12;
-  display: flex;
-  -webkit-box-align: stretch;
-  align-items: stretch;
-}
-.back-to-top a {
-  background: #1351b4;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 100%;
-  text-decoration: none;
-  color: #fff;
-}
-.back-to-top a span {
-  font-size: 16px;
-  width: auto;
-}
-
-.video1 {
-  width: 580px;
-  height: 315px;
-}
-
-.banner {
-  position: relative;
-  background-size: cover;
-  max-width: 100%;
-  margin-top: -55px;
-}
-
-.title-section {
-  text-align: center;
-  font-weight: 500;
-  font-size: 30px;
-  margin-top: 15px;
-  margin-bottom: 50px;
-}
-
-.paragrafo {
-  font-weight: 400;
-  font-size: 15px;
-
-}
-
-.img-center {
-  display: block;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.br-divider .vertical {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  text-align: center;
-  justify-content: center;
-  position: relative;
-} */
-
+/* Define o estilo do ícone que exibe informações adicionais quando o usuário passa o mouse sobre ele */
 .icon-info {
   position: relative;
   display: inline-block;
   cursor: pointer; /* Adiciona o cursor de ponteiro para indicar interatividade */
 }
-
+/* Define o estilo do texto de informação que aparece ao passar o mouse sobre o ícone */
 .info-text {
   display: none;
   position: absolute;
@@ -889,7 +710,7 @@
   transform: translateX(-50%);
   z-index: 1000;
 }
-
+/* Mostra o texto de informação ao passar o mouse sobre o ícone */
 .icon-info:hover .info-text {
   display: block;
 }
@@ -990,10 +811,12 @@
   justify-content: center;
   display: block;
 }
+/* Estilo para botões de navegação de aba */
 .tab-buttons {
   display: flex;
   gap: 6px;
 }
+/* Estilo para cada botão de aba */
 .tab-btn {
   width: 100%;
   border: none;
@@ -1008,10 +831,11 @@
 .tab-btn.active {
   background-color: #c7d2fe;
 }
+/* Muda a cor de fundo do botão ao passar o mouse */
 .tab-btn:hover {
   background-color: #a5b4fc;
 }
-
+/* Estilo para fieldset com borda personalizada */
 .fieldset-border {
   border: 1px groove #ddd !important;
   padding: 0 1.4em 1.4em 1.4em !important;
@@ -1019,7 +843,7 @@
   -webkit-box-shadow: 0px 0px 0px 0px #000;
   box-shadow: 0px 0px 0px 0px #000;
 }
-
+/* Estilo para legendas de fieldset */
 .fieldset-border .legend-border {
   font-size: 1.4em !important;
   text-align: left !important;
@@ -1027,6 +851,7 @@
   padding: 0 10px;
   border-bottom: none;
 }
+/* Estilo para grupos de formulário, definindo margens superior e inferior */
 .form-group {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -1034,6 +859,7 @@
 
 /* CSS para separar DIV em 2 colunas */
 
+/* Estilos para criar um layout de duas colunas */
 .two-columns {
   display: flex;
 }
@@ -1059,23 +885,26 @@
 .label {
   font-family: 'Rawline Regular', sans-serif;
 }
-.form-control {
-  width: 340px;
+/* Estilo para controles de formulário */
+/* .form-control {
   margin-top: 10px;
-  margin-bottom: 30px;
-  padding: 7px;
+  margin-bottom: 20px;
+  padding: 8px 12px;
   display: block;
   clear: left;
   padding: 16px 20px;
-  border: 2px solid #ccc;
+  border: 1px solid #d1d1d1;
   border-radius: 4px;
-  background-color: #f1f1f1;
-}
+  background-color: #fff;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+} */
 .form-group .label {
   font-family: 'Rawline Regular', sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   display: inline-block;
-  width: 150px;
+  width: auto;
+  margin-bottom: 4px;
 }
 .icon-container {
   position: absolute;
@@ -1440,10 +1269,12 @@
 }
 
 .container-xl {
-  padding: 20px;
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
-  border-radius: 5px;
+  width: 85%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 7px;
+  display:block;
+  clear:left;
 }
 .br-input {
   margin-bottom: 15px;

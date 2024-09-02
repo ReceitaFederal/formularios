@@ -1,15 +1,11 @@
-export class Endereco_contato extends HTMLElement {
+import { ComponenteBase } from "../../bibliotecas/ultima/componente_base.js";
 
-    constructor() {
-        super();
+export class Endereco_contato extends ComponenteBase{
+    
+    constructor(){
+        super({templateURL:"endereco_contato.html", shadowDOM:false}, import.meta.url); 
 
         this.numeroreferencia = 1;
-
-        console.log("Constructor do endereco_contato.js");
-
-        console.log(`URL do endereco_contato.js: ${import.meta.url}`)
-        fetch('./componentes/endereco_contato/endereco_contato.html').then(resultado => {
-
 
             resultado.text().then(texto_pagina => {
 
@@ -24,7 +20,6 @@ export class Endereco_contato extends HTMLElement {
 
                 this.dispatchEvent(new CustomEvent("carregou"));
             });
-        });
 
         let linkFonte = document.createElement('link');
         linkFonte.rel = 'stylesheet';

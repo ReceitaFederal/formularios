@@ -1,12 +1,10 @@
-export class Credenciamento extends HTMLElement{
+import { ComponenteBase } from "../../bibliotecas/ultima/componente_base.js";
+
+export class Credenciamento extends ComponenteBase{
     
     constructor(){
-        super();
+        super({templateURL:"credenciamento.html", shadowDOM:false}, import.meta.url); 
 
-        console.log ("Constructor do credenciamento.js");
-
-        console.log(`URL do credenciamento.js: ${import.meta.url}`)
-        fetch('./componentes/credenciamento/credenciamento.html').then(resultado => {
             
 
             resultado.text().then(texto_pagina => {                            
@@ -24,10 +22,7 @@ export class Credenciamento extends HTMLElement{
                 this.remover_tripulante();
                 
                 this.dispatchEvent(new CustomEvent("carregou"));                
-            });
-        });
-
-        
+            }); 
 
     }
 
