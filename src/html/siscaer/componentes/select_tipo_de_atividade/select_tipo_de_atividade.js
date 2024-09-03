@@ -1,9 +1,9 @@
-import { GovBRUtils } from "../../js/GovBRUtils.js";
+import { ComponenteBase } from "../../bibliotecas/ultima/componente_base.js";
 
-export class SelectTipoAtividade extends HTMLElement{
-
+export class SelectTipoAtividade extends ComponenteBase{
+    
     constructor(){
-        super();
+        super({templateURL:"select_tipo_de_atividade.html", shadowDOM:false}, import.meta.url); 
 
         Promise.all([
 
