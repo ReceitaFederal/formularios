@@ -7,7 +7,6 @@ export class SelectTipoAtividade extends ComponenteBase{
 
         Promise.all([
 
-            this.carregar_template('./componentes/select_tipo_de_atividade.html'),
             this.carregar_tipo_de_atividade('./componentes/select_tipo_de_atividade.json')
 
         ]).then(() => {
@@ -16,10 +15,11 @@ export class SelectTipoAtividade extends ComponenteBase{
 
             this.querySelector(".br-select").id = this.id_select_tipo_de_atividade ;
 
+            this.criar_itens_select();
+
             this.dispatchEvent(new CustomEvent("carregou"));
         });
     }
-
 
     criar_itens_select() {
 

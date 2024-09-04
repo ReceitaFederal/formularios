@@ -1,9 +1,9 @@
-import { GovBRUtils } from "../../js/GovBRUtils.js";
+import { ComponenteBase } from "../../bibliotecas/ultima/componente_base.js";
 
-export class SelectSexoDados extends HTMLElement{
-
+export class SelectSexoDados extends ComponenteBase{
+    
     constructor(){
-        super();
+        super({templateURL:"select_sexo_dados_pessoais.html", shadowDOM:false}, import.meta.url); 
 
         Promise.all([
 
