@@ -54,3 +54,30 @@ export class Dados_pessoais extends ComponenteBase{
 }
 
 customElements.define('br-dados_pessoais', Dados_pessoais);
+
+
+/*adicionar_comportamento_check() {
+    let checkbox = this.querySelector("#brasileiroNaturalizado")
+
+    checkbox.addEventListener("click", (evento) => {
+        evento.preventDefault();
+        console.log("Checkbox clicado");
+        this.alternarCamposAdicionais();
+    });
+}
+
+alternarCamposAdicionais() {
+    let checkbox = this.querySelector("#brasileiroNaturalizado");
+
+    let camposAdicionais = this.querySelector("#campos-adicionais");
+    let template = document.querySelector("#template_nacionalidade");
+
+    
+    if (checkbox.checked) {
+        camposAdicionais.style.display = "block";
+    } else {
+        camposAdicionais.style.display = "none";
+    }
+}
+
+}*/
