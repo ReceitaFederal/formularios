@@ -3,22 +3,16 @@ import { ComponenteBase } from "../../bibliotecas/ultima/componente_base.js";
 export class Dados_pessoais extends ComponenteBase{
     
     constructor(){
-        super({templateURL:"dados_pessoais.html", shadowDOM:false}, import.meta.url); 
+        super({templateURL:"./dados_pessoais.html", shadowDOM:false}, import.meta.url); 
             
-            resultado.text().then(texto_pagina => {                            
+        super.addEventListener("carregou", (evento) =>{
 
-                let template = document.createElement('template');
+            this.alternarCamposAdicionais();
 
-                template.innerHTML = texto_pagina;
+            this.adicionar_comportamento_check();
 
-                this.appendChild(template.content.cloneNode(true));
 
-                this.alternarCamposAdicionais();
-
-                this.adicionar_comportamento_check();
-                
-                this.dispatchEvent(new CustomEvent("carregou"));                
-            });
+        })
 
         let linkFonte = document.createElement('link');
         linkFonte.rel = 'stylesheet'

@@ -3,23 +3,17 @@ import { ComponenteBase } from "../../bibliotecas/ultima/componente_base.js";
 export class Endereco_contato extends ComponenteBase{
     
     constructor(){
-        super({templateURL:"endereco_contato.html", shadowDOM:false}, import.meta.url); 
+        super({templateURL:"./endereco_contato.html", shadowDOM:false}, import.meta.url); 
 
         this.numeroreferencia = 1;
 
-            resultado.text().then(texto_pagina => {
+        super.addEventListener("carregou", (evento) =>{
 
-                let template = document.createElement('template');
+            this.adicionar_comportamento();
+            this.adicionar_referencia();
 
-                template.innerHTML = texto_pagina;
 
-                this.appendChild(template.content.cloneNode(true));
-
-                this.adicionar_comportamento();
-                this.adicionar_referencia();
-
-                this.dispatchEvent(new CustomEvent("carregou"));
-            });
+        })
 
         let linkFonte = document.createElement('link');
         linkFonte.rel = 'stylesheet';
